@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ZCusTourCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="申请时间: 2016-02-25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGl-VP-MUF">
+                        <rect key="frame" x="12" y="15" width="166" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="NBY-0N-NiN"/>
+                            <constraint firstAttribute="width" constant="166" id="x3A-Sl-LWg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="申请时间: 2016-02-25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMj-7u-d9Q">
+                        <rect key="frame" x="12" y="44" width="166" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="U81-Ae-q60"/>
+                            <constraint firstAttribute="width" constant="166" id="YAu-U3-KHi"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出游人数: 99人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEW-lR-atM">
+                        <rect key="frame" x="197" y="44" width="111" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="7eb-Um-uQd"/>
+                            <constraint firstAttribute="width" constant="111" id="nI4-D4-yC9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出游人数: 99人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycK-zj-adJ">
+                        <rect key="frame" x="197" y="15" width="111" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="IHQ-QC-yco"/>
+                            <constraint firstAttribute="width" constant="111" id="LY9-xw-pP3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="fGl-VP-MUF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="4Jh-tM-Le0"/>
+                    <constraint firstAttribute="bottom" secondItem="oEW-lR-atM" secondAttribute="bottom" constant="15" id="5ld-LN-4I8"/>
+                    <constraint firstAttribute="trailing" secondItem="oEW-lR-atM" secondAttribute="trailing" constant="12" id="G7G-56-sWj"/>
+                    <constraint firstItem="nMj-7u-d9Q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="LcM-2b-uPZ"/>
+                    <constraint firstItem="fGl-VP-MUF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="OXb-cy-FcO"/>
+                    <constraint firstItem="ycK-zj-adJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="SJ3-fB-AB2"/>
+                    <constraint firstAttribute="bottom" secondItem="nMj-7u-d9Q" secondAttribute="bottom" constant="15" id="dqP-0t-jXO"/>
+                    <constraint firstAttribute="trailing" secondItem="ycK-zj-adJ" secondAttribute="trailing" constant="12" id="wL8-7J-Rb4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="applyTime" destination="fGl-VP-MUF" id="y8c-Ox-WeC"/>
+                <outlet property="contacts" destination="oEW-lR-atM" id="DL0-qq-LWQ"/>
+                <outlet property="goNum" destination="ycK-zj-adJ" id="d0N-tN-DJh"/>
+                <outlet property="goTime" destination="nMj-7u-d9Q" id="PJa-uU-4i1"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

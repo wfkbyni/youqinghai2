@@ -1,0 +1,103 @@
+//
+//  RequestBaseAPI+Personal.m
+//  youqinghai
+//
+//  Created by snailz on 16/3/28.
+//  Copyright © 2016年 舒永超. All rights reserved.
+//
+
+#import "RequestBaseAPI+Personal.h"
+#import "GTMBase64+Des.h"
+#import "ZUserModel.h"
+NSString *const personalMess = @"app/message/getMessageList";
+NSString *const personalMessdetailed = @"app/message/getMessDetails";
+NSString *const personalHeaderUrl = @"app/user/modifyTheAvatat";
+NSString *const personalUserInfo = @"app/user/modifyUserInfo";
+NSString *const personalPhone = @"app/smscheckcode/sendCheckCodeSms";
+NSString *const personalModfPhone = @"app/user/modifyUserPhone";
+NSString *const personalLoginPass = @"app/user/modifyLoginPass";
+NSString *const personaladdCustom = @"app/customizedtourism/addCustomizedtoursm";
+NSString *const personaladdCustomList = @"app/customizedtourism/";
+NSString *const personalRoute = @"app/collection/getTravelsList";
+NSString *const personalDriverList = @"app/collection/getFollowDriverList";
+NSString *const personalTravelsList= @"app/collection/getFollowTravelsList";
+NSString *const personalFollowUserList= @"app/collection/getFollowUserList";
+@implementation RequestBaseAPI (Personal)
+-(RACSignal *)messDataWithPageIndex:(NSString *)index withPageSize:(NSString *)pageSize
+{
+    NSString *param = [NSString stringWithFormat:@"server=%@&userId=%@&pageIndex=%@&pageSize=%@",personalMess,[ZUserModel shareUserModel ].userId,index,pageSize];
+    param = [GTMBase64 desEncrypt:param];
+    return [self requestWithType:RequestAPITypePost params:param];
+}
+-(RACSignal *)ImageHeaderDataWithData:(NSData *)data
+{
+    NSDictionary *param = @{@"userId":@([ZUserModel shareUserModel].userId.integerValue)};
+    return [self ZpostApiString:personalHeaderUrl params:param attachKey:@"fileName0" attachData:data];
+}
+-(RACSignal *)userInfoWithNickName:(NSString *)nickName withSex:(NSString *)sex withAutograph:(NSString *)autograph
+{
+        NSString *param = [NSString stringWithFormat:@"server=%@&userId=%@&nickname=%@&sex=%@&autograph=%@",personalUserInfo,[ZUserModel shareUserModel ].userId,nickName,sex,autograph];
+     param = [GTMBase64 desEncrypt:param];
+    return [self requestWithType:RequestAPITypePost params:param];
+}
+-(RACSignal *)phoneWithphone:(NSString *)phone withtype:(NSString *)type withState:(NSString *)State
+{
+    NSString *param = [NSString stringWithFormat:@"server=%@&phone=%@&type=%@&state=%@",personalPhone,phone,type,State];
+    param = [GTMBase64 desEncrypt:param];
+    return [self requestWithType:RequestAPITypePost params:param];
+}
+-(RACSignal *)userModfPhoneWithuserId:(NSString *)userId witholdTel:(NSString *)oldTel withnewTel:(NSString *)newTel withcodesms:(NSThread *)codesms withtype:(NSString *)type
+{
+    NSString *param = [NSString stringWithFormat:@"server=%@&userId=%@&oldTel=%@&newTel=%@&codesms=%@&type=%@",personalModfPhone,userId,oldTel,newTel,codesms,type];
+    param = [GTMBase64 desEncrypt:param];
+    return [self requestWithType:RequestAPITypePost params:param];
+}
+-(RACSignal *)userLoginPassWithuserId:(NSString *)userId withTel:(NSString *)tel witholdpass:(NSString *)oldpass withcodesms:(NSString *)codesms withnewpass:(NSString *)newpass withtype:(NSString *)type
+{
+    NSString *param = [NSString stringWithFormat:@"server=%@&userId=%@&tel=%@&oldpass=%@&smscode=%@&newpass=%@&type=%@",personalLoginPass,userId,tel,oldpass,codesms,newpass,type];
+    param = [GTMBase64 desEncrypt:param];
+    return [self requestWithType:RequestAPITypePost params:param];
+}
+-(RACSignal *)messdetailedWithmessId:(NSString *)messId
+{
+    NSString *param = [NSString stringWithFormat:@"server=%@&messId=%@ ",personalMessdetailed,messId];
+    param = [GTMBase64 desEncrypt:param];
+    return [self requestWithType:RequestAPITypePost params:param];
+}
+-(RACSignal *)userCustomWithuserId:(NSString *)userId withcontacts:(NSString *)contacts withphone:(NSString *)phone withtravelnum:(NSString *)travelnum withtravelTime:(NSString *)travelTime withdeparture:(NSString *)departure withdestination:(NSString *)destination withchannelscenicspot:(NSString *)channelscenicspot
+{
+    NSString *param = [NSString stringWithFormat:@"server=%@&userId=%@&contacts=%@&phone=%@&travelnum=%@&travelTime=%@&departure=%@&destination=%@&channelscenicspot=%@",personaladdCustom,userId,contacts,phone,travelnum,travelTime,departure,destination,channelscenicspot];
+    param = [GTMBase64 desEncrypt:param];
+    return [self requestWithType:RequestAPITypePost params:param];
+}
+-(RACSignal *)userCustomListWithPageIndex:(NSString *)index withPageSize:(NSString *)pageSize
+{
+    NSString *param = [NSString stringWithFormat:@"server=%@&userId=%@&pageIndex=%@&pageSize=%@",personaladdCustomList,[ZUserModel shareUserModel ].userId,index,pageSize];
+    param = [GTMBase64 desEncrypt:param];
+    return [self requestWithType:RequestAPITypePost params:param];
+}
+-(RACSignal *)userRouteWithPageIndex:(NSString *)index withPageSize:(NSString *)pageSize
+{
+    NSString *param = [NSString stringWithFormat:@"server=%@&userId=%@&pageIndex=%@&pageSize=%@",personalRoute,[ZUserModel shareUserModel ].userId,index,pageSize];
+    param = [GTMBase64 desEncrypt:param];
+    return [self requestWithType:RequestAPITypePost params:param];
+}
+-(RACSignal *)userDriverListWithPageIndex:(NSString *)index withPageSize:(NSString *)pageSize
+{
+    NSString *param = [NSString stringWithFormat:@"server=%@&userId=%@&pageIndex=%@&pageSize=%@",personalDriverList,[ZUserModel shareUserModel ].userId,index,pageSize];
+    param = [GTMBase64 desEncrypt:param];
+    return [self requestWithType:RequestAPITypePost params:param];
+}
+-(RACSignal *)userTravelsListWithPageIndex:(NSString *)index withPageSize:(NSString *)pageSize
+{
+    NSString *param = [NSString stringWithFormat:@"server=%@&userId=%@&pageIndex=%@&pageSize=%@",personalTravelsList,[ZUserModel shareUserModel ].userId,index,pageSize];
+    param = [GTMBase64 desEncrypt:param];
+    return [self requestWithType:RequestAPITypePost params:param];
+}
+-(RACSignal *)userFollowUserListWithPageIndex:(NSString *)index withPageSize:(NSString *)pageSize
+{
+    NSString *param = [NSString stringWithFormat:@"server=%@&userId=%@&pageIndex=%@&pageSize=%@",personalFollowUserList,[ZUserModel shareUserModel ].userId,index,pageSize];
+    param = [GTMBase64 desEncrypt:param];
+    return [self requestWithType:RequestAPITypePost params:param];
+}
+@end

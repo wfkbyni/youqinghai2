@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ZModifyTextCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的昵称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdK-Ru-ou8">
+                        <rect key="frame" x="12" y="16" width="80" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="mid-Gk-1EW"/>
+                            <constraint firstAttribute="width" constant="80" id="xmA-b0-moa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Qp9-LG-5eM">
+                        <rect key="frame" x="104" y="0.0" width="204" height="53"/>
+                        <color key="textColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="qZz-Lo-vSg"/>
+                        </connections>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="GdK-Ru-ou8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="0rH-eV-Brx"/>
+                    <constraint firstAttribute="trailing" secondItem="Qp9-LG-5eM" secondAttribute="trailing" constant="12" id="fsu-Cq-Sgo"/>
+                    <constraint firstAttribute="bottom" secondItem="Qp9-LG-5eM" secondAttribute="bottom" id="gF8-yB-T2m"/>
+                    <constraint firstItem="GdK-Ru-ou8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="mBc-gh-dbi"/>
+                    <constraint firstItem="Qp9-LG-5eM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pE7-8a-Gmp"/>
+                    <constraint firstItem="Qp9-LG-5eM" firstAttribute="leading" secondItem="GdK-Ru-ou8" secondAttribute="trailing" constant="12" id="qj1-tJ-sf2"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="fieldText" destination="Qp9-LG-5eM" id="eU7-8c-8eS"/>
+                <outlet property="lableText" destination="GdK-Ru-ou8" id="1k3-Pz-XZI"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

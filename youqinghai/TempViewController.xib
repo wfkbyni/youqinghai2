@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TempViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdX-Ch-Vte">
+                    <rect key="frame" x="230" y="191" width="139" height="80"/>
+                    <color key="backgroundColor" red="0.0078431372550000003" green="0.42352941179999998" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="1NK-Vo-FtM"/>
+                        <constraint firstAttribute="width" constant="139" id="si4-1R-Frl"/>
+                    </constraints>
+                    <state key="normal" title="胡娆浠大傻瓜"/>
+                    <connections>
+                        <action selector="hrxAction:" destination="-1" eventType="touchUpInside" id="6eN-ef-I7M"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEx-JI-2Ly">
+                    <rect key="frame" x="230" y="294" width="139" height="80"/>
+                    <color key="backgroundColor" red="0.0078431372550000003" green="0.42352941179999998" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="dB6-dP-X3j"/>
+                        <constraint firstAttribute="width" constant="139" id="mmG-VS-Kl8"/>
+                    </constraints>
+                    <state key="normal" title="舒永超么么哒"/>
+                    <connections>
+                        <action selector="sycAction:" destination="-1" eventType="touchUpInside" id="1ee-GL-Kx7"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="uEx-JI-2Ly" firstAttribute="top" secondItem="BdX-Ch-Vte" secondAttribute="bottom" constant="23" id="3PD-eb-kJ7"/>
+                <constraint firstItem="uEx-JI-2Ly" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aC8-RI-BVS"/>
+                <constraint firstItem="BdX-Ch-Vte" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pFK-Lz-2qG"/>
+                <constraint firstItem="BdX-Ch-Vte" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="191" id="yNF-Xz-DOP"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

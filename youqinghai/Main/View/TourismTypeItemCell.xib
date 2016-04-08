@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="eIg-ha-SvF" customClass="TourismTypeItemCell">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfx-0M-lcv">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MR-dA-ZZJ">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="rfx-0M-lcv" firstAttribute="leading" secondItem="eIg-ha-SvF" secondAttribute="leading" id="3Qq-CY-QwK"/>
+                <constraint firstAttribute="trailing" secondItem="rfx-0M-lcv" secondAttribute="trailing" id="Eol-g0-ayB"/>
+                <constraint firstItem="8MR-dA-ZZJ" firstAttribute="centerY" secondItem="eIg-ha-SvF" secondAttribute="centerY" id="S1r-Rh-I3q"/>
+                <constraint firstItem="8MR-dA-ZZJ" firstAttribute="centerX" secondItem="eIg-ha-SvF" secondAttribute="centerX" id="TyL-Xf-9sF"/>
+                <constraint firstItem="rfx-0M-lcv" firstAttribute="top" secondItem="eIg-ha-SvF" secondAttribute="top" id="aL8-QD-CyC"/>
+                <constraint firstItem="8MR-dA-ZZJ" firstAttribute="leading" secondItem="eIg-ha-SvF" secondAttribute="leading" id="bbN-d8-hew"/>
+                <constraint firstItem="8MR-dA-ZZJ" firstAttribute="top" secondItem="eIg-ha-SvF" secondAttribute="top" id="cur-nc-bWp"/>
+                <constraint firstAttribute="bottom" secondItem="8MR-dA-ZZJ" secondAttribute="bottom" id="erh-CN-r6u"/>
+                <constraint firstItem="rfx-0M-lcv" firstAttribute="centerY" secondItem="eIg-ha-SvF" secondAttribute="centerY" id="kr7-kj-5qZ"/>
+                <constraint firstAttribute="trailing" secondItem="8MR-dA-ZZJ" secondAttribute="trailing" id="mMo-WY-SDo"/>
+                <constraint firstAttribute="bottom" secondItem="rfx-0M-lcv" secondAttribute="bottom" id="n24-gt-iYo"/>
+                <constraint firstItem="rfx-0M-lcv" firstAttribute="centerX" secondItem="eIg-ha-SvF" secondAttribute="centerX" id="qnE-qJ-6XP"/>
+            </constraints>
+            <size key="customSize" width="97" height="74"/>
+            <connections>
+                <outlet property="typeImgUrlBtn" destination="rfx-0M-lcv" id="YLE-aL-o6j"/>
+                <outlet property="typeNameLab" destination="8MR-dA-ZZJ" id="xm5-jh-Uzl"/>
+            </connections>
+            <point key="canvasLocation" x="-67" y="299"/>
+        </collectionViewCell>
+    </objects>
+</document>

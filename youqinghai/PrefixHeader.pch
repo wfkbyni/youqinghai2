@@ -1,0 +1,30 @@
+//
+//  PrefixHeader.pch
+//  youqinghai
+//
+//  Created by 舒永超 on 16/3/20.
+//  Copyright © 2016年 舒永超. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "Common.h"
+#import "AFNetworking.h"
+#import "RACEXTScope.h"
+#import "ReactiveCocoa.h"
+#import "MJExtension.h"
+#import "GTMBase64+Des.h"
+#import "RequestBaseAPI.h"
+#import "UIButton+WebCache.h"
+#import "UIView+Helper.h"
+#import "UITheme.h"
+#import "ZUserModel.h"
+#import "DataModel.h"
+#import "NSString+Helper.h"
+#import <FDFullscreenPopGesture/UINavigationController+FDFullscreenPopGesture.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "BaseViewController.h"
+#import "SDCycleScrollView.h"
+#endif /* PrefixHeader_pch */
+#define myUserId 4
