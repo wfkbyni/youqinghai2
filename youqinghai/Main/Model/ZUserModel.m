@@ -13,7 +13,7 @@
 {
     static ZUserModel *userModel = nil;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    dispatch_once(&onceToken, ^{   
         userModel = [[self alloc]init];
     });
     return userModel;
