@@ -104,6 +104,17 @@
     if (!_travelView) {
         _travelView = [[TravelView alloc] initWithFrame:CGRectMake(0, 10, kScreenSize.width, _isCarpool ? 50 * 4 : 50 * 3) withIsTrave:_isCarpool];
         _travelView.navigationController = self.navigationController;
+        _travelView.carDetail = self.carDetail;
+        
+        __weak typeof(self) weakSelf = self;
+        [_travelView setTravelSelectBlock:^(TravelType type, id value) {
+            if (type == TravelTypeWithDate) {
+                NSDate *date = value;
+                weakSelf.orderViewModel.order.travelTime = [date timeIntervalSince1970] * 1000;
+            }else if(type == TravelTypeWithCount){
+                weakSelf.orderViewModel.order.travelnum = [value integerValue];
+            }
+        }];
     }
     return _travelView;
 }
@@ -112,6 +123,7 @@
     
     if (!_relationView) {
         _relationView = [[RelationView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.travelView.frame) + 10, kScreenSize.width, 250 + 130)];
+        _relationView.navigationController = self.navigationController;
     }
     
     return _relationView;
@@ -124,9 +136,27 @@
         [_submitOrderView setSubmitOrderAction:^{
             @strongify(self)
             NSLog(@"%@",self.orderViewModel.order.contactsTel);
+            [self confirmOrder];
         }];
     }
     return _submitOrderView;
+}
+
+- (void)confirmOrder{
+    
+    self.orderViewModel.order.userId = myUserId;
+    self.orderViewModel.order.traveld = [[[NSUserDefaults standardUserDefaults] objectForKey:YQHTourisId] integerValue];
+    self.orderViewModel.order.carTypeId = self.carDetail.cartypeId;
+    self.orderViewModel.order.traveltype = !_isCarpool;
+    self.orderViewModel.order.insuranceCost = self.relationView.insuranceCount;
+    self.orderViewModel.order.driverId = self.driverId;
+    
+    [[self.orderViewModel addOrder] subscribeNext:^(id x) {
+        NSLog(@"%@",x);
+        
+    } error:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 @end

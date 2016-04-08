@@ -11,3 +11,6 @@
 #pragma 景点id
 // 景点id
 FOUNDATION_EXTERN NSString *const YQHTourisId;
+// 出游天数
+FOUNDATION_EXPORT NSString *const YQHViewlist;
+

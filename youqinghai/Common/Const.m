@@ -9,3 +9,4 @@
 #import "Const.h"
 
 NSString *const  YQHTourisId = @"YQHTourisId";
+NSString *const  YQHViewlist = @"YQHViewlist";

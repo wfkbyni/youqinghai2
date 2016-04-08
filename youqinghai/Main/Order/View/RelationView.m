@@ -30,6 +30,8 @@
 
     if (self = [super initWithFrame:frame]) {
         
+        _insuranceCount = 3;
+        
         [self setBackgroundColor:[UIColor whiteColor]];
         
         NSArray *titles = @[@"联系人",@"联系电话",@"紧急联系人",@"紧急联系人电话",@"是否购买保险",@"添加保险人信息",@"保险金额"];
@@ -91,6 +93,13 @@
             frame = weakSelf.calculateView.frame;
             frame.origin.y = height;
             weakSelf.calculateView.frame = frame;
+            
+            if (checked) {
+                [self attrString:_insuranceCount];
+            }else{
+                _insuranceCount = 0;
+                [self attrString:0];
+            }
         };
         
         [checkBox setBtnClickEvent:^(CheckBoxView *sender) {
@@ -107,14 +116,12 @@
 
 -(void)setOrder:(Order *)order{
     _order = order;
-    
-    [self attrString];
 }
 
 -(void)setCalCarPrice:(CalCarPrice *)calCarPrice{
     _calCarPrice = calCarPrice;
     
-    
+    [self attrString:_insuranceCount];
 }
 
 - (void)bindModel{
@@ -130,20 +137,18 @@
         self.order.urgent = x;
     }];
     
-    [_textField3.rac_textSignal subscribeNext:^(id x) {
+    [_textField4.rac_textSignal subscribeNext:^(id x) {
         self.order.urgentTel = x;
     }];
-    
-    
 }
 
-- (void)attrString{
+- (void)attrString:(NSInteger)count{
     
     NSMutableAttributedString *fuseMoneyAttr = [[NSMutableAttributedString alloc] init];
     
     [fuseMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:@"保险金额:" attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:14]}]];
     
-    [fuseMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%.2f/天",_order.insuranceCost] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:16]}]];
+    [fuseMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@/天",_calCarPrice.matchingValue] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:16]}]];
     
     self.fuseMoneyLab.attributedText = fuseMoneyAttr;
     
@@ -151,16 +156,16 @@
     
     [fuseTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:@"总金额:" attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:14]}]];
     
-    [fuseTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%.2f",_order.insuranceCost * _order.insuranceData.count] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:16]}]];
+    NSInteger insuranceMoney = [_calCarPrice.matchingValue intValue] * count;
+    [fuseTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%lu",insuranceMoney] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:16]}]];
     
     self.fuseTotalMoneyLab.attributedText = fuseTotalMoneyAttr;
-    
     
     NSMutableAttributedString *orderMoneyAttr = [[NSMutableAttributedString alloc] init];
     
     [orderMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:@"订单金额:" attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:15]}]];
     
-    [orderMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:@"￥150/天" attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:18]}]];
+    [orderMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@天",_calCarPrice.orderPrice] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:18]}]];
     
     self.calculateView.orderMoneyLab.attributedText = orderMoneyAttr;
     
@@ -168,9 +173,11 @@
     
     [orderTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:@"总金额:" attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:15]}]];
     
-    [orderTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:@"￥300000.00" attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:18]}]];
+    [orderTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%ld",[_calCarPrice.orderPrice intValue] + insuranceMoney] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:18]}]];
     
     self.calculateView.totalMoneyLab.attributedText = orderTotalMoneyAttr;
+    
+    self.calculateView.earnestMoneyLab.text = [NSString stringWithFormat:@"￥%@",_calCarPrice.orderReserve];
 }
 
 // 分隔线
@@ -207,7 +214,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
     [label setFont:[UIFont systemFontOfSize:14.0f]];
     [label setTextAlignment:NSTextAlignmentRight];
-    [label setText:@"3人"];
+    [label setText:[NSString stringWithFormat:@"%ld人",_insuranceCount]];
     return label;
 }
 

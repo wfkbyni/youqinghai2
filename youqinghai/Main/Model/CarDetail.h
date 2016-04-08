@@ -15,6 +15,7 @@
 @property (nonatomic, assign) NSInteger isCollection;   // 0：未收藏 1：已收藏
 
 @property (nonatomic, strong) NSString *cartypename;    // 车辆类型
+@property (nonatomic, assign) NSInteger cartypeId;      // 车辆类型id
 @property (nonatomic, strong) NSString *nickname;       // 司机名称
 @property (nonatomic, assign) NSInteger driverId;       // 司机Id,
 @property (nonatomic, assign) NSInteger eav;            // 评价百分比,

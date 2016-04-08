@@ -224,7 +224,6 @@
 - (IBAction)carPoolAction:(id)sender {
     ConfirmOrderController *controller = [[ConfirmOrderController alloc] init];
     controller.isCarpool = YES;
-    controller.driverId = 1;
     [self.navigationController pushViewController:controller animated:YES];
 }
 
@@ -260,6 +259,7 @@
     if (!_tourismDetailView) {
         _tourismDetailView = [[TourismDetailView alloc] init];
         _tourismDetailView.viewlist = self.mainViewModel.traveltrip.traveltriplist;
+        [[NSUserDefaults standardUserDefaults] setObject:@(self.mainViewModel.traveltrip.traveltriplist.count) forKey:YQHViewlist];
     }
     
     return _tourismDetailView;

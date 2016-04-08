@@ -61,6 +61,8 @@
     ConfirmOrderController *controller = [[ConfirmOrderController alloc] init];
     controller.driverId = self.carViewModel.driverId;
     controller.isCarpool = NO;
+    NSLog(@"%ld",self.carViewModel.carDetail.cartypeId);
+    controller.carDetail = self.carViewModel.carDetail;
     [self.navigationController pushViewController:controller animated:YES];
     
     /*UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"提示" message:@"您确定要包该车吗?" preferredStyle:UIAlertControllerStyleAlert];

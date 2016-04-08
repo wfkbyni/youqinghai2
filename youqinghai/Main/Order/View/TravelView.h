@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Order.h"
 
 typedef NS_ENUM(NSInteger,TravelType) {
     TravelTypeWithDate,    //  出游日期
@@ -32,4 +33,9 @@ typedef NS_ENUM(NSInteger,TravelType) {
 @property (nonatomic, strong) NSArray *carTypes;
 
 @property (nonatomic, copy) void (^TravelSelectBlock)(TravelType type,id value);
+
+@property (nonatomic, strong) CarDetail *carDetail;
+
+@property (nonatomic, assign) NSInteger seatsnum;    // 出游人数
+@property (nonatomic, assign) NSInteger viewlist;    // 出游天数
 @end

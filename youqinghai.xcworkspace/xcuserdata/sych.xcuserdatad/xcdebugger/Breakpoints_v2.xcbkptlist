@@ -57,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "youqinghai/Main/Order/View/RelationView.m"
-            timestampString = "481814747.905331"
+            filePath = "youqinghai/Main/Order/ViewModel/OrderViewModel.m"
+            timestampString = "481821944.522239"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "-setCalCarPrice:"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "-addOrder"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -24,7 +24,13 @@ NSString const *addOrder = @"app/payOrder/addOrder";
 
 -(RACSignal *)addOrderWithOrder:(Order *)order{
     
-    NSString *params = @"";
+    NSString *params = [order mj_JSONString];
+    params = [params stringByReplacingOccurrencesOfString:@"{" withString:@""];
+    params = [params stringByReplacingOccurrencesOfString:@"}" withString:@""];
+    params = [params stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    params = [params stringByReplacingOccurrencesOfString:@":" withString:@"="];
+    params = [params stringByReplacingOccurrencesOfString:@"," withString:@"&"];
+    params = [NSString stringWithFormat:@"server=%@&%@",addOrder,params];
     return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
 }
 

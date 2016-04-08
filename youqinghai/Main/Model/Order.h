@@ -23,6 +23,8 @@
 @property (nonatomic, assign) CGFloat orderMoney;
 @property (nonatomic, assign) CGFloat orderReserve;  // 预定金额
 @property (nonatomic, strong) NSArray *insuranceData;   // 保险人
+@property (nonatomic, assign) NSInteger traveltype;  // 0拼车，1包车
+@property (nonatomic, assign) NSInteger driverId;    // 司机id
 
 /*
 insuranceData

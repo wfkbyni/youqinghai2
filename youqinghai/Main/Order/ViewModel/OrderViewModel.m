@@ -31,9 +31,12 @@
 }
 
 -(RACSignal *)addOrder{
+    
+    NSLog(@"%@",[self.order mj_JSONString]);
+    
     RACSignal *signal = [[[RequestBaseAPI standardAPI] addOrderWithOrder:self.order] map:^id(id value) {
         
-        return nil;
+        return value;
     }];
     
     return signal;

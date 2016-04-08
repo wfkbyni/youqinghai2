@@ -38,6 +38,16 @@
     return self;
 }
 
+-(void)setCarDetail:(CarDetail *)carDetail{
+    _carDetail = carDetail;
+    
+    [_travelCount setText:[NSString stringWithFormat:@"%ld人",carDetail.seatsnum]];
+    NSInteger travelCount = [[[NSUserDefaults standardUserDefaults] objectForKey:YQHViewlist] intValue];
+    [_travelDay setText:[NSString stringWithFormat:@"%ld天",travelCount]];
+    _seatsnum = carDetail.seatsnum;
+    _viewlist = travelCount;
+}
+
 // 拼车
 - (void)commTravel2{
     CGRect frame = self.frame;
@@ -169,7 +179,7 @@
             break;
         case TravelTypeWithCount:
         {
-            
+            [self selectPersonCount:_carDetail.seatsnum];
         }
             break;
             
@@ -229,7 +239,7 @@
             self.travelDate.text = dateString;
             
             if (_TravelSelectBlock) {
-                _TravelSelectBlock(TravelTypeWithDate,dateString);
+                _TravelSelectBlock(TravelTypeWithDate,picker.date);
             }
 
         }];
@@ -239,6 +249,23 @@
     popoverController.sourceView = self.navigationController.visibleViewController.view;
     popoverController.sourceRect = [self.navigationController.visibleViewController.view bounds];
     [self.navigationController.visibleViewController presentViewController:alertController  animated:YES completion:nil];
+}
+
+- (void)selectPersonCount:(NSInteger)travelnum{
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"请选择出行人数" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    for(NSInteger i = 1; i <= travelnum; i ++){
+        
+        [controller addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"%ld",i] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [_travelCount setText:[NSString stringWithFormat:@"%@人",action.title]];
+            _seatsnum = [action.title intValue];
+            
+            if (_TravelSelectBlock) {
+                _TravelSelectBlock(TravelTypeWithCount,action.title);
+            }
+        }]];
+    }
+    
+    [_navigationController presentViewController:controller animated:YES completion:NULL];
 }
 
 @end

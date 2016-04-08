@@ -13,4 +13,8 @@
 @property (nonatomic, strong) Order *order;
 @property (nonatomic, strong) CalCarPrice *calCarPrice;
 
+@property (nonatomic, assign) NSInteger insuranceCount;       // 保险人数
+
+@property (nonatomic, strong) UINavigationController *navigationController;
+
 @end

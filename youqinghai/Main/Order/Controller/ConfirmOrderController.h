@@ -13,6 +13,7 @@
 
 @property (nonatomic, assign) NSInteger driverId;
 
+@property (nonatomic, strong) CarDetail *carDetail;
 // 是否拼车
 @property (nonatomic, assign) BOOL isCarpool;
 
