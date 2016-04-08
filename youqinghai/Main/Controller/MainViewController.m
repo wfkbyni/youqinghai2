@@ -65,7 +65,7 @@
 
 - (void)requestBindData{
     self.mainViewModel = [[MainViewModel alloc] init];
-
+    
     [[self.mainViewModel getHomePageData]  subscribeError:^(NSError *error) {
         
     } completed:^{
@@ -195,6 +195,8 @@
     self.navigationController.navigationBarHidden = NO;
     
     Recommend *recommend = self.mainViewModel.homePageData.recommend[indexPath.row];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@(recommend.Id) forKey:YQHTourisId];
     
     TourismDetailController *controller = [[TourismDetailController alloc] init];
     controller.recommend = recommend;

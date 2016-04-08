@@ -14,6 +14,7 @@
 #import "SubmitOrderView.h"
 
 #import "OrderViewModel.h"
+#import "CarViewModel.h"
 
 @interface ConfirmOrderController ()
 
@@ -23,12 +24,11 @@
 @property (nonatomic, strong) TravelView *travelView;
 // 联系人view
 @property (nonatomic, strong) RelationView *relationView;
-// 结算view
-@property (nonatomic, strong) CalculateView *calculateView;
 // 提交订单view
 @property (nonatomic, strong) SubmitOrderView *submitOrderView;
 
 @property (nonatomic, strong) OrderViewModel *orderViewModel;
+@property (nonatomic, strong) CarViewModel *carViewModel;
 @end
 
 @implementation ConfirmOrderController
@@ -44,23 +44,46 @@
     
     [self.myScrollView addSubview:self.travelView];
     [self.myScrollView addSubview:self.relationView];
-    [self.myScrollView addSubview:self.calculateView];
-    
-    [self.myScrollView setContentSize:CGSizeMake(kScreenSize.width, CGRectGetHeight(self.travelView.frame) + CGRectGetHeight(self.relationView.frame) + CGRectGetHeight(self.calculateView.frame) + 50)];
     
     [self.view addSubview:self.submitOrderView];
-
-    [self requestData];
+    
+    [RACObserve(self.relationView, frame) subscribeNext:^(id x) {
+        
+        [self.myScrollView setContentSize:CGSizeMake(kScreenSize.width, CGRectGetHeight(self.travelView.frame) + CGRectGetHeight(self.relationView.frame) + 50)];
+        
+    }];
+    
+    if (_isCarpool) {
+        self.carViewModel = [[CarViewModel alloc] init];
+        [self loadCarTypeListData];
+    }else{
+        [self requestCalcCharteredPriceData];
+    }
 }
 
-- (void)requestData{
+// 车辆类型
+- (void)loadCarTypeListData{
+    [[self.carViewModel getCarTypeList] subscribeError:^(NSError *error) {
+        
+    } completed:^{
+        
+    }];
+    
+    [RACObserve(self.carViewModel, carTypes) subscribeNext:^(NSArray *carTypes) {
+        self.travelView.carTypes = carTypes;
+    }];
+}
+
+// 获取包车价格
+- (void)requestCalcCharteredPriceData{
     self.orderViewModel = [[OrderViewModel alloc] init];
     self.relationView.order = self.orderViewModel.order;
-    self.orderViewModel.traveId = self.traveId;
-    self.orderViewModel.carTypeId = self.carTypeId;
+    self.orderViewModel.traveId = [[[NSUserDefaults standardUserDefaults] objectForKey:YQHTourisId] integerValue];
+    self.orderViewModel.driverId = self.driverId;
     
-    [[self.orderViewModel calcCharteredPrice] subscribeNext:^(id x) {
+    [[self.orderViewModel calcCharteredPrice] subscribeNext:^(CalCarPrice *calCarPrice) {
         
+        self.relationView.calCarPrice = calCarPrice;
         
     } error:^(NSError *error) {
         YQHLog(@"%@",error);
@@ -79,7 +102,8 @@
 
 -(TravelView *)travelView{
     if (!_travelView) {
-        _travelView = [[TravelView alloc] initWithFrame:CGRectMake(0, 10, kScreenSize.width, 150)];
+        _travelView = [[TravelView alloc] initWithFrame:CGRectMake(0, 10, kScreenSize.width, _isCarpool ? 50 * 4 : 50 * 3) withIsTrave:_isCarpool];
+        _travelView.navigationController = self.navigationController;
     }
     return _travelView;
 }
@@ -87,17 +111,10 @@
 -(RelationView *)relationView{
     
     if (!_relationView) {
-        _relationView = [[RelationView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.travelView.frame) + 10, kScreenSize.width, 250)];
+        _relationView = [[RelationView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.travelView.frame) + 10, kScreenSize.width, 250 + 130)];
     }
     
     return _relationView;
-}
-
-- (CalculateView *)calculateView{
-    if (!_calculateView) {
-        _calculateView = [[CalculateView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.relationView.frame) + 10, kScreenSize.width, 120)];
-    }
-    return _calculateView;
 }
 
 - (SubmitOrderView *)submitOrderView{

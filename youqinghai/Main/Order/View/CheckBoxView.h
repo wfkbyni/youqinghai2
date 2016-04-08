@@ -17,4 +17,6 @@ typedef NS_ENUM(NSInteger ,CheckBoxBtnVeiw) {
 
 @property (nonatomic, assign) BOOL checked;
 
+@property (nonatomic, copy) void (^btnClickEvent)(CheckBoxView *);
+
 @end

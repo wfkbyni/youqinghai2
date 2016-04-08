@@ -13,6 +13,7 @@
 #import "TourisEvaluateView.h"
 #import "ServiceIntroductionView.h"
 #import "CarListViewController.h"
+#import "ConfirmOrderController.h"
 
 #import "MainViewModel.h"
 
@@ -221,6 +222,10 @@
 
 // 拼车
 - (IBAction)carPoolAction:(id)sender {
+    ConfirmOrderController *controller = [[ConfirmOrderController alloc] init];
+    controller.isCarpool = YES;
+    controller.driverId = 1;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 // 包车
@@ -243,7 +248,7 @@
 }
 
 - (TourisEvaluateView *)tourisEvaluateView{
- 
+    
     if (!_tourisEvaluateView) {
         _tourisEvaluateView = [[TourisEvaluateView alloc] initWithFrame:CGRectMake(0, 0, kScreenSize.width, kScreenSize.height - kScreenSize.width * 0.5 - 40)];
     }

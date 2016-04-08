@@ -8,46 +8,115 @@
 
 #import "TravelView.h"
 
-@interface TravelView()
+@interface TravelView()<UIActionSheetDelegate>
 // 出游日期
 @property (nonatomic, strong) UILabel *travelDate;
 // 出游人数
 @property (nonatomic, strong) UILabel *travelCount;
 // 出游天数
 @property (nonatomic, strong) UILabel *travelDay;
+// 拼车类型
+@property (nonatomic, strong) UILabel *travelType;
 @end
 
 @implementation TravelView
 
--(instancetype)initWithFrame:(CGRect)frame{
+-(instancetype)initWithFrame:(CGRect)frame withIsTrave:(BOOL)isTrave{
     if (self = [super initWithFrame:frame]) {
         
         [self setBackgroundColor:[UIColor whiteColor]];
         
-        NSArray *titles = @[@"出游日期",@"出游人数",@"出游天数"];
+        if (isTrave) {
+            [self commTravel2];
+        }else{
+            [self commTravel1];
+        }
+    
         
-        float leftWidth = 110;
-        
-        [self addSubview:[self lineWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), 1)]];
-        [self addSubview:[self titleWithFrame:CGRectMake(10, 2, leftWidth, 48) withTitle:titles[0]]];
-        _travelDate = [self contentWithFrame:CGRectMake(leftWidth, 2, CGRectGetWidth(self.frame) - leftWidth - 40, 48)];
-        [self addSubview:_travelDate];
-        [self addSubview:[self rightArrowWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 30 - 8, 10, 30, 30) withTag:1]];
-        
-        [self addSubview:[self lineWithFrame:CGRectMake(10, 50, CGRectGetWidth(frame) - 20, 1)]];
-        [self addSubview:[self titleWithFrame:CGRectMake(10, 52, leftWidth, 48) withTitle:titles[1]]];
-        _travelCount = [self contentWithFrame:CGRectMake(leftWidth, 52, CGRectGetWidth(self.frame) - leftWidth - 40, 48)];
-        [self addSubview:_travelCount];
-        [self addSubview:[self rightArrowWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 30 - 8, 60, 30, 30) withTag:2]];
-        
-        [self addSubview:[self lineWithFrame:CGRectMake(10, 100, CGRectGetWidth(frame) - 20, 1)]];
-        [self addSubview:[self titleWithFrame:CGRectMake(10, 102, leftWidth, 48) withTitle:titles[2]]];
-        _travelDay = [self contentWithFrame:CGRectMake(leftWidth, 102, CGRectGetWidth(self.frame) - leftWidth - 40, 48)];
-        [self addSubview:_travelDay];
-        [self addSubview:[self lineWithFrame:CGRectMake(0, 150, CGRectGetWidth(frame), 1)]];
     }
     
     return self;
+}
+
+// 拼车
+- (void)commTravel2{
+    CGRect frame = self.frame;
+    NSArray *titles = @[@"拼车类型",@"出游日期",@"出游人数",@"出游天数"];
+    
+    float leftWidth = 110;
+    float offset = 0;
+    [self addSubview:[self lineWithFrame:CGRectMake(0, offset, CGRectGetWidth(frame), 1)]];
+    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, leftWidth, 48) withTitle:titles[0]]];
+    _travelType = [self contentWithFrame:CGRectMake(leftWidth, offset + 2, CGRectGetWidth(self.frame) - leftWidth - 30, 48)];
+    [self addSubview:_travelType];
+    [self addSubview:[self rightArrowWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 30, 10, 30, 30)
+                                       withTag:TravelTypeWithType]];
+    
+    offset = 50;
+    
+    [self addSubview:[self lineWithFrame:CGRectMake(10, offset, CGRectGetWidth(frame) - 20, 1)]];
+    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, leftWidth, 48) withTitle:titles[1]]];
+    _travelDate = [self contentWithFrame:CGRectMake(leftWidth, offset + 2, CGRectGetWidth(self.frame) - leftWidth - 30, 48)];
+    [self addSubview:_travelDate];
+    [self addSubview:[self rightArrowWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 30, 60, 30, 30)
+                                       withTag:TravelTypeWithDate]];
+    
+    offset = 100;
+    
+    [self addSubview:[self lineWithFrame:CGRectMake(10, offset, CGRectGetWidth(frame) - 20, 1)]];
+    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, leftWidth, 48) withTitle:titles[2]]];
+    _travelCount = [self contentWithFrame:CGRectMake(leftWidth, offset + 2, CGRectGetWidth(self.frame) - leftWidth - 30, 48)];
+    [self addSubview:_travelCount];
+    [self addSubview:[self rightArrowWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 30, 110, 30, 30)
+                                       withTag:TravelTypeWithCount]];
+    
+    offset = 150;
+    
+    [self addSubview:[self lineWithFrame:CGRectMake(10, offset, CGRectGetWidth(frame) - 20, 1)]];
+    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, leftWidth, 48) withTitle:titles[3]]];
+    _travelDay = [self contentWithFrame:CGRectMake(leftWidth, offset + 2, CGRectGetWidth(self.frame) - leftWidth - 30, 48)];
+    [self addSubview:_travelDay];
+    
+    offset = 200;
+    [self addSubview:[self lineWithFrame:CGRectMake(0, offset, CGRectGetWidth(frame), 1)]];
+}
+
+// 非拼车
+- (void)commTravel1{
+    CGRect frame = self.frame;
+    NSArray *titles = @[@"出游日期",@"出游人数",@"出游天数"];
+    
+    float leftWidth = 110;
+    float offset = 0;
+    [self addSubview:[self lineWithFrame:CGRectMake(0, offset, CGRectGetWidth(frame), 1)]];
+    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, leftWidth, 48) withTitle:titles[0]]];
+    _travelDate = [self contentWithFrame:CGRectMake(leftWidth, offset + 2, CGRectGetWidth(self.frame) - leftWidth - 30, 48)];
+    [self addSubview:_travelDate];
+    [self addSubview:[self rightArrowWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 30, 10, 30, 30)
+                                       withTag:TravelTypeWithDate]];
+    
+    offset = 50;
+    
+    [self addSubview:[self lineWithFrame:CGRectMake(10, offset, CGRectGetWidth(frame) - 20, 1)]];
+    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, leftWidth, 48) withTitle:titles[1]]];
+    _travelCount = [self contentWithFrame:CGRectMake(leftWidth, offset + 2, CGRectGetWidth(self.frame) - leftWidth - 30, 48)];
+    [self addSubview:_travelCount];
+    [self addSubview:[self rightArrowWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 30, 60, 30, 30)
+                                       withTag:TravelTypeWithCount]];
+    
+    offset = 100;
+    
+    [self addSubview:[self lineWithFrame:CGRectMake(10, offset, CGRectGetWidth(frame) - 20, 1)]];
+    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, leftWidth, 48) withTitle:titles[2]]];
+    _travelDay = [self contentWithFrame:CGRectMake(leftWidth, offset + 2, CGRectGetWidth(self.frame) - leftWidth - 30, 48)];
+    [self addSubview:_travelDay];
+    
+    offset = 150;
+    [self addSubview:[self lineWithFrame:CGRectMake(0, 150, CGRectGetWidth(frame), 1)]];
+}
+
+- (void)setCarTypes:(NSArray *)carTypes{
+    _carTypes = carTypes;
 }
 
 // 分隔线
@@ -73,7 +142,6 @@
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
     [label setFont:[UIFont systemFontOfSize:14.0f]];
     [label setTextAlignment:NSTextAlignmentRight];
-    [label setText:@"2015年XX日XX天"];
     return label;
 }
 
@@ -82,8 +150,95 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setFrame:frame];
     [button setTag:tag];
-    [button setBackgroundColor:[UIColor redColor]];
+    [button setImage:[UIImage imageNamed:@"icon_rightArrow"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     return button;
+}
+
+- (void)btnAction:(UIButton *)sender{
+    switch (sender.tag) {
+        case TravelTypeWithType:
+        {
+            [self selectCarType];
+        }
+            break;
+        case TravelTypeWithDate:
+        {
+            [self selectDate];
+        }
+            break;
+        case TravelTypeWithCount:
+        {
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)selectCarType{
+    if (([UIDevice currentDevice].systemVersion.floatValue > 8.0)) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请选择拼车类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        for (int i = 0; i < _carTypes.count; i++) {
+            CarType *carType = _carTypes[i];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:carType.cartypename style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                self.travelType.text = carType.cartypename;
+                if (_TravelSelectBlock) {
+                    _TravelSelectBlock(TravelTypeWithType,carType);
+                }
+            }];
+            
+            [alertController addAction:action];
+        }
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertController addAction:cancelAction];
+        
+        [self.navigationController.visibleViewController presentViewController:alertController animated:YES completion:nil];
+    }
+    else{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"请选择拼车类型" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alertView show];
+    }
+
+}
+
+/**
+ *  @brief 选择出游日期
+ */
+- (void)selectDate{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIDatePicker *picker = [[UIDatePicker alloc] init];
+    picker.minuteInterval = 30;
+    picker.minimumDate = [NSDate date];
+    [picker setDatePickerMode:UIDatePickerModeDateAndTime];
+    [alertController.view addSubview:picker];
+    [alertController addAction:({
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            NSDateFormatter *form = [[NSDateFormatter alloc] init]; // 定义时间格式
+            [form setDateFormat:@"yyyy-MM-dd HH:mm"];
+            NSString *dateString = [form stringFromDate:picker.date];
+            
+            self.travelDate.text = dateString;
+            
+            if (_TravelSelectBlock) {
+                _TravelSelectBlock(TravelTypeWithDate,dateString);
+            }
+
+        }];
+        action;
+    })];
+    UIPopoverPresentationController *popoverController = alertController.popoverPresentationController;
+    popoverController.sourceView = self.navigationController.visibleViewController.view;
+    popoverController.sourceRect = [self.navigationController.visibleViewController.view bounds];
+    [self.navigationController.visibleViewController presentViewController:alertController  animated:YES completion:nil];
 }
 
 @end

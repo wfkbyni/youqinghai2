@@ -11,5 +11,6 @@
 @interface RelationView : UIView
 
 @property (nonatomic, strong) Order *order;
+@property (nonatomic, strong) CalCarPrice *calCarPrice;
 
 @end

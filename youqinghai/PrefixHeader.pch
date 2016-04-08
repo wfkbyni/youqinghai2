@@ -26,5 +26,6 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "BaseViewController.h"
 #import "SDCycleScrollView.h"
+#import "Const.h"
 #endif /* PrefixHeader_pch */
 #define myUserId 4

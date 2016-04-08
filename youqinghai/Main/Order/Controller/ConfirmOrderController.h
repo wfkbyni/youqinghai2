@@ -11,8 +11,9 @@
 
 @interface ConfirmOrderController : BaseViewController
 
-@property (nonatomic, assign) NSInteger traveId;
-@property (nonatomic, assign) NSInteger carTypeId;
+@property (nonatomic, assign) NSInteger driverId;
 
+// 是否拼车
+@property (nonatomic, assign) BOOL isCarpool;
 
 @end

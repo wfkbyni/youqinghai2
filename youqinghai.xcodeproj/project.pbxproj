@@ -124,6 +124,7 @@
 		9A637DC11CA18993004D17BA /* TempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DBF1CA18993004D17BA /* TempViewController.m */; };
 		9A637DC21CA18993004D17BA /* TempViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A637DC01CA18993004D17BA /* TempViewController.xib */; };
 		9A637DCB1CA2D8AC004D17BA /* UIView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DCA1CA2D8AC004D17BA /* UIView+Helper.m */; };
+		9AD4BE3A1CB7E44400C1C89B /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4BE391CB7E44400C1C89B /* Const.m */; };
 		9AF1C0121C9ED3E100AD2FC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF1C0111C9ED3E100AD2FC1 /* main.m */; };
 		9AF1C0151C9ED3E100AD2FC1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF1C0141C9ED3E100AD2FC1 /* AppDelegate.m */; };
 		9AF1C01D1C9ED3E100AD2FC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AF1C01C1C9ED3E100AD2FC1 /* Assets.xcassets */; };
@@ -373,6 +374,8 @@
 		9A637DC01CA18993004D17BA /* TempViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TempViewController.xib; sourceTree = "<group>"; };
 		9A637DC91CA2D8AC004D17BA /* UIView+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Helper.h"; sourceTree = "<group>"; };
 		9A637DCA1CA2D8AC004D17BA /* UIView+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Helper.m"; sourceTree = "<group>"; };
+		9AD4BE381CB7E44400C1C89B /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
+		9AD4BE391CB7E44400C1C89B /* Const.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Const.m; sourceTree = "<group>"; };
 		9AF1C00D1C9ED3E100AD2FC1 /* youqinghai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = youqinghai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF1C0111C9ED3E100AD2FC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9AF1C0131C9ED3E100AD2FC1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -634,7 +637,6 @@
 				9A637DBA1CA186EE004D17BA /* Controller */,
 				9A1FEB361C9EE1470067B8D5 /* View */,
 				9A1FEB371C9EE1470067B8D5 /* ViewModel */,
-				9A1FEB351C9EE1470067B8D5 /* Model */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -668,7 +670,8 @@
 				35E3FFB71CA90B3000876054 /* ZUserModel.h */,
 				35E3FFB81CA90B3000876054 /* ZUserModel.m */,
 			);
-			path = Model;
+			name = Model;
+			path = Main/Model;
 			sourceTree = "<group>";
 		};
 		9A1FEB361C9EE1470067B8D5 /* View */ = {
@@ -789,6 +792,8 @@
 		9A637DC81CA2D89E004D17BA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9AD4BE381CB7E44400C1C89B /* Const.h */,
+				9AD4BE391CB7E44400C1C89B /* Const.m */,
 				3513C35C1CB7C45D005B59BE /* NSString+Helper.h */,
 				3513C35D1CB7C45D005B59BE /* NSString+Helper.m */,
 				B437E69A1CA43D5300091521 /* UI+Utils */,
@@ -821,6 +826,7 @@
 		9AF1C00F1C9ED3E100AD2FC1 /* youqinghai */ = {
 			isa = PBXGroup;
 			children = (
+				9A1FEB351C9EE1470067B8D5 /* Model */,
 				35891B791CB7B4C000CE7002 /* Car */,
 				35891BAC1CB7B52000CE7002 /* Order */,
 				9A637DC81CA2D89E004D17BA /* Common */,
@@ -1149,6 +1155,7 @@
 				35D295591CB7863C0029B8C1 /* ZFowUserTableView.m in Sources */,
 				9AF1C0151C9ED3E100AD2FC1 /* AppDelegate.m in Sources */,
 				35A67D161CABA88300B34994 /* ZModifyPhoneViewController.m in Sources */,
+				9AD4BE3A1CB7E44400C1C89B /* Const.m in Sources */,
 				35D2952E1CB6421E0029B8C1 /* ZRouteFCell.m in Sources */,
 				B437E68C1CA43CE600091521 /* UIViewController+TableView.m in Sources */,
 				35E3FFC01CA92AAC00876054 /* ZmessCenterCell.m in Sources */,

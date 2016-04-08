@@ -15,7 +15,9 @@
 // 景点Id
 @property (nonatomic, assign) NSInteger traveId;
 // 车辆类型Id
-@property (nonatomic, assign) NSInteger carTypeId;
+@property (nonatomic, assign) NSInteger driverId;
+
+@property (nonatomic, strong) CalCarPrice *calCarPrice;
 
 /**
  *  @brief 计算包车订单价格（1.0）

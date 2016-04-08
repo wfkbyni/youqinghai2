@@ -58,19 +58,23 @@
 }
 
 - (void)charteredAction:(id)sender{
-    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"提示" message:@"您确定要包该车吗?" preferredStyle:UIAlertControllerStyleAlert];
+    ConfirmOrderController *controller = [[ConfirmOrderController alloc] init];
+    controller.driverId = self.carViewModel.driverId;
+    controller.isCarpool = NO;
+    [self.navigationController pushViewController:controller animated:YES];
+    
+    /*UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"提示" message:@"您确定要包该车吗?" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:NULL];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         ConfirmOrderController *controller = [[ConfirmOrderController alloc] init];
-        controller.traveId = 1;
-        controller.carTypeId = 1;
+        controller.driverId = self.carViewModel.driverId;
         [self.navigationController pushViewController:controller animated:YES];
     }];
     
     [controller addAction:cancelAction];
     [controller addAction:defaultAction];
     
-    [self presentViewController:controller animated:YES completion:NULL];
+    [self presentViewController:controller animated:YES completion:NULL];*/
 }
 
 - (void)requestData{

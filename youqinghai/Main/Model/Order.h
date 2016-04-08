@@ -47,3 +47,13 @@ Json数据格式
 @property (nonatomic, strong) NSString *cardNum;
 
 @end
+
+@interface CalCarPrice : NSObject
+
+//{"matchingValue":"20","orderPrice":200,"orderReserve":20,"isInsuranceMoney":"0"}
+@property (nonatomic, strong) NSNumber *matchingValue;      // 系统配置保险金额
+@property (nonatomic, strong) NSNumber *orderPrice;         // 订单总价格
+@property (nonatomic, strong) NSNumber *orderReserve;       // 预付金额
+@property (nonatomic, strong) NSString *isInsuranceMoney;   // 保险金额
+
+@end

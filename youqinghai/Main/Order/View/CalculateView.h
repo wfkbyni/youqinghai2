@@ -10,4 +10,12 @@
 
 @interface CalculateView : UIView
 
+// 订单金额
+@property (nonatomic, strong) UILabel *orderMoneyLab;
+// 总金额
+@property (nonatomic, strong) UILabel *totalMoneyLab;
+// 订金
+@property (nonatomic, strong) UILabel *earnestMoneyLab;
+
+
 @end

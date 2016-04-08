@@ -19,3 +19,7 @@
 @implementation InsuranceData
 
 @end
+
+@implementation CalCarPrice
+
+@end

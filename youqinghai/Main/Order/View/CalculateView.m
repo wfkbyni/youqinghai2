@@ -8,15 +8,6 @@
 
 #import "CalculateView.h"
 
-@interface CalculateView()
-// 订单金额
-@property (nonatomic, strong) UILabel *orderMoneyLab;
-// 总金额
-@property (nonatomic, strong) UILabel *totalMoneyLab;
-// 订金
-@property (nonatomic, strong) UILabel *earnestMoneyLab;
-@end
-
 @implementation CalculateView
 
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -25,11 +16,11 @@
         [self setBackgroundColor:[UIColor whiteColor]];
         
         [self addSubview:[self lineWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), 1)]];
-        _orderMoneyLab = [self labelWithFrame:CGRectMake(10, 10, 150, 25) withTitle:@"订单金额:1500/天" withColor:[UIColor orangeColor]];
+        _orderMoneyLab = [self labelWithFrame:CGRectMake(10, 10, 150, 25) withTitle:@"" withColor:[UIColor orangeColor]];
         [_orderMoneyLab setFont:[UIFont systemFontOfSize:14.0f]];
         [self addSubview:_orderMoneyLab];
         
-        _totalMoneyLab = [self labelWithFrame:CGRectMake(CGRectGetWidth(self.frame) / 2, 10, CGRectGetWidth(self.frame) / 2 - 10, 25) withTitle:@"总金额:￥150000.00" withColor:[UIColor orangeColor]];
+        _totalMoneyLab = [self labelWithFrame:CGRectMake(CGRectGetWidth(self.frame) / 2, 10, CGRectGetWidth(self.frame) / 2 - 10, 25) withTitle:@"" withColor:[UIColor orangeColor]];
         [_totalMoneyLab setTextAlignment:NSTextAlignmentRight];
         [_totalMoneyLab setFont:[UIFont systemFontOfSize:14.0f]];
         [self addSubview:_totalMoneyLab];

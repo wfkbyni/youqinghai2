@@ -20,18 +20,23 @@
 
 -(RACSignal *)calcCharteredPrice{
     
-    RACSignal *signal = [[[RequestBaseAPI standardAPI] calcCharteredPriceWithTraveId:self.traveId withCarTypeId:self.carTypeId withIsInsurance:0] map:^id(id value) {
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] calcCharteredPriceWithTraveId:self.traveId withCarTypeId:self.driverId withIsInsurance:0] map:^id(id value) {
         
+        self.calCarPrice = [CalCarPrice mj_objectWithKeyValues:value];
         
-        
-        return value;
+        return self.calCarPrice;
     }];
     
     return signal;
 }
 
 -(RACSignal *)addOrder{
-    return nil;
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] addOrderWithOrder:self.order] map:^id(id value) {
+        
+        return nil;
+    }];
+    
+    return signal;
 }
 
 @end

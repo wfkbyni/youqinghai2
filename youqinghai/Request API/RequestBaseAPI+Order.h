@@ -19,7 +19,7 @@
  *
  */
 - (RACSignal *)calcCharteredPriceWithTraveId:(NSInteger)traveId
-                               withCarTypeId:(NSInteger)carTypeId
+                               withCarTypeId:(NSInteger)driverId
                              withIsInsurance:(NSInteger)isInsurance;
 
 /**
