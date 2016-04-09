@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void (^btnBlock)();
+typedef void (^btnBlock)(int type);
 @interface ZPersanalHeaderView : UIView
 @property(weak,nonatomic)UIViewController *viewController;
 @property(strong,nonatomic)btnBlock btnBlcok;
-
+-(void)setData;
 @end

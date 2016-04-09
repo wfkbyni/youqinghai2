@@ -10,13 +10,15 @@
 #import "UIViewController+TableView.h"
 #import "OrderListDetailCell.h"
 #import "YQHRadiusButton.h"
+#import "OrderViewModel.h"
+
 @interface OrderDetailViewController () {
 
 }
-
+@property (nonatomic, strong) OrderViewModel *orderViewModel;
 @property (nonatomic, strong) NSMutableArray *datasourceOfTitles;
 @property (nonatomic, strong) NSMutableArray *datasourceOfValues;
-
+@property(strong,nonatomic)OrderListModel *orderListMod;
 
 @end
 
@@ -34,13 +36,33 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+       self.orderViewModel = [[OrderViewModel alloc]init];
     self.view.backgroundColor = [UIColor colorWithRed:236.0/255.0 green:237.0/255.0 blue:238.0/255.0 alpha:1];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.title = @"订单详情";
-    [self commonInit];
     
+    [self getNetData];
 }
-
+-(void)getNetData
+{
+    [RACObserve(self.orderViewModel, orderList) subscribeNext:^(id x) {
+        self.orderListMod = x[0];
+        if (self.orderListMod) {
+             [self commonInit];
+        }
+       
+        [self.tableView reloadData];
+    }];
+    [[self.orderViewModel getUserOrderDetail:self.ID] subscribeError:^(NSError *error) {
+        int code = [[error.userInfo objectForKey:@"result_code"] intValue];
+        if (code == 1) {
+            self.orderViewModel.orders = @[];
+            [self.tableView reloadData];
+        }
+    } completed:^{
+        
+    }];
+}
 
 - (void)commonInit {
     _datasourceOfTitles = [NSMutableArray array];
@@ -52,10 +74,32 @@
     [_datasourceOfTitles addObject:titles1];
     [_datasourceOfTitles addObject:titles2];
     [_datasourceOfTitles addObject:titles3];
+    NSString *Statype;
+    switch (_orderListMod.state.integerValue) {
+        case 0:
+            Statype = @"待付款";
+            break;
+        case 1:
+            Statype = @"待完成";
+            break;
+        case 2:
+            Statype = @"待评价";
+            break;
+        case 3:
+            Statype = @"已完成";
+            break;
+        case 4:
+            Statype = @"取消订单";
+            break;
+        default:
+            break;
+    }
+    NSString *mom = @"￥";
     
-    NSArray *values1 = @[@"12343543546546",@"2015-08-01 06:30",@"待付款"];
-    NSArray *values2 = @[@"青海湖三日游",@"2016-01-01",@"3人",@"3天",@"经济型",@"￥1500",@"￥150"];
-    NSArray *values3 = @[@"陆离",@"哈佛H6",@"海涛",@"18782901597",@"君恋",@"18782901597",@"否"];
+    
+    NSArray *values1 = @[_orderListMod.orderNum,_orderListMod.singletime,Statype];
+    NSArray *values2 = @[_orderListMod.tourName,_orderListMod.travelTime,[_orderListMod.travelnum stringByAppendingString:@"人"],[_orderListMod.dayNum stringByAppendingString:@"天"],_orderListMod.carTypeName,[mom stringByAppendingString:_orderListMod.orderMoney],[mom stringByAppendingString:_orderListMod.orderReserve]];
+    NSArray *values3 = @[_orderListMod.nickname,_orderListMod.carname,_orderListMod.contacts,_orderListMod.contactsTel,_orderListMod.urgent,_orderListMod.urgentTel,_orderListMod.insuranceCost.integerValue?@"  是":@"  否"];
     [_datasourceOfValues addObject:values1];
     [_datasourceOfValues addObject:values2];
     [_datasourceOfValues addObject:values3];

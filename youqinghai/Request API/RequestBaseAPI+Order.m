@@ -11,6 +11,8 @@
 NSString const *calcCharteredPrice = @"app/payOrder/calcCharteredPrice";
 NSString const *addOrder = @"app/payOrder/addOrder";
 
+NSString const *getUserOrderList = @"app/myOrder/getUserOrderList";
+NSString const *getUserOrderDetail = @"app/myOrder/getOrderDetails";
 @implementation RequestBaseAPI (Order)
 
 -(RACSignal *)calcCharteredPriceWithTraveId:(NSInteger)traveId
@@ -32,6 +34,27 @@ NSString const *addOrder = @"app/payOrder/addOrder";
     params = [params stringByReplacingOccurrencesOfString:@"," withString:@"&"];
     params = [NSString stringWithFormat:@"server=%@&%@",addOrder,params];
     return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
+}
+
+
+-(RACSignal *)getUserOrderList:(NSInteger)userId
+                           wihtState:(NSInteger)state
+                        withPageIndex:(NSInteger)pageIndex
+                         withPageSize:(NSInteger)pageSize{
+    
+    NSString *params;
+    if (state >= 0) {
+        params = [NSString stringWithFormat:@"server=%@&userId=%ld&state=%ld&pageIndex=%ld&pageSize=%ld",getUserOrderList,userId,state,pageIndex,pageSize];
+    }else{
+        params = [NSString stringWithFormat:@"server=%@&userId=%ld&pageIndex=%ld&pageSize=%ld",getUserOrderList,userId,pageIndex,pageSize];
+    }
+    
+    return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
+}
+-(RACSignal *)getUserOrderDetailOrderId:(NSString*)orderId
+{
+    NSString *params= [NSString stringWithFormat:@"server=%@&orderId=%@",getUserOrderDetail,orderId];
+        return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
 }
 
 @end

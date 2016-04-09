@@ -54,7 +54,10 @@
     
     _picIV = UIImageView.new;
     _picIV.image = [UIImage imageNamed:@"02"];
+    _picIV.clipsToBounds=YES;
+    _picIV.layer.cornerRadius = 3;
     [_subView addSubview:_picIV];
+    
     
     _titleLB = UILabel.new;
     _titleLB.font = [UIFont systemFontOfSize:15];
@@ -170,5 +173,38 @@
     [_cancelBT setOrigin:CGPointMake(_confirmPayBT.x-_confirmPayBT.width - 5,_confirmPayBT.y)];
 
 }
-
+-(void)setOrderListMod:(OrderListModel *)orderListMod
+{
+    _orderListMod = orderListMod;
+    self.textLabel.text = orderListMod.singletime;
+    switch (orderListMod.state.integerValue) {
+        case 0:
+            self.detailTextLabel.text = @"待付款";
+            break;
+        case 1:
+            self.detailTextLabel.text = @"待完成";
+            break;
+        case 2:
+            self.detailTextLabel.text = @"待评价";
+            break;
+        case 3:
+            self.detailTextLabel.text = @"已完成";
+            break;
+        case 4:
+            self.detailTextLabel.text = @"取消订单";
+            break;
+        default:
+            break;
+    }
+    [_picIV sd_setImageWithURL:[NSURL URLWithString:orderListMod.imgUrl]];
+    
+    _titleLB.text = orderListMod.tourName;
+    
+    _tourDateLB.text = [NSString stringWithFormat:@"出游日期:%@",orderListMod.travelTime];
+    
+    _tourNumLB.text = [NSString stringWithFormat:@"出游人数: %@",orderListMod.travelnum];
+    _carTypeLB.text = [NSString stringWithFormat:@"车辆类型:%@", orderListMod.carTypeName];
+    _moneyLB.text = [NSString stringWithFormat:@"定金: %@",orderListMod.orderReserve];
+    _tourTypeLB.text = orderListMod.traveltype.integerValue?@"包车出游":@"拼车出游";
+}
 @end

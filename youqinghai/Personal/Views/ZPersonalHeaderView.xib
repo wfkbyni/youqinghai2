@@ -45,20 +45,6 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qt-h3-8BB">
-                    <rect key="frame" x="266" y="28" width="46" height="10"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="10" id="XqJ-SQ-N1X"/>
-                        <constraint firstAttribute="width" constant="46" id="asE-B5-Qh9"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="111">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="pushInfoAct:" destination="iN0-l3-epB" eventType="touchUpInside" id="d0J-w4-J6x"/>
-                    </connections>
-                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="首页_线路分类_详情_包车_车辆详情---副本_06" translatesAutoresizingMaskIntoConstraints="NO" id="x9c-RT-J21">
                     <rect key="frame" x="182" y="25" width="15" height="15"/>
                     <constraints>
@@ -142,13 +128,26 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7xQ-Nt-EKB">
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7xQ-Nt-EKB">
                     <rect key="frame" x="120" y="56" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="lIE-st-lr3"/>
                         <constraint firstAttribute="height" constant="80" id="wsI-yD-V4K"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qt-h3-8BB">
+                    <rect key="frame" x="278" y="22" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="XqJ-SQ-N1X"/>
+                        <constraint firstAttribute="width" constant="22" id="asE-B5-Qh9"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="我的_06">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="pushInfoAct:" destination="iN0-l3-epB" eventType="touchUpInside" id="d0J-w4-J6x"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -176,7 +175,7 @@
                 <constraint firstAttribute="bottom" secondItem="oOu-2R-u7P" secondAttribute="bottom" id="fYS-kb-3bY"/>
                 <constraint firstItem="bJO-Kz-EHJ" firstAttribute="top" secondItem="QKe-Ig-WkH" secondAttribute="bottom" constant="8" id="fzM-Bb-KTP"/>
                 <constraint firstAttribute="trailing" secondItem="oOu-2R-u7P" secondAttribute="trailing" id="j80-3f-zRc"/>
-                <constraint firstAttribute="trailing" secondItem="0qt-h3-8BB" secondAttribute="trailing" constant="8" id="jFb-D6-PyX"/>
+                <constraint firstAttribute="trailing" secondItem="0qt-h3-8BB" secondAttribute="trailing" constant="20" id="jFb-D6-PyX"/>
                 <constraint firstItem="RhB-BP-fu7" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jl9-ds-HRU"/>
                 <constraint firstItem="yrY-KN-Abk" firstAttribute="top" secondItem="CKb-bo-ZY1" secondAttribute="bottom" constant="8" id="nSg-FY-ZVn"/>
                 <constraint firstItem="3jH-vs-I5n" firstAttribute="leading" secondItem="QKe-Ig-WkH" secondAttribute="trailing" constant="40" id="r4B-mb-mfu"/>
@@ -201,6 +200,7 @@
         </view>
     </objects>
     <resources>
+        <image name="我的_06" width="22" height="22"/>
         <image name="首页_线路分类_详情_包车_车辆详情---副本_01" width="414" height="266"/>
         <image name="首页_线路分类_详情_包车_车辆详情---副本_06" width="18" height="18"/>
     </resources>

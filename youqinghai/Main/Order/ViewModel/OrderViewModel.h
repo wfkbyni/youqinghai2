@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "OrderListModel.h"
 @interface OrderViewModel : NSObject
 
 @property (nonatomic, strong) Order *order;
@@ -19,6 +19,9 @@
 
 @property (nonatomic, strong) CalCarPrice *calCarPrice;
 
+
+@property (nonatomic, strong) NSArray *orders;
+@property (nonatomic, strong) NSArray *orderList;
 /**
  *  @brief 计算包车订单价格（1.0）
  *
@@ -30,5 +33,16 @@
  *
  */
 - (RACSignal *)addOrder;
-
+/**
+ *  获取订单列表
+ *
+ *  @return <#return value description#>
+ */
+-(RACSignal *)getUserOrderList;
+/**
+ *  获取订单详情
+ *
+ *  @return <#return value description#>
+ */
+-(RACSignal *)getUserOrderDetail:(NSString*)orderId;
 @end

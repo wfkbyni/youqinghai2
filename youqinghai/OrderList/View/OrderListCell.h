@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "OrderListModel.h"
 @interface OrderListCell : UITableViewCell
-
+@property(strong,nonatomic)OrderListModel *orderListMod;
 @end

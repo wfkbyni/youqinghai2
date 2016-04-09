@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface OrderDetailViewController : BaseViewController
-
+@property(strong,nonatomic)NSString *ID;
 @end
