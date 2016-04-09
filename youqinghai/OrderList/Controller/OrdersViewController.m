@@ -10,6 +10,15 @@
 #import "UIViewController+TableView.h"
 #import "ZPageView.h"
 #import "OrderListCell.h"
+#import "OrderDetailViewController.h"
+#import "OrderViewModel.h"
+
+@interface OrdersViewController ()
+
+{}
+@property (nonatomic, strong) OrderViewModel *orderViewModel;
+
+@end
 
 @implementation OrdersViewController
 
@@ -20,8 +29,27 @@
     self.tableView.tableHeaderView = self.tableViewHeader;
     
     self.view.backgroundColor = [UIColor colorWithRed:236.0/255.0 green:237.0/255.0 blue:238.0/255.0 alpha:1];
+    
+    self.title = @"我的订单";
+    
+    [self loadOrderListData];
 }
-
+- (void)loadOrderListData{
+    
+    [RACObserve(self.orderViewModel, orders) subscribeNext:^(id x) {
+        [self.tableView reloadData];
+    }];
+    
+    [[self.orderViewModel getUserOrderList] subscribeError:^(NSError *error) {
+        int code = [[error.userInfo objectForKey:@"result_code"] intValue];
+        if (code == 1) {
+            self.orderViewModel.orders = @[];
+            [self.tableView reloadData];
+        }
+    } completed:^{
+        
+    }];
+}
 
 #pragma mark - tableView delegate
 
@@ -53,6 +81,13 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 220.0f;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    OrderDetailViewController *mOrderDetailViewController = [[OrderDetailViewController alloc] init];
+    [self.navigationController pushViewController:mOrderDetailViewController animated:YES];
 }
 
 #pragma mark -- setter && getter

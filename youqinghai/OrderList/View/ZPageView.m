@@ -9,8 +9,10 @@
 #import "ZPageView.h"
 #import "pageBtn.h"
 @interface ZPageView()
-@property(nonatomic,strong)pageBtn *btn;
-@property(nonatomic,strong)NSMutableArray *btns;
+
+@property(nonatomic, strong) CALayer *line;
+@property(nonatomic,strong)  pageBtn *btn;
+@property(nonatomic,strong)  NSMutableArray *btns;
 @end
 @implementation ZPageView
 - (instancetype)initWithFrame:(CGRect)frame
@@ -19,6 +21,9 @@
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
         _btns  = [NSMutableArray array];
+        _line = CALayer.new;
+        _line.backgroundColor = [UIColor redColor].CGColor;
+        [self.layer addSublayer:_line];
     }
     return self;
 }
@@ -41,7 +46,7 @@
         btn.tag=i;
         if (i==0) {
             btn.selected=YES;
-            btn.page.hidden = NO;
+            //btn.page.hidden = NO;
             self.btn= btn;
         }
         [self.btns addObject:btn];
@@ -50,10 +55,14 @@
     CGFloat linkY = (self.frame.size.height-25)/2;
     CGFloat linkX = self.frame.size.width/self.dataS.count;
     for (int i = 0; i<self.dataS.count-1; i++) {
+        
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake(linkX*(i+1), linkY, 0.5, 25)];
         view.backgroundColor = [UIColor colorWithWhite:0.898 alpha:1.000];
         [self addSubview:view];
     }
+    _line.frame = (CGRect){self.btn.frame.origin.x,self.frame.size.height-1,self.btn.frame.size.width,1};
+
+
 }
 -(void)btnAct:(pageBtn*)btn
 {
@@ -64,6 +73,9 @@
         btn.page.hidden = NO;
         self.btn =btn;
     }
+    
+    _line.frame = (CGRect){self.btn.frame.origin.x,self.frame.size.height-1,self.btn.frame.size.width,1};
+
     if ([self.delegate respondsToSelector:@selector(pageView:button:)]) {
         [self.delegate pageView:self button:btn];
     }

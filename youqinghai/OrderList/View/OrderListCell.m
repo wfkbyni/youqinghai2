@@ -7,7 +7,7 @@
 //
 
 #import "OrderListCell.h"
-
+#import "YQHRadiusButton.h"
 @interface OrderListCell ()
 
 {
@@ -22,6 +22,10 @@
     
     UIView      *_bottomSubView;
     UILabel     *_tourTypeLB;//包车、拼车 出游类型
+    
+    
+    YQHRadiusButton *_cancelBT;
+    YQHRadiusButton *_confirmPayBT;
     
 }
 
@@ -97,12 +101,28 @@
     _tourTypeLB.text = @"包车出游";
     [_bottomSubView addSubview:_tourTypeLB];
     
+    
+    
+    UIColor *color = [UIColor redColor];
+    
+    _confirmPayBT = [YQHRadiusButton createWithTitle:@"立即支付" withColor:color];
+    
+   //
+    [_bottomSubView addSubview:_confirmPayBT];
+    
+    
+    color = [UIColor colorWithRed:200.0/255.0 green:200.0/255.0 blue:200.0/255.0 alpha:1];
+    
+    _cancelBT = [YQHRadiusButton createWithTitle:@"取消订单" withColor:color];
+    
+    [_bottomSubView addSubview:_cancelBT];
+    
     self.contentView.backgroundColor = [UIColor  whiteColor];
     self.textLabel.text = @"2015-01-01 11:50:30";
     self.textLabel.textColor = [UIColor colorWithRed:50.0/255.0 green:50.0/255.0 blue:50.0/255.0 alpha:1.0];
     self.textLabel.font = [UIFont systemFontOfSize:13];
     
-    self.detailTextLabel.text = @"2015-01-01 11:50:30";
+    self.detailTextLabel.text = @"代付款";
     self.detailTextLabel.textColor = [UIColor redColor];
     self.detailTextLabel.font = [UIFont systemFontOfSize:13];
     
@@ -146,6 +166,9 @@
     _bottomSubView.frame = (CGRect){0,_subView.relativeY,self.width,53};
     _tourTypeLB.frame    = (CGRect){leftEdge,0,80,_bottomSubView.height};
     
+    [_confirmPayBT setOrigin:CGPointMake(self.width - _confirmPayBT.width-10,(_bottomSubView.height - _confirmPayBT.height)/2)];
+    [_cancelBT setOrigin:CGPointMake(_confirmPayBT.x-_confirmPayBT.width - 5,_confirmPayBT.y)];
+
 }
 
 @end
