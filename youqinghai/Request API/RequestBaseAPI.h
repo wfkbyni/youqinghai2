@@ -75,5 +75,5 @@ typedef NS_ENUM(NSUInteger,RequestAPIType) {
 - (RACSignal *)ZpostApiString:(NSString *)apiString
                        params:(NSDictionary *)params
                     attachKey:(NSString *)attachKey
-                   attachData:(NSData *)attachData;
+                   attachData:(NSArray *)attachData;
 @end

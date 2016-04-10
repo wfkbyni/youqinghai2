@@ -21,6 +21,7 @@
 #import "ZCustomTourismViewController.h"
 #import "ZMyFollowViewController.h"
 #import "OrdersViewController.h"
+#import "ZOpinionViewController.h"
 @interface TBCellItem : NSObject
 @property (nonatomic, strong) NSString *pic;
 @property (nonatomic, strong) NSString *title;
@@ -186,7 +187,11 @@
                      [self.navigationController pushViewController:ctv animated:YES];
                 }
                     break;
-                    
+                case  2:
+                {
+                    ZOpinionViewController *ovc = [[ZOpinionViewController alloc]init];
+                     [self.navigationController pushViewController:ovc animated:YES];
+                }
                 default:
                     break;
             }

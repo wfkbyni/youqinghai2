@@ -108,7 +108,7 @@
 - (RACSignal *)ZpostApiString:(NSString *)apiString
                       params:(NSDictionary *)params
                    attachKey:(NSString *)attachKey
-                  attachData:(NSData *)attachData{
+                  attachData:(NSArray *)attachData{
     RACSignal *resultSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         NSInteger length = 0;
         
@@ -119,10 +119,16 @@
         manager.responseSerializer             = [AFJSONResponseSerializer serializer];
         NSURLSessionDataTask *task = [manager POST:urlString parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
            // [formData appendPartWithFormData:attachData name:attachKey];
-            NSDate *now = [NSDate date];
-            NSDateFormatter *df =[[NSDateFormatter alloc]init];
-            NSString *pngName =[df stringFromDate:now];
-            [formData appendPartWithFileData:attachData name:attachKey fileName:[NSString stringWithFormat:@"%@.jpeg",pngName] mimeType:@"image/jpeg"];
+            for (int i = 0; i<attachData.count ; i++) {
+                NSData *imageData =UIImageJPEGRepresentation(attachData[i], 0.8) ;
+                NSDate *now = [NSDate date];
+                NSDateFormatter *df =[[NSDateFormatter alloc]init];
+                NSString *pngName =[df stringFromDate:now];
+                
+                [formData appendPartWithFileData:imageData name:[attachKey stringByAppendingString:@(i).stringValue] fileName:[NSString stringWithFormat:@"%@.jpeg",pngName] mimeType:@"image/jpeg"];
+            }
+         
+      
         } progress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             [self processResponseObject:responseObject forTask:task subscriber:subscriber];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {

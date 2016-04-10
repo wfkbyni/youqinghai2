@@ -17,11 +17,12 @@ NSString *const personalPhone = @"app/smscheckcode/sendCheckCodeSms";
 NSString *const personalModfPhone = @"app/user/modifyUserPhone";
 NSString *const personalLoginPass = @"app/user/modifyLoginPass";
 NSString *const personaladdCustom = @"app/customizedtourism/addCustomizedtoursm";
-NSString *const personaladdCustomList = @"app/customizedtourism/";
+NSString *const personaladdCustomList = @"app/customizedtourism/getCustomizedTourismList";
 NSString *const personalRoute = @"app/collection/getTravelsList";
 NSString *const personalDriverList = @"app/collection/getFollowDriverList";
 NSString *const personalTravelsList= @"app/collection/getFollowTravelsList";
 NSString *const personalFollowUserList= @"app/collection/getFollowUserList";
+NSString *const personalFeedBack= @"app/feedback/addFeedBack";
 @implementation RequestBaseAPI (Personal)
 -(RACSignal *)messDataWithPageIndex:(NSString *)index withPageSize:(NSString *)pageSize
 {
@@ -32,8 +33,14 @@ NSString *const personalFollowUserList= @"app/collection/getFollowUserList";
 -(RACSignal *)ImageHeaderDataWithData:(NSData *)data
 {
     NSDictionary *param = @{@"userId":@([ZUserModel shareUserModel].userId.integerValue)};
-    return [self ZpostApiString:personalHeaderUrl params:param attachKey:@"fileName0" attachData:data];
+    return [self ZpostApiString:personalHeaderUrl params:param attachKey:@"fileName" attachData:@[data]];
 }
+-(RACSignal *)addFeedBackWithData:(NSArray *)imageAr andText:(NSString *)text
+{
+    NSDictionary *param = @{@"userDrverId":@([ZUserModel shareUserModel].userId.integerValue),@"type":@"0",@"content":text};
+    return [self ZpostApiString:personalFeedBack params:param attachKey:@"fileName" attachData:imageAr];
+}
+
 -(RACSignal *)userInfoWithNickName:(NSString *)nickName withSex:(NSString *)sex withAutograph:(NSString *)autograph
 {
         NSString *param = [NSString stringWithFormat:@"server=%@&userId=%@&nickname=%@&sex=%@&autograph=%@",personalUserInfo,[ZUserModel shareUserModel ].userId,nickName,sex,autograph];

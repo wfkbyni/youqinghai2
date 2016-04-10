@@ -27,6 +27,9 @@
  *  @return <#return value description#>
  */
 -(RACSignal*)ImageHeaderDataWithData:(NSData*)data;
+
+-(RACSignal*)addFeedBackWithData:(NSArray*)imageAr andText:(NSString*)text;
+ 
 /**
  *  修改用户信息
  *
@@ -165,4 +168,5 @@
  */
 -(RACSignal*)userFollowUserListWithPageIndex:(NSString*)index
                              withPageSize:(NSString*)pageSize;
+
 @end

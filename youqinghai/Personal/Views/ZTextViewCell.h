@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZOpinionViewController.h"
+#define ImageH (SCREEN_WIDTH-50)/4
+#define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
+#define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 typedef void (^TextBlcok)(NSString*);
 
 @interface ZTextViewCell : UITableViewCell<UITextViewDelegate>
@@ -14,5 +18,6 @@ typedef void (^TextBlcok)(NSString*);
 @property (weak, nonatomic) IBOutlet UILabel *placeholder;
 @property(strong,nonatomic)NSString* strText;
 @property(strong,nonatomic)TextBlcok TextBlcok;
-
+@property(strong,nonatomic)NSString* photo;
+@property(nonatomic,weak)ZOpinionViewController *controller;
 @end

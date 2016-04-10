@@ -109,6 +109,7 @@
 		35E3FFC01CA92AAC00876054 /* ZmessCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E3FFBE1CA92AAC00876054 /* ZmessCenterCell.m */; };
 		35E3FFC11CA92AAC00876054 /* ZmessCenterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E3FFBF1CA92AAC00876054 /* ZmessCenterCell.xib */; };
 		35E3FFC81CA934ED00876054 /* PersonalViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E3FFC71CA934ED00876054 /* PersonalViewModel.m */; };
+		35E51D0B1CBAC88100A653FB /* ZOpinionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E51D0A1CBAC88100A653FB /* ZOpinionViewController.m */; };
 		35EB05971CB94FF3003FDEFD /* OrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35EB05881CB94FF3003FDEFD /* OrderDetailViewController.m */; };
 		35EB05981CB94FF3003FDEFD /* OrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35EB058A1CB94FF3003FDEFD /* OrdersViewController.m */; };
 		35EB05991CB94FF3003FDEFD /* OrderListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35EB058D1CB94FF3003FDEFD /* OrderListCell.m */; };
@@ -349,6 +350,8 @@
 		35E3FFBF1CA92AAC00876054 /* ZmessCenterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZmessCenterCell.xib; sourceTree = "<group>"; };
 		35E3FFC61CA934ED00876054 /* PersonalViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalViewModel.h; sourceTree = "<group>"; };
 		35E3FFC71CA934ED00876054 /* PersonalViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewModel.m; sourceTree = "<group>"; };
+		35E51D091CBAC88100A653FB /* ZOpinionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZOpinionViewController.h; sourceTree = "<group>"; };
+		35E51D0A1CBAC88100A653FB /* ZOpinionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZOpinionViewController.m; sourceTree = "<group>"; };
 		35EB05871CB94FF3003FDEFD /* OrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailViewController.h; sourceTree = "<group>"; };
 		35EB05881CB94FF3003FDEFD /* OrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailViewController.m; sourceTree = "<group>"; };
 		35EB05891CB94FF3003FDEFD /* OrdersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdersViewController.h; sourceTree = "<group>"; };
@@ -618,6 +621,8 @@
 				3533411E1CB50F4600543CB4 /* ZCustomTourAddViewController.m */,
 				3533412D1CB63BDE00543CB4 /* ZMyFollowViewController.h */,
 				3533412E1CB63BDE00543CB4 /* ZMyFollowViewController.m */,
+				35E51D091CBAC88100A653FB /* ZOpinionViewController.h */,
+				35E51D0A1CBAC88100A653FB /* ZOpinionViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -1243,6 +1248,7 @@
 				35EB059C1CB94FF3003FDEFD /* YQHRadiusButton.m in Sources */,
 				35EB059B1CB94FF3003FDEFD /* pageBtn.m in Sources */,
 				3533411F1CB50F4600543CB4 /* ZCustomTourAddViewController.m in Sources */,
+				35E51D0B1CBAC88100A653FB /* ZOpinionViewController.m in Sources */,
 				35589AAB1CB7D4BC004DFE35 /* RequestBaseAPI+Order.m in Sources */,
 				354A685E1CB4F622001F3F5D /* ZUserMessModel.m in Sources */,
 				35891BA21CB7B4C000CE7002 /* CarTypeTableView.m in Sources */,
