@@ -27,5 +27,7 @@
 
 @property (nonatomic, assign) NSInteger Id;
 @property (nonatomic, copy) NSString *cartypename;
+@property (nonatomic, assign) NSInteger seatsnum;   // 座位数
+@property (nonatomic, assign) NSInteger dayPrice;   // 每天价格
 
 @end

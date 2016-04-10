@@ -8,7 +8,9 @@
 
 #import "TravelView.h"
 
-@interface TravelView()<UIActionSheetDelegate>
+@interface TravelView()<UIActionSheetDelegate>{
+    NSInteger mySeatsnum;
+}
 // 出游日期
 @property (nonatomic, strong) UILabel *travelDate;
 // 出游人数
@@ -44,7 +46,7 @@
     [_travelCount setText:[NSString stringWithFormat:@"%ld人",carDetail.seatsnum]];
     NSInteger travelCount = [[[NSUserDefaults standardUserDefaults] objectForKey:YQHViewlist] intValue];
     [_travelDay setText:[NSString stringWithFormat:@"%ld天",travelCount]];
-    _seatsnum = carDetail.seatsnum;
+    mySeatsnum = carDetail.seatsnum;
     _viewlist = travelCount;
 }
 
@@ -125,10 +127,9 @@
     [self addSubview:[self lineWithFrame:CGRectMake(0, 150, CGRectGetWidth(frame), 1)]];
 }
 
-- (void)setCarTypes:(NSArray *)carTypes{
-    _carTypes = carTypes;
+-(void)setCalcPrice:(CalcPrice *)calcPrice{
+    _calcPrice = calcPrice;
 }
-
 // 分隔线
 - (UIView *)lineWithFrame:(CGRect)frame{
     
@@ -179,7 +180,7 @@
             break;
         case TravelTypeWithCount:
         {
-            [self selectPersonCount:_carDetail.seatsnum];
+            [self selectPersonCount:mySeatsnum];
         }
             break;
             
@@ -192,10 +193,13 @@
     if (([UIDevice currentDevice].systemVersion.floatValue > 8.0)) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请选择拼车类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         
-        for (int i = 0; i < _carTypes.count; i++) {
-            CarType *carType = _carTypes[i];
+        for (int i = 0; i < _calcPrice.listType.count; i++) {
+            CarType *carType = _calcPrice.listType[i];
             UIAlertAction *action = [UIAlertAction actionWithTitle:carType.cartypename style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 self.travelType.text = carType.cartypename;
+                NSLog(@"%ld",carType.Id);
+                self.carDetail.cartypeId = carType.Id;
+                mySeatsnum = carType.seatsnum;
                 if (_TravelSelectBlock) {
                     _TravelSelectBlock(TravelTypeWithType,carType);
                 }
@@ -257,8 +261,7 @@
         
         [controller addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"%ld",i] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [_travelCount setText:[NSString stringWithFormat:@"%@人",action.title]];
-            _seatsnum = [action.title intValue];
-            
+            self.seatsnum = [action.title intValue];
             if (_TravelSelectBlock) {
                 _TravelSelectBlock(TravelTypeWithCount,action.title);
             }

@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger,TravelType) {
 
 @property (nonatomic, strong) UINavigationController *navigationController;
 
-@property (nonatomic, strong) NSArray *carTypes;
+@property (nonatomic, strong) CalcPrice *calcPrice;
 
 @property (nonatomic, copy) void (^TravelSelectBlock)(TravelType type,id value);
 

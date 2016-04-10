@@ -10,6 +10,7 @@
 
 NSString const *calcCharteredPrice = @"app/payOrder/calcCharteredPrice";
 NSString const *addOrder = @"app/payOrder/addOrder";
+NSString const *calcPrice= @"app/payOrder/calcPrice";
 
 @implementation RequestBaseAPI (Order)
 
@@ -18,6 +19,12 @@ NSString const *addOrder = @"app/payOrder/addOrder";
                             withIsInsurance:(NSInteger)isInsurance{
     
     NSString *params = [NSString stringWithFormat:@"server=%@&traveId=%ld&driverId=%ld",calcCharteredPrice,traveId,driverId];//[NSString stringWithFormat:@"server=%@&traveId=%ld&carTypeId=%ld&isInsurance=%ld",calcCharteredPrice,traveId,carTypeId,isInsurance];
+    
+    return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
+}
+
+-(RACSignal *)calcPriceWithTraveId:(NSInteger)traveId{
+    NSString *params = [NSString stringWithFormat:@"server=%@&traveId=%ld",calcPrice,traveId];
     
     return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
 }

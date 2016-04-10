@@ -30,6 +30,14 @@
     return signal;
 }
 
+-(RACSignal *)calcPrice{
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] calcPriceWithTraveId:self.traveId] map:^id(id value) {
+        self.cPrice = [CalcPrice mj_objectWithKeyValues:value];
+        return self.cPrice;
+    }];
+    return signal;
+}
+
 -(RACSignal *)addOrder{
     
     NSLog(@"%@",[self.order mj_JSONString]);

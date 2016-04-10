@@ -11,9 +11,17 @@
 @interface RelationView : UIView
 
 @property (nonatomic, strong) Order *order;
+
+@property (nonatomic, assign) BOOL isCarpool;
+
+// 包车数据
 @property (nonatomic, strong) CalCarPrice *calCarPrice;
+// 拼车数据
+@property (nonatomic, strong) CalcPrice *calcPrice;
 
 @property (nonatomic, assign) NSInteger insuranceCount;       // 保险人数
+
+@property (nonatomic, assign) NSInteger seatsnum;             // 出游人数
 
 @property (nonatomic, strong) UINavigationController *navigationController;
 

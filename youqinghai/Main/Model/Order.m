@@ -23,3 +23,11 @@
 @implementation CalCarPrice
 
 @end
+
+@implementation CalcPrice
+
++(NSDictionary *)mj_objectClassInArray{
+    return @{@"listType":@"CarType"};
+}
+
+@end

@@ -124,6 +124,24 @@
     [self attrString:_insuranceCount];
 }
 
+-(void)setCalcPrice:(CalcPrice *)calcPrice{
+    _calcPrice = calcPrice;
+    
+    [self attrString:_insuranceCount];
+}
+
+-(void)setIsCarpool:(BOOL)isCarpool{
+    _isCarpool = isCarpool;
+    
+    [self attrString:_insuranceCount];
+}
+
+- (void)setSeatsnum:(NSInteger)seatsnum{
+    _seatsnum = seatsnum;
+    
+    [self attrString:_insuranceCount];
+}
+
 - (void)bindModel{
     [_textField1.rac_textSignal subscribeNext:^(id x) {
         self.order.contacts = x;
@@ -148,7 +166,7 @@
     
     [fuseMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:@"保险金额:" attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:14]}]];
     
-    [fuseMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@/天",_calCarPrice.matchingValue] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:16]}]];
+    [fuseMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@/天",_isCarpool ? _calcPrice.mathchValue : _calCarPrice.matchingValue] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:16]}]];
     
     self.fuseMoneyLab.attributedText = fuseMoneyAttr;
     
@@ -156,16 +174,16 @@
     
     [fuseTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:@"总金额:" attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:14]}]];
     
-    NSInteger insuranceMoney = [_calCarPrice.matchingValue intValue] * count;
+    NSInteger insuranceMoney = _isCarpool ? [_calcPrice.mathchValue intValue] * count : [_calCarPrice.matchingValue intValue] * count;
     [fuseTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%lu",insuranceMoney] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:16]}]];
     
     self.fuseTotalMoneyLab.attributedText = fuseTotalMoneyAttr;
     
     NSMutableAttributedString *orderMoneyAttr = [[NSMutableAttributedString alloc] init];
     
-    [orderMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:@"订单金额:" attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:15]}]];
+    [orderMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:_isCarpool ? @"人均金额:" : @"订单金额:" attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:15]}]];
     
-    [orderMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@天",_calCarPrice.orderPrice] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:18]}]];
+    [orderMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@天",_isCarpool ? _calcPrice.perPrice : _calCarPrice.orderPrice] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:18]}]];
     
     self.calculateView.orderMoneyLab.attributedText = orderMoneyAttr;
     
@@ -173,11 +191,11 @@
     
     [orderTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:@"总金额:" attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:15]}]];
     
-    [orderTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%ld",[_calCarPrice.orderPrice intValue] + insuranceMoney] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:18]}]];
+    [orderTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%ld",  _isCarpool ? [_calcPrice.orderPrice intValue] * _seatsnum + insuranceMoney : [_calCarPrice.orderPrice intValue] + insuranceMoney] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:18]}]];
     
     self.calculateView.totalMoneyLab.attributedText = orderTotalMoneyAttr;
     
-    self.calculateView.earnestMoneyLab.text = [NSString stringWithFormat:@"￥%@",_calCarPrice.orderReserve];
+    self.calculateView.earnestMoneyLab.text = [NSString stringWithFormat:@"￥%@",_isCarpool ? _calcPrice.deposit : _calCarPrice.orderReserve];
 }
 
 // 分隔线

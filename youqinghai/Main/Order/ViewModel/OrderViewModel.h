@@ -19,11 +19,15 @@
 
 @property (nonatomic, strong) CalCarPrice *calCarPrice;
 
+@property (nonatomic, strong) CalcPrice *cPrice;
+
 /**
  *  @brief 计算包车订单价格（1.0）
  *
  */
 - (RACSignal *)calcCharteredPrice;
+
+- (RACSignal *)calcPrice;
 
 /**
  *  @brief 生成支付订单（1.0）

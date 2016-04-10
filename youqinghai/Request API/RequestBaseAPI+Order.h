@@ -23,6 +23,14 @@
                              withIsInsurance:(NSInteger)isInsurance;
 
 /**
+ *  @brief 计算拼车价格
+ *
+ *  @param traveId 景点id
+ *
+ */
+- (RACSignal *)calcPriceWithTraveId:(NSInteger)traveId;
+
+/**
  *  @brief 生成支付订单（1.0）
  *
  *  @param orderModel 提交的实体数据

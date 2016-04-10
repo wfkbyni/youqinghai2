@@ -59,3 +59,23 @@ Json数据格式
 @property (nonatomic, strong) NSString *isInsuranceMoney;   // 保险金额
 
 @end
+
+@interface CalcPrice : NSObject
+@property (nonatomic, strong) NSNumber *travelTime;         // 出游时间
+@property (nonatomic, strong) NSNumber *perPrice;           // 每人价格,
+@property (nonatomic, strong) NSNumber *deposit;            // 预付定金,
+@property (nonatomic, strong) NSNumber *mathchValue;        // 系统保险金额
+@property (nonatomic, strong) NSArray *listType;            //
+//"listType": [
+//             {
+//                 "id": 车辆类型Id,
+//                 "seatsnum": 座位数,
+//                 "cartypename": "车辆类型",
+//                 "dayPrice": 每天价格
+//             }
+//             ],
+@property (nonatomic, strong) NSNumber *travePersonNum;      // 出游人数,
+@property (nonatomic, strong) NSNumber *orderPrice;          // 订单总额,
+@property (nonatomic, strong) NSNumber *day;                 // 出游天数,
+@property (nonatomic, strong) NSNumber *isInsuranceMoney;    // 保险金额"
+@end

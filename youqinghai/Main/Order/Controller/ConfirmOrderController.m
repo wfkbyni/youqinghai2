@@ -28,7 +28,6 @@
 @property (nonatomic, strong) SubmitOrderView *submitOrderView;
 
 @property (nonatomic, strong) OrderViewModel *orderViewModel;
-@property (nonatomic, strong) CarViewModel *carViewModel;
 @end
 
 @implementation ConfirmOrderController
@@ -53,33 +52,39 @@
         
     }];
     
+    [RACObserve(self.travelView, seatsnum) subscribeNext:^(NSNumber *obj) {
+        self.relationView.seatsnum = [obj intValue];
+    }];
+    
+    self.orderViewModel = [[OrderViewModel alloc] init];
+    self.relationView.order = self.orderViewModel.order;
+    self.orderViewModel.traveId = [[[NSUserDefaults standardUserDefaults] objectForKey:YQHTourisId] integerValue];
+    self.orderViewModel.driverId = self.driverId;
+    
+    self.relationView.isCarpool = _isCarpool;
     if (_isCarpool) {
-        self.carViewModel = [[CarViewModel alloc] init];
-        [self loadCarTypeListData];
+        [self loadCalcPrice];
     }else{
         [self requestCalcCharteredPriceData];
     }
 }
 
-// 车辆类型
-- (void)loadCarTypeListData{
-    [[self.carViewModel getCarTypeList] subscribeError:^(NSError *error) {
+- (void)loadCalcPrice{
+    [[self.orderViewModel calcPrice] subscribeNext:^(CalcPrice *calcPrice) {
         
-    } completed:^{
+        self.relationView.calcPrice = calcPrice;
         
+    } error:^(NSError *error) {
+        YQHLog(@"%@",error);
     }];
     
-    [RACObserve(self.carViewModel, carTypes) subscribeNext:^(NSArray *carTypes) {
-        self.travelView.carTypes = carTypes;
+    [RACObserve(self.orderViewModel, cPrice) subscribeNext:^(CalcPrice *cPrice) {
+        self.travelView.calcPrice = cPrice;
     }];
 }
 
 // 获取包车价格
 - (void)requestCalcCharteredPriceData{
-    self.orderViewModel = [[OrderViewModel alloc] init];
-    self.relationView.order = self.orderViewModel.order;
-    self.orderViewModel.traveId = [[[NSUserDefaults standardUserDefaults] objectForKey:YQHTourisId] integerValue];
-    self.orderViewModel.driverId = self.driverId;
     
     [[self.orderViewModel calcCharteredPrice] subscribeNext:^(CalCarPrice *calCarPrice) {
         
@@ -104,7 +109,12 @@
     if (!_travelView) {
         _travelView = [[TravelView alloc] initWithFrame:CGRectMake(0, 10, kScreenSize.width, _isCarpool ? 50 * 4 : 50 * 3) withIsTrave:_isCarpool];
         _travelView.navigationController = self.navigationController;
-        _travelView.carDetail = self.carDetail;
+        if (self.carDetail) {
+            _travelView.carDetail = self.carDetail;
+        } else {
+             _travelView.carDetail = [CarDetail new];
+        }
+       
         
         __weak typeof(self) weakSelf = self;
         [_travelView setTravelSelectBlock:^(TravelType type, id value) {
@@ -146,7 +156,7 @@
     
     self.orderViewModel.order.userId = myUserId;
     self.orderViewModel.order.traveld = [[[NSUserDefaults standardUserDefaults] objectForKey:YQHTourisId] integerValue];
-    self.orderViewModel.order.carTypeId = self.carDetail.cartypeId;
+    self.orderViewModel.order.carTypeId = _isCarpool ? self.travelView.carDetail.cartypeId : self.carDetail.cartypeId;
     self.orderViewModel.order.traveltype = !_isCarpool;
     self.orderViewModel.order.insuranceCost = self.relationView.insuranceCount;
     self.orderViewModel.order.driverId = self.driverId;
