@@ -44,20 +44,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UzysAssetsPickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>09CAAD6AF25C2086860AA998170FEDF6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>119756B334B36CB1B569E6E00DA3AEF1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2C71DE0FB8A6E5BB6EAF9FB037D799CC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>30CEE4C59863AD305BE0BF1CA13BF7F8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>45CD8C441677B5D79FD41D1081E1057C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +72,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>928353533005A4198EBDA5B700D37B64</key>
+		<key>6B974E7EB70186C2B59F39DD761268FF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>94683408EF355D7C2C9B2C181E2ADCF3</key>
+		<key>928353533005A4198EBDA5B700D37B64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,7 +87,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D7DA343C185B325F432445C8B33C3D09</key>
+		<key>C3715BF1F6322FA8E35B2E65AC8DD2F0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E7C76ADCDBED1394703A62F547192736</key>
 		<dict>
 			<key>primary</key>
 			<true/>
