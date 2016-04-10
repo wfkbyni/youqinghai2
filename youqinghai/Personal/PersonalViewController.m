@@ -20,6 +20,7 @@
 #import "ZMoreViewController.h"
 #import "ZCustomTourismViewController.h"
 #import "ZMyFollowViewController.h"
+#import "OrdersViewController.h"
 @interface TBCellItem : NSObject
 @property (nonatomic, strong) NSString *pic;
 @property (nonatomic, strong) NSString *title;
@@ -56,7 +57,7 @@
                 [blockSelf getUserData];
                 return ;
             }
-            [_headerView awakeFromNib];
+            [_headerView setData];
         });
     }
     
@@ -64,7 +65,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [_headerView awakeFromNib];
+    [_headerView setData];
 }
 -(UIView*)setHeaderView
 {
@@ -72,13 +73,20 @@
     _headerView = headerView;
     headerView.viewController = self;
     __weak PersonalViewController *blockSelf= self;
-    headerView.btnBlcok = ^(){
+    headerView.btnBlcok = ^(int type){
         if (![ZUserModel shareUserModel].userId) {
             [self loginPush];
             return ;
         }
-        ZPersonalDataViewController *per = [[ZPersonalDataViewController alloc]init];
-        [blockSelf.navigationController pushViewController:per animated:YES];
+        if (type) {
+            ZPersonalDataViewController *pdv = [[ZPersonalDataViewController alloc]init];
+            [self.navigationController pushViewController:pdv animated:YES];
+        }else{
+            ZMoreViewController *per = [[ZMoreViewController alloc]init];
+            [blockSelf.navigationController pushViewController:per animated:YES];
+        }
+        
+  
     };
   // headerView.frame = CGRectMake(0, 0, self.view.frame.size.width, 200);
     return headerView;
@@ -143,6 +151,12 @@
         case 0:
         {
             switch (indexPath.row) {
+                case 0:
+                {
+                    OrdersViewController *ovc = [[OrdersViewController alloc]init];
+                    [self.navigationController pushViewController:ovc animated:YES];
+                }
+                    break;
                 case 1:
                 {
                     ZMyFollowViewController *fvc = [[ZMyFollowViewController alloc]init];
@@ -187,7 +201,7 @@
     
     if (!_datasource) {
         
-        _datasource = @[@[@{@"pic":@"star_yellow",@"title":@"我的订单"},@{@"pic":@"star_yellow",@"title":@"我的关注"},@{@"pic":@"star_yellow",@"title":@"消息中心"}],@[@{@"pic":@"我的_18",@"title":@"定制旅游"},@{@"pic":@"我的_20",@"title":@"分享好友"},@{@"pic":@"我的_22",@"title":@"意见反馈"}] ];
+        _datasource = @[@[@{@"pic":@"我的_03(2)",@"title":@"我的订单"},@{@"pic":@"我的_14",@"title":@"我的关注"},@{@"pic":@"我的_16",@"title":@"消息中心"}],@[@{@"pic":@"我的_18",@"title":@"定制旅游"},@{@"pic":@"我的_20",@"title":@"分享好友"},@{@"pic":@"我的_22",@"title":@"意见反馈"}] ];
         
     }
     return _datasource;

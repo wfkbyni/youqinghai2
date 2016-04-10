@@ -1,5 +1,5 @@
 //
-//  OrderListCell.h
+//  OrderListDetailCell.h
 //  youqinghai
 //
 //  Created by mouxiaochun on 16/4/8.
@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OrderListModel.h"
-@interface OrderListCell : UITableViewCell
-@property(strong,nonatomic)OrderListModel *orderListMod;
+
+@interface OrderListDetailCell : UITableViewCell
+
 @end
