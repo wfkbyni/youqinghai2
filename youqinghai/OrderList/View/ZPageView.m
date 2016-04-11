@@ -93,5 +93,6 @@
             [self.delegate pageView:self button:btn];
         }
     }
+   _line.frame = (CGRect){self.btn.frame.origin.x,self.frame.size.height-1,self.btn.frame.size.width,1};
 }
 @end

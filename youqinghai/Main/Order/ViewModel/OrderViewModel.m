@@ -14,6 +14,7 @@
 -(instancetype)init{
     if (self = [super init]) {
         _order = [[Order alloc] init];
+        self.pages = @"";
     }
     return self;
 }
@@ -54,7 +55,7 @@
 -(RACSignal *)getUserOrderList{
     
     NSString *userID = [ZUserModel shareUserModel].userId;
-    RACSignal *signal = [[[RequestBaseAPI standardAPI] getUserOrderList:[userID integerValue] wihtState:-1  withPageIndex:1 withPageSize:10] map:^id(id value) {
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] getUserOrderList:[userID integerValue] wihtState:-1  withPageIndex:self.pages.integerValue withPageSize:10] map:^id(id value) {
         
         self.orderList = [OrderListModel mj_objectArrayWithKeyValuesArray:value];
         return self.orderList;

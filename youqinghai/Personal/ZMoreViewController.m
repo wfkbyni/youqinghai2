@@ -32,7 +32,7 @@
 
 {
     
-    return 5;
+    return 4;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -73,10 +73,7 @@
             cell.imageView.image = [UIImage imageNamed:@"我的_更多_10"];
             cell.textLabel.text = @"清除缓存";
             break;
-        case 4:
-            cell.imageView.image = [UIImage imageNamed:@"我的_更多_03-5"];
-            cell.textLabel.text = @"版本更新";
-            break;
+        
             
         default:
             break;

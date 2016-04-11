@@ -8,6 +8,7 @@
 
 #ifndef Common_h
 #define Common_h
+#define endRefesh [self.tableView.mj_header endRefreshing];[self.tableView.mj_footer endRefreshing];
 
 #define kScreenSize          [UIScreen mainScreen].bounds.size
 

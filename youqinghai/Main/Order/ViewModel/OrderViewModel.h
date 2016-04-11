@@ -23,7 +23,7 @@
 
 @property (nonatomic, strong) NSArray *orders;
 @property (nonatomic, strong) NSArray *orderList;
-
+@property(nonatomic,copy) NSString *pages;
 /**
  *  @brief 计算包车订单价格（1.0）
  *

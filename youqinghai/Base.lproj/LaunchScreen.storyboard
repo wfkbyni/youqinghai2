@@ -17,15 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="sfN-Xx-m7J">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="sfN-Xx-m7J">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="sfN-Xx-m7J" secondAttribute="trailing" id="M5l-h6-h8d"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="sfN-Xx-m7J" secondAttribute="bottom" id="NAt-4b-hR1"/>
-                            <constraint firstItem="sfN-Xx-m7J" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="V0h-5x-p9G"/>
+                            <constraint firstItem="sfN-Xx-m7J" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="V0h-5x-p9G"/>
                             <constraint firstItem="sfN-Xx-m7J" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Z9m-z0-eID"/>
                         </constraints>
                     </view>

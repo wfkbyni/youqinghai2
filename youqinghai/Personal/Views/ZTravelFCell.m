@@ -41,7 +41,7 @@
     _contentW.constant = _content.frame.size.height;
     
     [_parNum setTitle:[NSString stringWithFormat:@" %@",travelMod.parNum] forState:UIControlStateNormal];
-    
+    _nickName.text = travelMod.nickname;
 }
 /**
  *  点赞操作

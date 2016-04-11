@@ -27,5 +27,7 @@
 #import "BaseViewController.h"
 #import "SDCycleScrollView.h"
 #import "Const.h"
+#import <MJRefresh/MJRefresh.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 #endif /* PrefixHeader_pch */
 #define myUserId 4

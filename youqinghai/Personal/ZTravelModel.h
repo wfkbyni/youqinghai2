@@ -19,6 +19,7 @@
 @property(nonatomic,copy)NSString *headUrl;
 @property(nonatomic,copy)NSString *addTime;
 @property(nonatomic,copy)NSString *height;
+@property(nonatomic,copy)NSString *nickname;
 @end
 //"imgUrl": "游记图片路径",
 //"content": "游记内容",
