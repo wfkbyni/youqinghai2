@@ -81,7 +81,7 @@
     [self.pageView selectedIndex:@(0)];
     [signal subscribeNext:^(id x) {
                  endRefesh
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+              
        x =  [OrderListModel mj_objectArrayWithKeyValuesArray:x];
                 if (self.orderViewModel.pages.integerValue!=1) {
                     if ([(NSArray*)x count]) {

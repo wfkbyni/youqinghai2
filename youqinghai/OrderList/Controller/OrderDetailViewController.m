@@ -45,6 +45,7 @@
 }
 -(void)getNetData
 {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [RACObserve(self.orderViewModel, orderList) subscribeNext:^(id x) {
         self.orderListMod = x[0];
         if (self.orderListMod) {
@@ -52,8 +53,10 @@
         }
        
         [self.tableView reloadData];
+          [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
     [[self.orderViewModel getUserOrderDetail:self.ID] subscribeError:^(NSError *error) {
+          [MBProgressHUD hideHUDForView:self.view animated:YES];
         int code = [[error.userInfo objectForKey:@"result_code"] intValue];
         if (code == 1) {
             self.orderViewModel.orders = @[];

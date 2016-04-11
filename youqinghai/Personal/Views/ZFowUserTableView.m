@@ -11,6 +11,7 @@
 #import "RequestBaseAPI+Personal.h"
 @interface ZFowUserTableView ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)NSMutableArray *tabAr;
+@property(copy,nonatomic)NSString *pages;
 @end
 @implementation ZFowUserTableView
 
@@ -22,19 +23,55 @@
         self.dataSource = self;
         
         [self registerNib:[UINib nibWithNibName:@"ZFowUserCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"ZFowUserCell"];
-        [self getNet];
+        MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
+        self.mj_header = header;
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+                self.pages = @(self.pages.integerValue+1).stringValue;
+                [self getNet];
+            }];
+        });
+        
+        [self.mj_header beginRefreshing];
+        
     }
     return self;
 }
+-(void)headerRefresh
+{
+    self.pages = @"1";
+    [self getNet];
+}
 -(void)getNet
 {
-    RACSignal *signal = [[RequestBaseAPI standardAPI]userFollowUserListWithPageIndex:@"1" withPageSize:@"20"];
+    RACSignal *signal = [[RequestBaseAPI standardAPI]userFollowUserListWithPageIndex:self.pages withPageSize:@"20"];
     __weak ZFowUserTableView *blockSelf= self;
     [signal subscribeNext:^(id x) {
+        [blockSelf.mj_header endRefreshing];
+        [blockSelf.mj_footer endRefreshing];
         NSArray *ar =  [NSJSONSerialization JSONObjectWithData:[((NSString *)x) dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-        self.tabAr = [ZFowUserModel mj_objectArrayWithKeyValuesArray:ar];
-        NSLog(@"%@",self.tabAr );
+        if (blockSelf.pages.integerValue!=1) {
+            if (ar.count) {
+                [blockSelf.tabAr addObjectsFromArray:[ZFowUserModel mj_objectArrayWithKeyValuesArray:ar]];
+                [blockSelf reloadData];
+            }else{
+                [blockSelf.mj_footer endRefreshingWithNoMoreData];
+            }
+            
+            return ;
+        }
+        
+        
+        blockSelf.tabAr = [ZFowUserModel mj_objectArrayWithKeyValuesArray:ar];
+        NSLog(@"%@",blockSelf.tabAr );
         [blockSelf reloadData];
+ 
+    }];
+    [signal subscribeError:^(NSError *error) {
+        [blockSelf.mj_header endRefreshing];
+        [blockSelf.mj_footer endRefreshing];
+        [blockSelf.mj_footer endRefreshingWithNoMoreData];
     }];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
