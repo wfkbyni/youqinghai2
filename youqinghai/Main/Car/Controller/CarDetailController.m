@@ -50,7 +50,7 @@
     
     [_myTableView setTableHeaderView:[self commonView]];
     
-    UIButton *charteredBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, kScreenSize.height - 60, kScreenSize.width, 60)];
+    UIButton *charteredBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, kScreenSize.height - 50, kScreenSize.width, 50)];
     [charteredBtn setBackgroundColor:[UIColor orangeColor]];
     [charteredBtn setTitle:@"立即包车" forState:UIControlStateNormal];
     [charteredBtn addTarget:self action:@selector(charteredAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -99,7 +99,7 @@
 
 - (UIView *)commonView{
     if (!_driverCarHeaderView) {
-        _driverCarHeaderView = [[DriverCarHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenSize.width, 250)];
+        _driverCarHeaderView = [[DriverCarHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenSize.width, 250 + 100)];
         [self.view addSubview:_driverCarHeaderView];
         
         @weakify(self)
@@ -150,19 +150,30 @@
             return 170.0f;
             break;
         case 1:
-            return 140.0f * 3 + 90;
+        {
+            float height = 0;
+            if (_carViewModel.carDetail.evalist.count > 0) {
+                for (NSInteger i = 0; i < MIN(3, _carViewModel.carDetail.evalist.count); i ++) {
+                    height += [DriverCarCommentTableViewCell calcCellHeight:_carViewModel.carDetail.evalist[i]];
+                }
+            }
+            
+            height += 90;
+            
+            return height;
+        }
             break;
         case 2:
         {
             float height = [self.carViewModel.carDetail.driverInfo calHeightWithWidth:kScreenSize.width - 20 withFontSize:14];
-            return height + 50;
+            return height + 70;
         }
             break;
         default:
             break;
     }
     
-    return 170.0f;
+    return 0;
     
 }
 
@@ -206,12 +217,7 @@
             break;
     }
     
-    DriverCarPivViewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DriverCarPivViewCell];
-    if (!cell) {
-        cell = [[DriverCarPivViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:DriverCarPivViewCell];
-    }
-    
-    return cell;
+    return nil;
 }
 
 

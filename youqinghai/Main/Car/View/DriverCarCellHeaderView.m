@@ -13,12 +13,12 @@
 -(instancetype)initWithFrame:(CGRect)frame withImageName:(NSString *)imageName withTitle:(NSString *)title{
     frame = CGRectMake(0, 0, kScreenSize.width, 50);
     if (self = [super initWithFrame:frame]) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 30, 30)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 15, 20, 20)];
         [imageView setImage:[UIImage imageNamed:imageName]];
         
         [self addSubview:imageView];
         
-        UILabel *label =  [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView.frame) + 10, 15, 200, 20)];
+        UILabel *label =  [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView.frame) + 5, 15, 200, 20)];
         [label setFont:[UIFont systemFontOfSize:14]];
         [label setTextColor:[UIColor grayColor]];
         [label setText:title];

@@ -208,16 +208,16 @@
 
 - (IBAction)addRoteAction:(id)sender {
     
-    [[self.mainViewModel addDriverOrRoteId] subscribeNext:^(id value) {
-        
-        RoteCollection *roteCollection = [RoteCollection mj_objectWithKeyValues:value];
-        
-        [self showCollectionState:roteCollection.state withCollectionNum:roteCollection.collNum];
-    } error:^(NSError *error) {
-        
-    } completed:^{
-        
-    }];
+//    [[self.mainViewModel addDriverOrRoteId] subscribeNext:^(id value) {
+//        
+//        RoteCollection *roteCollection = [RoteCollection mj_objectWithKeyValues:value];
+//        
+//        [self showCollectionState:roteCollection.state withCollectionNum:roteCollection.collNum];
+//    } error:^(NSError *error) {
+//        
+//    } completed:^{
+//        
+//    }];
 }
 
 // 拼车
@@ -237,12 +237,12 @@
 // 显示收藏状态
 - (void)showCollectionState:(BOOL)isCollection withCollectionNum:(NSInteger)num{
     
-    self.collectionNumLab.text = [@(num) stringValue];
+    self.collectionNumLab.text = [NSString stringWithFormat:@"收藏(%@)",@(num)];
     
     if (isCollection) {
-        [self.collectionBtn setImage:[UIImage imageNamed:@"collection_off"] forState:UIControlStateNormal];
+        [self.collectionBtn setImage:[UIImage imageNamed:@"favorites"] forState:UIControlStateNormal];
     }else{
-        [self.collectionBtn setImage:[UIImage imageNamed:@"collection_on"] forState:UIControlStateNormal];
+        [self.collectionBtn setImage:[UIImage imageNamed:@"favorites"] forState:UIControlStateNormal];
     }
 }
 

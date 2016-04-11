@@ -19,7 +19,7 @@
 @property (nonatomic, strong) NSString *nickname;       // 司机名称
 @property (nonatomic, assign) NSInteger driverId;       // 司机Id,
 @property (nonatomic, assign) NSInteger eav;            // 评价百分比,
-@property (nonatomic, assign) NSInteger sex;            // 性别
+@property (nonatomic, assign) NSInteger sex;            // 性别 0女  1男
 @property (nonatomic, strong) NSString *carname;        // 车辆名称
 @property (nonatomic, strong) NSString *driverInfo;     // 司机服务介绍",
 @property (nonatomic, strong) NSString *headUrl;        // "司机头像路径",

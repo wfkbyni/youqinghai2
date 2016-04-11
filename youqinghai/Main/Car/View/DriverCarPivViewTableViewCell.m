@@ -85,7 +85,7 @@
 - (DriverCarCellHeaderView *)headerView{
     
     if (!_headerView) {
-        _headerView = [[DriverCarCellHeaderView alloc] initWithFrame:CGRectZero withImageName:@"collection_off" withTitle:@"司机/车辆图片"];
+        _headerView = [[DriverCarCellHeaderView alloc] initWithFrame:CGRectZero withImageName:@"detail_pic" withTitle:@"司机/车辆图片"];
     }
     
     return _headerView;

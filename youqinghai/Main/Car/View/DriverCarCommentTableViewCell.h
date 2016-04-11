@@ -12,4 +12,13 @@
 
 @property (nonatomic, strong) NSArray *evalist;
 
+/**
+ *  @brief 计算行高
+ *
+ *  @param eav <#eav description#>
+ *
+ *  @return <#return value description#>
+ */
++(float)calcCellHeight:(Eav *)eav;
+
 @end

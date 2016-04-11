@@ -30,7 +30,7 @@
 {
     UIButton *leftBT = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *image;
-    image = [UIImage imageNamed:@"首页_线路分类_03"];
+    image = [UIImage imageNamed:@"arrow_left"];
     [leftBT setImage:image forState:UIControlStateNormal];
     CGRect f ;
     f.size = image.size;

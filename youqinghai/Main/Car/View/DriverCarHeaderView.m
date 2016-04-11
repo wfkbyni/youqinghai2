@@ -62,22 +62,25 @@
     
     UIView *view = [[UIView alloc] initWithFrame:self.frame];
     
-    _bgImageView = [[UIImageView alloc] initWithFrame:view.frame];
-    [_bgImageView setImage:[_bgImageView clipImage:[UIImage imageNamed:@"bg"] toSize:view.frame.size]];
+    CGRect frame = view.frame;
+    frame.size.height = CGRectGetHeight(frame) - 100;
+    
+    _bgImageView = [[UIImageView alloc] initWithFrame:frame];
+    [_bgImageView setImage:[_bgImageView clipImage:[UIImage imageNamed:@"detail_header_bg"] toSize:view.frame.size]];
     
     [view addSubview:_bgImageView];
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setFrame:CGRectMake(10, 30, 40, 40)];
     [backBtn setTag:BtnClickEventWithBack];
-    [backBtn setBackgroundColor:[UIColor redColor]];
+    [backBtn setImage:[UIImage imageNamed:@"arrow_left"] forState:UIControlStateNormal];
     
     [view addSubview:backBtn];
     
     UIButton *collectionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     collectionBtn.frame = CGRectMake(CGRectGetWidth(self.frame) - 40 - 10, 30, 40, 40);
     [collectionBtn setTag:BtnClickEventWithCollection];
-    [collectionBtn setBackgroundColor:[UIColor blueColor]];
+    [collectionBtn setImage:[UIImage imageNamed:@"collection"] forState:UIControlStateNormal];
     
     [view addSubview:collectionBtn];
     
@@ -92,14 +95,12 @@
     [view addSubview:_carName];
     
     _sexImageView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame) / 2, 40, 20, 20)];
-    [_sexImageView setBackgroundColor:[UIColor greenColor]];
     
     [view addSubview:_sexImageView];
     
     /**-------------------------------------------------------------------------**/
     
     _headImageView = [[UIImageView alloc] initWithFrame:CGRectMake((CGRectGetWidth(self.frame) - 48) / 2, CGRectGetMaxY(_sexImageView.frame) + 15, 48, 48)];
-    [_headImageView setBackgroundColor:[UIColor redColor]];
     
     [_headImageView viewWithCornerRadius:CGRectGetWidth(_headImageView.frame) / 2];
     
@@ -166,22 +167,43 @@
     
     [view addSubview:_collectionCountLab];
     
-    UIView *line1 = [[UILabel alloc] initWithFrame:CGRectMake((CGRectGetWidth(self.frame) - width) / 2 + 20, CGRectGetMaxY(_carSeatsNum.frame) + 30, 1, 30)];
+    UIView *line1 = [[UILabel alloc] initWithFrame:CGRectMake((CGRectGetWidth(self.frame) - width) / 2 + 20, CGRectGetMaxY(_carSeatsNum.frame) + 30, 0.5, 30)];
     [line1 setBackgroundColor:[UIColor whiteColor]];
     
     [view addSubview:line1];
     
-    UIView *line2 = [[UILabel alloc] initWithFrame:CGRectMake((CGRectGetWidth(self.frame) - width) / 2 + width - 20, CGRectGetMaxY(_carSeatsNum.frame) + 30, 1, 30)];
+    UIView *line2 = [[UILabel alloc] initWithFrame:CGRectMake((CGRectGetWidth(self.frame) - width) / 2 + width - 20, CGRectGetMaxY(_carSeatsNum.frame) + 30, 0.5, 30)];
     [line2 setBackgroundColor:[UIColor whiteColor]];
     
     [view addSubview:line2];
+    /**-------------------------------------------------------------------------**/
+    float itemWidht = kScreenSize.width / 3;
+    NSArray *titles = @[@"车载Wifi",@"急救包",@"氧气袋",@"雨伞",@"摄影协助"];
+    for (NSInteger i = 0; i < titles.count; i++) {
+        
+        NSInteger row = i / 3;
+        NSInteger column = i % 3;
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setFrame:CGRectMake(column * itemWidht + 10, row * 50 + self.viewHeight - 100, itemWidht, 50)];
+        [button setEnabled:NO];
+        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"detail_0%ld",i + 1]] forState:UIControlStateNormal];
+        [button setTitle:titles[i] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor colorWithRed:0.33 green:0.34 blue:0.34 alpha:1.00] forState:UIControlStateNormal];
+        [button.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
+        [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+        
+        [self addSubview:button];
+    }
+    
     /**-------------------------------------------------------------------------**/
     
     return view;
 }
 
 - (void)bindData:(CarDetail *)carDetail{
-    _sexImageView.backgroundColor = carDetail.sex == 0 ? [UIColor redColor] : [UIColor blueColor];
+    _sexImageView.image = carDetail.sex == 0 ? [UIImage imageNamed:@"woman"] : [UIImage imageNamed:@"man"];
+    
     [_headImageView sd_setImageWithURL:[NSURL URLWithString:carDetail.headUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         _headImageView.image = [_headImageView clipImage:image toSize:_headImageView.frame.size];
         [_headImageView viewWithBorderWidth:2 WithBorderColor:[UIColor grayColor]];

@@ -41,7 +41,7 @@
 - (DriverCarCellHeaderView *)headerView{
     
     if (!_headerView) {
-        _headerView = [[DriverCarCellHeaderView alloc] initWithFrame:CGRectZero withImageName:@"collection_off" withTitle:@"个人介绍"];
+        _headerView = [[DriverCarCellHeaderView alloc] initWithFrame:CGRectZero withImageName:@"detail_person" withTitle:@"个人介绍"];
     }
     
     return _headerView;
@@ -50,7 +50,7 @@
 - (UILabel *)introduceView{
     
     if (!_introduceView) {
-        _introduceView = [[UILabel alloc] initWithFrame:CGRectMake(10, 50, kScreenSize.width - 20, 100)];
+        _introduceView = [[UILabel alloc] initWithFrame:CGRectMake(10, 60, kScreenSize.width - 20, 100)];
         [_introduceView setFont:[UIFont systemFontOfSize:14]];
         [_introduceView setNumberOfLines:0];
     }

@@ -161,7 +161,7 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setFrame:frame];
     [button setTag:tag];
-    [button setImage:[UIImage imageNamed:@"icon_rightArrow"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"arrow_right"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     return button;
 }
@@ -267,6 +267,8 @@
             }
         }]];
     }
+    
+    [controller addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     
     [_navigationController presentViewController:controller animated:YES completion:NULL];
 }

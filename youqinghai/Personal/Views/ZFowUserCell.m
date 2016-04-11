@@ -21,9 +21,9 @@
     [_icon sd_setImageWithURL:[NSURL URLWithString:userMod.headUrl]];
     
     if (userMod.sex.integerValue==0) {
-        _sex.image = [UIImage imageNamed:@"我的_我的关注_关注游记_03"];
+        _sex.image = [UIImage imageNamed:@"woman"];
     }else{
-        _sex.image = [UIImage imageNamed:@"首页_线路分类_详情_包车_车辆详情---副本_06"];
+        _sex.image = [UIImage imageNamed:@"man"];
     }
     _name.text = userMod.nickname;
     [_name sizeToFit];

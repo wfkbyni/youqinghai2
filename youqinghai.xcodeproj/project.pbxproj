@@ -156,9 +156,6 @@
 		B437E6B11CA43FB600091521 /* TravelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B437E6AF1CA43FB600091521 /* TravelCell.m */; };
 		B437E6B81CA43FCA00091521 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B437E6B41CA43FCA00091521 /* PersonalViewController.m */; };
 		B437E6B91CA43FCA00091521 /* PersonalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B437E6B71CA43FCA00091521 /* PersonalCell.m */; };
-		B437E6BD1CA440ED00091521 /* 02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B437E6BA1CA440ED00091521 /* 02@2x.png */; };
-		B437E6BE1CA440ED00091521 /* star_yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B437E6BB1CA440ED00091521 /* star_yellow@2x.png */; };
-		B437E6BF1CA440ED00091521 /* 01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B437E6BC1CA440ED00091521 /* 01.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -444,9 +441,6 @@
 		B437E6B41CA43FCA00091521 /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
 		B437E6B61CA43FCA00091521 /* PersonalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCell.h; sourceTree = "<group>"; };
 		B437E6B71CA43FCA00091521 /* PersonalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCell.m; sourceTree = "<group>"; };
-		B437E6BA1CA440ED00091521 /* 02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02@2x.png"; sourceTree = "<group>"; };
-		B437E6BB1CA440ED00091521 /* star_yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_yellow@2x.png"; sourceTree = "<group>"; };
-		B437E6BC1CA440ED00091521 /* 01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 01.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -932,9 +926,6 @@
 			isa = PBXGroup;
 			children = (
 				9A1FEB2E1C9EDCB90067B8D5 /* PrefixHeader.pch */,
-				B437E6BA1CA440ED00091521 /* 02@2x.png */,
-				B437E6BB1CA440ED00091521 /* star_yellow@2x.png */,
-				B437E6BC1CA440ED00091521 /* 01.jpg */,
 				9AF1C0111C9ED3E100AD2FC1 /* main.m */,
 				9A1FEB411C9EE7580067B8D5 /* Common.h */,
 			);
@@ -1141,7 +1132,6 @@
 				B437E6961CA43D3700091521 /* sr_refresh.png in Resources */,
 				35E3FFC11CA92AAC00876054 /* ZmessCenterCell.xib in Resources */,
 				35D2954B1CB669FA0029B8C1 /* ZFowUserCell.xib in Resources */,
-				B437E6BF1CA440ED00091521 /* 01.jpg in Resources */,
 				354A684C1CB38AD2001F3F5D /* ZImageFidCell.xib in Resources */,
 				35E3FFB61CA8CD9A00876054 /* ZPersonalHeaderView.xib in Resources */,
 				35891BA61CB7B4C000CE7002 /* DriverCarCommentCell.xib in Resources */,
@@ -1153,11 +1143,9 @@
 				9A637DC21CA18993004D17BA /* TempViewController.xib in Resources */,
 				353341271CB51AFB00543CB4 /* ZTextViewCell.xib in Resources */,
 				9AF1C0201C9ED3E100AD2FC1 /* LaunchScreen.storyboard in Resources */,
-				B437E6BD1CA440ED00091521 /* 02@2x.png in Resources */,
 				35D2952F1CB6421E0029B8C1 /* ZRouteFCell.xib in Resources */,
 				35891BE91CB7B59200CE7002 /* RecommendTypeCell.xib in Resources */,
 				35891BA11CB7B4C000CE7002 /* CarListCell.xib in Resources */,
-				B437E6BE1CA440ED00091521 /* star_yellow@2x.png in Resources */,
 				35891BD31CB7B55400CE7002 /* TouristroutesViewController.xib in Resources */,
 				9AF1C01D1C9ED3E100AD2FC1 /* Assets.xcassets in Resources */,
 				35891B9C1CB7B4C000CE7002 /* CarDetailController.xib in Resources */,
@@ -1397,7 +1385,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1434,7 +1422,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

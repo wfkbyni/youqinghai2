@@ -67,9 +67,9 @@
     _nameW.constant = _UserName.bounds.size.width;
     
     if (user.sex.integerValue==0) {
-        _sexIcon.image = [UIImage imageNamed:@"我的_我的关注_关注游记_03"];
+        _sexIcon.image = [UIImage imageNamed:@"woman"];
     }else{
-        _sexIcon.image = [UIImage imageNamed:@"首页_线路分类_详情_包车_车辆详情---副本_06"];
+        _sexIcon.image = [UIImage imageNamed:@"man"];
     }
     
     [_UserIcon sd_setImageWithURL:[NSURL URLWithString:user.headUrl]];
