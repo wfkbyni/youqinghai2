@@ -14,6 +14,7 @@
 #import "ZMessDetailViewController.h"
 @interface ZMessCenterViewController ()
 @property(nonatomic,strong)NSMutableArray *messAr;
+@property(copy,nonatomic)NSString *pages;
 @end
 
 @implementation ZMessCenterViewController
@@ -27,18 +28,50 @@
    // self.tableView.separatorStyle = NO;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"ZmessCenterCell" bundle:nil] forCellReuseIdentifier:@"ZmessCenterCell"];
-    [self getNet];
+    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
+    self.tableView.mj_header = header;
+    
+   
+        self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            self.pages = @(self.pages.integerValue+1).stringValue;
+            [self getNet];
+        }];
+  
+self.tableView.mj_footer.hidden = YES;
+    [self.tableView.mj_header beginRefreshing];
     // Do any additional setup after loading the view.
+}
+-(void)headerRefresh
+{
+    self.pages = @"1";
+    [self getNet];
 }
 -(void)getNet
 {
     RACSignal *signal = [[[PersonalViewModel alloc]init]getMessData];
     __weak ZMessCenterViewController *blockSelf= self;
     [signal subscribeNext:^(id x) {
+        endRefesh
+        self.tableView.mj_footer.hidden = NO;
         NSArray *ar =  [NSJSONSerialization JSONObjectWithData:[((NSString *)x) dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+        if (self.pages.integerValue!=1) {
+            if ([ar count]) {
+                [self.messAr addObjectsFromArray:[ZUserMessModel mj_objectArrayWithKeyValuesArray:ar]];
+                
+                [self.tableView reloadData];
+            }else{
+                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            }
+            
+            return ;
+        }
         self.messAr = [ZUserMessModel mj_objectArrayWithKeyValuesArray:ar];
         NSLog(@"%@",self.messAr );
         [blockSelf.tableView reloadData];
+    }];
+    [signal subscribeError:^(NSError *error) {
+       endRefesh
+        self.tableView.mj_footer.hidden = NO;
     }];
 }
 #pragma mark - delegate

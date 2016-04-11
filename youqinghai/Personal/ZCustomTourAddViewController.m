@@ -37,6 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"新增定制旅游";
     self.view.backgroundColor = spaceColor238238238();
     _CusTourMod =[[CusTomTourModel alloc]init];
     _CusTourMod.details = @"";
@@ -63,15 +64,18 @@
 {
     [self.view endEditing:YES];
     NSLog(@"%@",self.CusTourMod.contact);
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     RACSignal *signal = [[RequestBaseAPI standardAPI ]userCustomWithuserId:[ZUserModel shareUserModel].userId withcontacts:self.CusTourMod.contact withphone:self.CusTourMod.tel withtravelnum:self.CusTourMod.travelNum withtravelTime:self.CusTourMod.travelTimeS withdeparture:self.CusTourMod.origin withdestination:self.CusTourMod.destination withchannelscenicspot:self.CusTourMod.details];
     [signal subscribeNext:^(id x) {
         NSLog(@"x");
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:@"发布成功" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
         [alert show];
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
     [signal subscribeError:^(NSError *error) {
         NSLog(@"%@",error);
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         NSDictionary *dic = error.userInfo;
         UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:dic[@"message"] delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
         [alert show];

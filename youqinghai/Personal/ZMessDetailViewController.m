@@ -37,11 +37,16 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     RACSignal *signal = [[RequestBaseAPI standardAPI] messdetailedWithmessId:self.messMod.ID];
      __weak ZMessDetailViewController *blockSelf = self;
     [signal subscribeNext:^(id x) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[((NSString *)x) dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
         blockSelf.messMod = [ZUserMessModel mj_objectWithKeyValues:dic];
+    }];
+    [signal subscribeError:^(NSError *error) {
+       [MBProgressHUD hideHUDForView:self.view animated:YES]; 
     }];
 }
 -(void)initUI

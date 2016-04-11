@@ -14,6 +14,7 @@
 #import "ZCustomListModel.h"
 @interface ZCustomTourismViewController ()
 @property(nonatomic,strong)NSMutableArray *cusAr;
+@property(copy,nonatomic)NSString *pages;
 @end
 
 @implementation ZCustomTourismViewController
@@ -25,18 +26,53 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     [self.tableView registerNib:[UINib nibWithNibName:@"ZCusTourCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"ZCusTourCell"];
     [self UIBarButton];
-    [self getNet];
+    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
+    self.tableView.mj_header = header;
+    
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        self.pages = @(self.pages.integerValue+1).stringValue;
+        [self getNet];
+    }];
+    
+    self.tableView.mj_footer.hidden = YES;
+    [self.tableView.mj_header beginRefreshing];
     // Do any additional setup after loading the view.
+}
+-(void)headerRefresh
+{
+    self.pages = @"1";
+    [self getNet];
 }
 -(void)getNet
 {
-    RACSignal *signal = [[RequestBaseAPI standardAPI] userCustomListWithPageIndex:@"1" withPageSize:@"30"];
+    RACSignal *signal = [[RequestBaseAPI standardAPI] userCustomListWithPageIndex:self.pages withPageSize:@"30"];
     __weak ZCustomTourismViewController *blockSelf= self;
     [signal subscribeNext:^(id x) {
+        endRefesh
+        self.tableView.mj_footer.hidden = NO;
+
         NSArray *ar =  [NSJSONSerialization JSONObjectWithData:[((NSString *)x) dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+        if (self.pages.integerValue!=1) {
+            if ([ar count]) {
+                [self.cusAr addObjectsFromArray:[ZCustomListModel mj_objectArrayWithKeyValuesArray:ar]];
+                
+                [self.tableView reloadData];
+            }else{
+                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            }
+            
+            return ;
+        }
         self.cusAr = [ZCustomListModel mj_objectArrayWithKeyValuesArray:ar];
         NSLog(@"%@",self.cusAr );
         [blockSelf.tableView reloadData];
+ 
+    }];
+    [signal subscribeError:^(NSError *error) {
+        endRefesh
+        self.tableView.mj_footer.hidden = NO;
+         [self.tableView.mj_footer endRefreshingWithNoMoreData];
     }];
 }
 -(void)UIBarButton

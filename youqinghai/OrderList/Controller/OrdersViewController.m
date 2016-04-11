@@ -53,10 +53,12 @@
         [self loadOrderListData];
     }];
     [self.tableView.mj_header beginRefreshing];
+    self.tableView.mj_footer.hidden = YES;
 }
 -(void)headerRefresh
 {
     self.orderViewModel.pages = @"1";
+    
     [self loadOrderListData];
 }
 - (void)loadOrderListData{
@@ -81,7 +83,7 @@
     [self.pageView selectedIndex:@(0)];
     [signal subscribeNext:^(id x) {
                  endRefesh
-              
+         self.tableView.mj_footer.hidden = NO;
        x =  [OrderListModel mj_objectArrayWithKeyValuesArray:x];
                 if (self.orderViewModel.pages.integerValue!=1) {
                     if ([(NSArray*)x count]) {
@@ -101,7 +103,7 @@
     }];
     [signal subscribeError:^(NSError *error) {
         endRefesh
-        
+        self.tableView.mj_footer.hidden = NO;
         int code = [[error.userInfo objectForKey:@"result_code"] intValue];
         if (code == 1) {
             self.orderViewModel.orders = @[];
