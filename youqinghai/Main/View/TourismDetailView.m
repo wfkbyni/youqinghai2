@@ -73,7 +73,7 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, y, leftViewWidth, heihgt)];
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((60 - 24) / 2, 0, 24, 24)];
-    [imageView setBackgroundColor:[UIColor redColor]];
+    [imageView setImage:[UIImage imageNamed:@"location"]];
     [view addSubview:imageView];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 28, 60, 21)];
