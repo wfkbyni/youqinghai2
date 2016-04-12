@@ -29,7 +29,7 @@
 @end
 
 
-@interface PersonalViewController ()
+@interface PersonalViewController ()<UMSocialUIDelegate>
 {
 
     NSArray *_datasource;
@@ -187,6 +187,16 @@
                      [self.navigationController pushViewController:ctv animated:YES];
                 }
                     break;
+                case 1:
+                {
+                    [UMSocialSnsService presentSnsIconSheetView:self
+                                                         appKey:@"570b744e67e58e12e2000466"
+                                                      shareText:@"快来使用游青海,定制您的专属旅程"
+                                                     shareImage:[UIImage imageNamed:@"AppIcon"]
+                                                shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToQzone,UMShareToSina]
+                                                       delegate:self];
+                }
+                    break;
                 case  2:
                 {
                     ZOpinionViewController *ovc = [[ZOpinionViewController alloc]init];
@@ -201,6 +211,9 @@
             break;
     }
  
+}
+-(BOOL)isDirectShareInIconActionSheet{
+    return YES;
 }
 - (NSArray *)datasource{
     
