@@ -394,7 +394,7 @@
 		9A637DCA1CA2D8AC004D17BA /* UIView+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Helper.m"; sourceTree = "<group>"; };
 		9AD4BE381CB7E44400C1C89B /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		9AD4BE391CB7E44400C1C89B /* Const.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Const.m; sourceTree = "<group>"; };
-		9AF1C00D1C9ED3E100AD2FC1 /* youqinghai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = youqinghai.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AF1C00D1C9ED3E100AD2FC1 /* 游青海.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "游青海.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF1C0111C9ED3E100AD2FC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9AF1C0131C9ED3E100AD2FC1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9AF1C0141C9ED3E100AD2FC1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -890,7 +890,7 @@
 		9AF1C00E1C9ED3E100AD2FC1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9AF1C00D1C9ED3E100AD2FC1 /* youqinghai.app */,
+				9AF1C00D1C9ED3E100AD2FC1 /* 游青海.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1086,7 +1086,7 @@
 			);
 			name = youqinghai;
 			productName = youqinghai;
-			productReference = 9AF1C00D1C9ED3E100AD2FC1 /* youqinghai.app */;
+			productReference = 9AF1C00D1C9ED3E100AD2FC1 /* 游青海.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1434,7 +1434,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 79047B0703E19E40A713B1AD /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: GuoLi Xiao (K53FTKZE32)";
@@ -1444,7 +1444,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scxslm.yunzhongcan;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "游青海";
 				PROVISIONING_PROFILE = "ce836939-e62b-4d95-ae4a-4444766b20de";
 			};
 			name = Debug;
@@ -1453,7 +1453,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9F1F24795402E64451E9B903 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1463,7 +1463,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scxslm.yunzhongcan;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "游青海";
 			};
 			name = Release;
 		};
