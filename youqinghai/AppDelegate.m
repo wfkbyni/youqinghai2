@@ -19,7 +19,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[ZUserModel shareUserModel]getUserDataWithPhone:@"15928046599" andPassWord:@"123123"];
+    
+    [application setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    [[ZUserModel shareUserModel]  getUserDataWithPhone:@"15928046599" andPassWord:@"123123"];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
 
