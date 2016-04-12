@@ -228,7 +228,7 @@
         //解析结果
         YQHLog(@"Response  -->\n" "URL:  %@\n" "data:\n%@\n", task.currentRequest.URL, value);
         
-        [subscriber sendNext:value];
+        [subscriber sendNext:value?value:@""];
         [subscriber sendCompleted];
     }
     else{
