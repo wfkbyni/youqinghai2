@@ -177,6 +177,7 @@
 {
     _orderListMod = orderListMod;
     self.textLabel.text = orderListMod.singletime;
+    NSLog(@"%@",orderListMod.singletime);
     switch (orderListMod.state.integerValue) {
         case 0:
             self.detailTextLabel.text = @"待付款";

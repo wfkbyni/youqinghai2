@@ -18,6 +18,7 @@
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"y-M-d HH:mm"];
+    
     _singletime = [dateFormatter stringFromDate:date];
   
 }

@@ -84,7 +84,7 @@
     [signal subscribeNext:^(id x) {
                  endRefesh
          self.tableView.mj_footer.hidden = NO;
-       x =  [OrderListModel mj_objectArrayWithKeyValuesArray:x];
+        
                 if (self.orderViewModel.pages.integerValue!=1) {
                     if ([(NSArray*)x count]) {
                         [self.orlistAr addObjectsFromArray:x];
