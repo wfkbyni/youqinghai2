@@ -156,6 +156,16 @@
 		B437E6B11CA43FB600091521 /* TravelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B437E6AF1CA43FB600091521 /* TravelCell.m */; };
 		B437E6B81CA43FCA00091521 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B437E6B41CA43FCA00091521 /* PersonalViewController.m */; };
 		B437E6B91CA43FCA00091521 /* PersonalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B437E6B71CA43FCA00091521 /* PersonalCell.m */; };
+		B472E7721CBC9A9500A43CCB /* AIWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = B472E7551CBC9A9500A43CCB /* AIWebView.m */; };
+		B472E7731CBC9A9500A43CCB /* AIWebViewLoadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B472E7571CBC9A9500A43CCB /* AIWebViewLoadRequest.m */; };
+		B472E7751CBC9A9500A43CCB /* HybridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B472E75D1CBC9A9500A43CCB /* HybridViewController.m */; };
+		B472E77C1CBC9C8300A43CCB /* AIHybridJSParam.m in Sources */ = {isa = PBXBuildFile; fileRef = B472E77B1CBC9C8300A43CCB /* AIHybridJSParam.m */; };
+		B472E77F1CBC9CA200A43CCB /* JSParamHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = B472E77E1CBC9CA200A43CCB /* JSParamHandler.m */; };
+		B472E7851CBCA0C700A43CCB /* css in Resources */ = {isa = PBXBuildFile; fileRef = B472E7801CBCA0C700A43CCB /* css */; };
+		B472E7861CBCA0C700A43CCB /* dist in Resources */ = {isa = PBXBuildFile; fileRef = B472E7811CBCA0C700A43CCB /* dist */; };
+		B472E7871CBCA0C700A43CCB /* html in Resources */ = {isa = PBXBuildFile; fileRef = B472E7821CBCA0C700A43CCB /* html */; };
+		B472E7881CBCA0C700A43CCB /* img in Resources */ = {isa = PBXBuildFile; fileRef = B472E7831CBCA0C700A43CCB /* img */; };
+		B472E7891CBCA0C700A43CCB /* js in Resources */ = {isa = PBXBuildFile; fileRef = B472E7841CBCA0C700A43CCB /* js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -441,6 +451,21 @@
 		B437E6B41CA43FCA00091521 /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
 		B437E6B61CA43FCA00091521 /* PersonalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCell.h; sourceTree = "<group>"; };
 		B437E6B71CA43FCA00091521 /* PersonalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCell.m; sourceTree = "<group>"; };
+		B472E7541CBC9A9500A43CCB /* AIWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIWebView.h; sourceTree = "<group>"; };
+		B472E7551CBC9A9500A43CCB /* AIWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIWebView.m; sourceTree = "<group>"; };
+		B472E7561CBC9A9500A43CCB /* AIWebViewLoadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIWebViewLoadRequest.h; sourceTree = "<group>"; };
+		B472E7571CBC9A9500A43CCB /* AIWebViewLoadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIWebViewLoadRequest.m; sourceTree = "<group>"; };
+		B472E75C1CBC9A9500A43CCB /* HybridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HybridViewController.h; sourceTree = "<group>"; };
+		B472E75D1CBC9A9500A43CCB /* HybridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HybridViewController.m; sourceTree = "<group>"; };
+		B472E77A1CBC9C8300A43CCB /* AIHybridJSParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHybridJSParam.h; sourceTree = "<group>"; };
+		B472E77B1CBC9C8300A43CCB /* AIHybridJSParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHybridJSParam.m; sourceTree = "<group>"; };
+		B472E77D1CBC9CA200A43CCB /* JSParamHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSParamHandler.h; sourceTree = "<group>"; };
+		B472E77E1CBC9CA200A43CCB /* JSParamHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSParamHandler.m; sourceTree = "<group>"; };
+		B472E7801CBCA0C700A43CCB /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
+		B472E7811CBCA0C700A43CCB /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
+		B472E7821CBCA0C700A43CCB /* html */ = {isa = PBXFileReference; lastKnownFileType = folder; path = html; sourceTree = "<group>"; };
+		B472E7831CBCA0C700A43CCB /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
+		B472E7841CBCA0C700A43CCB /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -898,6 +923,7 @@
 		9AF1C00F1C9ED3E100AD2FC1 /* youqinghai */ = {
 			isa = PBXGroup;
 			children = (
+				B472E6CA1CBC980400A43CCB /* H5 */,
 				35EB05851CB94FF3003FDEFD /* OrderList */,
 				9A1FEB351C9EE1470067B8D5 /* Model */,
 				35891B791CB7B4C000CE7002 /* Car */,
@@ -1066,6 +1092,44 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B472E6CA1CBC980400A43CCB /* H5 */ = {
+			isa = PBXGroup;
+			children = (
+				B472E7801CBCA0C700A43CCB /* css */,
+				B472E7811CBCA0C700A43CCB /* dist */,
+				B472E7821CBCA0C700A43CCB /* html */,
+				B472E7831CBCA0C700A43CCB /* img */,
+				B472E7841CBCA0C700A43CCB /* js */,
+				B472E73E1CBC9A9500A43CCB /* AIWebView */,
+			);
+			path = H5;
+			sourceTree = "<group>";
+		};
+		B472E73E1CBC9A9500A43CCB /* AIWebView */ = {
+			isa = PBXGroup;
+			children = (
+				B472E77D1CBC9CA200A43CCB /* JSParamHandler.h */,
+				B472E77E1CBC9CA200A43CCB /* JSParamHandler.m */,
+				B472E77A1CBC9C8300A43CCB /* AIHybridJSParam.h */,
+				B472E77B1CBC9C8300A43CCB /* AIHybridJSParam.m */,
+				B472E7541CBC9A9500A43CCB /* AIWebView.h */,
+				B472E7551CBC9A9500A43CCB /* AIWebView.m */,
+				B472E7561CBC9A9500A43CCB /* AIWebViewLoadRequest.h */,
+				B472E7571CBC9A9500A43CCB /* AIWebViewLoadRequest.m */,
+				B472E75B1CBC9A9500A43CCB /* HybridPage */,
+			);
+			path = AIWebView;
+			sourceTree = "<group>";
+		};
+		B472E75B1CBC9A9500A43CCB /* HybridPage */ = {
+			isa = PBXGroup;
+			children = (
+				B472E75C1CBC9A9500A43CCB /* HybridViewController.h */,
+				B472E75D1CBC9A9500A43CCB /* HybridViewController.m */,
+			);
+			path = HybridPage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1132,6 +1196,7 @@
 				354A685A1CB4BDCE001F3F5D /* ZCusTourCell.xib in Resources */,
 				B437E6961CA43D3700091521 /* sr_refresh.png in Resources */,
 				35E3FFC11CA92AAC00876054 /* ZmessCenterCell.xib in Resources */,
+				B472E7871CBCA0C700A43CCB /* html in Resources */,
 				35D2954B1CB669FA0029B8C1 /* ZFowUserCell.xib in Resources */,
 				354A684C1CB38AD2001F3F5D /* ZImageFidCell.xib in Resources */,
 				35E3FFB61CA8CD9A00876054 /* ZPersonalHeaderView.xib in Resources */,
@@ -1139,6 +1204,7 @@
 				B437E6971CA43D3700091521 /* sr_refresh@2X.png in Resources */,
 				35D2953D1CB6577E0029B8C1 /* ZDriverCell.xib in Resources */,
 				35891BF11CB7B59200CE7002 /* TourismTypeItemCell.xib in Resources */,
+				B472E7881CBCA0C700A43CCB /* img in Resources */,
 				35891B9F1CB7B4C000CE7002 /* CarListViewController.xib in Resources */,
 				35891BEF1CB7B59200CE7002 /* TourismTypeCell.xib in Resources */,
 				9A637DC21CA18993004D17BA /* TempViewController.xib in Resources */,
@@ -1147,9 +1213,12 @@
 				35D2952F1CB6421E0029B8C1 /* ZRouteFCell.xib in Resources */,
 				35891BE91CB7B59200CE7002 /* RecommendTypeCell.xib in Resources */,
 				35891BA11CB7B4C000CE7002 /* CarListCell.xib in Resources */,
+				B472E7851CBCA0C700A43CCB /* css in Resources */,
 				35891BD31CB7B55400CE7002 /* TouristroutesViewController.xib in Resources */,
 				9AF1C01D1C9ED3E100AD2FC1 /* Assets.xcassets in Resources */,
+				B472E7891CBCA0C700A43CCB /* js in Resources */,
 				35891B9C1CB7B4C000CE7002 /* CarDetailController.xib in Resources */,
+				B472E7861CBCA0C700A43CCB /* dist in Resources */,
 				35D295561CB77D050029B8C1 /* ZTravelFCell.xib in Resources */,
 				35A67D101CAB79C300B34994 /* ZModifyTextCell.xib in Resources */,
 			);
@@ -1224,6 +1293,7 @@
 				35D2952E1CB6421E0029B8C1 /* ZRouteFCell.m in Sources */,
 				B437E68C1CA43CE600091521 /* UIViewController+TableView.m in Sources */,
 				35E3FFC01CA92AAC00876054 /* ZmessCenterCell.m in Sources */,
+				B472E77C1CBC9C8300A43CCB /* AIHybridJSParam.m in Sources */,
 				B437E6991CA43D3700091521 /* SRSlimeView.m in Sources */,
 				35891BA51CB7B4C000CE7002 /* DriverCarCommentCell.m in Sources */,
 				35891BA41CB7B4C000CE7002 /* DriverCarCellHeaderView.m in Sources */,
@@ -1265,6 +1335,7 @@
 				35891BC31CB7B52000CE7002 /* TravelView.m in Sources */,
 				35891BC11CB7B52000CE7002 /* RelationView.m in Sources */,
 				35891BEE1CB7B59200CE7002 /* TourismTypeCell.m in Sources */,
+				B472E7751CBC9A9500A43CCB /* HybridViewController.m in Sources */,
 				35D295431CB669C20029B8C1 /* ZTravelFTableView.m in Sources */,
 				354A684F1CB3A6AA001F3F5D /* ZForgetPassViewController.m in Sources */,
 				35A67D0F1CAB79C300B34994 /* ZModifyTextCell.m in Sources */,
@@ -1285,12 +1356,14 @@
 				35891BAA1CB7B4C000CE7002 /* DriverCarPivViewTableViewCell.m in Sources */,
 				35A67D081CAA35E700B34994 /* ZPersonalDataViewController.m in Sources */,
 				35D295551CB77D050029B8C1 /* ZTravelFCell.m in Sources */,
+				B472E7731CBC9A9500A43CCB /* AIWebViewLoadRequest.m in Sources */,
 				35D295511CB763810029B8C1 /* ZFowUserModel.m in Sources */,
 				35891C031CB7B5F500CE7002 /* Car.m in Sources */,
 				B437E6B91CA43FCA00091521 /* PersonalCell.m in Sources */,
 				B437E6B81CA43FCA00091521 /* PersonalViewController.m in Sources */,
 				B437E6B11CA43FB600091521 /* TravelCell.m in Sources */,
 				35E3FFB91CA90B3000876054 /* ZUserModel.m in Sources */,
+				B472E7721CBC9A9500A43CCB /* AIWebView.m in Sources */,
 				3556DA7F1CB3567500723C6E /* ZRegisteredViewController.m in Sources */,
 				B437E67D1CA43CDC00091521 /* AITabBarController.m in Sources */,
 				35E3FFBC1CA91F8400876054 /* ZMessCenterViewController.m in Sources */,
@@ -1325,6 +1398,7 @@
 				9A1FEB3B1C9EE1770067B8D5 /* BaseViewController.m in Sources */,
 				35891BE71CB7B59200CE7002 /* CustomMoveItemView.m in Sources */,
 				35A67D0B1CAB796C00B34994 /* ZModifyViewController.m in Sources */,
+				B472E77F1CBC9CA200A43CCB /* JSParamHandler.m in Sources */,
 				35891BC21CB7B52000CE7002 /* SubmitOrderView.m in Sources */,
 				9A637DBD1CA18711004D17BA /* MainViewController.m in Sources */,
 				35D2954E1CB66A110029B8C1 /* ZTravelModel.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface TravelsViewController : UIViewController
+#import "HybridViewController.h"
+@interface TravelsViewController : HybridViewController
 
 @end
