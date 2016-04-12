@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TourismDetailController : UIViewController
+@interface TourismDetailController : BaseViewController
 
 @property (nonatomic, strong) Recommend *recommend;
 

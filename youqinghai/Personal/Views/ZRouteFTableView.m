@@ -8,9 +8,10 @@
 
 #import "ZRouteFTableView.h"
 #import "ZRouteFCell.h"
+#import "RecommendTypeCell.h"
 #import "RequestBaseAPI+Personal.h"
 @interface ZRouteFTableView ()<UITableViewDataSource,UITableViewDelegate>
-@property(nonatomic,strong)NSMutableArray *tabAr;
+
 @property(copy,nonatomic)NSString *pages;
 @end
 @implementation ZRouteFTableView
@@ -21,7 +22,7 @@
         self.delegate =self;
         self.dataSource = self;
         self.separatorStyle = 0;
-        [self registerNib:[UINib nibWithNibName:@"ZRouteFCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"ZRouteFCell"];
+        [self registerNib:[UINib nibWithNibName:@"RecommendTypeCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"RecommendTypeCell"];
        // [self getNet];
         
         MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
@@ -56,7 +57,7 @@
         
         if (blockSelf.pages.integerValue!=1) {
             if (ar.count) {
-                [blockSelf.tabAr addObjectsFromArray:[ZRouModel mj_objectArrayWithKeyValuesArray:ar]];
+                [blockSelf.tabAr addObjectsFromArray:[Recommend mj_objectArrayWithKeyValuesArray:ar]];
                 [blockSelf reloadData];
             }else{
                  [self.mj_footer endRefreshingWithNoMoreData];
@@ -66,7 +67,7 @@
         }
         
         
-        blockSelf.tabAr = [ZRouModel mj_objectArrayWithKeyValuesArray:ar];
+        blockSelf.tabAr = [Recommend mj_objectArrayWithKeyValuesArray:ar];
         NSLog(@"%@",blockSelf.tabAr );
         [blockSelf reloadData];
     }];
@@ -85,8 +86,9 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ZRouteFCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZRouteFCell"];
-    cell.rouModel = self.tabAr[indexPath.section];
+     RecommendTypeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecommendTypeCell"];
+      [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    cell.recommend = self.tabAr[indexPath.section];
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -100,7 +102,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    if (self.selectBlock) {
+        self.selectBlock(indexPath);
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

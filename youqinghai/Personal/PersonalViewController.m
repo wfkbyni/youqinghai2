@@ -219,7 +219,7 @@
     
     if (!_datasource) {
         
-        _datasource = @[@[@{@"pic":@"我的_03(2)",@"title":@"我的订单"},@{@"pic":@"我的_14",@"title":@"我的关注"},@{@"pic":@"我的_16",@"title":@"消息中心"}],@[@{@"pic":@"我的_18",@"title":@"定制旅游"},@{@"pic":@"我的_20",@"title":@"分享好友"},@{@"pic":@"我的_22",@"title":@"意见反馈"}] ];
+        _datasource = @[@[@{@"pic":@"ordericon",@"title":@"我的订单"},@{@"pic":@"followIcon",@"title":@"我的关注"},@{@"pic":@"messIcon",@"title":@"消息中心"}],@[@{@"pic":@"customIcon",@"title":@"定制旅游"},@{@"pic":@"shareIcon",@"title":@"分享好友"},@{@"pic":@"ideaIcon",@"title":@"意见反馈"}] ];
         
     }
     return _datasource;

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AITabBarController.h"
-
+#import <SDWebImage/SDWebImageDownloader.h>
 #import "TempViewController.h"
   #define AppKey_Umeng @"570b744e67e58e12e2000466"//友盟
 @interface AppDelegate ()
@@ -25,7 +25,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
 
     _window.rootViewController = [AITabBarController  sharedTabbar];
-   
+ 
 //    TempViewController *controller = [[TempViewController alloc] init];
 //    UINavigationController *nav =[[UINavigationController alloc] initWithRootViewController:controller];
 //    [self.window setRootViewController:nav];
