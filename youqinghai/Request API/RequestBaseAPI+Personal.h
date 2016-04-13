@@ -168,5 +168,6 @@
  */
 -(RACSignal*)userFollowUserListWithPageIndex:(NSString*)index
                              withPageSize:(NSString*)pageSize;
-
+-(RACSignal*)userClickTravelsWithUserId:(NSString*)userId
+                                withTravelId:(NSString*)travelId;
 @end

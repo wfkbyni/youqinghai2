@@ -27,9 +27,9 @@
     RACSignal *signal = [[[RequestBaseAPI standardAPI] getHomePageDataWithMark:self.mark
                                                                  withPageIndex:1
                                                                   withPageSize:pageSize]
-                         map:^id(id value) {
+                         map:^id(ResponseBaseData *data) {
         
-        self.homePageData = [HomePageData mj_objectWithKeyValues:value];
+        self.homePageData = [HomePageData mj_objectWithKeyValues:data.result_data];
         
         return self.homePageData;
     }];
@@ -42,9 +42,9 @@
     RACSignal *signal = [[[RequestBaseAPI standardAPI] getTouristroutesListWithTypeId:self.typeId
                                                                         wihtPageIndex:1
                                                                          withPageSize:pageSize]
-                         map:^id(id value) {
+                         map:^id(ResponseBaseData *data) {
         
-        self.recommends = [Recommend mj_objectArrayWithKeyValuesArray:value];
+        self.recommends = [Recommend mj_objectArrayWithKeyValuesArray:data.result_data];
         
         return self.recommends;
     }];
@@ -56,9 +56,9 @@
     
     RACSignal *signal = [[[RequestBaseAPI standardAPI] getTourisDetailsWithTourisId:self.typeId
                                                                          withUserId:myUserId]
-                         map:^id(id value) {
+                         map:^id(ResponseBaseData *data) {
        
-        self.traveltrip = [Traveltrip mj_objectWithKeyValues:value];
+        self.traveltrip = [Traveltrip mj_objectWithKeyValues:data.result_data];
         
         return self.traveltrip;
     }];
@@ -71,9 +71,9 @@
     RACSignal *signal = [[[RequestBaseAPI standardAPI] getTourisEvaluateWithTourisId:self.tourisId
                                                                        withPageIndex:1
                                                                         withPageSize:pageSize]
-                         map:^id(id value) {
+                         map:^id(ResponseBaseData *data) {
         
-        self.tourisEvaluate = [TourisEvaluate mj_objectArrayWithKeyValuesArray:value];
+        self.tourisEvaluate = [TourisEvaluate mj_objectArrayWithKeyValuesArray:data.result_data];
         
         return self.tourisEvaluate;
     }];
@@ -84,9 +84,9 @@
 -(RACSignal *)getServiceIntroduction{
     
     RACSignal *signal = [[[RequestBaseAPI standardAPI] getServiceIntroductionWithRouteId:self.tourisId]
-                         map:^id(id value) {
+                         map:^id(ResponseBaseData *data) {
                              
-        return value;
+        return data.result_data;
     }];
     
     return signal;
@@ -96,10 +96,10 @@
     RACSignal *signal = [[[RequestBaseAPI standardAPI] addDriverOrRoteIdWithUserId:myUserId
                                                                         withTypeId:self.tourisId
                                                                           withType:0]
-                         map:^id(id value) {
+                         map:^id(ResponseBaseData *data) {
         
                              
-        return value;
+        return data.result_data;
     }];
     
     return signal;

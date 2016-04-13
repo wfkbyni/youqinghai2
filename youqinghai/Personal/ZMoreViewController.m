@@ -58,19 +58,19 @@
     }
     switch (indexPath.row) {
         case 0:
-            cell.imageView.image = [UIImage imageNamed:@"我的_更多_03"];
+            cell.imageView.image = [UIImage imageNamed:@"userProtocol"];
             cell.textLabel.text = @"用户协议";
             break;
         case 1:
-            cell.imageView.image = [UIImage imageNamed:@"我的_更多_06"];
+            cell.imageView.image = [UIImage imageNamed:@"useHelp"];
             cell.textLabel.text = @"使用帮助";
             break;
         case 2:
-            cell.imageView.image = [UIImage imageNamed:@"我的_更多_08"];
+            cell.imageView.image = [UIImage imageNamed:@"AboutUs"];
             cell.textLabel.text = @"关于我们";
             break;
         case 3:
-            cell.imageView.image = [UIImage imageNamed:@"我的_更多_10"];
+            cell.imageView.image = [UIImage imageNamed:@"cleancache"];
             cell.textLabel.text = @"清除缓存";
             break;
         

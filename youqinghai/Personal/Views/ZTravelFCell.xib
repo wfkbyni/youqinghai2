@@ -48,7 +48,7 @@
                             <constraint firstAttribute="width" constant="50" id="9rV-B8-A5A"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <state key="normal" title=" 223" image="游记_03-2">
+                        <state key="normal" title=" 223" image="lookIcon">
                             <color key="titleColor" red="0.91764705879999997" green="0.72156862749999995" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
@@ -80,7 +80,7 @@
                             <constraint firstAttribute="width" constant="40" id="3wv-kR-1eU"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <state key="normal" title=" 23" image="游记_03-4">
+                        <state key="normal" title=" 23" image="isPraiseIcon">
                             <color key="titleColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
@@ -89,7 +89,7 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="3aw-2U-FFd"/>
                         </constraints>
-                        <state key="normal" image="游记_06"/>
+                        <state key="normal" image="commentIcon"/>
                         <connections>
                             <action selector="parAct:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WAn-fY-Udm"/>
                         </connections>
@@ -99,7 +99,7 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="lFj-mn-s70"/>
                         </constraints>
-                        <state key="normal" image="游记_08"/>
+                        <state key="normal" image="collectionIcon"/>
                         <connections>
                             <action selector="commentsAct:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="uL1-am-bz4"/>
                         </connections>
@@ -109,7 +109,7 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="Wux-Db-gad"/>
                         </constraints>
-                        <state key="normal" image="游记_11"/>
+                        <state key="normal" image="sharetravel"/>
                         <connections>
                             <action selector="sharAct:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Z18-TI-7fU"/>
                         </connections>
@@ -184,10 +184,10 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="游记_03-2" width="20" height="20"/>
-        <image name="游记_03-4" width="16" height="16"/>
-        <image name="游记_06" width="16" height="16"/>
-        <image name="游记_08" width="16" height="16"/>
-        <image name="游记_11" width="16" height="16"/>
+        <image name="collectionIcon" width="16" height="16"/>
+        <image name="commentIcon" width="16" height="16"/>
+        <image name="isPraiseIcon" width="16" height="16"/>
+        <image name="lookIcon" width="20" height="20"/>
+        <image name="sharetravel" width="16" height="16"/>
     </resources>
 </document>

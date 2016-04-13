@@ -21,9 +21,9 @@
 
 -(RACSignal *)calcCharteredPrice{
     
-    RACSignal *signal = [[[RequestBaseAPI standardAPI] calcCharteredPriceWithTraveId:self.traveId withCarTypeId:self.driverId withIsInsurance:0] map:^id(id value) {
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] calcCharteredPriceWithTraveId:self.traveId withCarTypeId:self.driverId withIsInsurance:0] map:^id(ResponseBaseData *data) {
         
-        self.calCarPrice = [CalCarPrice mj_objectWithKeyValues:value];
+        self.calCarPrice = [CalCarPrice mj_objectWithKeyValues:data.result_data];
         
         return self.calCarPrice;
     }];
@@ -32,8 +32,8 @@
 }
 
 -(RACSignal *)calcPrice{
-    RACSignal *signal = [[[RequestBaseAPI standardAPI] calcPriceWithTraveId:self.traveId] map:^id(id value) {
-        self.cPrice = [CalcPrice mj_objectWithKeyValues:value];
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] calcPriceWithTraveId:self.traveId] map:^id(ResponseBaseData *data) {
+        self.cPrice = [CalcPrice mj_objectWithKeyValues:data.result_data];
         return self.cPrice;
     }];
     return signal;
@@ -43,21 +43,21 @@
     
     NSLog(@"%@",[self.order mj_JSONString]);
     
-    RACSignal *signal = [[[RequestBaseAPI standardAPI] addOrderWithOrder:self.order] map:^id(id value) {
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] addOrderWithOrder:self.order] map:^id(ResponseBaseData *data) {
         
-        return value;
+        return data.result_data;
     }];
     
     return signal;
 }
 
 
--(RACSignal *)getUserOrderList{
+-(RACSignal *)getUserOrderList:(NSInteger)state{
     
     NSString *userID = [ZUserModel shareUserModel].userId;
-    RACSignal *signal = [[[RequestBaseAPI standardAPI] getUserOrderList:[userID integerValue] wihtState:-1  withPageIndex:self.pages.integerValue withPageSize:10] map:^id(id value) {
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] getUserOrderList:[userID integerValue] wihtState:state  withPageIndex:self.pages.integerValue withPageSize:10] map:^id(ResponseBaseData *data) {
         
-        self.orderList = [OrderListModel mj_objectArrayWithKeyValuesArray:value];
+        self.orderList = [OrderListModel mj_objectArrayWithKeyValuesArray:data.result_data];
         return self.orderList;
     }];
     
@@ -66,10 +66,36 @@
 -(RACSignal *)getUserOrderDetail:(NSString*)orderId
 {
     
-    RACSignal *signal = [[[RequestBaseAPI standardAPI] getUserOrderDetailOrderId:orderId] map:^id(id value) {
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] getUserOrderDetailOrderId:orderId] map:^id(ResponseBaseData *data) {
         
-         self.orderList = @[[OrderListModel mj_objectWithKeyValues:value]];
+         self.orderList = @[[OrderListModel mj_objectWithKeyValues:data.result_data]];
         return self.orderList;
+    }];
+    
+    return signal;
+}
+
+-(RACSignal *)notifyUrlWithOrderNo:(NSString *)orderNo withTotalMoney:(NSString *)money{
+    
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] notifyUrlWithOutTradeNo:orderNo withTotalFee:money] map:^id(ResponseBaseData *data) {
+        
+        return data;
+    }];
+    
+    return signal;
+}
+
+-(RACSignal *)cancelOrderWithOrderNo:(NSString *)orderNo{
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] cancelOrderWithOrderNo:orderNo] map:^id(ResponseBaseData *data) {
+        return data;
+    }];
+    return signal;
+}
+
+-(RACSignal *)deleteOrder:(NSString *)orderId{
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] removeOrder:orderId] map:^id(ResponseBaseData *data) {
+        
+        return data;
     }];
     
     return signal;

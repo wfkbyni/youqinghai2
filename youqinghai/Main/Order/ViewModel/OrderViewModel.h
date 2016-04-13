@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSArray *orders;
 @property (nonatomic, strong) NSArray *orderList;
 @property(nonatomic,copy) NSString *pages;
+
 /**
  *  @brief 计算包车订单价格（1.0）
  *
@@ -42,11 +43,29 @@
  *
  *  @return <#return value description#>
  */
--(RACSignal *)getUserOrderList;
+-(RACSignal *)getUserOrderList:(NSInteger)state;
 /**
  *  获取订单详情
  *
  *  @return <#return value description#>
  */
 -(RACSignal *)getUserOrderDetail:(NSString*)orderId;
+
+/**
+ *  @brief 支付
+ *
+ *  @param orderNo <#orderNo description#>
+ *  @param money   <#money description#>
+ */
+-(RACSignal *)notifyUrlWithOrderNo:(NSString *)orderNo withTotalMoney:(NSString *)money;
+
+/**
+ *  @brief 取消订单
+ *
+ *  @param orderNo <#orderNo description#>
+ *
+ */
+-(RACSignal *)cancelOrderWithOrderNo:(NSString *)orderNo;
+
+-(RACSignal *)deleteOrder:(NSString *)orderId;
 @end

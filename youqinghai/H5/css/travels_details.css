@@ -1,0 +1,54 @@
+/*律师招募 css*/
+body{background: #f0f0f0;}
+.zx-travels{min-width:320px;width:100%;max-width:640px;margin:0 auto;background: #f0f0f0;}
+.response-img {max-width: 100%;width: 100%; height: auto;max-width: 100%; display: block; }
+.imgsize{width:1.9em; height:1.9em;}
+.clear{clear:both;}
+
+.magin10px{width:1em;height:1.5em;}
+.travels_none{ width:100%; height:auto; border-top:1px solid #bbbbbb; background:#FFFFFF;}
+.travels_photo img{border-radius:8px;margin-top:1em;}
+.travels_infodetial{width:94%; margin:0 auto;font-size:0.8em;color:#494949; margin-top:0.5em; line-height:1.5em; text-align:justify;}
+.back{background-color:#ffffff; height:auto; width:100%; border-bottom:1px solid #bbbbbb; margin-top:0; margin-bottom:0.6em;}
+.xiangong{width:96%; margin:0 auto;}
+
+.travels_pinglunzan{ width:100%; height:auto; border-top:1px solid #bbbbbb; background:#FFFFFF;font-size:0.8em; color:#5e5e5e;}
+.travels_pinglunzan .ping{ color:#f1611a;  display:block; float:left; padding:1em 0.8em 1em 1em; border-bottom:1px solid #f1611a; margin-left:1em;}
+.travels_pinglunzan .zan{ float:left; margin:1em;}
+
+.infocenter{width:100%;  background:#FFFFFF;}
+.infocenterxun{width:96%; margin:0 auto;  border-bottom:1px solid #bbbbbb;}
+.infocenterxun .ifxunlfet{width:3em; height:3em; float:left;}
+.infocenterxun .ifxunlfet img{border-radius:50px;}
+.infocenterxun .ifxunright{ width:75%; height:auto;float:left; margin-left:1em; font-size:0.6em;color:#5e5e5e;}
+
+.ifrightleft{float:left;}
+.ifrightspanright{float:right; margin-right:0.2em;}
+.ifrlingheigth{ margin-top:0.3em;}
+
+ /*轮播*/
+.addWrap{ position:relative; width:100%;background:#fff;margin:0; padding:0;}
+.addWrap .swipe{overflow: hidden;visibility: hidden;position:relative;}
+.addWrap .swipe-wrap{overflow:hidden;position:relative;}
+.addWrap .swipe-wrap > div {float: left;width: 100%;position:relative;}
+
+#position{ position:absolute; bottom:5px; right:0; padding-right:8px; margin:0; background:#000; opacity: 0.4; width:99%; filter: alpha(opacity=50);text-align:center;}
+#position li{width:10px;height:10px;margin:0 2px;display:inline-block;-webkit-border-radius:5px;border-radius:-5px;background-color:#AFAFAF;}
+#position li.cur{background-color:#FF0000;}
+.img-responsive{width: 100%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

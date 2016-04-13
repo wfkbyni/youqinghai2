@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void (^selectBlock)(NSIndexPath*);
 
 @interface ZRouteFTableView : UITableView
-
+@property(strong,nonatomic)selectBlock selectBlock;
+@property(nonatomic,strong)NSMutableArray *tabAr;
 @end

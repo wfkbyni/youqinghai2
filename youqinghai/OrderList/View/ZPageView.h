@@ -20,6 +20,8 @@
 @interface ZPageView : UIView
 @property(nonatomic,strong)NSArray *dataS;//传入btn按钮名字
 @property(nonatomic,assign)id<ZPageViewDelegate> delegate;
+
+@property (nonatomic, copy) void(^selectIndexAction)(NSInteger index);
 /**
  *  传输index 让该Btn变色
  *

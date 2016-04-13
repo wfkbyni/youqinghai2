@@ -42,7 +42,7 @@
     _addImageBtn = [[UIButton alloc]init];
     _addImageBtn.frame = CGRectMake(5, 0, ImageH, ImageH);
     _addImageBtn.backgroundColor  = [UIColor colorWithWhite:0.902 alpha:1.000];
-    [_addImageBtn setImage:[UIImage imageNamed:@"写评说_03"] forState:UIControlStateNormal];
+    [_addImageBtn setImage:[UIImage imageNamed:@"blackcamera"] forState:UIControlStateNormal];
     [_addImageBtn addTarget:self action:@selector(pickImageAction) forControlEvents:UIControlEventTouchUpInside];
     _addImageBtn.layer.borderWidth = 1;
     _addImageBtn.layer.borderColor = [UIColor colorWithWhite:0.800 alpha:1.000].CGColor;

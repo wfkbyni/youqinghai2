@@ -13,9 +13,9 @@
 #import "OrderDetailViewController.h"
 #import "OrderViewModel.h"
 
-@interface OrdersViewController ()<ZPageViewDelegate>
-
-{}
+@interface OrdersViewController ()<ZPageViewDelegate>{
+    NSInteger orderState;   // 订单状态
+}
 @property (nonatomic, strong) OrderViewModel *orderViewModel;
 @property(strong,nonatomic)NSMutableArray *orlistAr;
 @property(strong,nonatomic)NSMutableArray *listAr;
@@ -36,6 +36,9 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+    
+    orderState = -1;
+    
     self.orderViewModel = [[OrderViewModel alloc]init];
     self.tableView.tableHeaderView = self.tableViewHeader;
     
@@ -63,7 +66,6 @@
 }
 - (void)loadOrderListData{
     
-    
 //    [RACObserve(self.orderViewModel, orderList) subscribeNext:^(id x) {
 //         [self.tableView.mj_header endRefreshing];
 //        [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -79,12 +81,11 @@
 //        [self.tableView reloadData];
 //       
 //    }];
-    RACSignal *signal  = [self.orderViewModel getUserOrderList];
-    [self.pageView selectedIndex:@(0)];
+    RACSignal *signal  = [self.orderViewModel getUserOrderList:orderState];
     [signal subscribeNext:^(id x) {
                  endRefesh
          self.tableView.mj_footer.hidden = NO;
-       x =  [OrderListModel mj_objectArrayWithKeyValuesArray:x];
+        
                 if (self.orderViewModel.pages.integerValue!=1) {
                     if ([(NSArray*)x count]) {
                         [self.orlistAr addObjectsFromArray:x];
@@ -136,8 +137,25 @@
     if (!cell) {
         cell = [[OrderListCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identify];
     }
-    cell.orderListMod = self.listAr[indexPath.section];
-    
+    OrderListModel *model = self.listAr[indexPath.section];
+    cell.orderListMod = model;
+    [cell setBtnClickType:^(OrderType orderType) {
+        
+        if (orderType == OrderTypeWithCancel) {
+            // 取消订单
+            [self cancelOrder:model];
+        }else if(orderType == OrderTypeWithConfirmPay){
+            // 立即支付
+            [self confirmOrder:model];
+        }else if(orderType == OrderTypeWithDeleteOrder){
+            // 删除订单
+            [self deleteOrder:model];
+        }else if(orderType == OrderTypeWithEvaluate){
+            // 评价订单
+        }else if(orderType == OrderTypeWithComplaintPay){
+            // 投诉司机
+        }
+    }];
     return cell;
 }
 
@@ -165,6 +183,58 @@
     NSArray *titles = @[@"全部",@"待付款",@"待完成",@"待评价",@"已完成"];
     page.dataS = titles;
     _pageView = page;
+    __weak typeof(OrdersViewController) *weakSelf = self;
+    [_pageView setSelectIndexAction:^(NSInteger index) {
+        [self.listAr removeAllObjects];
+        self.orderViewModel.pages = @"1";
+        orderState = index - 1;
+        [weakSelf.pageView selectedIndex:@(index)];
+        [weakSelf loadOrderListData];
+    }];
     return page;
+}
+
+- (void)cancelOrder:(OrderListModel *)model{
+    [[self.orderViewModel cancelOrderWithOrderNo:model.orderId] subscribeNext:^(ResponseBaseData *data) {
+       
+        [self.view makeToast:data.message];
+        if (data.result_code == 0) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } error:^(NSError *error) {
+        YQHLog(@"%@",error);
+    }];
+}
+
+- (void)confirmOrder:(OrderListModel *)model{
+    
+    [[self.orderViewModel notifyUrlWithOrderNo:model.orderId withTotalMoney:model.orderReserve] subscribeNext:^(ResponseBaseData *data) {
+        
+        [self.view makeToast:data.message];
+        if (data.result_code == 0) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        
+    } error:^(NSError *error) {
+        YQHLog(@"%@",error);
+    }];
+    
+//    [AISharedPay handleAlipay:nil paymentBlock:^(BOOL success, id object, NSString *msg) {
+//        
+//    }];
+}
+
+- (void)deleteOrder:(OrderListModel *)model{
+    [[self.orderViewModel deleteOrder:model.orderId] subscribeNext:^(ResponseBaseData *data) {
+        
+        [self.view makeToast:data.message];
+        if (data.result_code == 0) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            
+        }
+    } error:^(NSError *error) {
+        YQHLog(@"%@",error);
+    }];
 }
 @end

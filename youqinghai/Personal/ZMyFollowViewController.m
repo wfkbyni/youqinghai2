@@ -12,7 +12,7 @@
 #import "ZDriverFTableView.h"
 #import "ZTravelFTableView.h"
 #import "ZFowUserTableView.h"
-
+#import "TourismDetailController.h"
 @interface ZMyFollowViewController ()<ZPageViewDelegate,UIScrollViewDelegate>
 @property(weak,nonatomic)ZPageView *pageView;
 @property(nonatomic,weak)UIScrollView *scrollView;
@@ -42,6 +42,18 @@
     self.routeFTableView = tableView;
     tableView.backgroundColor= [UIColor whiteColor];
     [self.scrollView addSubview:tableView];
+    
+    
+    tableView.selectBlock = ^(NSIndexPath *indexPath){
+        Recommend *recommend = self.routeFTableView.tabAr[indexPath.row];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@(recommend.Id) forKey:YQHTourisId];
+        
+        TourismDetailController *controller = [[TourismDetailController alloc] init];
+        controller.recommend = recommend;
+        [self.navigationController pushViewController:controller animated:YES];
+    };
+    
 }
 -(void)setDriverFTableView
 {

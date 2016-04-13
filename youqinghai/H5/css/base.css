@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*base css  基础样式*/
+*{
+	margin:0; padding:0; font-family:"微软雅黑"; font-weight:100;}
+a{
+	text-decoration:none; padding:0%;color: black;}/*去掉a标签下划线*/
+ul li{
+	list-style-type:none;} /*去掉ul li前面的点*/
+img{
+	border:0%; max-width:100%; max-height:100%;vertical-align:middle;}/*图片处理*/

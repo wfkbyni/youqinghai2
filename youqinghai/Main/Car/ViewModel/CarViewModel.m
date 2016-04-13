@@ -19,9 +19,9 @@
                                                                    withTourId:self.tourId
                                                                withTravelTime:self.travelTime
                                                                 withPageIndex:1
-                                                                 withPageSize:10] map:^id(id value) {
+                                                                 withPageSize:10] map:^id(ResponseBaseData *data) {
         
-        self.cars = [Car mj_objectArrayWithKeyValuesArray:value];
+        self.cars = [Car mj_objectArrayWithKeyValuesArray:data.result_data];
         return self.cars;
     }];
     
@@ -30,9 +30,9 @@
 
 -(RACSignal *)getCarTypeList{
     
-    RACSignal *signal = [[[RequestBaseAPI standardAPI] getCarTypeList] map:^id(id value) {
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] getCarTypeList] map:^id(ResponseBaseData *data) {
         
-        self.carTypes = [CarType mj_objectArrayWithKeyValuesArray:value];
+        self.carTypes = [CarType mj_objectArrayWithKeyValuesArray:data.result_data];
         
         return self.carTypes;
     }];
@@ -42,11 +42,11 @@
 
 -(RACSignal *)getDriverCarDetails{
     
-    RACSignal *signal = [[[RequestBaseAPI standardAPI] getDriverCarDetailsWithDriverId:self.driverId withUserId:myUserId] map:^id(id value) {
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] getDriverCarDetailsWithDriverId:self.driverId withUserId:myUserId] map:^id(ResponseBaseData *data) {
         
-        self.carDetail = [CarDetail mj_objectWithKeyValues:value];
+        self.carDetail = [CarDetail mj_objectWithKeyValues:data.result_data];
         
-        return value;
+        return data.result_data;
     }];
     
     return signal;

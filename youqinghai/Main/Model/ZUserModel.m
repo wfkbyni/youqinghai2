@@ -21,9 +21,10 @@
 -(RACSignal *)getUserDataWithPhone:(NSString*)phone andPassWord:(NSString*)passWord
 {
     RACSignal *signal =  [[RequestBaseAPI standardAPI] userLoginWithPhone:phone?phone:[ZUserModel shareUserModel].phone withPassWord:passWord?passWord:[ZUserModel shareUserModel].passWord ];
-    [signal subscribeNext:^(id x) {
-        NSLog(@"%@",x);
-        NSDictionary *dic =  [NSJSONSerialization JSONObjectWithData:[((NSString *)x) dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+    [signal subscribeNext:^(ResponseBaseData *data) {
+        NSLog(@"%@",data);
+        
+        NSDictionary *dic =  [NSJSONSerialization JSONObjectWithData:[((NSString *)data.result_data) dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
         [[ZUserModel shareUserModel] mj_setKeyValues:dic];
          [ZUserModel shareUserModel].passWord = passWord?passWord:[ZUserModel shareUserModel].passWord;
     }];

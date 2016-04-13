@@ -46,7 +46,6 @@
  *  @param pageIndex <#pageIndex description#>
  *  @param pageSize  <#pageSize description#>
  *
- *  @return <#return value description#>
  */
 -(RACSignal *)getUserOrderList:(NSInteger)userId
                      wihtState:(NSInteger)state
@@ -57,7 +56,32 @@
  *
  *  @param orderId <#orderId description#>
  *
- *  @return <#return value description#>
  */
 -(RACSignal *)getUserOrderDetailOrderId:(NSString*)orderId;
+
+/**
+ *  @brief 模拟支付，更改状态
+ *
+ *  @param out_trade_no 订单号
+ *  @param totalFee     订单金额
+ *
+ */
+-(RACSignal *)notifyUrlWithOutTradeNo:(NSString *)out_trade_no withTotalFee:(NSString *)totalFee;
+
+/**
+ *  @brief 取消订单
+ *
+ *  @param orderNo <#orderNo description#>
+ *
+ *  @return <#return value description#>
+ */
+- (RACSignal *)cancelOrderWithOrderNo:(NSString *)orderNo;
+
+/**
+ *  @brief 删除订单
+ *
+ *  @param orderId <#orderId description#>
+ *
+ */
+- (RACSignal *)removeOrder:(NSString *)orderId;
 @end

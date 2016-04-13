@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title>游记_详情</title>
+<link href="../css/base.css" rel="stylesheet" />
+<link href="../css/travels_details.css" rel="stylesheet" />
+<link rel="stylesheet" href="../dist/dropload.css">
+</head>
+
+<body>
+	<div class="zx-travels" style="overflow:hidden;">
+		 <!--轮播-->
+        <div class="addWrap">
+            <div class="swipe" id="mySwipe">
+                <div class="swipe-wrap">
+                    <div style="height:12em; width:100%;" id="img1style"><img class="img-responsive" src="../img/bg.png" id="img1src"/></div>
+                    <div style="height:12em; width:100%;" id="img2style"><img class="img-responsive" src="../img/bg.png" id="img2src"/></div>
+                    <div style="height:12em; width:100%;" id="img3style"><img class="img-responsive" src="../img/bg.png" id="img3src"/></div>
+					<div style="height:12em; width:100%;" id="img4style"><img class="img-responsive" src="../img/bg.png" id="img4src"/></div>
+					<div style="height:12em; width:100%;" id="img5style"><img class="img-responsive" src="../img/bg.png" id="img5src"/></div>
+					<div style="height:12em; width:100%;" id="img6style"><img class="img-responsive" src="../img/bg.png" id="img6src"/></div>
+                </div>
+            </div>
+            <ul id="position">
+                <li class="cur" id="li1"></li>
+                <li class="" id="li2"></li>
+                <li class="" id="li3"></li>
+				<li class="" id="li4"></li>
+                <li class="" id="li5"></li>
+				<li class="" id="li6"></li>
+            </ul>
+        </div>
+        <!--轮播 -->
+		<div class="travels_infodetial back">
+		<div class="xiangong" id="contenta">
+				向东眺忘，一派田园风情.
+		</div>		
+		</div>
+		
+		<div class="travels_pinglunzan">
+			<div class="ping">评论 <span id="ping">123</span></div>
+			<div class="zan">赞 <span  id="zan">73</span></div>
+			<div class="clear"></div>
+		</div>
+		
+		<div class="infocenter">
+		<!--循环start-
+			<div class="infocenterxun">
+			<div class="magin10px"></div>
+				<div class="ifxunlfet">
+					<img src="../img/touxiang.jpg" />
+				</div>
+				<div class="ifxunright">
+					<div>
+						<div class="ifrightleft">李达令</div>
+						<div class="ifrightspanright">2015-12-11 15:09</div>
+						<div class="clear"></div>
+					</div>
+					<div class="ifrlingheigth">
+						李达令李达令李达令李达令李达令李达李达令李达令李达令李达令李达令李达令李达令令
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div style="height:6px;"></div>
+			</div>
+		循环end-->
+		
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../js/swipe.min.js"></script>
+<script src="../dist/dropload.min.js"></script>
+<script type="text/javascript">
+    var bullets = document.getElementById('position').getElementsByTagName('li');
+    var banner = Swipe(document.getElementById('mySwipe'), {
+        auto: 3000,
+        continuous: true,
+        disableScroll: false,
+        callback: function (pos) {
+            var i = bullets.length;
+            while (i--) {
+                bullets[i].className = ' ';
+            }
+            bullets[pos].className = 'cur';
+        }
+    });
+
+	$(function(){
+    var counter = 0;
+    // 每页展示4个
+    var num = 4;
+    var pageStart = 0,pageEnd = 0;
+
+    // dropload
+    $('.zx-travels').dropload({
+        scrollArea : window,
+        loadDownFn : function(me){
+            $.ajax({
+                 url:"http://www.sinata.cn:9402/swimQinghai/app/travelsDynamic/getTravelsDetails",
+                 dataType: 'jsonp',
+                 data:{"travelsId":1},
+                 jsonp:'callback',
+				
+                success: function(data){
+				var imglength= data.result_data.image.length;
+				if(imglength == 1){
+					
+					$("#img1src").attr("src",data.result_data.image[0].imgUrl); 
+				}else if(imglength == 2){
+					
+					$("#img1src").attr("src",data.result_data.image[0].imgUrl); 
+					$("#img2src").attr("src",data.result_data.image[1].imgUrl); 
+				}else if(imglength == 3){
+					
+					$("#img1src").attr("src",data.result_data.image[0].imgUrl); 
+					$("#img2src").attr("src",data.result_data.image[1].imgUrl); 
+					$("#img3src").attr("src",data.result_data.image[2].imgUrl); 
+				
+				}else if(imglength == 4){
+					var i1 = data.result_data.image[0].imgUrl;
+					$("#imty").val(data.result_data.image[0].imgUrl);
+					$("#img1src").attr("src",data.result_data.image[0].imgUrl); 
+					$("#img2src").attr("src",data.result_data.image[1].imgUrl); 
+					$("#img3src").attr("src",data.result_data.image[2].imgUrl); 
+					$("#img4src").attr("src",data.result_data.image[3].imgUrl); 
+				}else if(imglength == 5){
+					
+					$("#img1src").attr("src",data.result_data.image[0].imgUrl); 
+					$("#img2src").attr("src",data.result_data.image[1].imgUrl); 
+					$("#img3src").attr("src",data.result_data.image[2].imgUrl); 
+					$("#img4src").attr("src",data.result_data.image[3].imgUrl); 
+					$("#img5src").attr("src",data.result_data.image[4].imgUrl); 
+				}else if(imglength == 6){
+					$("#img1src").attr("src",data.result_data.image[0].imgUrl); 
+					$("#img2src").attr("src",data.result_data.image[1].imgUrl); 
+					$("#img3src").attr("src",data.result_data.image[2].imgUrl); 
+					$("#img4src").attr("src",data.result_data.image[3].imgUrl); 
+					$("#img5src").attr("src",data.result_data.image[4].imgUrl); 
+					$("#img6src").attr("src",data.result_data.image[5].imgUrl); 
+				}
+				
+				
+				$("#zan").html(data.result_data.parseNum);
+				$("#ping").html(data.result_data.evaNum);
+				$("#contenta").html(data.result_data.content);
+				 
+				  
+				  
+                    var result = '';
+                    counter++;
+                    pageEnd = num * counter;
+                    pageStart = pageEnd - num;
+                    for(var i = pageStart; i < pageEnd; i++){
+                        result +=   '<div class="infocenterxun">'
+									+'<div class="magin10px"></div>'
+									+'<div class="ifxunlfet">'
+									+'<img src="'+data.result_data.trcoent[i].headUrl+'" />'
+									+'</div>'
+									+'<div class="ifxunright">'
+									+'<div>'
+									+'<div class="ifrightleft">'
+									+''+data.result_data.trcoent[i].nickname+''
+									+'</div>'
+									+'<div class="ifrightspanright">'
+									+''+data.result_data.trcoent[i].lastTime+''
+									+'</div>'
+									+'<div class="clear"></div>'
+									+'</div>'
+									+'<div class="ifrlingheigth">'
+									+''+data.result_data.trcoent[i].comContent+''
+									+'</div>'
+									+'</div>'
+									+'<div class="clear"></div>'
+									+'<div style="height:6px;"></div>'
+                                    +'</div>';
+						 if((i + 1) >= data.result_data.trcoent.length){
+                            // 锁定
+                            me.lock();
+                            // 无数据
+                            me.noData();
+                            break;
+                        }
+                       
+                    }
+                    // 为了测试，延迟1秒加载
+                    setTimeout(function(){
+                        $('.infocenter').append(result);
+                        // 每次数据加载完，必须重置
+                        me.resetload();
+                    },1000);
+                },
+                error: function(xhr, type){
+                    //alert('Ajax error!');
+                    // 即使加载出错，也得重置
+                    me.resetload();
+                }
+            });
+        }
+    });
+});
+	
+</script>

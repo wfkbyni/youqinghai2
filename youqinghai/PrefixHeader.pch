@@ -29,5 +29,9 @@
 #import "Const.h"
 #import <MJRefresh/MJRefresh.h>
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "UMSocial.h"
+#import <UIKit/UIKit.h>
+#import "AISharedPay.h"
+#import "UIView+Toast.h"
 #endif /* PrefixHeader_pch */
 #define myUserId 4

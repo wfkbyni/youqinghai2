@@ -10,7 +10,11 @@
 
 NSString const *calcCharteredPrice = @"app/payOrder/calcCharteredPrice";
 NSString const *addOrder = @"app/payOrder/addOrder";
-NSString const *calcPrice= @"app/payOrder/calcPrice";
+NSString const *calcPrice = @"app/payOrder/calcPrice";
+
+NSString const *notifyUrl = @"app/paycall/notifyUrl";
+NSString const *cancelOrder = @"app/myOrder/cancelOrder";
+NSString const *removeOrder = @"app/myOrder/removeOrder";
 
 NSString const *getUserOrderList = @"app/myOrder/getUserOrderList";
 NSString const *getUserOrderDetail = @"app/myOrder/getOrderDetails";
@@ -64,4 +68,21 @@ NSString const *getUserOrderDetail = @"app/myOrder/getOrderDetails";
         return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
 }
 
+
+-(RACSignal *)notifyUrlWithOutTradeNo:(NSString *)out_trade_no withTotalFee:(NSString *)totalFee{
+    
+    NSString *params = [NSString stringWithFormat:@"server=%@&out_trade_no=%@&total_fee=%@",notifyUrl,out_trade_no,totalFee];
+    
+    return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
+}
+
+-(RACSignal *)cancelOrderWithOrderNo:(NSString *)orderNo{
+    NSString *params = [NSString stringWithFormat:@"server=%@&orderId=%@",cancelOrder,orderNo];
+    return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
+}
+
+-(RACSignal *)removeOrder:(NSString *)orderId{
+    NSString *params = [NSString stringWithFormat:@"server=%@&orderId=%@",removeOrder,orderId];
+    return  [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
+}
 @end
