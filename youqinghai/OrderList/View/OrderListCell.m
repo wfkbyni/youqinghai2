@@ -221,7 +221,7 @@
     _tourDateLB.text = [NSString stringWithFormat:@"出游日期:%@",orderListMod.travelTime];
     
     _tourNumLB.text = [NSString stringWithFormat:@"出游人数: %@",orderListMod.travelnum];
-    _carTypeLB.text = [NSString stringWithFormat:@"车辆类型:%@", orderListMod.carTypeName];
+    _carTypeLB.text = [NSString stringWithFormat:@"车辆类型:%@", orderListMod.carType];
     _moneyLB.text = [NSString stringWithFormat:@"定金: %@",orderListMod.orderReserve];
     _tourTypeLB.text = orderListMod.traveltype.integerValue?@"包车出游":@"拼车出游";
 }

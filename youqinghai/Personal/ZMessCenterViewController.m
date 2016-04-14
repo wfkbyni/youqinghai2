@@ -67,6 +67,11 @@ self.tableView.mj_footer.hidden = YES;
         }
         self.messAr = [ZUserMessModel mj_objectArrayWithKeyValuesArray:ar];
         NSLog(@"%@",self.messAr );
+        if (self.messAr.count<30) {
+            
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            
+        }
         [blockSelf.tableView reloadData];
     }];
     [signal subscribeError:^(NSError *error) {

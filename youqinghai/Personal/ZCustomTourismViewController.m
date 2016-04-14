@@ -66,6 +66,11 @@
         }
         self.cusAr = [ZCustomListModel mj_objectArrayWithKeyValuesArray:ar];
         NSLog(@"%@",self.cusAr );
+        if (self.cusAr.count<30) {
+            
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            
+        }
         [blockSelf.tableView reloadData];
  
     }];

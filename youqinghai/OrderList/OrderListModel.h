@@ -24,6 +24,7 @@
 @property(strong,nonatomic)NSString *tourName;
 @property(strong,nonatomic)NSString *carnum;
 @property(strong,nonatomic)NSString *carTypeName;
+@property(strong,nonatomic)NSString *carType;
 @property(strong,nonatomic)NSString *singletime;
 @property(strong,nonatomic)NSString *traveltype;
 @property(strong,nonatomic)NSString *traveld;

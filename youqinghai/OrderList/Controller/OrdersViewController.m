@@ -100,6 +100,10 @@
         
                 self.orlistAr = x;
                 self.listAr = x;
+        if (self.orlistAr.count<10) {
+             [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            
+        }
                 [self.tableView reloadData];
     }];
     [signal subscribeError:^(NSError *error) {

@@ -41,6 +41,11 @@ NSString *const userForGet = @"app/user/getForgetPassword";
     
  
     
-    return [self requestWithType:RequestAPITypePost params:param];
+    return [[self requestWithType:RequestAPITypePost params:param]map:^id(ResponseBaseData *data) {
+        if (!data.result_data) {
+            data.result_data = @"";
+        }
+        return data.result_data;
+    }];
 }
 @end

@@ -145,16 +145,22 @@
     
     NSArray *list = _datasourceOfTitles[indexPath.section];
     NSString *title = list[indexPath.row];
+    if ([title isEqualToString:@"服务司机"]) {
+        UIImageView *image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"myorderphone"]];
+        image.frame = CGRectMake(0, 0, 28, 28);
+        cell.accessoryView =image;
+    }
     NSArray *values = _datasourceOfValues[indexPath.section];
     NSString *value = values[indexPath.row];
     
     if ([title hasPrefix:@"订单金额"]||[title hasPrefix:@"支付定金"]) {
         cell.detailTextLabel.textColor = [UIColor redColor];
     }else{
-        cell.detailTextLabel.textColor = [UIColor colorWithRed:3.0/255.0 green:3.0/255.0 blue:3.0/255.0 alpha:1.0f];
+        cell.detailTextLabel.textColor = [UIColor colorWithWhite:0.667 alpha:1.000];
     }
     
     cell.textLabel.text = title;
+    cell.textLabel.textColor = [UIColor colorWithRed:0.286 green:0.286 blue:0.298 alpha:1.000];
     cell.detailTextLabel.text = value;
     return cell;
 }

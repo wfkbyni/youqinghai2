@@ -28,13 +28,13 @@
         MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
         self.mj_header = header;
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             self.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
                 self.pages = @(self.pages.integerValue+1).stringValue;
                 [self getNet];
             }];
-        });
-        
+        //});
+        self.mj_footer.hidden = YES;
         [self.mj_header beginRefreshing];
     }
     return self;
@@ -52,6 +52,7 @@
     [signal subscribeNext:^(id x) {
         [blockSelf.mj_header endRefreshing];
         [blockSelf.mj_footer endRefreshing];
+        self.mj_footer.hidden = NO;
         NSArray *ar =  [NSJSONSerialization JSONObjectWithData:[((NSString *)x) dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
         
         
@@ -69,6 +70,11 @@
         
         blockSelf.tabAr = [Recommend mj_objectArrayWithKeyValuesArray:ar];
         NSLog(@"%@",blockSelf.tabAr );
+        if (self.tabAr.count<20) {
+            
+                [self.mj_footer endRefreshingWithNoMoreData];
+            
+        }
         [blockSelf reloadData];
     }];
     [signal subscribeError:^(NSError *error) {
