@@ -46,8 +46,18 @@
     }
     [self.view endEditing:YES];
     if ([self.title isEqualToString:@"修改昵称"]) {
+        if (self.cell.fieldText.text.length>6) {
+            UIAlertView *alter = [[UIAlertView alloc]initWithTitle:@"提示" message:@"对不起昵称只能输入六位" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+            [alter show];
+            return;
+        }
         [ZUserModel shareUserModel].nickname = self.cell.fieldText.text;
     }else{
+        if (self.cell.fieldText.text.length>20) {
+            UIAlertView *alter = [[UIAlertView alloc]initWithTitle:@"提示" message:@"对不起签名只能输入二十位" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+            [alter show];
+            return;
+        }
         [ZUserModel shareUserModel].autograph = self.cell.fieldText.text;
     }
     [[NSNotificationCenter defaultCenter]postNotificationName:@"modifyUser" object:nil];

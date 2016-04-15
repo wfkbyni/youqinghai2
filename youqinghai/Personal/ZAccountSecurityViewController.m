@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"账户安全";
     self.view.backgroundColor = spaceColor238238238();
     self.tableView.backgroundColor = [UIColor clearColor];
 

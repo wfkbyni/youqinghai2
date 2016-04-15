@@ -182,12 +182,14 @@
         {
             cell.icon.image = [UIImage imageNamed:@"登录_03"];
             cell.fieText.placeholder =@"请输入手机号";
+            cell.fieText.keyboardType = UIKeyboardTypePhonePad;
         }
             break;
         case 1:
         {
             cell.icon.image = [UIImage imageNamed:@"登录_07"];
             cell.fieText.placeholder =@"请输入密码";
+            cell.fieText.keyboardType = UIKeyboardTypeNumberPad;
         }
             break;
         default:

@@ -73,7 +73,11 @@
         switch (i) {
             case 0:
             {
-                
+                if (cell.fieldText.text.length<6 ||cell.fieldText.text.length>16) {
+                    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:@"请输入6-16位的密码" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                    [alert show];
+                    return;
+                }
                 _reqModel.oldPassWord = cell.fieldText.text;
             }
                 break;
@@ -106,6 +110,11 @@
 
                 break;
             case 3:
+                if (cell.fieldText.text.length<6 ||cell.fieldText.text.length>16) {
+                    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:@"请输入6-16位的密码" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                    [alert show];
+                    return;
+                }
                _reqModel.password = cell.fieldText.text;
                 break;
             case 4:
@@ -129,7 +138,7 @@
     [signal subscribeNext:^(id x) {
         NSLog(@"%@",x);
         [ZUserModel shareUserModel].passWord = blockSelf.reqModel.password;
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:YES];
         //        NSDictionary *dic =  [NSJSONSerialization JSONObjectWithData:[((NSString *)x) dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
         //        NSLog(@"%@",dic[@"test code ----> "]);
         //        _reqModel.textCod = dic[@"test code ----> "];
@@ -162,13 +171,15 @@
         {
             cell.lableText.text = @"原密码";
             cell.fieldText.placeholder =@"请输入原登录密码";
+            cell.fieldText.secureTextEntry = YES;
+            
         }
             break;
         case 1:
         {
             cell.lableText.text = @"注册手机";
             cell.fieldText.placeholder =@"请输入注册手机号";
-
+            cell.fieldText.keyboardType = UIKeyboardTypePhonePad;
         }
             break;
         case 2:
@@ -185,13 +196,14 @@
             [btn addTarget:self action:@selector(getCode:) forControlEvents:UIControlEventTouchUpInside];
             cell.fieldText.rightView = btn;
             cell.fieldText.rightViewMode  = UITextFieldViewModeAlways;
+            cell.fieldText.keyboardType = UIKeyboardTypeNumberPad;
         }
             break;
         case 3:
         {
             cell.lableText.text = @"新密码";
             cell.fieldText.placeholder =@"请输入新登录密码";
-
+            cell.fieldText.secureTextEntry = YES;
          
         }
             break;
@@ -199,7 +211,7 @@
         {
             cell.lableText.text = @"确认密码";
             cell.fieldText.placeholder =@"请再次输入新登录密码";
-            
+            cell.fieldText.secureTextEntry = YES;
             
         }
             break;

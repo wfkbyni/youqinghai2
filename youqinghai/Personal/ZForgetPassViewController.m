@@ -92,6 +92,11 @@
             
             break;
         case 2:
+            if (cell.fieldText.text.length<6 ||cell.fieldText.text.length>16) {
+                UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:@"请输入6-16位的密码" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                [alert show];
+                return;
+            }
             _reqModel.password = cell.fieldText.text;
      
             break;
@@ -165,6 +170,7 @@
         {
             cell.lableText.text = @"注册手机";
             cell.fieldText.placeholder =@"请输入注册手机号";
+            cell.fieldText.keyboardType = UIKeyboardTypePhonePad;
         }
             break;
         case 1:
@@ -181,6 +187,7 @@
             [btn addTarget:self action:@selector(getCode:) forControlEvents:UIControlEventTouchUpInside];
             cell.fieldText.rightView = btn;
             cell.fieldText.rightViewMode  = UITextFieldViewModeAlways;
+            cell.fieldText.keyboardType = UIKeyboardTypeNumberPad;
             
         }
             break;
@@ -188,14 +195,14 @@
         {
             cell.lableText.text = @"重置密码";
             cell.fieldText.placeholder =@"请重置登录密码";
- 
+            cell.fieldText.secureTextEntry = YES;
         }
             break;
         case 3:
         {
             cell.lableText.text = @"确认密码";
             cell.fieldText.placeholder =@"请再次输入登录密码";
-            
+            cell.fieldText.secureTextEntry = YES;
             
         }
             break;

@@ -30,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"个人资料";
     self.view.backgroundColor = spaceColor238238238();
     self.tableView.backgroundColor = [UIColor clearColor];
     _userModel =  [ZUserModel shareUserModel];

@@ -35,6 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"修改绑定手机";
     _phoneModel = [[phoneModel alloc]init];
     self.view.backgroundColor = spaceColor238238238();
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -119,7 +120,7 @@
           [signal subscribeNext:^(id x) {
                         NSLog(@"%@",x);
               [ZUserModel shareUserModel].phone = blockSelf.phoneModel.Newphone;
-              [blockSelf.navigationController popToRootViewControllerAnimated:YES];
+             [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:YES];
 //                        NSDictionary *dic =  [NSJSONSerialization JSONObjectWithData:[((NSString *)x) dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
 //                        [[ZUserModel shareUserModel] mj_setKeyValues:dic];
 //                        [ZUserModel shareUserModel].passWord = _reqModel.password;
@@ -156,12 +157,14 @@
         {
             cell.lableText.text = @"原手机号";
             cell.fieldText.placeholder =@"请输入您原来绑定的手机号";
+            cell.fieldText.keyboardType = UIKeyboardTypePhonePad;
         }
             break;
         case 1:
         {
             cell.lableText.text = @"绑定手机";
             cell.fieldText.placeholder =@"请输入您现在要绑定的手机号码";
+            cell.fieldText.keyboardType = UIKeyboardTypePhonePad;
         }
             break;
         case 2:
@@ -179,6 +182,7 @@
             cell.fieldText.rightView = btn;
             cell.fieldText.rightViewMode  = UITextFieldViewModeAlways;
             [_cellar setObject:btn atIndexedSubscript:3];
+            cell.fieldText.keyboardType = UIKeyboardTypeNumberPad;
         }
             break;
         default:

@@ -54,11 +54,11 @@
         _UserIcon.layer.cornerRadius = _UserIcon.bounds.size.height/2;
         _UserIcon.layer.borderWidth = 2;
         _UserIcon.layer.borderColor = [UIColor colorWithRed:0.286 green:0.286 blue:0.298 alpha:1.000].CGColor;
-        _travelNum.text = user.travelCount;
+        _travelNum.text = @"0";
         
-        _followNum.text = user.collection;
+        _followNum.text = @"0";
         
-        _praiseNum.text = user.parise;
+        _praiseNum.text =@"0";
         _UserIcon.image = nil;
         return;
     }
@@ -82,9 +82,11 @@
     
     _UserPhone.text = [user.phone stringByReplacingCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
     
-    
+
     _UserSign.text = [NSString stringWithFormat:@"“%@”", user.autograph];
-    
+    if ([user.autograph isEqualToString:@""]||!user.autograph) {
+        _UserSign.text = @"";
+    }
     _travelNum.text = user.travelCount;
     
     _followNum.text = user.collection;
