@@ -84,4 +84,23 @@
  *
  */
 - (RACSignal *)removeOrder:(NSString *)orderId;
+/**
+ *  评价接口
+ *
+ *  @param tourisId <#tourisId description#>
+ *  @param orderId  <#orderId description#>
+ *  @param imageAr  <#imageAr description#>
+ *  @param content  <#content description#>
+ *  @param score    <#score description#>
+ *  @param contents <#contents description#>
+ *
+ *  @return <#return value description#>
+ */
+- (RACSignal *)sendEvaWithtourisId:(NSString *)tourisId
+                      withorderId:(NSString *)orderId
+                       withImageAr:(NSArray *)imageAr
+                       withcontent:(NSString *)content
+                         withscore:(NSString *)score
+                      withcontents:(NSString *)contents;
+
 @end

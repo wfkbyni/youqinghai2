@@ -18,6 +18,8 @@ NSString const *removeOrder = @"app/myOrder/removeOrder";
 
 NSString const *getUserOrderList = @"app/myOrder/getUserOrderList";
 NSString const *getUserOrderDetail = @"app/myOrder/getOrderDetails";
+
+NSString *const sendEva = @"app/myOrder/evaluationFeatureOrDriver";
 @implementation RequestBaseAPI (Order)
 
 -(RACSignal *)calcCharteredPriceWithTraveId:(NSInteger)traveId
@@ -84,5 +86,15 @@ NSString const *getUserOrderDetail = @"app/myOrder/getOrderDetails";
 -(RACSignal *)removeOrder:(NSString *)orderId{
     NSString *params = [NSString stringWithFormat:@"server=%@&orderId=%@",removeOrder,orderId];
     return  [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
+}
+-(RACSignal *)sendEvaWithtourisId:(NSString *)tourisId withorderId:(NSString *)orderId withImageAr:(NSArray *)imageAr withcontent:(NSString *)content withscore:(NSString *)score withcontents:(NSString *)contents
+{
+    NSDictionary *param = @{@"tourisId":tourisId?tourisId:@"",@"orderId":orderId?orderId:@"",@"content":content?content:@"",@"score":content?content:@"",@"contents":contents?contents:@""};
+    return[ [self ZpostApiString:sendEva params:param attachKey:@"fileName" attachData:imageAr] map:^id(ResponseBaseData *data) {
+        if (!data.result_data) {
+            data.result_data = @"";
+        }
+        return data.result_data;
+    }];
 }
 @end

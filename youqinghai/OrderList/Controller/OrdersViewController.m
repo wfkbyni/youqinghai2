@@ -12,7 +12,7 @@
 #import "OrderListCell.h"
 #import "OrderDetailViewController.h"
 #import "OrderViewModel.h"
-
+#import "MyOrderEvaViewController.h"
 @interface OrdersViewController ()<ZPageViewDelegate>{
     NSInteger orderState;   // 订单状态
 }
@@ -156,6 +156,11 @@
             [self deleteOrder:model];
         }else if(orderType == OrderTypeWithEvaluate){
             // 评价订单
+            {
+                MyOrderEvaViewController *oev = [[MyOrderEvaViewController alloc]init];
+                oev.listMod = model;
+                [self.navigationController pushViewController:oev animated:YES];
+            }
         }else if(orderType == OrderTypeWithComplaintPay){
             // 投诉司机
         }
@@ -166,7 +171,13 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 220.0f;
 }
-
+- (void)tableView:(UITableView *)tableView willDisplayCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    // 下面这几行代码是用来设置cell的上下行线的位置
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsMake(0, 20, 0, 20)];
+    }
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     

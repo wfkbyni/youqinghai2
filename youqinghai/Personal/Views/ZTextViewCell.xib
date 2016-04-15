@@ -18,6 +18,9 @@
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0xt-UO-9Og">
                         <rect key="frame" x="12" y="12" width="296" height="115"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="115" id="Dyn-8C-jOn"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         <connections>
@@ -36,17 +39,17 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="0xt-UO-9Og" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="061-rz-wVD"/>
                     <constraint firstItem="whC-aE-9sD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="2Kp-3u-3IP"/>
-                    <constraint firstAttribute="trailing" secondItem="0xt-UO-9Og" secondAttribute="trailing" constant="12" id="5He-mF-Ti6"/>
-                    <constraint firstItem="0xt-UO-9Og" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="6wH-Yp-Rj1"/>
+                    <constraint firstAttribute="trailing" secondItem="0xt-UO-9Og" secondAttribute="trailing" constant="12" id="ERB-2W-vEL"/>
+                    <constraint firstItem="0xt-UO-9Og" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="VdM-tU-vny"/>
                     <constraint firstItem="whC-aE-9sD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="bnP-6j-asI"/>
-                    <constraint firstAttribute="bottom" secondItem="0xt-UO-9Og" secondAttribute="bottom" constant="12" id="fpi-C4-tuw"/>
+                    <constraint firstItem="0xt-UO-9Og" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="thH-uV-w0Z"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="placeholder" destination="whC-aE-9sD" id="BrT-tW-HQh"/>
                 <outlet property="textView" destination="whC-aE-9sD" id="DVT-4t-MWS"/>
+                <outlet property="textViewheight" destination="Dyn-8C-jOn" id="Rvz-f0-XWH"/>
             </connections>
         </tableViewCell>
     </objects>

@@ -19,7 +19,7 @@
     [super viewDidLoad];
     self.title = @"意见反馈";
     self.images = [NSMutableArray array];
-    self.height  = 140+ImageH+12 ;
+    self.height  = imageViewH+ImageH+12 ;
     self.view.backgroundColor = spaceColor238238238();
     self.tableView.backgroundColor = [UIColor clearColor];
     
@@ -70,12 +70,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZTextViewCell   *cell =  [[NSBundle mainBundle] loadNibNamed:@"ZTextViewCell" owner:nil options:nil].firstObject;
     cell.controller =self;
+    cell.images = self.images;
     cell.placeholder.text = @"用的不爽,说两句,最多200字";
     cell.photo = @"";
+    cell.textViewheight.constant = 145;
     
     cell.TextBlcok = ^(NSString *text)
     {
         self.str = text;
+    };
+    cell.imageBlcok = ^(NSMutableArray *imageAr)
+    {
+        self.images = imageAr;
+        [self.tableView reloadData];
     };
     return cell;
 
@@ -92,7 +99,7 @@
 {
  
     if (self.images.count>=4) {
-        return 140+ImageH+12+5+ImageH+12;
+        return imageViewH+ImageH+5+ImageH+12;
     }
    return self.height;
    

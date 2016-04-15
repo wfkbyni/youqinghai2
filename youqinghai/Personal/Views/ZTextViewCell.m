@@ -12,7 +12,7 @@
 {
     UIButton *_addImageBtn;
 }
-@property(nonatomic,strong)NSMutableArray *images;//
+
 @property(nonatomic,strong)NSMutableArray *imagesURL;//存储要上传的图片路径
 @property(nonatomic,strong) NSMutableArray *imageNames;
 @property(nonatomic,weak) UIView *picView;
@@ -34,8 +34,11 @@
 }
 -(void)setPhoto:(NSString *)photo
 {
-    self.images = [NSMutableArray array];
-    UIView *picView = [[UIView alloc]initWithFrame:CGRectMake(12, 140, [UIScreen mainScreen].bounds.size.width-24, ImageH)];
+    if (!self.images) {
+        self.images = [NSMutableArray array];
+    }
+    
+    UIView *picView = [[UIView alloc]initWithFrame:CGRectMake(12, imageViewH, [UIScreen mainScreen].bounds.size.width-24, ImageH)];
     [self.contentView addSubview:picView];
     _picView = picView;
     
@@ -51,11 +54,13 @@
 }
 -(void)pickImageAction
 {
-    if (self.controller.images.count >=7) {
+    [self endEditing:YES];
+    if (self.images.count >=7) {
         UIAlertView *av= [[UIAlertView alloc]initWithTitle:@"提示" message:@"上传不能超过7张" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
         [av show];
         return;
     }
+    
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"上传图片"
                                   delegate:self
@@ -67,10 +72,10 @@
 }
 //显示图片
 -(void)showImages{
-    if (self.controller.images.count>=4) {
-        self.picView.frame = CGRectMake(12, 140, SCREEN_WIDTH-24, ImageH+5+ImageH);
+    if (self.images.count>=4) {
+        self.picView.frame = CGRectMake(12, imageViewH, SCREEN_WIDTH-24, ImageH+5+ImageH);
     }else{
-        self.picView.frame = CGRectMake(12, 140, [UIScreen mainScreen].bounds.size.width-24, ImageH);
+        self.picView.frame = CGRectMake(12, imageViewH, [UIScreen mainScreen].bounds.size.width-24, ImageH);
     }
     if (self.picView.subviews.count>0) {
         
@@ -82,7 +87,7 @@
         }
         
     }
-    if (self.controller.images.count==0) {
+    if (self.images.count==0) {
         _addImageBtn.frame = CGRectMake(5, 0, ImageH, ImageH);
         return;
     }
@@ -90,12 +95,12 @@
     CGFloat startX = 5;
     CGRect frame = CGRectMake(startX, 0, ImageH, ImageH);
     
-    for (int i = 0; i < self.controller.images.count; i++) {
+    for (int i = 0; i < self.images.count; i++) {
         UIImageView *iv = [[UIImageView alloc]init];
         iv.contentMode = UIViewContentModeScaleAspectFill;
         iv.clipsToBounds=YES;
         iv.frame = frame;
-        iv.image = self.controller.images[i];
+        iv.image = self.images[i];
         iv.userInteractionEnabled =YES;
         //self.lastImageView = iv;
         frame.origin.x = frame.origin.x + frame.size.width + 5;
@@ -118,7 +123,7 @@
         deleteBtn.userInteractionEnabled = YES;
         [iv addSubview:deleteBtn];
         
-        if ((int)self.controller.images.count-1 == i) {//把添加按钮防灾图片最后
+        if ((int)self.images.count-1 == i) {//把添加按钮防灾图片最后
             CGRect fra = _addImageBtn.frame;
             fra.origin.x = frame.origin.x;
             fra.origin.y = frame.origin.y;
@@ -140,7 +145,7 @@
         UzysAssetsPickerController *picker = [[UzysAssetsPickerController alloc] init];
         
          picker.delegate = self;
-         picker.maximumNumberOfSelectionPhoto = 9-(self.controller.images.count+2);
+         picker.maximumNumberOfSelectionPhoto = 9-(self.images.count+3);
       
         [self.controller  presentViewController:picker animated:YES completion:nil];
     }
@@ -157,10 +162,10 @@
             ALAsset *representation = obj;
             UIImage *img = [UIImage imageWithCGImage:representation.defaultRepresentation.fullScreenImage
                             ];
-            if (weakSelf.controller.images.count) {
-                [weakSelf.controller.images insertObject:img atIndex:weakSelf.controller.images.count - 1];
+            if (weakSelf.images.count) {
+                [weakSelf.images insertObject:img atIndex:weakSelf.images.count - 1];
             }else{
-                [weakSelf.controller.images addObject:img];
+                [weakSelf.images addObject:img];
             }
             
             //            *stop = YES;
@@ -168,7 +173,9 @@
     }
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.controller.tableView reloadData];
+        if (self.imageBlcok) {
+            self.imageBlcok(self.images);
+        }
         
     });
 }
@@ -179,21 +186,25 @@
     [picker dismissViewControllerAnimated:YES completion:^{
         UIImage *img = info[UIImagePickerControllerEditedImage];
   
-        [self.controller.images insertObject:img atIndex:self.controller.images.count - 1];
-        [self.controller.tableView reloadData];
+        [self.images insertObject:img atIndex:self.images.count - 1];
+        if (self.imageBlcok) {
+            self.imageBlcok(self.images);
+        }
     }];
 }
 -(void)deleteImage:(UIButton *)btn{
     
-    if (self.controller.images.count==0) {
+    if (self.images.count==0) {
         return;
     }
     //删除掉
-    [self.controller.images removeObjectAtIndex:btn.tag];
+    [self.images removeObjectAtIndex:btn.tag];
 //    [self.imagesURL removeObjectAtIndex:btn.tag];
 //    [self.imageNames removeObjectAtIndex:btn.tag];
     [self showImages];
-    [self.controller.tableView reloadData];
+    if (self.imageBlcok) {
+        self.imageBlcok(self.images);
+    }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

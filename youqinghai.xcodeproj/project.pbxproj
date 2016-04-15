@@ -117,6 +117,11 @@
 		357D72FD1CBCD2B600EAD35C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 357D72FC1CBCD2B600EAD35C /* libz.tbd */; };
 		357D72FF1CBCD30500EAD35C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357D72FE1CBCD30500EAD35C /* Accounts.framework */; };
 		357D73011CBCD3C200EAD35C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357D73001CBCD3C200EAD35C /* Social.framework */; };
+		357D73471CBF8D0000EAD35C /* MyOrderEvaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 357D73461CBF8D0000EAD35C /* MyOrderEvaViewController.m */; };
+		357D734B1CBF8EDB00EAD35C /* MyOrderEvaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 357D73491CBF8EDB00EAD35C /* MyOrderEvaCell.m */; };
+		357D734C1CBF8EDB00EAD35C /* MyOrderEvaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357D734A1CBF8EDB00EAD35C /* MyOrderEvaCell.xib */; };
+		357D734F1CBF8F1900EAD35C /* ZStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 357D734E1CBF8F1900EAD35C /* ZStarView.m */; };
+		357D73521CBFA8B600EAD35C /* EvaDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 357D73511CBFA8B600EAD35C /* EvaDriverViewController.m */; };
 		35891B9B1CB7B4C000CE7002 /* CarDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35891B7C1CB7B4C000CE7002 /* CarDetailController.m */; };
 		35891B9C1CB7B4C000CE7002 /* CarDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35891B7D1CB7B4C000CE7002 /* CarDetailController.xib */; };
 		35891B9D1CB7B4C000CE7002 /* CarListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35891B7F1CB7B4C000CE7002 /* CarListController.m */; };
@@ -490,6 +495,15 @@
 		357D72FC1CBCD2B600EAD35C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		357D72FE1CBCD30500EAD35C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		357D73001CBCD3C200EAD35C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		357D73451CBF8CFF00EAD35C /* MyOrderEvaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderEvaViewController.h; sourceTree = "<group>"; };
+		357D73461CBF8D0000EAD35C /* MyOrderEvaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderEvaViewController.m; sourceTree = "<group>"; };
+		357D73481CBF8EDB00EAD35C /* MyOrderEvaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderEvaCell.h; sourceTree = "<group>"; };
+		357D73491CBF8EDB00EAD35C /* MyOrderEvaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderEvaCell.m; sourceTree = "<group>"; };
+		357D734A1CBF8EDB00EAD35C /* MyOrderEvaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderEvaCell.xib; sourceTree = "<group>"; };
+		357D734D1CBF8F1900EAD35C /* ZStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZStarView.h; sourceTree = "<group>"; };
+		357D734E1CBF8F1900EAD35C /* ZStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZStarView.m; sourceTree = "<group>"; };
+		357D73501CBFA8B600EAD35C /* EvaDriverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaDriverViewController.h; sourceTree = "<group>"; };
+		357D73511CBFA8B600EAD35C /* EvaDriverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaDriverViewController.m; sourceTree = "<group>"; };
 		35891B7B1CB7B4C000CE7002 /* CarDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDetailController.h; sourceTree = "<group>"; };
 		35891B7C1CB7B4C000CE7002 /* CarDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarDetailController.m; sourceTree = "<group>"; };
 		35891B7D1CB7B4C000CE7002 /* CarDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarDetailController.xib; sourceTree = "<group>"; };
@@ -1495,6 +1509,10 @@
 				35EB05881CB94FF3003FDEFD /* OrderDetailViewController.m */,
 				35EB05891CB94FF3003FDEFD /* OrdersViewController.h */,
 				35EB058A1CB94FF3003FDEFD /* OrdersViewController.m */,
+				357D73451CBF8CFF00EAD35C /* MyOrderEvaViewController.h */,
+				357D73461CBF8D0000EAD35C /* MyOrderEvaViewController.m */,
+				357D73501CBFA8B600EAD35C /* EvaDriverViewController.h */,
+				357D73511CBFA8B600EAD35C /* EvaDriverViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1502,6 +1520,8 @@
 		35EB058B1CB94FF3003FDEFD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				357D734D1CBF8F1900EAD35C /* ZStarView.h */,
+				357D734E1CBF8F1900EAD35C /* ZStarView.m */,
 				35EB058C1CB94FF3003FDEFD /* OrderListCell.h */,
 				35EB058D1CB94FF3003FDEFD /* OrderListCell.m */,
 				35EB058E1CB94FF3003FDEFD /* OrderListDetailCell.h */,
@@ -1512,6 +1532,9 @@
 				35EB05931CB94FF3003FDEFD /* YQHRadiusButton.m */,
 				35EB05941CB94FF3003FDEFD /* ZPageView.h */,
 				35EB05951CB94FF3003FDEFD /* ZPageView.m */,
+				357D73481CBF8EDB00EAD35C /* MyOrderEvaCell.h */,
+				357D73491CBF8EDB00EAD35C /* MyOrderEvaCell.m */,
+				357D734A1CBF8EDB00EAD35C /* MyOrderEvaCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2263,6 +2286,7 @@
 				357D72CE1CBCD23900EAD35C /* UMSocialSDKResourcesNew.bundle in Resources */,
 				357D72C61CBCD23900EAD35C /* UMSCommentDetailController.xib in Resources */,
 				357D72AF1CBCD23900EAD35C /* save@2x.png in Resources */,
+				357D734C1CBF8EDB00EAD35C /* MyOrderEvaCell.xib in Resources */,
 				357D72E81CBCD23900EAD35C /* ios-social-sdk-shake.html in Resources */,
 				35891BE91CB7B59200CE7002 /* RecommendTypeCell.xib in Resources */,
 				357D72E61CBCD23900EAD35C /* ios-social-sdk-shake.html in Resources */,
@@ -2360,6 +2384,7 @@
 				B437E68C1CA43CE600091521 /* UIViewController+TableView.m in Sources */,
 				357D72A31CBCD23900EAD35C /* AIUmeng.m in Sources */,
 				35E3FFC01CA92AAC00876054 /* ZmessCenterCell.m in Sources */,
+				357D734B1CBF8EDB00EAD35C /* MyOrderEvaCell.m in Sources */,
 				B472E77C1CBC9C8300A43CCB /* AIHybridJSParam.m in Sources */,
 				B437E6991CA43D3700091521 /* SRSlimeView.m in Sources */,
 				35891BA51CB7B4C000CE7002 /* DriverCarCommentCell.m in Sources */,
@@ -2417,8 +2442,10 @@
 				9A1FEB501C9EF44A0067B8D5 /* GTMBase64+Des.m in Sources */,
 				357D72BD1CBCD23900EAD35C /* UMChatTableViewCell.m in Sources */,
 				357D72C11CBCD23900EAD35C /* UMRadialView.m in Sources */,
+				357D734F1CBF8F1900EAD35C /* ZStarView.m in Sources */,
 				35891BE81CB7B59200CE7002 /* RecommendTypeCell.m in Sources */,
 				354A68591CB4BDCE001F3F5D /* ZCusTourCell.m in Sources */,
+				357D73471CBF8D0000EAD35C /* MyOrderEvaViewController.m in Sources */,
 				35891BD21CB7B55400CE7002 /* TouristroutesViewController.m in Sources */,
 				35891BED1CB7B59200CE7002 /* TourismDetailView.m in Sources */,
 				354A68441CB36ACB001F3F5D /* ZModifyPassWordViewController.m in Sources */,
@@ -2463,6 +2490,7 @@
 				9A24C31F1CBE6BC500671233 /* DataVerifier.m in Sources */,
 				357D72BE1CBCD23900EAD35C /* UMChatToolBar.m in Sources */,
 				357D72A41CBCD23900EAD35C /* AIUmengCheckUpdate.m in Sources */,
+				357D73521CBFA8B600EAD35C /* EvaDriverViewController.m in Sources */,
 				35891BEB1CB7B59200CE7002 /* TourisEvaluateCell.m in Sources */,
 				B437E6B01CA43FB600091521 /* TravelsViewController.m in Sources */,
 				9A24C3181CBE6BC500671233 /* APAuthV2Info.m in Sources */,
