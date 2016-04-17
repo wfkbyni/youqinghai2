@@ -85,14 +85,16 @@
     SDCycleScrollView *scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenSize.width, kScreenSize.width * 0.5) delegate:nil placeholderImage:nil];
     
     NSMutableArray *imageArray = [[NSMutableArray alloc] initWithCapacity:[self.mainViewModel.homePageData.banner count]];
-    NSMutableArray *titleArray = [[NSMutableArray alloc] initWithCapacity:[self.mainViewModel.homePageData.banner count]];
+    //NSMutableArray *titleArray = [[NSMutableArray alloc] initWithCapacity:[self.mainViewModel.homePageData.banner count]];
     [self.mainViewModel.homePageData.banner enumerateObjectsUsingBlock:^(Banner *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [imageArray addObject:obj.imgUrl];
-        [titleArray addObject:obj.title];
+        //[titleArray addObject:obj.title];
     }];
     
-    scrollView.imageURLStringsGroup = imageArray;
-    scrollView.titlesGroup = titleArray;
+    if (imageArray.count > 0) {
+        scrollView.imageURLStringsGroup = imageArray;
+    }
+    //scrollView.titlesGroup = titleArray;
     
     [scrollView setClickItemOperationBlock:^(NSInteger index) {
         Banner *banner = self.mainViewModel.homePageData.banner[index];

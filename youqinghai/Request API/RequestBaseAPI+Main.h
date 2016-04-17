@@ -69,4 +69,14 @@
  *
  */
 - (RACSignal *)addDriverOrRoteIdWithUserId:(NSInteger)userId withTypeId:(NSInteger)typeId withType:(NSInteger)type;
+
+/**
+ *  @brief 收藏用户或游记（1.0）
+ *
+ *  @param userId   用户id
+ *  @param travelId 游记Id
+ *  @param type     收藏的类型  0 ：游记   1 用户
+ *
+ */
+- (RACSignal *)addTravelsUserCollectionWithUserId:(NSInteger)userId withTravelId:(NSInteger)travelId withType:(NSInteger)type;
 @end

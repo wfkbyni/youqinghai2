@@ -42,4 +42,10 @@
  */
 - (RACSignal *)getDriverCarDetails;
 
+/**
+ *  @brief 统计平台数据（1.0）
+ *
+ */
+- (RACSignal *)getStatisticsPlatformData;
+
 @end

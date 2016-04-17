@@ -24,7 +24,7 @@
                         </constraints>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSe-Xn-ymo">
-                        <rect key="frame" x="62" y="9" width="115" height="21"/>
+                        <rect key="frame" x="62" y="9" width="115" height="18"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="115" id="H7e-ET-OAl"/>
                         </constraints>
@@ -32,21 +32,15 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXt-hc-3Jd">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXt-hc-3Jd">
                         <rect key="frame" x="164" y="10" width="148" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="148" id="nxl-Gq-aVb"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rCF-CI-Ckz">
-                        <rect key="frame" x="62" y="31" width="115" height="23"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="115" id="toL-6Q-Mhr"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYv-Ma-gM5">
                         <rect key="frame" x="62" y="62" width="250" height="60"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -56,9 +50,6 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="leadingMargin" secondItem="ZsH-u9-dxv" secondAttribute="leading" id="8V2-sv-DJN"/>
-                    <constraint firstItem="rCF-CI-Ckz" firstAttribute="bottom" secondItem="ZsH-u9-dxv" secondAttribute="bottom" id="9Wm-PV-QBe"/>
-                    <constraint firstItem="rCF-CI-Ckz" firstAttribute="top" secondItem="cSe-Xn-ymo" secondAttribute="bottom" constant="1" id="F44-5X-zcj"/>
-                    <constraint firstItem="rCF-CI-Ckz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="23" id="Htw-6v-XSF"/>
                     <constraint firstAttribute="topMargin" secondItem="ZsH-u9-dxv" secondAttribute="top" id="I32-Mr-poB"/>
                     <constraint firstAttribute="bottomMargin" secondItem="gYv-Ma-gM5" secondAttribute="bottom" id="MLn-3u-N6g"/>
                     <constraint firstItem="DXt-hc-3Jd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="amn-3P-4RA"/>
@@ -69,7 +60,6 @@
                     <constraint firstAttribute="trailingMargin" secondItem="DXt-hc-3Jd" secondAttribute="trailing" id="l3V-n2-KxW"/>
                     <constraint firstAttribute="trailingMargin" secondItem="gYv-Ma-gM5" secondAttribute="trailing" id="mhV-xs-AH3"/>
                     <constraint firstItem="gYv-Ma-gM5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="54" id="rGV-Ds-eUY"/>
-                    <constraint firstItem="rCF-CI-Ckz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="54" id="ud9-lD-n4i"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
@@ -82,7 +72,6 @@
                 <outlet property="evatTimeView" destination="DXt-hc-3Jd" id="0bI-wZ-NHV"/>
                 <outlet property="headUrlView" destination="ZsH-u9-dxv" id="Exq-fW-eTJ"/>
                 <outlet property="nicknameView" destination="cSe-Xn-ymo" id="JVF-nc-lLU"/>
-                <outlet property="scroeView" destination="rCF-CI-Ckz" id="pwk-Ep-3hf"/>
             </connections>
             <point key="canvasLocation" x="214" y="149"/>
         </tableViewCell>

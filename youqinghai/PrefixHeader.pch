@@ -33,5 +33,5 @@
 #import <UIKit/UIKit.h>
 #import "AISharedPay.h"
 #import "UIView+Toast.h"
+#import "WXCustomScroeView.h"
 #endif /* PrefixHeader_pch */
-#define myUserId 4

@@ -13,8 +13,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *headUrlView;
 @property (weak, nonatomic) IBOutlet UILabel *nicknameView;
 @property (weak, nonatomic) IBOutlet UILabel *evatTimeView;
-@property (weak, nonatomic) IBOutlet UIImageView *scroeView;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabView;
+@property (strong, nonatomic) WXCustomScroeView *scroeView;
 
 @end
 
@@ -22,6 +22,9 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    _scroeView = [[WXCustomScroeView alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.nicknameView.frame), CGRectGetMaxY(self.nicknameView.frame) + 10, 80, 20)];
+    [self.contentView addSubview:_scroeView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -36,10 +39,12 @@
     
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[eav.evatTime longLongValue] / 1000];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    [df setDateFormat:@"yyyy-MM-dd hh:mm"];
     NSString *time = [df stringFromDate:date];
     
     [self.evatTimeView setText:time];
+
+    [self.scroeView setScroe:eav.eavscore];
     
     self.contentLabView.text = eav.content;
 }

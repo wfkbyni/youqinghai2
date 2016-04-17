@@ -42,13 +42,23 @@
 
 -(RACSignal *)getDriverCarDetails{
     
-    RACSignal *signal = [[[RequestBaseAPI standardAPI] getDriverCarDetailsWithDriverId:self.driverId withUserId:myUserId] map:^id(ResponseBaseData *data) {
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] getDriverCarDetailsWithDriverId:self.driverId withUserId:[[ZUserModel shareUserModel].userId integerValue]] map:^id(ResponseBaseData *data) {
         
         self.carDetail = [CarDetail mj_objectWithKeyValues:data.result_data];
+        
+        self.carDetail.driverInfo = self.carDetail.driverInfo.length == 0 ? @"暂无司机介绍" : self.carDetail.driverInfo;
         
         return data.result_data;
     }];
     
+    return signal;
+}
+
+-(RACSignal *)getStatisticsPlatformData{
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] getStatisticsPlatformData] map:^id(ResponseBaseData *value) {
+        
+        return value;
+    }];
     return signal;
 }
 

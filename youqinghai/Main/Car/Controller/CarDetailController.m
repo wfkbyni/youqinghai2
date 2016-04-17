@@ -8,6 +8,7 @@
 
 #import "CarDetailController.h"
 #import "CarViewModel.h"
+#import "MainViewModel.h"
 
 #import "DriverCarHeaderView.h"
 #import "DriverCarPivViewTableViewCell.h"
@@ -19,6 +20,7 @@
 @interface CarDetailController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) CarViewModel *carViewModel;
+@property (nonatomic, strong) MainViewModel *mainViewModel;
 
 @property (nonatomic, strong) UITableView *myTableView;
 
@@ -36,6 +38,8 @@
     [super viewDidLoad];
 
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    _mainViewModel = [[MainViewModel alloc] init];
     
     [self requestData];
     
@@ -111,7 +115,7 @@
                     break;
                 }
                 case BtnClickEventWithCollection: {
-                    
+                    [self addDriver];
                     break;
                 }
             }
@@ -220,6 +224,18 @@
     return nil;
 }
 
+- (void)addDriver{
+    [self.view makeToast:@"添加司机关注..."];
+    [[self.mainViewModel addDriverOrRoteIdWithUserId:[[ZUserModel shareUserModel].userId integerValue] withTravelId:self.car.Id withType:0] subscribeNext:^(ResponseBaseData *data) {
+        
+        
+        
+    } error:^(NSError *error) {
+        [self.view makeToast:error.localizedDescription];
+    } completed:^{
+        
+    }];
+}
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     CGFloat width = [UIScreen mainScreen].bounds.size.width;

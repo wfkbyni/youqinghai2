@@ -46,6 +46,8 @@
     
     self.mainViewModel = [[MainViewModel alloc] init];
     
+    self.myTableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
+    
     [self loadDataWithDataType:TourismDetailTypeWithIntroduction];
     
 }
@@ -66,10 +68,43 @@
         scrollView.imageURLStringsGroup = imageArray;
         
         [_tableViewHeaderView addSubview:scrollView];
-        [scrollView setBackgroundColor:[UIColor orangeColor]];
+        
+        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [backBtn setFrame:CGRectMake(10, 30, 40, 40)];
+        [backBtn setImage:[UIImage imageNamed:@"arrow_left"] forState:UIControlStateNormal];
+        
+        [_tableViewHeaderView addSubview:backBtn];
+        
+        UIButton *sharedBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        sharedBtn.frame = CGRectMake(CGRectGetWidth(_tableViewHeaderView.frame) - 40 - 10, 30, 40, 40);
+        [sharedBtn setImage:[UIImage imageNamed:@"shard"] forState:UIControlStateNormal];
+        
+        [_tableViewHeaderView addSubview:sharedBtn];
+        
+        [backBtn addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
+        [sharedBtn addTarget:self action:@selector(sharedAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return _tableViewHeaderView;
+}
+
+- (void)backAction:(UIButton *)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)sharedAction:(UIButton *)sender{
+    [self.view makeToast:@"分享功能待定..."];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    self.navigationController.navigationBarHidden = NO;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -154,7 +189,8 @@
             
             self.myTableView.tableHeaderView = self.tableViewHeaderView;
             
-            [self showCollectionState:self.mainViewModel.traveltrip.isCollection withCollectionNum:self.mainViewModel.traveltrip.collectionNum];
+            [self showCollectionState:self.mainViewModel.traveltrip.isCollection
+                    withCollectionNum:self.mainViewModel.traveltrip.collectionNum];
             
             // 线路详情
             self.myTableView.tableFooterView = [self tourismDetailView];
@@ -208,16 +244,15 @@
 
 - (IBAction)addRoteAction:(id)sender {
     
-//    [[self.mainViewModel addDriverOrRoteId] subscribeNext:^(id value) {
-//        
-//        RoteCollection *roteCollection = [RoteCollection mj_objectWithKeyValues:value];
-//        
-//        [self showCollectionState:roteCollection.state withCollectionNum:roteCollection.collNum];
-//    } error:^(NSError *error) {
-//        
-//    } completed:^{
-//        
-//    }];
+    [[self.mainViewModel addDriverOrRoteIdWithUserId:[[ZUserModel shareUserModel].userId integerValue] withTravelId:self.mainViewModel.tourisId withType:0] subscribeNext:^(ResponseBaseData *data) {
+        
+        
+        
+    } error:^(NSError *error) {
+        [self.view makeToast:error.localizedDescription];
+    } completed:^{
+        
+    }];
 }
 
 // 拼车
@@ -229,6 +264,7 @@
 
 // 包车
 - (IBAction)charteredAction:(id)sender {
+    self.title = @"";
     CarListViewController *controller = [[CarListViewController alloc] init];
     controller.recommend = self.recommend;
     [self.navigationController pushViewController:controller animated:YES];

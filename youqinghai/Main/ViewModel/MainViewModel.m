@@ -55,7 +55,7 @@
 -(RACSignal *)getTourisDetails{
     
     RACSignal *signal = [[[RequestBaseAPI standardAPI] getTourisDetailsWithTourisId:self.typeId
-                                                                         withUserId:myUserId]
+                                                                         withUserId:[[ZUserModel shareUserModel].userId integerValue]]
                          map:^id(ResponseBaseData *data) {
        
         self.traveltrip = [Traveltrip mj_objectWithKeyValues:data.result_data];
@@ -92,10 +92,10 @@
     return signal;
 }
 
--(RACSignal *)addDriverOrRoteId{
-    RACSignal *signal = [[[RequestBaseAPI standardAPI] addDriverOrRoteIdWithUserId:myUserId
-                                                                        withTypeId:self.tourisId
-                                                                          withType:0]
+-(RACSignal *)addDriverOrRoteIdWithUserId:(NSInteger)userId withTravelId:(NSInteger)travelId withType:(NSInteger)type{
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] addDriverOrRoteIdWithUserId:userId
+                                                                        withTypeId:travelId
+                                                                          withType:type]
                          map:^id(ResponseBaseData *data) {
         
                              
@@ -104,7 +104,16 @@
     
     return signal;
     
+}
+
+-(RACSignal *)addTravelsUserCollectionWithUserId:(NSInteger)userId withTravelId:(NSInteger)travelId withType:(NSInteger)type{
     
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] addTravelsUserCollectionWithUserId:userId withTravelId:travelId withType:type] map:^id(ResponseBaseData *data) {
+       
+        return data
+        ;    }];
+    
+    return signal;
 }
 
 @end

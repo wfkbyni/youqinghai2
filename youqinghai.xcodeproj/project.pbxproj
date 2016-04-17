@@ -124,7 +124,6 @@
 		357D73521CBFA8B600EAD35C /* EvaDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 357D73511CBFA8B600EAD35C /* EvaDriverViewController.m */; };
 		35891B9B1CB7B4C000CE7002 /* CarDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35891B7C1CB7B4C000CE7002 /* CarDetailController.m */; };
 		35891B9C1CB7B4C000CE7002 /* CarDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35891B7D1CB7B4C000CE7002 /* CarDetailController.xib */; };
-		35891B9D1CB7B4C000CE7002 /* CarListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35891B7F1CB7B4C000CE7002 /* CarListController.m */; };
 		35891B9E1CB7B4C000CE7002 /* CarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35891B811CB7B4C000CE7002 /* CarListViewController.m */; };
 		35891B9F1CB7B4C000CE7002 /* CarListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35891B821CB7B4C000CE7002 /* CarListViewController.xib */; };
 		35891BA01CB7B4C000CE7002 /* CarListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35891B851CB7B4C000CE7002 /* CarListCell.m */; };
@@ -241,6 +240,14 @@
 		9A24C32F1CBE6C7300671233 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A24C32E1CBE6C7300671233 /* CoreMotion.framework */; };
 		9A24C3311CBE6C7F00671233 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A24C3301CBE6C7F00671233 /* libsqlite3.0.tbd */; };
 		9A24C3331CBE6C9800671233 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A24C3321CBE6C9800671233 /* CFNetwork.framework */; };
+		9A24C33D1CC3C5A500671233 /* StatisticsPlatformDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A24C33C1CC3C5A500671233 /* StatisticsPlatformDataView.m */; };
+		9A24C3481CC3DC4D00671233 /* stars_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A24C3401CC3DC4D00671233 /* stars_off.png */; };
+		9A24C3491CC3DC4D00671233 /* stars_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A24C3411CC3DC4D00671233 /* stars_off@2x.png */; };
+		9A24C34A1CC3DC4D00671233 /* stars_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A24C3421CC3DC4D00671233 /* stars_off@3x.png */; };
+		9A24C34B1CC3DC4D00671233 /* stars_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A24C3431CC3DC4D00671233 /* stars_on.png */; };
+		9A24C34C1CC3DC4D00671233 /* stars_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A24C3441CC3DC4D00671233 /* stars_on@2x.png */; };
+		9A24C34D1CC3DC4D00671233 /* stars_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A24C3451CC3DC4D00671233 /* stars_on@3x.png */; };
+		9A24C34E1CC3DC4D00671233 /* WXCustomScroeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A24C3471CC3DC4D00671233 /* WXCustomScroeView.m */; };
 		9A637DAD1CA17EFE004D17BA /* Recommend.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DAC1CA17EFE004D17BA /* Recommend.m */; };
 		9A637DB01CA17FF2004D17BA /* TourismType.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DAF1CA17FF2004D17BA /* TourismType.m */; };
 		9A637DB31CA1809B004D17BA /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DB21CA1809B004D17BA /* Banner.m */; };
@@ -507,8 +514,6 @@
 		35891B7B1CB7B4C000CE7002 /* CarDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDetailController.h; sourceTree = "<group>"; };
 		35891B7C1CB7B4C000CE7002 /* CarDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarDetailController.m; sourceTree = "<group>"; };
 		35891B7D1CB7B4C000CE7002 /* CarDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarDetailController.xib; sourceTree = "<group>"; };
-		35891B7E1CB7B4C000CE7002 /* CarListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarListController.h; sourceTree = "<group>"; };
-		35891B7F1CB7B4C000CE7002 /* CarListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarListController.m; sourceTree = "<group>"; };
 		35891B801CB7B4C000CE7002 /* CarListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarListViewController.h; sourceTree = "<group>"; };
 		35891B811CB7B4C000CE7002 /* CarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarListViewController.m; sourceTree = "<group>"; };
 		35891B821CB7B4C000CE7002 /* CarListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarListViewController.xib; sourceTree = "<group>"; };
@@ -797,6 +802,16 @@
 		9A24C32E1CBE6C7300671233 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		9A24C3301CBE6C7F00671233 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		9A24C3321CBE6C9800671233 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		9A24C33B1CC3C5A500671233 /* StatisticsPlatformDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsPlatformDataView.h; sourceTree = "<group>"; };
+		9A24C33C1CC3C5A500671233 /* StatisticsPlatformDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsPlatformDataView.m; sourceTree = "<group>"; };
+		9A24C3401CC3DC4D00671233 /* stars_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stars_off.png; sourceTree = "<group>"; };
+		9A24C3411CC3DC4D00671233 /* stars_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stars_off@2x.png"; sourceTree = "<group>"; };
+		9A24C3421CC3DC4D00671233 /* stars_off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stars_off@3x.png"; sourceTree = "<group>"; };
+		9A24C3431CC3DC4D00671233 /* stars_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stars_on.png; sourceTree = "<group>"; };
+		9A24C3441CC3DC4D00671233 /* stars_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stars_on@2x.png"; sourceTree = "<group>"; };
+		9A24C3451CC3DC4D00671233 /* stars_on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stars_on@3x.png"; sourceTree = "<group>"; };
+		9A24C3461CC3DC4D00671233 /* WXCustomScroeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCustomScroeView.h; sourceTree = "<group>"; };
+		9A24C3471CC3DC4D00671233 /* WXCustomScroeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCustomScroeView.m; sourceTree = "<group>"; };
 		9A637DAB1CA17EFE004D17BA /* Recommend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recommend.h; sourceTree = "<group>"; };
 		9A637DAC1CA17EFE004D17BA /* Recommend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recommend.m; sourceTree = "<group>"; };
 		9A637DAE1CA17FF2004D17BA /* TourismType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourismType.h; sourceTree = "<group>"; };
@@ -1352,8 +1367,6 @@
 				35891B7B1CB7B4C000CE7002 /* CarDetailController.h */,
 				35891B7C1CB7B4C000CE7002 /* CarDetailController.m */,
 				35891B7D1CB7B4C000CE7002 /* CarDetailController.xib */,
-				35891B7E1CB7B4C000CE7002 /* CarListController.h */,
-				35891B7F1CB7B4C000CE7002 /* CarListController.m */,
 				35891B801CB7B4C000CE7002 /* CarListViewController.h */,
 				35891B811CB7B4C000CE7002 /* CarListViewController.m */,
 				35891B821CB7B4C000CE7002 /* CarListViewController.xib */,
@@ -1384,6 +1397,8 @@
 				35891B951CB7B4C000CE7002 /* DriverCarIntroduceTableViewCell.m */,
 				35891B961CB7B4C000CE7002 /* DriverCarPivViewTableViewCell.h */,
 				35891B971CB7B4C000CE7002 /* DriverCarPivViewTableViewCell.m */,
+				9A24C33B1CC3C5A500671233 /* StatisticsPlatformDataView.h */,
+				9A24C33C1CC3C5A500671233 /* StatisticsPlatformDataView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1732,6 +1747,7 @@
 		9A24C2011CBE656B00671233 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				9A24C33E1CC3DC4D00671233 /* WXCustomScroeView */,
 				9A24C2961CBE6BC500671233 /* AISharedPay */,
 				9A1FEB3C1C9EE2CA0067B8D5 /* Request API */,
 				9A1FEB451C9EF3C90067B8D5 /* ThirdParty */,
@@ -1923,6 +1939,30 @@
 				9A24C3121CBE6BC500671233 /* WXApiObject.h */,
 			);
 			path = WeChatSDK;
+			sourceTree = "<group>";
+		};
+		9A24C33E1CC3DC4D00671233 /* WXCustomScroeView */ = {
+			isa = PBXGroup;
+			children = (
+				9A24C33F1CC3DC4D00671233 /* images */,
+				9A24C3461CC3DC4D00671233 /* WXCustomScroeView.h */,
+				9A24C3471CC3DC4D00671233 /* WXCustomScroeView.m */,
+			);
+			name = WXCustomScroeView;
+			path = youqinghai/WXCustomScroeView;
+			sourceTree = SOURCE_ROOT;
+		};
+		9A24C33F1CC3DC4D00671233 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				9A24C3401CC3DC4D00671233 /* stars_off.png */,
+				9A24C3411CC3DC4D00671233 /* stars_off@2x.png */,
+				9A24C3421CC3DC4D00671233 /* stars_off@3x.png */,
+				9A24C3431CC3DC4D00671233 /* stars_on.png */,
+				9A24C3441CC3DC4D00671233 /* stars_on@2x.png */,
+				9A24C3451CC3DC4D00671233 /* stars_on@3x.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		9A637DBA1CA186EE004D17BA /* Controller */ = {
@@ -2247,17 +2287,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				35891BD11CB7B55400CE7002 /* TourismDetailController.xib in Resources */,
+				9A24C34C1CC3DC4D00671233 /* stars_on@2x.png in Resources */,
 				357D72AD1CBCD23900EAD35C /* cancel@2x.png in Resources */,
 				35891BCF1CB7B55400CE7002 /* RedirectViewController.xib in Resources */,
 				354A685A1CB4BDCE001F3F5D /* ZCusTourCell.xib in Resources */,
 				B437E6961CA43D3700091521 /* sr_refresh.png in Resources */,
 				35E3FFC11CA92AAC00876054 /* ZmessCenterCell.xib in Resources */,
 				9A24C3281CBE6BC500671233 /* readme.txt in Resources */,
+				9A24C3481CC3DC4D00671233 /* stars_off.png in Resources */,
 				B472E7871CBCA0C700A43CCB /* html in Resources */,
 				35D2954B1CB669FA0029B8C1 /* ZFowUserCell.xib in Resources */,
 				357D72C81CBCD23900EAD35C /* UMSCommentInputControlleriPad.xib in Resources */,
 				354A684C1CB38AD2001F3F5D /* ZImageFidCell.xib in Resources */,
 				35E3FFB61CA8CD9A00876054 /* ZPersonalHeaderView.xib in Resources */,
+				9A24C34D1CC3DC4D00671233 /* stars_on@3x.png in Resources */,
 				357D72B61CBCD23900EAD35C /* umeng_fb_audio_dialog_content@2x.png in Resources */,
 				35891BA61CB7B4C000CE7002 /* DriverCarCommentCell.xib in Resources */,
 				B437E6971CA43D3700091521 /* sr_refresh@2X.png in Resources */,
@@ -2274,10 +2317,12 @@
 				357D72B41CBCD23900EAD35C /* umeng_add_photo@2x.png in Resources */,
 				357D72AA1CBCD23900EAD35C /* UMFeedbackLocalizable.strings in Resources */,
 				357D72B11CBCD23900EAD35C /* ToolViewInputTextHL@2x.png in Resources */,
+				9A24C34B1CC3DC4D00671233 /* stars_on.png in Resources */,
 				B472E7881CBCA0C700A43CCB /* img in Resources */,
 				35891B9F1CB7B4C000CE7002 /* CarListViewController.xib in Resources */,
 				35891BEF1CB7B59200CE7002 /* TourismTypeCell.xib in Resources */,
 				9A637DC21CA18993004D17BA /* TempViewController.xib in Resources */,
+				9A24C34A1CC3DC4D00671233 /* stars_off@3x.png in Resources */,
 				353341271CB51AFB00543CB4 /* ZTextViewCell.xib in Resources */,
 				357D72CD1CBCD23900EAD35C /* UMSShareListController.xib in Resources */,
 				357D72CA1CBCD23900EAD35C /* UMShareEditViewControlleriPad.xib in Resources */,
@@ -2301,6 +2346,7 @@
 				357D72CC1CBCD23900EAD35C /* UMSnsAccountViewController.xib in Resources */,
 				9AF1C01D1C9ED3E100AD2FC1 /* Assets.xcassets in Resources */,
 				B472E7891CBCA0C700A43CCB /* js in Resources */,
+				9A24C3491CC3DC4D00671233 /* stars_off@2x.png in Resources */,
 				357D72C71CBCD23900EAD35C /* UMSCommentInputController.xib in Resources */,
 				35891B9C1CB7B4C000CE7002 /* CarDetailController.xib in Resources */,
 				B472E7861CBCA0C700A43CCB /* dist in Resources */,
@@ -2395,9 +2441,11 @@
 				9A637DB61CA182FB004D17BA /* MainViewModel.m in Sources */,
 				353341261CB51AFB00543CB4 /* ZTextViewCell.m in Sources */,
 				35891C061CB7B5F500CE7002 /* Order.m in Sources */,
+				9A24C33D1CC3C5A500671233 /* StatisticsPlatformDataView.m in Sources */,
 				9A1FEB4A1C9EF3C90067B8D5 /* GTMBase64.m in Sources */,
 				35EB059C1CB94FF3003FDEFD /* YQHRadiusButton.m in Sources */,
 				35EB059B1CB94FF3003FDEFD /* pageBtn.m in Sources */,
+				9A24C34E1CC3DC4D00671233 /* WXCustomScroeView.m in Sources */,
 				3533411F1CB50F4600543CB4 /* ZCustomTourAddViewController.m in Sources */,
 				357D72BB1CBCD23900EAD35C /* UMFeedbackViewController.m in Sources */,
 				35E51D0B1CBAC88100A653FB /* ZOpinionViewController.m in Sources */,
@@ -2427,7 +2475,6 @@
 				357D72A61CBCD23900EAD35C /* AIUmengStatistics.m in Sources */,
 				9A24C31D1CBE6BC500671233 /* base64.m in Sources */,
 				9A24C3141CBE6BC500671233 /* AISharedPay.m in Sources */,
-				35891B9D1CB7B4C000CE7002 /* CarListController.m in Sources */,
 				9A637DAD1CA17EFE004D17BA /* Recommend.m in Sources */,
 				3533412C1CB6370700543CB4 /* ZCustomListModel.m in Sources */,
 				35891BC31CB7B52000CE7002 /* TravelView.m in Sources */,

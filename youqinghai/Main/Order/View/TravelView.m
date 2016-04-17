@@ -19,6 +19,8 @@
 @property (nonatomic, strong) UILabel *travelDay;
 // 拼车类型
 @property (nonatomic, strong) UILabel *travelType;
+
+@property (nonatomic, assign) BOOL myHasTrave;
 @end
 
 @implementation TravelView
@@ -26,10 +28,13 @@
 -(instancetype)initWithFrame:(CGRect)frame withIsTrave:(BOOL)isTrave{
     if (self = [super initWithFrame:frame]) {
         
+        _myHasTrave = isTrave;
+        
         [self setBackgroundColor:[UIColor whiteColor]];
         
         if (isTrave) {
             [self commTravel2];
+            
         }else{
             [self commTravel1];
         }
@@ -61,8 +66,9 @@
     [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, leftWidth, 48) withTitle:titles[0]]];
     _travelType = [self contentWithFrame:CGRectMake(leftWidth, offset + 2, CGRectGetWidth(self.frame) - leftWidth - 30, 48)];
     [self addSubview:_travelType];
-    [self addSubview:[self rightArrowWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 30, 10, 30, 30)
-                                       withTag:TravelTypeWithType]];
+    UIButton *rightArrow = [self rightArrowWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 30, 10, 30, 30)
+                                             withTag:TravelTypeWithType];
+    [self addSubview:rightArrow];
     
     offset = 50;
     
@@ -175,6 +181,9 @@
             break;
         case TravelTypeWithDate:
         {
+            if (!_myHasTrave) {
+                return;
+            }
             [self selectDate];
         }
             break;

@@ -15,6 +15,7 @@ NSString *const getTourisDetails = @"app/touristroutes/getTourisDetails";
 NSString *const getTourisEvaluate = @"app/touristroutes/getTourisEvaluate";
 NSString *const getServiceIntroduction = @"app/touristroutes/getServiceIntroduction";
 NSString *const addDriverOrRoteId = @"app/touristroutes/addDriverOrRoteId";
+NSString *const addTravelsUserCollection = @"app/operation/addTravelsUserCollection";
 
 @implementation RequestBaseAPI (Main)
 
@@ -66,9 +67,16 @@ NSString *const addDriverOrRoteId = @"app/touristroutes/addDriverOrRoteId";
 
 -(RACSignal *)addDriverOrRoteIdWithUserId:(NSInteger)userId withTypeId:(NSInteger)typeId withType:(NSInteger)type{
     
-    NSString *parasm = [NSString stringWithFormat:@"server=%@&userId=%ld&typeId=%ld&type=%ld",addDriverOrRoteId,userId,typeId,type];
+    NSString *params = [NSString stringWithFormat:@"server=%@&userId=%ld&typeId=%ld&type=%ld",addDriverOrRoteId,userId,typeId,type];
     
-    return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:parasm]];
+    return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
     
+}
+
+-(RACSignal *)addTravelsUserCollectionWithUserId:(NSInteger)userId withTravelId:(NSInteger)travelId withType:(NSInteger)type{
+    
+    NSString *params = [NSString stringWithFormat:@"server=%@&userId=%ld&travelId=%ld&type=%ld",addTravelsUserCollection,userId,travelId,type];
+    
+    return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
 }
 @end

@@ -40,8 +40,10 @@
         [_userNameLab setFont:[UIFont systemFontOfSize:15.0f]];
         
         // 时间
-        _evatTimeLab = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_userNameLab.frame), 10, kScreenSize.width - 10, 21)];
+        _evatTimeLab = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 100, 10, 140, 21)];
         [_evatTimeLab setFont:[UIFont systemFontOfSize:15.0f]];
+        [_evatTimeLab setTextAlignment:NSTextAlignmentRight];
+        [_evatTimeLab setTextColor:[UIColor colorWithRed:0.78 green:0.78 blue:0.78 alpha:1.00]];
         
         // 内容
         _contentLab = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_userImgView.frame) + 10, CGRectGetMaxY(_userNameLab.frame) + 10, kScreenSize.width - 60 - 10, 0)];
@@ -75,7 +77,7 @@
     
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[tourisEvaluate.evatTime longLongValue] / 1000];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    [df setDateFormat:@"yyyy-MM-dd hh:mm"];
     NSString *time = [df stringFromDate:date];
     
     [self.evatTimeLab setText:time];

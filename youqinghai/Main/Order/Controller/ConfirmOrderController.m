@@ -154,7 +154,7 @@
 
 - (void)confirmOrder{
     
-    self.orderViewModel.order.userId = myUserId;
+    self.orderViewModel.order.userId = [[ZUserModel shareUserModel].userId integerValue];
     self.orderViewModel.order.traveld = [[[NSUserDefaults standardUserDefaults] objectForKey:YQHTourisId] integerValue];
     self.orderViewModel.order.carTypeId = _isCarpool ? self.travelView.carDetail.cartypeId : self.carDetail.cartypeId;
     self.orderViewModel.order.traveltype = !_isCarpool;

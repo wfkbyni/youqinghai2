@@ -8,9 +8,10 @@
 
 #import "RequestBaseAPI+Car.h"
 
-NSString const *carList = @"app/driverCarInfo/getCarList         ";
+NSString const *carList = @"app/driverCarInfo/getCarList";
 NSString const *carTypeList = @"app/driverCarInfo/getCarTypeList";
 NSString const *getDriverCarDetails = @"app/driverCarInfo/getDriverCarDetails";
+NSString const *statisticsPlatformData = @"app/driverCarInfo/statisticsPlatformData";
 
 @implementation RequestBaseAPI (Car)
 
@@ -43,6 +44,11 @@ NSString const *getDriverCarDetails = @"app/driverCarInfo/getDriverCarDetails";
     
     NSString *params = [NSString stringWithFormat:@"server=%@&driverId=%ld&userId=%ld",getDriverCarDetails,driverId,userId];
     
+    return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
+}
+
+-(RACSignal *)getStatisticsPlatformData{
+    NSString *params = [NSString stringWithFormat:@"server=%@",statisticsPlatformData];
     return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
 }
 

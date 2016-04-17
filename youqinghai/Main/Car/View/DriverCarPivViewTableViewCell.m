@@ -58,7 +58,7 @@
     NSURL *url = [NSURL URLWithString:img.imgUrl];
     
     [imageView sd_setImageWithURL:url completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        imageView.image = [imageView clipImage:image toSize:imageView.frame.size];
+        //imageView.image = [imageView clipImage:image toSize:imageView.frame.size];
     }];
     
     return cell;
