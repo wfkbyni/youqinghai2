@@ -8,9 +8,7 @@
 
 #import "TravelView.h"
 
-@interface TravelView()<UIActionSheetDelegate>{
-    NSInteger mySeatsnum;
-}
+@interface TravelView()<UIActionSheetDelegate>
 // 出游日期
 @property (nonatomic, strong) UILabel *travelDate;
 // 出游人数
@@ -48,10 +46,20 @@
 -(void)setCarDetail:(CarDetail *)carDetail{
     _carDetail = carDetail;
     
+    if (carDetail.travelTime.length > 0) {
+        
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:[carDetail.travelTime longLongValue] / 1000];
+        NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        [df setDateFormat:@"yyyy-MM-dd hh:mm"];
+        NSString *time = [df stringFromDate:date];
+        
+        [_travelDate setText:[NSString stringWithFormat:@"%@",time]];
+    }
+    
     [_travelCount setText:[NSString stringWithFormat:@"%ld人",carDetail.seatsnum]];
     NSInteger travelCount = [[[NSUserDefaults standardUserDefaults] objectForKey:YQHViewlist] intValue];
     [_travelDay setText:[NSString stringWithFormat:@"%ld天",travelCount]];
-    mySeatsnum = carDetail.seatsnum;
+    self.mySeatsnum = carDetail.seatsnum;
     _viewlist = travelCount;
 }
 
@@ -189,7 +197,7 @@
             break;
         case TravelTypeWithCount:
         {
-            [self selectPersonCount:mySeatsnum];
+            [self selectPersonCount:self.mySeatsnum];
         }
             break;
             
@@ -208,7 +216,7 @@
                 self.travelType.text = carType.cartypename;
                 NSLog(@"%ld",carType.Id);
                 self.carDetail.cartypeId = carType.Id;
-                mySeatsnum = carType.seatsnum;
+                self.mySeatsnum = carType.seatsnum;
                 if (_TravelSelectBlock) {
                     _TravelSelectBlock(TravelTypeWithType,carType);
                 }
@@ -228,7 +236,6 @@
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"请选择拼车类型" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
         [alertView show];
     }
-
 }
 
 /**
@@ -270,7 +277,7 @@
         
         [controller addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"%ld",i] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [_travelCount setText:[NSString stringWithFormat:@"%@人",action.title]];
-            self.seatsnum = [action.title intValue];
+            self.mySeatsnum = [action.title intValue];
             if (_TravelSelectBlock) {
                 _TravelSelectBlock(TravelTypeWithCount,action.title);
             }

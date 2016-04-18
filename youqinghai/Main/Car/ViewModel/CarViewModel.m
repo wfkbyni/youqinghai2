@@ -32,8 +32,18 @@
     
     RACSignal *signal = [[[RequestBaseAPI standardAPI] getCarTypeList] map:^id(ResponseBaseData *data) {
         
-        self.carTypes = [CarType mj_objectArrayWithKeyValuesArray:data.result_data];
+        NSMutableArray *array = [CarType mj_objectArrayWithKeyValuesArray:data.result_data];
         
+        NSMutableArray *array2 = [NSMutableArray arrayWithArray:array];
+        
+        CarType *carType = [[CarType alloc] init];
+        carType.Id = 0;
+        carType.cartypename = @"全部";
+        
+        [array2 insertObject:carType atIndex:0];
+        
+        self.carTypes = [NSArray arrayWithArray:array2];
+
         return self.carTypes;
     }];
     

@@ -65,7 +65,7 @@
     ConfirmOrderController *controller = [[ConfirmOrderController alloc] init];
     controller.driverId = self.carViewModel.driverId;
     controller.isCarpool = NO;
-    NSLog(@"%ld",self.carViewModel.carDetail.cartypeId);
+    self.carViewModel.carDetail.travelTime = self.car.travelTime;
     controller.carDetail = self.carViewModel.carDetail;
     [self.navigationController pushViewController:controller animated:YES];
     

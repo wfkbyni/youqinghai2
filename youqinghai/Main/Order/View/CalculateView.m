@@ -25,17 +25,17 @@
         [_totalMoneyLab setFont:[UIFont systemFontOfSize:14.0f]];
         [self addSubview:_totalMoneyLab];
         
-        [self addSubview:[self labelWithFrame:CGRectMake(10, 35, CGRectGetWidth(self.frame), 25) withTitle:@"(订单总金额包括过路费、油费，不包含吃、住、门票等费用)" withColor:[UIColor blackColor]]];
+        [self addSubview:[self labelWithFrame:CGRectMake(10, 35, CGRectGetWidth(self.frame), 25) withTitle:@"(订单总金额包括过路费、油费，不包含吃、住、门票等费用)" withColor:[UIColor grayColor]]];
         
         [self addSubview:[self lineWithFrame:CGRectMake(10, 60, CGRectGetWidth(frame) - 20, 1)]];
 
         [self addSubview:[self labelWithFrame:CGRectMake(10, 70, 150, 25) withTitle:@"需预付定金" withColor:[UIColor blackColor]]];
-        _earnestMoneyLab = [self labelWithFrame:CGRectMake(CGRectGetWidth(self.frame) / 2, 70, CGRectGetWidth(self.frame) / 2 - 10, 25) withTitle:@"￥1500.00" withColor:[UIColor orangeColor]];
+        _earnestMoneyLab = [self labelWithFrame:CGRectMake(CGRectGetWidth(self.frame) / 2, 70, CGRectGetWidth(self.frame) / 2 - 10, 25) withTitle:@"￥1500.00" withColor:[UIColor redColor]];
         [_earnestMoneyLab setTextAlignment:NSTextAlignmentRight];
         [_earnestMoneyLab setFont:[UIFont systemFontOfSize:14.0f]];
         [self addSubview:_earnestMoneyLab];
         
-        [self addSubview:[self labelWithFrame:CGRectMake(10, 95, CGRectGetWidth(self.frame), 25) withTitle:@"(定金支付后将不再退还、出游中有相关疑问请联系平台客服)" withColor:[UIColor blackColor]]];
+        [self addSubview:[self labelWithFrame:CGRectMake(10, 95, CGRectGetWidth(self.frame), 25) withTitle:@"(定金支付后将不再退还、出游中有相关疑问请联系平台客服)" withColor:[UIColor grayColor]]];
         
         [self addSubview:[self lineWithFrame:CGRectMake(0, 119, CGRectGetWidth(frame), 1)]];
     }

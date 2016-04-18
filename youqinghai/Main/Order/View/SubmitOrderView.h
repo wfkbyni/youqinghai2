@@ -10,6 +10,8 @@
 
 @interface SubmitOrderView : UIView
 
+@property (nonatomic, strong) UILabel *totalMoneyLab;
+
 @property (nonatomic, copy) void(^SubmitOrderAction)();
 
 @end

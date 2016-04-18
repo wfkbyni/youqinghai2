@@ -46,20 +46,25 @@
     
     [self.view addSubview:self.submitOrderView];
     
+    self.orderViewModel = [[OrderViewModel alloc] init];
+    self.relationView.order = self.orderViewModel.order;
+    self.orderViewModel.traveId = [[[NSUserDefaults standardUserDefaults] objectForKey:YQHTourisId] integerValue];
+    self.orderViewModel.driverId = self.driverId;
+    
     [RACObserve(self.relationView, frame) subscribeNext:^(id x) {
         
         [self.myScrollView setContentSize:CGSizeMake(kScreenSize.width, CGRectGetHeight(self.travelView.frame) + CGRectGetHeight(self.relationView.frame) + 50)];
         
     }];
     
-    [RACObserve(self.travelView, seatsnum) subscribeNext:^(NSNumber *obj) {
-        self.relationView.seatsnum = [obj intValue];
+    [RACObserve(self.travelView, mySeatsnum) subscribeNext:^(NSNumber *obj) {
+        self.relationView.seatsnum = [obj integerValue];
+        self.orderViewModel.order.travelnum = [obj integerValue];
     }];
     
-    self.orderViewModel = [[OrderViewModel alloc] init];
-    self.relationView.order = self.orderViewModel.order;
-    self.orderViewModel.traveId = [[[NSUserDefaults standardUserDefaults] objectForKey:YQHTourisId] integerValue];
-    self.orderViewModel.driverId = self.driverId;
+    [RACObserve(self.relationView, totalMoeny) subscribeNext:^(id x) {
+        self.submitOrderView.totalMoneyLab.text = [NSString stringWithFormat:@"￥%@",x];
+    }];
     
     self.relationView.isCarpool = _isCarpool;
     if (_isCarpool) {
@@ -111,11 +116,11 @@
         _travelView.navigationController = self.navigationController;
         if (self.carDetail) {
             _travelView.carDetail = self.carDetail;
+            
         } else {
              _travelView.carDetail = [CarDetail new];
         }
        
-        
         __weak typeof(self) weakSelf = self;
         [_travelView setTravelSelectBlock:^(TravelType type, id value) {
             if (type == TravelTypeWithDate) {
@@ -161,11 +166,25 @@
     self.orderViewModel.order.insuranceCost = self.relationView.insuranceCount;
     self.orderViewModel.order.driverId = self.driverId;
     
+    if (self.orderViewModel.order.contacts.length == 0) {
+        [self.view makeToast:@"联系人不能为空"];
+        return;
+    }else if(self.orderViewModel.order.contactsTel.length != 11){
+        [self.view makeToast:@"联系人电话输入不正确"];
+        return;
+    }else if(self.orderViewModel.order.urgent.length == 0){
+        [self.view makeToast:@"紧急联系人不能为空"];
+        return;
+    }else if(self.orderViewModel.order.urgentTel.length != 11){
+        [self.view makeToast:@"紧急联系人电话输入不正确"];
+        return;
+    }
+    
     [[self.orderViewModel addOrder] subscribeNext:^(id x) {
         NSLog(@"%@",x);
-        
+        [self.view makeToast:@"订单添加成功，请到我的订单查看"];
     } error:^(NSError *error) {
-        NSLog(@"%@",error);
+        [self.view makeToast:[error.userInfo objectForKey:@"message"]];
     }];
 }
 

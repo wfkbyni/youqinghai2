@@ -30,7 +30,7 @@
 
     if (self = [super initWithFrame:frame]) {
         
-        _insuranceCount = 3;
+        _insuranceCount = 0;
         
         [self setBackgroundColor:[UIColor whiteColor]];
         
@@ -46,6 +46,7 @@
         [self addSubview:[self lineWithFrame:CGRectMake(10, 50, CGRectGetWidth(frame) - 20, 1)]];
         [self addSubview:[self titleWithFrame:CGRectMake(10, 52, leftWidth, 48) withTitle:titles[1]]];
         _textField2 = [self textFieldWithFrame:CGRectMake(leftWidth + 10, 52, CGRectGetWidth(self.frame) - leftWidth - 20, 48) withPlaceholder:placeholders[1]];
+        [_textField2 setKeyboardType:UIKeyboardTypePhonePad];
         [self addSubview:_textField2];
         
         [self addSubview:[self lineWithFrame:CGRectMake(10, 100, CGRectGetWidth(frame) - 20, 1)]];
@@ -56,6 +57,7 @@
         [self addSubview:[self lineWithFrame:CGRectMake(10, 150, CGRectGetWidth(frame) - 20, 1)]];
         [self addSubview:[self titleWithFrame:CGRectMake(10, 152, leftWidth, 48) withTitle:titles[3]]];
         _textField4 = [self textFieldWithFrame:CGRectMake(leftWidth + 10, 152, CGRectGetWidth(self.frame) - leftWidth - 20, 48) withPlaceholder:placeholders[3]];
+        [_textField4 setKeyboardType:UIKeyboardTypePhonePad];
         [self addSubview:_textField4];
         
         [self addSubview:[self lineWithFrame:CGRectMake(10, 200, CGRectGetWidth(frame) - 20, 1)]];
@@ -195,7 +197,8 @@
     
     self.calculateView.totalMoneyLab.attributedText = orderTotalMoneyAttr;
     
-    self.calculateView.earnestMoneyLab.text = [NSString stringWithFormat:@"￥%@",_isCarpool ? _calcPrice.deposit : _calCarPrice.orderReserve];
+    self.totalMoeny = _isCarpool ? _calcPrice.deposit : _calCarPrice.orderReserve;
+    self.calculateView.earnestMoneyLab.text = [NSString stringWithFormat:@"￥%@",self.totalMoeny];
 }
 
 // 分隔线
@@ -241,11 +244,14 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setFrame:frame];
     [button setTag:tag];
-    [button setImage:[UIImage imageNamed:@"icon_rightArrow"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"arrow_right"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     return button;
 }
 
-
+- (void)btnAction:(UIButton *)sender{
+    [self makeToast:@"待定..."];
+}
 
 - (CalculateView *)calculateView{
     if (!_calculateView) {

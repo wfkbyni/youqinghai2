@@ -10,7 +10,7 @@
 
 @interface SubmitOrderView()
 @property (nonatomic, strong) UIButton *submitOrderBtn;
-@property (nonatomic, strong) UILabel *totalMoneyLab;
+
 @end
 
 @implementation SubmitOrderView

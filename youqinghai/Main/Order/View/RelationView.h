@@ -23,6 +23,8 @@
 
 @property (nonatomic, assign) NSInteger seatsnum;             // 出游人数
 
+@property (nonatomic, assign) NSNumber *totalMoeny;           // 总金额
+
 @property (nonatomic, strong) UINavigationController *navigationController;
 
 @end

@@ -16,7 +16,9 @@
 
 #import "CarViewModel.h"
 
-@interface CarListViewController ()
+@interface CarListViewController (){
+    long interval;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, strong) CarTypeTableView *carTypeTableView;
@@ -51,8 +53,19 @@
 - (UIView *)titleView{
     UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 44)];
     
+    NSDate *date = [NSDate date];
+    interval = [date timeIntervalSince1970] + 24 * 60 * 60;
+    
+    NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:interval];
+    
+    interval = interval * 1000;
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"yyyy-MM-dd"];
+    NSString *time1 = [df stringFromDate:date2];
+    
     _titleDate = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 40)];
-    [_titleDate setText:@"2014-10-23"];
+    [_titleDate setText:time1];
     [_titleDate setTextAlignment:NSTextAlignmentCenter];
     [_titleDate setTextColor:[UIColor whiteColor]];
     
@@ -201,7 +214,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     CarDetailController *controller = [[CarDetailController alloc] init];
-    controller.car = self.carViewModel.cars[indexPath.row];
+    Car *car = self.carViewModel.cars[indexPath.row];
+    car.travelTime = [NSString stringWithFormat:@"%ld",interval];
+    controller.car = car;
     [self.navigationController pushViewController:controller animated:YES];
 }
 
@@ -221,7 +236,8 @@
             NSString *dateString = [form stringFromDate:picker.date];
             
             self.titleDate.text = dateString;
-            self.carViewModel.travelTime = [picker.date timeIntervalSince1970] * 1000;
+            interval = [picker.date timeIntervalSince1970] * 1000;
+            self.carViewModel.travelTime = interval;
             
             [self loadCarListData];
             

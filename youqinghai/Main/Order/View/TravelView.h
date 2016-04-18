@@ -36,6 +36,6 @@ typedef NS_ENUM(NSInteger,TravelType) {
 
 @property (nonatomic, strong) CarDetail *carDetail;
 
-@property (nonatomic, assign) NSInteger seatsnum;    // 出游人数
+@property (nonatomic, assign) NSInteger mySeatsnum;  // 出游人数
 @property (nonatomic, assign) NSInteger viewlist;    // 出游天数
 @end

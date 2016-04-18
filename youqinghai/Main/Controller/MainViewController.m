@@ -59,6 +59,11 @@
     
     [self.view addSubview:_myTableView];
     
+    _myTableView.mj_header = [MJRefreshHeader headerWithRefreshingBlock:^{
+        [self requestBindData];
+    }];
+    
+    
     [_myTableView registerNib:[UINib nibWithNibName:tourismTypeCell bundle:nil] forCellReuseIdentifier:tourismTypeCell];
     [_myTableView registerNib:[UINib nibWithNibName:recommendTypeCell bundle:nil] forCellReuseIdentifier:recommendTypeCell];
 }
@@ -67,9 +72,9 @@
     self.mainViewModel = [[MainViewModel alloc] init];
     
     [[self.mainViewModel getHomePageData]  subscribeError:^(NSError *error) {
-        
+        [_myTableView.mj_header endRefreshing];
     } completed:^{
-        
+        [_myTableView.mj_header endRefreshing];
     }];
     
     [RACObserve(self.mainViewModel, homePageData) subscribeNext:^(id x) {

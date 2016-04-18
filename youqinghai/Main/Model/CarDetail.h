@@ -25,6 +25,8 @@
 @property (nonatomic, strong) NSString *headUrl;        // "司机头像路径",
 @property (nonatomic, strong) NSArray *evalist;         // 对司机的评论列表
 @property (nonatomic, strong) NSArray *imgList;         // 司机车辆图片展示
+
+@property (nonatomic, copy) NSString *travelTime;       // 出发时间 
 @end
 
 @interface Eav : ResponseBaseData
