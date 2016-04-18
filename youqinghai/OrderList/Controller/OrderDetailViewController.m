@@ -164,8 +164,15 @@
     cell.detailTextLabel.text = value;
     return cell;
 }
-
-
+-(void)tableView:(UITableView *)tableView  didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    if (indexPath.section ==2&&indexPath.row==0) {
+        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",self.orderListMod.urgentTel];
+        UIWebView * callWebview = [[UIWebView alloc] init];
+        [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+        [self.view addSubview:callWebview];
+    }
+}
 - (UIView *)footerView {
 
     UIView *lView = UIView.new;

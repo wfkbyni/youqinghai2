@@ -34,7 +34,7 @@
 //     [att setAttributes:@{ NSFontAttributeName:[UIFont systemFontOfSize:13]} range:NSMakeRange(driverMod.dayPrice.length+1, 2)];
     _dayPrice.attributedText =att;
     _sernum.text = [NSString stringWithFormat:@"服务: %@次",driverMod.sernum];
-    _eav.text = [NSString stringWithFormat:@"好评率: %@%%",driverMod.eav];
+    _eav.text = [NSString stringWithFormat:@"好评: %@%%",driverMod.eav];
     
     if ([driverMod.cartypename isEqualToString:@"舒适型"]) {
         

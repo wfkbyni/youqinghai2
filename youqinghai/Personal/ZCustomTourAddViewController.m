@@ -23,7 +23,29 @@
 
 @end
 @implementation CusTomTourModel
-
+-(BOOL)notData
+{
+    NSMutableDictionary *props = [NSMutableDictionary dictionary];
+    unsigned int outCount, i;
+    objc_property_t *properties = class_copyPropertyList([self class], &outCount);
+    for (i = 0; i<outCount; i++)
+    {
+        objc_property_t property = properties[i];
+        const char* char_f =property_getName(property);
+        NSString *propertyName = [NSString stringWithUTF8String:char_f];
+        id propertyValue = [self valueForKey:(NSString *)propertyName];
+        if (!propertyValue) {
+            UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:@"对不起,请完整填写定制旅游信息"delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+            [alert show];
+            
+            return NO;
+        }
+        if (propertyValue) [props setObject:propertyValue forKey:propertyName];
+    }
+    
+    free(properties);
+    return YES;
+}
 
 
 @end
@@ -64,6 +86,16 @@
 {
     [self.view endEditing:YES];
     NSLog(@"%@",self.CusTourMod.contact);
+    if (self.CusTourMod.travelNum.integerValue==0) {
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:@"对不起请输入正确的人数"delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        return ;
+    }
+    
+    if (![self.CusTourMod notData]) {
+        return;
+    }
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     RACSignal *signal = [[RequestBaseAPI standardAPI ]userCustomWithuserId:[ZUserModel shareUserModel].userId withcontacts:self.CusTourMod.contact withphone:self.CusTourMod.tel withtravelnum:self.CusTourMod.travelNum withtravelTime:self.CusTourMod.travelTimeS withdeparture:self.CusTourMod.origin withdestination:self.CusTourMod.destination withchannelscenicspot:self.CusTourMod.details];
     [signal subscribeNext:^(id x) {
@@ -71,7 +103,7 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:@"发布成功" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
         [alert show];
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
     }];
     [signal subscribeError:^(NSError *error) {
         NSLog(@"%@",error);
@@ -142,7 +174,9 @@
                     cell.fieldText.placeholder = @"请输入出游人数";
                     cell.fieldText.keyboardType = UIKeyboardTypePhonePad;
                     cell.TextBlcok = ^(NSString* text){
+                  
                         self.CusTourMod.travelNum = text;
+                        
                     };
                 }
                     break;
@@ -223,6 +257,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section==0&&indexPath.row ) {
  
+        [self.view endEditing:YES];
         _DatePickerView.hidden=NO;
     }
 

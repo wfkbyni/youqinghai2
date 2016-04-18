@@ -31,8 +31,39 @@
    
 
     
-    
+    [self UIBarButton];
     // Do any additional setup after loading the view.
+}
+-(void)UIBarButton
+{
+    UIButton *btn             = [[UIButton alloc] init];
+    
+    [btn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    btn.titleLabel.font  = [UIFont systemFontOfSize:14];
+    btn.contentMode = UIViewContentModeLeft;
+    [btn sizeToFit];
+//    CGFloat width = [@"删除" boundingRectWithSize:CGSizeMake(200, 40) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.width;
+//    btn.size                  = CGSizeMake(width, 40);
+    btn.titleLabel.textAlignment = NSTextAlignmentRight;
+    [btn addTarget:self action:@selector(regisPush) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+}
+/**
+ *  删除消息
+ */
+-(void)regisPush
+{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    RACSignal *signal = [[RequestBaseAPI standardAPI] userMessDeleteWithmessId:self.messMod.ID];
+    __weak ZMessDetailViewController *blockSelf = self;
+    [signal subscribeNext:^(id x) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [blockSelf.navigationController popViewControllerAnimated:YES];
+    }];
+    [signal subscribeError:^(NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
 }
 -(void)viewWillAppear:(BOOL)animated
 {

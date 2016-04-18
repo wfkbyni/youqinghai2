@@ -23,6 +23,7 @@ NSString *const personalDriverList = @"app/collection/getFollowDriverList";
 NSString *const personalTravelsList= @"app/collection/getFollowTravelsList";
 NSString *const personalFollowUserList= @"app/collection/getFollowUserList";
 NSString *const personalFeedBack= @"app/feedback/addFeedBack";
+NSString *const personaldeleteMess= @"app/message/deleteMess";
 @implementation RequestBaseAPI (Personal)
 -(RACSignal *)messDataWithPageIndex:(NSString *)index withPageSize:(NSString *)pageSize
 {
@@ -38,7 +39,12 @@ NSString *const personalFeedBack= @"app/feedback/addFeedBack";
 -(RACSignal *)ImageHeaderDataWithData:(NSData *)data
 {
     NSDictionary *param = @{@"userId":@([ZUserModel shareUserModel].userId.integerValue)};
-    return [self ZpostApiString:personalHeaderUrl params:param attachKey:@"fileName" attachData:@[data]];
+    return [[self ZpostApiString:personalHeaderUrl params:param attachKey:@"fileName" attachData:@[data]] map:^id(ResponseBaseData *data) {
+        if (!data.result_data) {
+            data.result_data = @"";
+        }
+        return data.result_data;
+    }];
 }
 -(RACSignal *)addFeedBackWithData:(NSArray *)imageAr andText:(NSString *)text
 {
@@ -159,6 +165,17 @@ NSString *const personalFeedBack= @"app/feedback/addFeedBack";
 -(RACSignal *)userFollowUserListWithPageIndex:(NSString *)index withPageSize:(NSString *)pageSize
 {
     NSString *param = [NSString stringWithFormat:@"server=%@&userId=%@&pageIndex=%@&pageSize=%@",personalFollowUserList,[ZUserModel shareUserModel ].userId,index,pageSize];
+    param = [GTMBase64 desEncrypt:param];
+    return [[self requestWithType:RequestAPITypePost params:param]map:^id(ResponseBaseData *data) {
+        if (!data.result_data) {
+            data.result_data = @"";
+        }
+        return data.result_data;
+    }];
+}
+-(RACSignal *)userMessDeleteWithmessId:(NSString *)messId
+{
+    NSString *param = [NSString stringWithFormat:@"server=%@&messId=%@",personaldeleteMess,messId];
     param = [GTMBase64 desEncrypt:param];
     return [[self requestWithType:RequestAPITypePost params:param]map:^id(ResponseBaseData *data) {
         if (!data.result_data) {

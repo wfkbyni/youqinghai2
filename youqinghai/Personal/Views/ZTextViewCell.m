@@ -32,6 +32,25 @@
         self.placeholder.hidden = YES;
     }
 }
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if (range.location>=200)
+    {
+        UIAlertView * alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"您已输入200个字" delegate:nil cancelButtonTitle:@"返回" otherButtonTitles: nil];
+        [alert show];
+        
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+}
+/**
+ *  设置上传图片组件
+ *
+ *  @param photo <#photo description#>
+ */
 -(void)setPhoto:(NSString *)photo
 {
     if (!self.images) {
@@ -52,11 +71,14 @@
     [self.picView addSubview:_addImageBtn];
   [self showImages];
 }
+/**
+ *  上传选项
+ */
 -(void)pickImageAction
 {
     [self endEditing:YES];
-    if (self.images.count >=7) {
-        UIAlertView *av= [[UIAlertView alloc]initWithTitle:@"提示" message:@"上传不能超过7张" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+    if (self.images.count >=6) {
+        UIAlertView *av= [[UIAlertView alloc]initWithTitle:@"提示" message:@"上传不能超过6张" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
         [av show];
         return;
     }
@@ -185,8 +207,12 @@
     NSLog(@"%@",info);
     [picker dismissViewControllerAnimated:YES completion:^{
         UIImage *img = info[UIImagePickerControllerEditedImage];
-  
-        [self.images insertObject:img atIndex:self.images.count - 1];
+       
+        if (self.images.count) {
+            [self.images insertObject:img atIndex:self.images.count - 1];
+        }else{
+            [self.images addObject:img];
+        }
         if (self.imageBlcok) {
             self.imageBlcok(self.images);
         }

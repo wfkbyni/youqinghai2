@@ -17,28 +17,32 @@
     NSInteger orderState;   // 订单状态
 }
 @property (nonatomic, strong) OrderViewModel *orderViewModel;
-@property(strong,nonatomic)NSMutableArray *orlistAr;
-@property(strong,nonatomic)NSMutableArray *listAr;
-@property(weak,nonatomic)ZPageView *pageView;
+@property(strong,nonatomic)NSMutableArray *orlistAr;//源始数据
+@property(strong,nonatomic)NSMutableArray *listAr;//订单数据
+@property(weak,nonatomic)ZPageView *pageView;//选择器
+@property(nonatomic,assign)NSInteger state;//刷新状态
 @end
 
 @implementation OrdersViewController
 -(void)pageView:(ZPageView *)pageView button:(UIButton *)btn
 {
-    _listAr = [NSMutableArray array];
-    for (OrderListModel *listM in self.orlistAr) {
-        if (listM.state.integerValue == btn.tag) {
-            [_listAr addObject:listM];
-        }
-    }
+    NSLog(@"%d",btn.tag);
+    self.state =btn.tag-1;
+    //    _listAr = [NSMutableArray array];
+    //    for (OrderListModel *listM in self.orlistAr) {
+    //        if (listM.state.integerValue == btn.tag) {
+    //            [_listAr addObject:listM];
+    //        }
+    //    }
     [self.tableView reloadData];
+    
 }
 - (void)viewDidLoad {
 
     [super viewDidLoad];
     
     orderState = -1;
-    
+      self.state = -1;
     self.orderViewModel = [[OrderViewModel alloc]init];
     self.tableView.tableHeaderView = self.tableViewHeader;
     
@@ -121,6 +125,16 @@
 #pragma mark - tableView delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    if (self.state != -1) {
+        _listAr = [NSMutableArray array];
+        for (OrderListModel *listM in self.orlistAr) {
+            if (listM.state.integerValue == self.state) {
+                [_listAr addObject:listM];
+            }
+        }
+    }else{
+        self.listAr = self.orlistAr;
+    }
     return self.listAr.count;
 }
 

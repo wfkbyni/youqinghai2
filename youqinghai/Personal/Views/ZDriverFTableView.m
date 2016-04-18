@@ -26,13 +26,13 @@
         MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
         self.mj_header = header;
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
             self.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
                 self.pages = @(self.pages.integerValue+1).stringValue;
                 [self getNet];
             }];
-        });
-        
+       
+        self.mj_footer.hidden=YES;
         [self.mj_header beginRefreshing];
     }
     return self;
@@ -47,6 +47,7 @@
     RACSignal *signal = [[RequestBaseAPI standardAPI]userDriverListWithPageIndex:self.pages withPageSize:@"20"];
     __weak ZDriverFTableView *blockSelf= self;
     [signal subscribeNext:^(id x) {
+        self.mj_footer.hidden=NO;
         [blockSelf.mj_header endRefreshing];
         [blockSelf.mj_footer endRefreshing];
         NSArray *ar =  [NSJSONSerialization JSONObjectWithData:[((NSString *)x) dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
@@ -61,15 +62,19 @@
             return ;
         }
         
-        
+        if (ar.count<20) {
+              [blockSelf.mj_footer endRefreshingWithNoMoreData];
+        }
         blockSelf.tabAr = [ZDriverModel mj_objectArrayWithKeyValuesArray:ar];
         NSLog(@"%@",blockSelf.tabAr );
         [blockSelf reloadData];
  
     }];
     [signal subscribeError:^(NSError *error) {
+        self.mj_footer.hidden=NO;
         [blockSelf.mj_header endRefreshing];
         [blockSelf.mj_footer endRefreshing];
+         [blockSelf.mj_footer endRefreshingWithNoMoreData];
     }];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

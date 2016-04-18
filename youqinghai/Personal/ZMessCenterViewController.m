@@ -38,14 +38,22 @@
         }];
   
 self.tableView.mj_footer.hidden = YES;
-    [self.tableView.mj_header beginRefreshing];
+   
     // Do any additional setup after loading the view.
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView.mj_header beginRefreshing];
 }
 -(void)headerRefresh
 {
     self.pages = @"1";
     [self getNet];
 }
+/**
+ *  获取消息信息
+ */
 -(void)getNet
 {
     RACSignal *signal = [[[PersonalViewModel alloc]init]getMessData];

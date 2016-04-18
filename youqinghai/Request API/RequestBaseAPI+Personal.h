@@ -168,6 +168,16 @@
  */
 -(RACSignal*)userFollowUserListWithPageIndex:(NSString*)index
                              withPageSize:(NSString*)pageSize;
+
 -(RACSignal*)userClickTravelsWithUserId:(NSString*)userId
                                 withTravelId:(NSString*)travelId;
+/**
+ *  删除消息
+ *
+ *  @param messId <#messId description#>
+ *
+ *  @return <#return value description#>
+ */
+-(RACSignal*)userMessDeleteWithmessId:(NSString*)messId;
+
 @end
