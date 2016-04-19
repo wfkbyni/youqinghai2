@@ -98,6 +98,8 @@
             weakSelf.calculateView.frame = frame;
             
             if (checked) {
+                
+                [self loadCacheData];
                 [self attrString:_insuranceCount];
             }else{
                 _insuranceCount = 0;
