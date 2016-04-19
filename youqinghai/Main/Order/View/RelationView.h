@@ -25,6 +25,8 @@
 
 @property (nonatomic, assign) NSNumber *totalMoeny;           // 总金额
 
+@property (nonatomic, strong) NSArray *insuranceArray;        // 被保人数据
+
 @property (nonatomic, strong) UINavigationController *navigationController;
 
 @end

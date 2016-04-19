@@ -40,12 +40,26 @@ NSString *const sendEva = @"app/myOrder/evaluationFeatureOrDriver";
 -(RACSignal *)addOrderWithOrder:(Order *)order{
     
     NSString *params = [order mj_JSONString];
+    
+    NSRange start1 = [params rangeOfString:@"["];
+    NSRange end1 = [params rangeOfString:@"]"];
+    
+    NSString *json1 = [params substringWithRange:NSMakeRange(start1.location, end1.location - start1.location)];
+    
     params = [params stringByReplacingOccurrencesOfString:@"{" withString:@""];
     params = [params stringByReplacingOccurrencesOfString:@"}" withString:@""];
     params = [params stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     params = [params stringByReplacingOccurrencesOfString:@":" withString:@"="];
     params = [params stringByReplacingOccurrencesOfString:@"," withString:@"&"];
     params = [NSString stringWithFormat:@"server=%@&%@",addOrder,params];
+    
+    NSRange start2 = [params rangeOfString:@"["];
+    NSRange end2 = [params rangeOfString:@"]"];
+    
+    NSString *json2 = [params substringWithRange:NSMakeRange(start2.location, end2.location - start2.location)];
+    
+    params = [params stringByReplacingOccurrencesOfString:json2 withString:json1];
+    
     return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
 }
 

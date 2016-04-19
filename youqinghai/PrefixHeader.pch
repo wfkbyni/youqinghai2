@@ -34,4 +34,5 @@
 #import "AISharedPay.h"
 #import "UIView+Toast.h"
 #import "WXCustomScroeView.h"
+#import "NSObject+VODBCache.h"
 #endif /* PrefixHeader_pch */

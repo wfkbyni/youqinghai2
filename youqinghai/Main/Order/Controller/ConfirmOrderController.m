@@ -165,6 +165,7 @@
     self.orderViewModel.order.traveltype = !_isCarpool;
     self.orderViewModel.order.insuranceCost = self.relationView.insuranceCount;
     self.orderViewModel.order.driverId = self.driverId;
+    self.orderViewModel.order.insuranceData = self.relationView.insuranceArray;
     
     if (self.orderViewModel.order.contacts.length == 0) {
         [self.view makeToast:@"联系人不能为空"];
@@ -183,6 +184,12 @@
     [[self.orderViewModel addOrder] subscribeNext:^(id x) {
         NSLog(@"%@",x);
         [self.view makeToast:@"订单添加成功，请到我的订单查看"];
+        [CardNo removeAllCachedObjectsSuccess:^(NSArray *array) {
+            
+            
+        } failure:^(NSError *error) {
+            
+        }];
     } error:^(NSError *error) {
         [self.view makeToast:[error.userInfo objectForKey:@"message"]];
     }];

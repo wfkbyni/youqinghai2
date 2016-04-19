@@ -85,7 +85,7 @@
 
 - (void)requestData{
     _carViewModel = [[CarViewModel alloc] init];
-    _carViewModel.driverId = self.car.Id;
+    _carViewModel.driverId = self.car.driverId;
     [[_carViewModel getDriverCarDetails] subscribeError:^(NSError *error) {
         
     } completed:^{

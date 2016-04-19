@@ -20,6 +20,7 @@
 @property (nonatomic, assign) NSInteger dayPrice;   // 每天价格
 @property (nonatomic, copy) NSString *carphoto;     // 车辆图片
 @property (nonatomic, copy) NSString *travelTime;   // 出发时间
+@property (nonatomic, assign) NSInteger driverId;  // 司机id
 
 @end
 

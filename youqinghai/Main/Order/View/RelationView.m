@@ -9,6 +9,7 @@
 #import "RelationView.h"
 #import "CheckBoxView.h"
 #import "CalculateView.h"
+#import "InsuranceViewController.h"
 
 @interface RelationView()
 
@@ -30,7 +31,7 @@
 
     if (self = [super initWithFrame:frame]) {
         
-        _insuranceCount = 0;
+        [self loadCacheData];
         
         [self setBackgroundColor:[UIColor whiteColor]];
         
@@ -116,6 +117,19 @@
     return self;
 }
 
+- (void)loadCacheData{
+    
+    [CardNo objectsFromCacheWithSQL:@" select * from CardNo " success:^(NSArray *array) {
+        _insuranceArray = array;
+        
+        _insuranceCount = _insuranceArray.count;
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+
 -(void)setOrder:(Order *)order{
     _order = order;
 }
@@ -163,6 +177,8 @@
 }
 
 - (void)attrString:(NSInteger)count{
+    
+    _personLabelCount.text = [NSString stringWithFormat:@"%ld人",count];
     
     NSMutableAttributedString *fuseMoneyAttr = [[NSMutableAttributedString alloc] init];
     
@@ -250,7 +266,15 @@
 }
 
 - (void)btnAction:(UIButton *)sender{
-    [self makeToast:@"待定..."];
+    InsuranceViewController *controller = [[InsuranceViewController alloc] init];
+    controller.maxCount = _seatsnum;
+    [self.navigationController pushViewController:controller animated:YES];
+    
+    [controller setInsuranceDataCall:^(NSArray *array) {
+        _insuranceCount = array.count;
+        _insuranceArray = array;
+        [self attrString:_insuranceCount];
+    }];
 }
 
 - (CalculateView *)calculateView{

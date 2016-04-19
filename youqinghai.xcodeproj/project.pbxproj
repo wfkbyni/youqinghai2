@@ -250,6 +250,14 @@
 		9A24C34C1CC3DC4D00671233 /* stars_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A24C3441CC3DC4D00671233 /* stars_on@2x.png */; };
 		9A24C34D1CC3DC4D00671233 /* stars_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A24C3451CC3DC4D00671233 /* stars_on@3x.png */; };
 		9A24C34E1CC3DC4D00671233 /* WXCustomScroeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A24C3471CC3DC4D00671233 /* WXCustomScroeView.m */; };
+		9A24C3511CC65BA300671233 /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A24C3501CC65BA300671233 /* PayViewController.m */; };
+		9A24C3551CC66E7600671233 /* InsuranceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A24C3531CC66E7600671233 /* InsuranceViewController.m */; };
+		9A24C3561CC66E7600671233 /* InsuranceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A24C3541CC66E7600671233 /* InsuranceViewController.xib */; };
+		9A24C35F1CC670FF00671233 /* AddInsuranceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A24C35D1CC670FF00671233 /* AddInsuranceController.m */; };
+		9A24C3601CC670FF00671233 /* AddInsuranceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A24C35E1CC670FF00671233 /* AddInsuranceController.xib */; };
+		9A24C3631CC6796000671233 /* CardNo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A24C3621CC6796000671233 /* CardNo.m */; };
+		9A24C3671CC6823A00671233 /* InsuranceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A24C3651CC6823A00671233 /* InsuranceTableViewCell.m */; };
+		9A24C3681CC6823A00671233 /* InsuranceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A24C3661CC6823A00671233 /* InsuranceTableViewCell.xib */; };
 		9A637DAD1CA17EFE004D17BA /* Recommend.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DAC1CA17EFE004D17BA /* Recommend.m */; };
 		9A637DB01CA17FF2004D17BA /* TourismType.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DAF1CA17FF2004D17BA /* TourismType.m */; };
 		9A637DB31CA1809B004D17BA /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DB21CA1809B004D17BA /* Banner.m */; };
@@ -818,6 +826,19 @@
 		9A24C3451CC3DC4D00671233 /* stars_on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stars_on@3x.png"; sourceTree = "<group>"; };
 		9A24C3461CC3DC4D00671233 /* WXCustomScroeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCustomScroeView.h; sourceTree = "<group>"; };
 		9A24C3471CC3DC4D00671233 /* WXCustomScroeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCustomScroeView.m; sourceTree = "<group>"; };
+		9A24C34F1CC65BA300671233 /* PayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
+		9A24C3501CC65BA300671233 /* PayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
+		9A24C3521CC66E7600671233 /* InsuranceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceViewController.h; sourceTree = "<group>"; };
+		9A24C3531CC66E7600671233 /* InsuranceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceViewController.m; sourceTree = "<group>"; };
+		9A24C3541CC66E7600671233 /* InsuranceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InsuranceViewController.xib; sourceTree = "<group>"; };
+		9A24C35C1CC670FF00671233 /* AddInsuranceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddInsuranceController.h; sourceTree = "<group>"; };
+		9A24C35D1CC670FF00671233 /* AddInsuranceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddInsuranceController.m; sourceTree = "<group>"; };
+		9A24C35E1CC670FF00671233 /* AddInsuranceController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddInsuranceController.xib; sourceTree = "<group>"; };
+		9A24C3611CC6796000671233 /* CardNo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardNo.h; sourceTree = "<group>"; };
+		9A24C3621CC6796000671233 /* CardNo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardNo.m; sourceTree = "<group>"; };
+		9A24C3641CC6823A00671233 /* InsuranceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceTableViewCell.h; sourceTree = "<group>"; };
+		9A24C3651CC6823A00671233 /* InsuranceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceTableViewCell.m; sourceTree = "<group>"; };
+		9A24C3661CC6823A00671233 /* InsuranceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InsuranceTableViewCell.xib; sourceTree = "<group>"; };
 		9A637DAB1CA17EFE004D17BA /* Recommend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recommend.h; sourceTree = "<group>"; };
 		9A637DAC1CA17EFE004D17BA /* Recommend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recommend.m; sourceTree = "<group>"; };
 		9A637DAE1CA17FF2004D17BA /* TourismType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourismType.h; sourceTree = "<group>"; };
@@ -1436,6 +1457,12 @@
 			children = (
 				35891BAE1CB7B52000CE7002 /* ConfirmOrderController.h */,
 				35891BAF1CB7B52000CE7002 /* ConfirmOrderController.m */,
+				9A24C3521CC66E7600671233 /* InsuranceViewController.h */,
+				9A24C3531CC66E7600671233 /* InsuranceViewController.m */,
+				9A24C3541CC66E7600671233 /* InsuranceViewController.xib */,
+				9A24C35C1CC670FF00671233 /* AddInsuranceController.h */,
+				9A24C35D1CC670FF00671233 /* AddInsuranceController.m */,
+				9A24C35E1CC670FF00671233 /* AddInsuranceController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1453,6 +1480,9 @@
 				35891BB81CB7B52000CE7002 /* SubmitOrderView.m */,
 				35891BB91CB7B52000CE7002 /* TravelView.h */,
 				35891BBA1CB7B52000CE7002 /* TravelView.m */,
+				9A24C3641CC6823A00671233 /* InsuranceTableViewCell.h */,
+				9A24C3651CC6823A00671233 /* InsuranceTableViewCell.m */,
+				9A24C3661CC6823A00671233 /* InsuranceTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1538,6 +1568,8 @@
 				357D73461CBF8D0000EAD35C /* MyOrderEvaViewController.m */,
 				357D73501CBFA8B600EAD35C /* EvaDriverViewController.h */,
 				357D73511CBFA8B600EAD35C /* EvaDriverViewController.m */,
+				9A24C34F1CC65BA300671233 /* PayViewController.h */,
+				9A24C3501CC65BA300671233 /* PayViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1650,6 +1682,8 @@
 				9A637DB21CA1809B004D17BA /* Banner.m */,
 				35E3FFB71CA90B3000876054 /* ZUserModel.h */,
 				35E3FFB81CA90B3000876054 /* ZUserModel.m */,
+				9A24C3611CC6796000671233 /* CardNo.h */,
+				9A24C3621CC6796000671233 /* CardNo.m */,
 			);
 			name = Model;
 			path = Main/Model;
@@ -2318,6 +2352,7 @@
 				357D72B71CBCD23900EAD35C /* umeng_fb_audio_play_01@2x.png in Resources */,
 				357D72E01CBCD23900EAD35C /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				35891BF11CB7B59200CE7002 /* TourismTypeItemCell.xib in Resources */,
+				9A24C3681CC6823A00671233 /* InsuranceTableViewCell.xib in Resources */,
 				357D72C91CBCD23900EAD35C /* UMShareEditViewController.xib in Resources */,
 				357D72AE1CBCD23900EAD35C /* microphone@2x.png in Resources */,
 				357D72B91CBCD23900EAD35C /* umeng_fb_audio_play_03@2x.png in Resources */,
@@ -2335,6 +2370,7 @@
 				9A24C34A1CC3DC4D00671233 /* stars_off@3x.png in Resources */,
 				353341271CB51AFB00543CB4 /* ZTextViewCell.xib in Resources */,
 				357D72CD1CBCD23900EAD35C /* UMSShareListController.xib in Resources */,
+				9A24C3601CC670FF00671233 /* AddInsuranceController.xib in Resources */,
 				357D72CA1CBCD23900EAD35C /* UMShareEditViewControlleriPad.xib in Resources */,
 				9AF1C0201C9ED3E100AD2FC1 /* LaunchScreen.storyboard in Resources */,
 				35D2952F1CB6421E0029B8C1 /* ZRouteFCell.xib in Resources */,
@@ -2345,6 +2381,7 @@
 				357D72E81CBCD23900EAD35C /* ios-social-sdk-shake.html in Resources */,
 				35891BE91CB7B59200CE7002 /* RecommendTypeCell.xib in Resources */,
 				357D72E61CBCD23900EAD35C /* ios-social-sdk-shake.html in Resources */,
+				9A24C3561CC66E7600671233 /* InsuranceViewController.xib in Resources */,
 				9A24C3161CBE6BC500671233 /* AlipaySDK.bundle in Resources */,
 				35891BA11CB7B4C000CE7002 /* CarListCell.xib in Resources */,
 				B472E7851CBCA0C700A43CCB /* css in Resources */,
@@ -2440,6 +2477,7 @@
 				35D2952E1CB6421E0029B8C1 /* ZRouteFCell.m in Sources */,
 				B437E68C1CA43CE600091521 /* UIViewController+TableView.m in Sources */,
 				357D72A31CBCD23900EAD35C /* AIUmeng.m in Sources */,
+				9A24C3551CC66E7600671233 /* InsuranceViewController.m in Sources */,
 				35E3FFC01CA92AAC00876054 /* ZmessCenterCell.m in Sources */,
 				357D734B1CBF8EDB00EAD35C /* MyOrderEvaCell.m in Sources */,
 				B472E77C1CBC9C8300A43CCB /* AIHybridJSParam.m in Sources */,
@@ -2450,6 +2488,7 @@
 				35891C0A1CB7B5F500CE7002 /* Trip.m in Sources */,
 				9A637DB31CA1809B004D17BA /* Banner.m in Sources */,
 				9A637DB61CA182FB004D17BA /* MainViewModel.m in Sources */,
+				9A24C35F1CC670FF00671233 /* AddInsuranceController.m in Sources */,
 				353341261CB51AFB00543CB4 /* ZTextViewCell.m in Sources */,
 				35891C061CB7B5F500CE7002 /* Order.m in Sources */,
 				9A24C33D1CC3C5A500671233 /* StatisticsPlatformDataView.m in Sources */,
@@ -2472,12 +2511,14 @@
 				35589AA81CB7D4BC004DFE35 /* RequestBaseAPI.m in Sources */,
 				35891B9E1CB7B4C000CE7002 /* CarListViewController.m in Sources */,
 				35EB05A11CB9534E003FDEFD /* OrderListModel.m in Sources */,
+				9A24C3631CC6796000671233 /* CardNo.m in Sources */,
 				35891C051CB7B5F500CE7002 /* HomePageData.m in Sources */,
 				35891BF01CB7B59200CE7002 /* TourismTypeItemCell.m in Sources */,
 				35891C041CB7B5F500CE7002 /* CarDetail.m in Sources */,
 				35D295321CB647A70029B8C1 /* ZRouModel.m in Sources */,
 				9A24C31E1CBE6BC500671233 /* DataSigner.m in Sources */,
 				35D2952A1CB641330029B8C1 /* ZRouteFTableView.m in Sources */,
+				9A24C3511CC65BA300671233 /* PayViewController.m in Sources */,
 				35891BCE1CB7B55400CE7002 /* RedirectViewController.m in Sources */,
 				35E3FFB41CA8CD8100876054 /* ZPersanalHeaderView.m in Sources */,
 				9A24C3221CBE6BC500671233 /* openssl_wrapper.m in Sources */,
@@ -2569,6 +2610,7 @@
 				35891BC41CB7B52000CE7002 /* OrderViewModel.m in Sources */,
 				35891BEA1CB7B59200CE7002 /* ServiceIntroductionView.m in Sources */,
 				3533411C1CB501B600543CB4 /* ZMessDetailViewController.m in Sources */,
+				9A24C3671CC6823A00671233 /* InsuranceTableViewCell.m in Sources */,
 				35891BA31CB7B4C000CE7002 /* DriverCarCellFooterView.m in Sources */,
 				B437E68D1CA43CE600091521 /* UIViewController+Tapped.m in Sources */,
 				9A1FEB3B1C9EE1770067B8D5 /* BaseViewController.m in Sources */,

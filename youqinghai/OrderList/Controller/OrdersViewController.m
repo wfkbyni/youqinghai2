@@ -13,6 +13,8 @@
 #import "OrderDetailViewController.h"
 #import "OrderViewModel.h"
 #import "MyOrderEvaViewController.h"
+#import "PayViewController.h"
+
 @interface OrdersViewController ()<ZPageViewDelegate>{
     NSInteger orderState;   // 订单状态
 }
@@ -219,11 +221,6 @@
 
 - (void)cancelOrder:(OrderListModel *)model{
     
-    
-    
- 
-
-    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[self.orderViewModel cancelOrderWithOrderNo:model.orderId] subscribeNext:^(ResponseBaseData *data) {
        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
@@ -242,16 +239,20 @@
 
 - (void)confirmOrder:(OrderListModel *)model{
     
-    [[self.orderViewModel notifyUrlWithOrderNo:model.orderId withTotalMoney:model.orderReserve] subscribeNext:^(ResponseBaseData *data) {
-        
-        [self.view makeToast:data.message];
-        if (data.result_code == 0) {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-        
-    } error:^(NSError *error) {
-        YQHLog(@"%@",error);
-    }];
+    PayViewController *controller = [[PayViewController alloc] init];
+    controller.orderListModel = model;
+    [self.navigationController pushViewController:controller animated:YES];
+    
+//    [[self.orderViewModel notifyUrlWithOrderNo:model.orderId withTotalMoney:model.orderReserve] subscribeNext:^(ResponseBaseData *data) {
+//        
+//        [self.view makeToast:data.message];
+//        if (data.result_code == 0) {
+//            [self.navigationController popViewControllerAnimated:YES];
+//        }
+//        
+//    } error:^(NSError *error) {
+//        [self.view makeToast:[error.userInfo objectForKey:@"message"]];
+//    }];
     
 //    [AISharedPay handleAlipay:nil paymentBlock:^(BOOL success, id object, NSString *msg) {
 //        

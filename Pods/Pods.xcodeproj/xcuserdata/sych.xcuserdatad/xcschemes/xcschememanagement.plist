@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -64,15 +69,30 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>VODBCache.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>16D3185319BBDF62AF3DC63D9E5FCC43</key>
+		<key>045FCCE16669BC07BAFFBD8617C20A37</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>21A52013C746DA205948753087304070</key>
+		<key>133F584FC94DB4F1AF03C77FA7DDE104</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>18FDF499D36AD6E4A5298552B133D464</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2544AC308D0E843BD249FE3C595C73C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,22 +102,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>423F2BF003193A60AF74A59322A59249</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>55DBDD8B7D446F1D618F303A9FB53209</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>638017749958C00B00C2D6B5F363E560</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>79E816C5130AC97C342FF98D1E60E580</key>
+		<key>6ACA8EBE3A9B82DF256271EBB74D434F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,12 +122,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>942C770BFB31A0D3B85E3937E143EC6C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9EAB3E42EF957541E6C3C76D35FD008E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A708AAD5CD7557352D235B8B17107D6D</key>
+		<key>9F12FB4A63E20F601CFB2E64A65B57C1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A94CB8983E64D5C4F6271217CAEFA619</key>
 		<dict>
 			<key>primary</key>
 			<true/>
