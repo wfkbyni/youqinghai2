@@ -100,7 +100,6 @@
             if (checked) {
                 
                 [self loadCacheData];
-                [self attrString:_insuranceCount];
             }else{
                 _insuranceCount = 0;
                 [self attrString:0];
@@ -125,6 +124,8 @@
         _insuranceArray = array;
         
         _insuranceCount = _insuranceArray.count;
+        
+        [self attrString:_insuranceCount];
         
     } failure:^(NSError *error) {
         
