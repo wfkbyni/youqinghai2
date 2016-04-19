@@ -179,5 +179,12 @@
  *  @return <#return value description#>
  */
 -(RACSignal*)userMessDeleteWithmessId:(NSString*)messId;
-
+/**
+ *  定制旅游详情
+ *
+ *  @param customId <#customId description#>
+ *
+ *  @return <#return value description#>
+ */
+-(RACSignal*)userCustomDetailWithcustomId:(NSString*)customId;
 @end

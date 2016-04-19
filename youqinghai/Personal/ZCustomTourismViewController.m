@@ -12,6 +12,7 @@
 #import "ZCustomTourAddViewController.h"
 #import "RequestBaseAPI+Personal.h"
 #import "ZCustomListModel.h"
+#import "ZCustomDetailViewController.h"
 @interface ZCustomTourismViewController ()
 @property(nonatomic,strong)NSMutableArray *cusAr;
 @property(copy,nonatomic)NSString *pages;
@@ -124,6 +125,13 @@
     ZCusTourCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZCusTourCell"];
     cell.listModel = self.cusAr[indexPath.row];
     return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ZCustomDetailViewController *cdv = [[ZCustomDetailViewController alloc]init];
+    cdv.cusMod = self.cusAr[indexPath.row];
+    [self.navigationController pushViewController:cdv animated:YES];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {

@@ -74,7 +74,7 @@
             {
 
                 UIImageView *view = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.frame.size.width-110, 10, 80, 80)];
-                [view sd_setImageWithURL:[NSURL URLWithString:self.userModel.headUrl]];
+                [view sd_setImageWithURL:[NSURL URLWithString:self.userModel.headUrl] placeholderImage:[UIImage imageNamed:@"userhead"]];
                 view.layer.cornerRadius =view.bounds.size.height/2;
                 view.contentMode = UIViewContentModeScaleAspectFill;
                 view.clipsToBounds = YES;

@@ -190,6 +190,7 @@
             cell.icon.image = [UIImage imageNamed:@"登录_07"];
             cell.fieText.placeholder =@"请输入密码";
             cell.fieText.keyboardType = UIKeyboardTypeNumberPad;
+            cell.fieText.secureTextEntry = YES;
         }
             break;
         default:

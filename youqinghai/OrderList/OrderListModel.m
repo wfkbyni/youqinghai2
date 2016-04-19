@@ -10,7 +10,7 @@
 
 @implementation OrderListModel
 +(NSDictionary *)mj_replacedKeyFromPropertyName{
-    return @{@"Id":@"id"};
+    return @{@"Id":@"id",@"Typename":@"typename"};
 }
 -(void)setSingletime:(NSString *)singletime
 {
@@ -27,7 +27,7 @@
     NSDate *date= [NSDate dateWithTimeIntervalSince1970:(travelTime.longLongValue)/1000];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"y-M-d HH:mm"];
+    [dateFormatter setDateFormat:@"y-M-d"];
     _travelTime = [dateFormatter stringFromDate:date];
 
 }

@@ -48,13 +48,22 @@
         [av show];
         return;
     }
-    
+    if ( self.str.length>200) {
+        UIAlertView *av= [[UIAlertView alloc]initWithTitle:@"提示" message:@"你输入的文字超过200!" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [av show];
+        return;
+    }
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     RACSignal *signal = [[RequestBaseAPI standardAPI] addFeedBackWithData:self.images andText:self.str];
     [signal subscribeNext:^(id x) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         NSLog(@"%@",x);
         UIAlertView *av= [[UIAlertView alloc]initWithTitle:@"提示" message:@"反馈成功,感谢您提供的意见" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
         [av show];
         [self.navigationController popViewControllerAnimated:YES];
+    }];
+    [signal subscribeError:^(NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     }];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

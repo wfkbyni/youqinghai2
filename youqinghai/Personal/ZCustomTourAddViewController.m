@@ -269,7 +269,7 @@
     UIDatePicker *datePicker = [ [ UIDatePicker alloc] initWithFrame:CGRectMake(0.0,30,0.0,0.0)];
     datePicker.datePickerMode = UIDatePickerModeDate;
     datePicker.minuteInterval = 5;
-    NSDate* minDate = [NSDate dateWithTimeIntervalSince1970:0];
+    NSDate* minDate = [NSDate dateWithTimeIntervalSinceNow:0];;
     NSDate* maxDate = [NSDate dateWithTimeIntervalSinceNow:3600*365*80];
     NSDate* nowDate = [NSDate dateWithTimeIntervalSinceNow:0];
     datePicker.minimumDate = minDate;

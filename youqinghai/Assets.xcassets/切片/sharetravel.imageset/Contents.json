@@ -3,16 +3,16 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "游记_11.png"
+      "filename" : "sharetravel.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "游记_11@2x.png"
+      "filename" : "sharetravel@2x.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "游记_11@3x.png",
+      "filename" : "sharetravel@3x.png",
       "scale" : "3x"
     }
   ],

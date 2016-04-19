@@ -62,6 +62,7 @@
     _titleLB = UILabel.new;
     _titleLB.font = [UIFont systemFontOfSize:15];
     _titleLB.text = @"青海三日游";
+    _titleLB.textColor = [UIColor colorWithRed:0.286 green:0.286 blue:0.298 alpha:1.000];
     [_subView addSubview:_titleLB];
     
     _tourDateLB = UILabel.new;
@@ -161,7 +162,7 @@
     CGFloat x    = _picIV.relativeX+5;
     _titleLB.frame    = (CGRect){x,_picIV.y,self.width - x,20};
     
-    _tourDateLB.frame = (CGRect){_titleLB.x,_titleLB.relativeY+15,120,20};
+    _tourDateLB.frame = (CGRect){_titleLB.x,_titleLB.relativeY+15,145,20};
 
     _carTypeLB.frame  = (CGRect){_titleLB.x,_picIV.height-25,_tourDateLB.size};
 
@@ -210,13 +211,15 @@
             break;
         case 4:
             self.detailTextLabel.text = @"取消订单";
+            [_confirmPayBT setHidden:YES];
+            [_cancelBT setHidden:YES];
             break;
         default:
             break;
     }
     [_picIV sd_setImageWithURL:[NSURL URLWithString:orderListMod.imgUrl]];
     
-    _titleLB.text = orderListMod.tourName;
+    _titleLB.text = orderListMod.Typename;
     
     _tourDateLB.text = [NSString stringWithFormat:@"出游日期:%@",orderListMod.travelTime];
     

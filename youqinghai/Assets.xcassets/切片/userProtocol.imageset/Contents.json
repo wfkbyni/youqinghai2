@@ -3,16 +3,16 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "我的_更多_03.png"
+      "filename" : "userProtocol.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "我的_更多_03@2x.png"
+      "filename" : "userProtocol@2x.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "我的_更多_03@3x.png",
+      "filename" : "userProtocol@3x.png",
       "scale" : "3x"
     }
   ],

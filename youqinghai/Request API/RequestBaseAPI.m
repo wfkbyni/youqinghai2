@@ -120,7 +120,7 @@
         NSURLSessionDataTask *task = [manager POST:urlString parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
            // [formData appendPartWithFormData:attachData name:attachKey];
             for (int i = 0; i<attachData.count ; i++) {
-                NSData *imageData =UIImageJPEGRepresentation(attachData[i], 0.8) ;
+                NSData *imageData =attachData[i] ;
                 NSDate *now = [NSDate date];
                 NSDateFormatter *df =[[NSDateFormatter alloc]init];
                 NSString *pngName =[df stringFromDate:now];

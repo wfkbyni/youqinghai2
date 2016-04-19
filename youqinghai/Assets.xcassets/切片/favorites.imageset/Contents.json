@@ -3,16 +3,16 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "首页_线路分类_详情_服务介绍_03.png"
+      "filename" : "favorites.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "首页_线路分类_详情_服务介绍_03@2x.png"
+      "filename" : "favorites@2x.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "首页_线路分类_详情_服务介绍_03@3x.png",
+      "filename" : "favorites@3x.png",
       "scale" : "3x"
     }
   ],

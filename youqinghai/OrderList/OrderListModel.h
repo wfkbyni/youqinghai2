@@ -33,6 +33,7 @@
 @property(strong,nonatomic)NSString *orderId;
 @property(strong,nonatomic)NSString *dayNum;
 @property(strong,nonatomic)NSString *orderMoney;
+@property(strong,nonatomic)NSString *Typename;
 @end
 //"travelTime": 出游时间,
 //"nickname": "司机呢称",

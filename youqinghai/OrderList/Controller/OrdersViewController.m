@@ -17,24 +17,24 @@
     NSInteger orderState;   // 订单状态
 }
 @property (nonatomic, strong) OrderViewModel *orderViewModel;
-@property(strong,nonatomic)NSMutableArray *orlistAr;//源始数据
+
 @property(strong,nonatomic)NSMutableArray *listAr;//订单数据
 @property(weak,nonatomic)ZPageView *pageView;//选择器
-@property(nonatomic,assign)NSInteger state;//刷新状态
+
 @end
 
 @implementation OrdersViewController
 -(void)pageView:(ZPageView *)pageView button:(UIButton *)btn
 {
-    NSLog(@"%d",btn.tag);
-    self.state =btn.tag-1;
+    
+//self.state =btn.tag-1;
     //    _listAr = [NSMutableArray array];
     //    for (OrderListModel *listM in self.orlistAr) {
     //        if (listM.state.integerValue == btn.tag) {
     //            [_listAr addObject:listM];
     //        }
     //    }
-    [self.tableView reloadData];
+   // [self.tableView reloadData];
     
 }
 - (void)viewDidLoad {
@@ -42,10 +42,11 @@
     [super viewDidLoad];
     
     orderState = -1;
-      self.state = -1;
-    self.orderViewModel = [[OrderViewModel alloc]init];
-    self.tableView.tableHeaderView = self.tableViewHeader;
     
+    self.orderViewModel = [[OrderViewModel alloc]init];
+    //self.tableView.tableHeaderView = self.tableViewHeader;
+    [self tableViewHeader];;
+    self.tableView.frame = CGRectMake(0, 108, self.view.frame.size.width, self.view.frame.size.height-108);
     self.view.backgroundColor = [UIColor colorWithRed:236.0/255.0 green:237.0/255.0 blue:238.0/255.0 alpha:1];
     
     self.title = @"我的订单";
@@ -92,7 +93,7 @@
         
                 if (self.orderViewModel.pages.integerValue!=1) {
                     if ([(NSArray*)x count]) {
-                        [self.orlistAr addObjectsFromArray:x];
+                  
                         [self.listAr addObjectsFromArray:x];
                         [self.tableView reloadData];
                     }else{
@@ -102,9 +103,9 @@
                     return ;
                 }
         
-                self.orlistAr = x;
+        
                 self.listAr = x;
-        if (self.orlistAr.count<10) {
+        if (self.listAr.count<10) {
              [self.tableView.mj_footer endRefreshingWithNoMoreData];
             
         }
@@ -125,16 +126,7 @@
 #pragma mark - tableView delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    if (self.state != -1) {
-        _listAr = [NSMutableArray array];
-        for (OrderListModel *listM in self.orlistAr) {
-            if (listM.state.integerValue == self.state) {
-                [_listAr addObject:listM];
-            }
-        }
-    }else{
-        self.listAr = self.orlistAr;
-    }
+ 
     return self.listAr.count;
 }
 
@@ -209,6 +201,7 @@
     frame.size.height = 44;
     ZPageView *page = [[ZPageView alloc] initWithFrame:frame];
     page.delegate =self;
+    page.frame = CGRectMake(0,64, frame.size.width, 44);
     NSArray *titles = @[@"全部",@"待付款",@"待完成",@"待评价",@"已完成"];
     page.dataS = titles;
     _pageView = page;
@@ -220,17 +213,29 @@
         [weakSelf.pageView selectedIndex:@(index)];
         [weakSelf loadOrderListData];
     }];
+    [self.view addSubview:self.pageView];
     return page;
 }
 
 - (void)cancelOrder:(OrderListModel *)model{
+    
+    
+    
+ 
+
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[self.orderViewModel cancelOrderWithOrderNo:model.orderId] subscribeNext:^(ResponseBaseData *data) {
-       
+       [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         [self.view makeToast:data.message];
         if (data.result_code == 0) {
-            [self.navigationController popViewControllerAnimated:YES];
+
+            model.state = @"4";
+            [self.tableView reloadData];
+         //   [self.navigationController popViewControllerAnimated:YES];
         }
     } error:^(NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         YQHLog(@"%@",error);
     }];
 }

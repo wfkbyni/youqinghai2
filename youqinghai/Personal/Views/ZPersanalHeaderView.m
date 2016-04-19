@@ -54,12 +54,14 @@
         _UserIcon.layer.cornerRadius = _UserIcon.bounds.size.height/2;
         _UserIcon.layer.borderWidth = 2;
         _UserIcon.layer.borderColor = [UIColor colorWithRed:0.286 green:0.286 blue:0.298 alpha:1.000].CGColor;
+   
+        _UserIcon.image = [UIImage imageNamed:@"userhead"];
         _travelNum.text = @"0";
         
         _followNum.text = @"0";
         
         _praiseNum.text =@"0";
-        _UserIcon.image = nil;
+        
         return;
     }
     [_UserName setTitle:user.nickname forState:UIControlStateNormal];
@@ -72,7 +74,7 @@
         _sexIcon.image = [UIImage imageNamed:@"man"];
     }
     
-    [_UserIcon sd_setImageWithURL:[NSURL URLWithString:user.headUrl]];
+    [_UserIcon sd_setImageWithURL:[NSURL URLWithString:user.headUrl] placeholderImage:[UIImage imageNamed:@"userhead"]];
     //[_UserIcon sd_setImageWithURL:[NSURL URLWithString:user.headUrl] placeholderImage:[UIImage imageNamed:@"游记_03"]];
     _UserIcon.layer.cornerRadius = _UserIcon.bounds.size.height/2;
     _UserIcon.layer.borderWidth = 2;

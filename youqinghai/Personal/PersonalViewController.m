@@ -191,7 +191,7 @@
                 {
                     [UMSocialSnsService presentSnsIconSheetView:self
                                                          appKey:@"570b744e67e58e12e2000466"
-                                                      shareText:@"快来使用游青海,定制您的专属旅程"
+                                                      shareText:@"快来使用游青海,定制您的专属旅程 http://www.baidu.com"
                                                      shareImage:[UIImage imageNamed:@"AppIcon"]
                                                 shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToQzone,UMShareToSina]
                                                        delegate:self];

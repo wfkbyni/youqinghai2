@@ -122,6 +122,8 @@
 		357D734C1CBF8EDB00EAD35C /* MyOrderEvaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357D734A1CBF8EDB00EAD35C /* MyOrderEvaCell.xib */; };
 		357D734F1CBF8F1900EAD35C /* ZStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 357D734E1CBF8F1900EAD35C /* ZStarView.m */; };
 		357D73521CBFA8B600EAD35C /* EvaDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 357D73511CBFA8B600EAD35C /* EvaDriverViewController.m */; };
+		358418F71CC630AC00D2026E /* ZCustomDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358418F61CC630AC00D2026E /* ZCustomDetailViewController.m */; };
+		358418FA1CC6388D00D2026E /* ZCostomDetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 358418F91CC6388D00D2026E /* ZCostomDetModel.m */; };
 		35891B9B1CB7B4C000CE7002 /* CarDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35891B7C1CB7B4C000CE7002 /* CarDetailController.m */; };
 		35891B9C1CB7B4C000CE7002 /* CarDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35891B7D1CB7B4C000CE7002 /* CarDetailController.xib */; };
 		35891B9E1CB7B4C000CE7002 /* CarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35891B811CB7B4C000CE7002 /* CarListViewController.m */; };
@@ -511,6 +513,10 @@
 		357D734E1CBF8F1900EAD35C /* ZStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZStarView.m; sourceTree = "<group>"; };
 		357D73501CBFA8B600EAD35C /* EvaDriverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaDriverViewController.h; sourceTree = "<group>"; };
 		357D73511CBFA8B600EAD35C /* EvaDriverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaDriverViewController.m; sourceTree = "<group>"; };
+		358418F51CC630AC00D2026E /* ZCustomDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCustomDetailViewController.h; sourceTree = "<group>"; };
+		358418F61CC630AC00D2026E /* ZCustomDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCustomDetailViewController.m; sourceTree = "<group>"; };
+		358418F81CC6388D00D2026E /* ZCostomDetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCostomDetModel.h; sourceTree = "<group>"; };
+		358418F91CC6388D00D2026E /* ZCostomDetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCostomDetModel.m; sourceTree = "<group>"; };
 		35891B7B1CB7B4C000CE7002 /* CarDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDetailController.h; sourceTree = "<group>"; };
 		35891B7C1CB7B4C000CE7002 /* CarDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarDetailController.m; sourceTree = "<group>"; };
 		35891B7D1CB7B4C000CE7002 /* CarDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarDetailController.xib; sourceTree = "<group>"; };
@@ -973,6 +979,8 @@
 				35D2954D1CB66A110029B8C1 /* ZTravelModel.m */,
 				35D2954F1CB763810029B8C1 /* ZFowUserModel.h */,
 				35D295501CB763810029B8C1 /* ZFowUserModel.m */,
+				358418F81CC6388D00D2026E /* ZCostomDetModel.h */,
+				358418F91CC6388D00D2026E /* ZCostomDetModel.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1493,6 +1501,8 @@
 				3533412E1CB63BDE00543CB4 /* ZMyFollowViewController.m */,
 				35E51D091CBAC88100A653FB /* ZOpinionViewController.h */,
 				35E51D0A1CBAC88100A653FB /* ZOpinionViewController.m */,
+				358418F51CC630AC00D2026E /* ZCustomDetailViewController.h */,
+				358418F61CC630AC00D2026E /* ZCustomDetailViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -2418,6 +2428,7 @@
 				354A68521CB3C47D001F3F5D /* ZMoreViewController.m in Sources */,
 				354A68471CB387E6001F3F5D /* ZLoginViewController.m in Sources */,
 				9A24C31C1CBE6BC500671233 /* AlixPayResult.m in Sources */,
+				358418FA1CC6388D00D2026E /* ZCostomDetModel.m in Sources */,
 				35D295351CB656910029B8C1 /* ZDriverFTableView.m in Sources */,
 				35EB05991CB94FF3003FDEFD /* OrderListCell.m in Sources */,
 				3533412F1CB63BDE00543CB4 /* ZMyFollowViewController.m in Sources */,
@@ -2488,6 +2499,7 @@
 				35A67D0F1CAB79C300B34994 /* ZModifyTextCell.m in Sources */,
 				9A1FEB501C9EF44A0067B8D5 /* GTMBase64+Des.m in Sources */,
 				357D72BD1CBCD23900EAD35C /* UMChatTableViewCell.m in Sources */,
+				358418F71CC630AC00D2026E /* ZCustomDetailViewController.m in Sources */,
 				357D72C11CBCD23900EAD35C /* UMRadialView.m in Sources */,
 				357D734F1CBF8F1900EAD35C /* ZStarView.m in Sources */,
 				35891BE81CB7B59200CE7002 /* RecommendTypeCell.m in Sources */,
