@@ -62,6 +62,10 @@
         self.orderViewModel.order.travelnum = [obj integerValue];
     }];
     
+    [RACObserve(self.travelView, viewlist) subscribeNext:^(NSNumber *x) {
+        self.relationView.days = [x integerValue];
+    }];
+    
     [RACObserve(self.relationView, totalMoeny) subscribeNext:^(id x) {
         self.submitOrderView.totalMoneyLab.text = [NSString stringWithFormat:@"￥%@",x];
     }];
@@ -127,6 +131,7 @@
                 NSDate *date = value;
                 weakSelf.orderViewModel.order.travelTime = [date timeIntervalSince1970] * 1000;
             }else if(type == TravelTypeWithCount){
+                weakSelf.relationView.travelNum = [value integerValue];
                 weakSelf.orderViewModel.order.travelnum = [value integerValue];
             }else if(type == TravelTypeWithType){
                 weakSelf.relationView.carType = value;

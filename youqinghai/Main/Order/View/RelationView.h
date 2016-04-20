@@ -23,7 +23,9 @@
 
 @property (nonatomic, assign) NSInteger insuranceCount;       // 保险人数
 
-@property (nonatomic, assign) NSInteger seatsnum;             // 出游人数
+@property (nonatomic, assign) NSInteger seatsnum;             // 座位数
+@property (nonatomic, assign) NSInteger travelNum;             // 出游人数
+@property (nonatomic, assign) NSInteger days;                // 出游天数
 
 @property (nonatomic, assign) NSNumber *totalMoeny;           // 总金额
 
