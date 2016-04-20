@@ -123,9 +123,11 @@
         }
     }
         __weak ZLoginViewController *BlockSelf = self;
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     RACSignal *signal = [[ZUserModel shareUserModel] getUserDataWithPhone:_loginMod.phone andPassWord:_loginMod.password];
     [signal subscribeNext:^(id x) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             [BlockSelf.navigationController popToRootViewControllerAnimated:YES];
         });
     }];
@@ -145,6 +147,7 @@
 //        [self.navigationController popToRootViewControllerAnimated:YES];
 //    }];
    [signal subscribeError:^(NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
        NSLog(@"%@",error);
        NSDictionary *dic = error.userInfo;
        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:dic[@"message"] delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];

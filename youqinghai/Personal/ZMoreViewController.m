@@ -10,7 +10,8 @@
 #import "UIViewController+TableView.h"
 #import "ZImageFidCell.h"
 #import "PersonalCell.h"
-@interface ZMoreViewController ()
+#import <SDWebImage/SDImageCache.h>
+@interface ZMoreViewController ()<UIAlertViewDelegate>
 
 @end
 
@@ -82,8 +83,24 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    
+    if (indexPath.row == 3) {
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:@"请问是否要清除缓存" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"清除", nil];
+        [alert show];
+    }
    
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex==1) {
+         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [[SDImageCache sharedImageCache]cleanDiskWithCompletionBlock:^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                  [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:@"已清除" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                [alert show];
+            });
+        }];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
