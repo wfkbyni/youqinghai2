@@ -71,19 +71,10 @@
         if (!self.eva) {
              [self.navigationController popToViewController:self.navigationController.viewControllers[self.navigationController.viewControllers.count-3] animated:YES];
         }else{
-            [self regis];
+            [self sendEva];
         }
     }
-    RACSignal *signal = [[RequestBaseAPI standardAPI] sendEvaWithtourisId:self.listMod.traveld withorderId:self.listMod.ID withImageAr:self.orderImage withcontent:self.orderStr withscore:@(self.level).stringValue
-                                                             withcontents:self.str];
-    [signal subscribeNext:^(id x) {
-        NSLog(@"%@",x);
    
-      [self.navigationController popToViewController:self.navigationController.viewControllers[self.navigationController.viewControllers.count-3] animated:YES];
-    }];
-    [signal subscribeError:^(NSError *error) {
-        
-    }];
 }
 -(UIView*)footView
 {
@@ -107,9 +98,79 @@
             [av show];
             return;
         }
+        [self sendDri];
     }
-    
-    [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:YES];
+    [self sendEvaAndDri];
+    //[self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:YES];
+
+
+}
+//评价景点
+-(void)sendEva
+{
+       [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    RACSignal *signal = [[RequestBaseAPI standardAPI]  sendEvaluationWithorderId:self.listMod.orderId withcontent:self.orderStr withscore:@(self.orderlevel).stringValue withImageAr:self.orderImage];
+    [signal subscribeNext:^(id x) {
+         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        NSLog(@"%@",x);
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:@"评价成功" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [alert show];
+        [self.navigationController popToViewController:self.navigationController.viewControllers[self.navigationController.viewControllers.count-3] animated:YES];
+    }];
+    [signal subscribeError:^(NSError *error) {
+         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        NSDictionary *dic = error.userInfo;
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:dic[@"message"] delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [alert show];
+    }];
+}
+//评价司机
+-(void)sendDri
+{
+      [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    RACSignal *signal = [[RequestBaseAPI standardAPI]  sendEvaluationDriverWithorderId:self.listMod.orderId withcontent:self.str witheavscore:@(self.level).stringValue];
+    [signal subscribeNext:^(id x) {
+        NSLog(@"%@",x);
+         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:@"评价成功" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [alert show];
+        [self.navigationController popToViewController:self.navigationController.viewControllers[self.navigationController.viewControllers.count-3] animated:YES];
+    }];
+    [signal subscribeError:^(NSError *error) {
+         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        NSDictionary *dic = error.userInfo;
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:dic[@"message"] delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [alert show];
+    }];
+}
+
+-(void)sendEvaAndDri
+{
+       [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    RACSignal *signal = [[RequestBaseAPI standardAPI]  sendEvaluationWithorderId:self.listMod.orderId withcontent:self.orderStr withscore:@(self.orderlevel).stringValue withImageAr:self.orderImage];
+    [signal subscribeNext:^(id x) {
+        NSLog(@"%@",x);
+        RACSignal *signal2 = [[RequestBaseAPI standardAPI]  sendEvaluationDriverWithorderId:self.listMod.orderId withcontent:self.str witheavscore:@(self.level).stringValue];
+        [signal2 subscribeNext:^(id x) {
+            NSLog(@"%@",x);
+              [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:@"评价成功" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+            [alert show];
+            [self.navigationController popToViewController:self.navigationController.viewControllers[self.navigationController.viewControllers.count-3] animated:YES];
+        }];
+        [signal2 subscribeError:^(NSError *error) {
+              [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            NSDictionary *dic = error.userInfo;
+            UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:dic[@"message"] delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+            [alert show];
+        }];
+    }];
+    [signal subscribeError:^(NSError *error) {
+          [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        NSDictionary *dic = error.userInfo;
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:dic[@"message"] delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [alert show];
+    }];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
