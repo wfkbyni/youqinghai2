@@ -51,6 +51,10 @@
     self.orderViewModel.traveId = [[[NSUserDefaults standardUserDefaults] objectForKey:YQHTourisId] integerValue];
     self.orderViewModel.driverId = self.driverId;
     
+    if (!_isCarpool) {
+        self.relationView.travelNum = self.carDetail.seatsnum;
+    }
+    
     [RACObserve(self.relationView, frame) subscribeNext:^(id x) {
         
         [self.myScrollView setContentSize:CGSizeMake(kScreenSize.width, CGRectGetHeight(self.travelView.frame) + CGRectGetHeight(self.relationView.frame) + 50)];
