@@ -111,7 +111,7 @@
             @strongify(self)
             SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
             
-            browser.sourceImagesContainerView = self.superview;
+            browser.sourceImagesContainerView = self.myCollectionView;
             
             browser.imageCount = self.allImagesArray.count;
             

@@ -45,7 +45,7 @@
                                         <action selector="addRoteAction:" destination="-1" eventType="touchUpInside" id="eFW-w3-GkG"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYk-wT-nxl">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYk-wT-nxl">
                                     <rect key="frame" x="46" y="29" width="109" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="O2I-E1-Enw"/>

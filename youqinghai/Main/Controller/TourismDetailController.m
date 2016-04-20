@@ -23,6 +23,8 @@
     BOOL isRequestServiceIntroduction;
     
     NSArray *allImageArray;
+    
+    SDCycleScrollView *scrollView;
 }
 
 @property (nonatomic, strong) MainViewModel *mainViewModel;
@@ -50,6 +52,8 @@
     
     self.myTableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
     
+    self.myTableView.tableHeaderView = self.tableViewHeaderView;
+    
     [self loadDataWithDataType:TourismDetailTypeWithIntroduction];
     
 }
@@ -60,15 +64,8 @@
         float height = kScreenSize.width * 0.5;
         _tableViewHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenSize.width, height)];
         
-        SDCycleScrollView *scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenSize.width, height) delegate:nil placeholderImage:nil];
-        
-        NSMutableArray *imageArray = [[NSMutableArray alloc] initWithCapacity:[self.mainViewModel.traveltrip.banner count]];
-        [self.mainViewModel.traveltrip.banner enumerateObjectsUsingBlock:^(Banner *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [imageArray addObject:obj.imgUrl];
-        }];
-        
-        allImageArray = imageArray;
-        scrollView.imageURLStringsGroup = imageArray;
+        scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenSize.width, height) delegate:nil placeholderImage:nil];
+       
         scrollView.delegate =self;
         [_tableViewHeaderView addSubview:scrollView];
         
@@ -235,9 +232,15 @@
         
         if (x) {
             
-            isRequestTourismDetail = YES;
+            NSMutableArray *imageArray = [[NSMutableArray alloc] initWithCapacity:[self.mainViewModel.traveltrip.banner count]];
+            [self.mainViewModel.traveltrip.banner enumerateObjectsUsingBlock:^(Banner *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [imageArray addObject:obj.imgUrl];
+            }];
             
-            self.myTableView.tableHeaderView = self.tableViewHeaderView;
+            allImageArray = imageArray;
+            scrollView.imageURLStringsGroup = imageArray;
+            
+            isRequestTourismDetail = YES;
             
             [self showCollectionState:self.mainViewModel.traveltrip.isCollection
                     withCollectionNum:self.mainViewModel.traveltrip.collectionNum];
