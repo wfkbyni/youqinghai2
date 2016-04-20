@@ -321,9 +321,8 @@
 - (void)showCollectionState:(BOOL)isCollection withCollectionNum:(NSInteger)num{
     
     self.collectionNumLab.text = [NSString stringWithFormat:@"收藏(%@)",@(num)];
-    
     if (isCollection) {
-        [self.collectionBtn setImage:[UIImage imageNamed:@"favorites"] forState:UIControlStateNormal];
+        [self.collectionBtn setImage:[UIImage imageNamed:@"favorited"] forState:UIControlStateNormal];
     }else{
         [self.collectionBtn setImage:[UIImage imageNamed:@"favorites"] forState:UIControlStateNormal];
     }

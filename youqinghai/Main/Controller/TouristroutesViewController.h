@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TouristroutesViewController : UIViewController
+@interface TouristroutesViewController : BaseViewController
 
 @property (nonatomic, strong) TourismType *tourismType;
 

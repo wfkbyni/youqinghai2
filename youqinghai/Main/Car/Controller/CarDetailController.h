@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface CarDetailController : UIViewController
+@interface CarDetailController : BaseViewController
 
 @property (nonatomic, strong) Car *car;
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "OrderListModel.h"
-@interface EvaDriverViewController : UIViewController
+@interface EvaDriverViewController : BaseViewController
 @property(strong,nonatomic)OrderListModel *listMod;
 @property(assign,nonatomic)CGFloat height;
 @property(nonatomic,strong)NSMutableArray *images;

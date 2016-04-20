@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddInsuranceController : UIViewController
+@interface AddInsuranceController : BaseViewController
 
 @end

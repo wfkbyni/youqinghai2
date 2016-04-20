@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CarListViewController : UIViewController
+@interface CarListViewController : BaseViewController
 
 @property (nonatomic, strong) Recommend *recommend;
 

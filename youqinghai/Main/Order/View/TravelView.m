@@ -9,6 +9,7 @@
 #import "TravelView.h"
 
 @interface TravelView()<UIActionSheetDelegate>
+
 // 出游日期
 @property (nonatomic, strong) UILabel *travelDate;
 // 出游人数
@@ -68,10 +69,11 @@
     CGRect frame = self.frame;
     NSArray *titles = @[@"拼车类型",@"出游日期",@"出游人数",@"出游天数"];
     
+    float titleWidth = self.width-30;
     float leftWidth = 110;
     float offset = 0;
     [self addSubview:[self lineWithFrame:CGRectMake(0, offset, CGRectGetWidth(frame), 1)]];
-    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, leftWidth, 48) withTitle:titles[0]]];
+    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, titleWidth, 48) withTitle:titles[0] withTag:TravelTypeWithType]];
     _travelType = [self contentWithFrame:CGRectMake(leftWidth, offset + 2, CGRectGetWidth(self.frame) - leftWidth - 30, 48)];
     [self addSubview:_travelType];
     UIButton *rightArrow = [self rightArrowWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 30, 10, 30, 30)
@@ -81,7 +83,7 @@
     offset = 50;
     
     [self addSubview:[self lineWithFrame:CGRectMake(10, offset, CGRectGetWidth(frame) - 20, 1)]];
-    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, leftWidth, 48) withTitle:titles[1]]];
+    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, titleWidth, 48) withTitle:titles[1] withTag:TravelTypeWithDate]];
     _travelDate = [self contentWithFrame:CGRectMake(leftWidth, offset + 2, CGRectGetWidth(self.frame) - leftWidth - 30, 48)];
     [self addSubview:_travelDate];
     [self addSubview:[self rightArrowWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 30, 60, 30, 30)
@@ -90,7 +92,7 @@
     offset = 100;
     
     [self addSubview:[self lineWithFrame:CGRectMake(10, offset, CGRectGetWidth(frame) - 20, 1)]];
-    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, leftWidth, 48) withTitle:titles[2]]];
+    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, titleWidth, 48) withTitle:titles[2] withTag:TravelTypeWithCount]];
     _travelCount = [self contentWithFrame:CGRectMake(leftWidth, offset + 2, CGRectGetWidth(self.frame) - leftWidth - 30, 48)];
     [self addSubview:_travelCount];
     [self addSubview:[self rightArrowWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 30, 110, 30, 30)
@@ -99,7 +101,7 @@
     offset = 150;
     
     [self addSubview:[self lineWithFrame:CGRectMake(10, offset, CGRectGetWidth(frame) - 20, 1)]];
-    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, leftWidth, 48) withTitle:titles[3]]];
+    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, titleWidth, 48) withTitle:titles[3] withTag:-1]];
     _travelDay = [self contentWithFrame:CGRectMake(leftWidth, offset + 2, CGRectGetWidth(self.frame) - leftWidth - 30, 48)];
     [self addSubview:_travelDay];
     
@@ -111,11 +113,11 @@
 - (void)commTravel1{
     CGRect frame = self.frame;
     NSArray *titles = @[@"出游日期",@"出游人数",@"出游天数"];
-    
+    float titleWidth = self.width-30;
     float leftWidth = 110;
     float offset = 0;
     [self addSubview:[self lineWithFrame:CGRectMake(0, offset, CGRectGetWidth(frame), 1)]];
-    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, leftWidth, 48) withTitle:titles[0]]];
+    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, titleWidth, 48) withTitle:titles[0] withTag:TravelTypeWithDate]];
     _travelDate = [self contentWithFrame:CGRectMake(leftWidth, offset + 2, CGRectGetWidth(self.frame) - leftWidth - 30, 48)];
     [self addSubview:_travelDate];
     [self addSubview:[self rightArrowWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 30, 10, 30, 30)
@@ -124,7 +126,7 @@
     offset = 50;
     
     [self addSubview:[self lineWithFrame:CGRectMake(10, offset, CGRectGetWidth(frame) - 20, 1)]];
-    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, leftWidth, 48) withTitle:titles[1]]];
+    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, titleWidth, 48) withTitle:titles[1] withTag:TravelTypeWithCount]];
     _travelCount = [self contentWithFrame:CGRectMake(leftWidth, offset + 2, CGRectGetWidth(self.frame) - leftWidth - 30, 48)];
     [self addSubview:_travelCount];
     [self addSubview:[self rightArrowWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 30, 60, 30, 30)
@@ -133,7 +135,7 @@
     offset = 100;
     
     [self addSubview:[self lineWithFrame:CGRectMake(10, offset, CGRectGetWidth(frame) - 20, 1)]];
-    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, leftWidth, 48) withTitle:titles[2]]];
+    [self addSubview:[self titleWithFrame:CGRectMake(10, offset + 2, titleWidth, 48) withTitle:titles[2] withTag:-1]];
     _travelDay = [self contentWithFrame:CGRectMake(leftWidth, offset + 2, CGRectGetWidth(self.frame) - leftWidth - 30, 48)];
     [self addSubview:_travelDay];
     
@@ -154,12 +156,22 @@
 }
 
 // 标题
-- (UIView *)titleWithFrame:(CGRect)frame withTitle:(NSString *)title{
-    UILabel *titleLab = [[UILabel alloc] initWithFrame:frame];
+- (UIView *)titleWithFrame:(CGRect)frame withTitle:(NSString *)title withTag:(NSInteger)tag{
+    UIControl *control = UIControl.new;
+    control.frame = frame;
+    UILabel *titleLab = [[UILabel alloc] initWithFrame:control.bounds];
     [titleLab setFont:[UIFont systemFontOfSize:14.0f]];
     [titleLab setText:title];
+    titleLab.backgroundColor = [UIColor clearColor];
+    titleLab.userInteractionEnabled = NO;
+    [control addSubview:titleLab];
+    if (tag >= 0) {
+        control.tag = tag;
+        [control addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+
     
-    return titleLab;
+    return control;
 }
 
 // 内容
@@ -181,6 +193,7 @@
 }
 
 - (void)btnAction:(UIButton *)sender{
+    NSLog(@"%zi",sender.tag);
     switch (sender.tag) {
         case TravelTypeWithType:
         {

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RedirectViewController : UIViewController
+@interface RedirectViewController :BaseViewController
 
 @property (nonatomic, strong) Banner *banner;
 

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "OrderListModel.h"
 
-@interface PayViewController : UIViewController
+@interface PayViewController : BaseViewController
 
 @property (nonatomic, strong) OrderListModel *orderListModel;
 

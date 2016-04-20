@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InsuranceViewController : UIViewController
+@interface InsuranceViewController : BaseViewController
 
 // 最大保险人数
 @property (nonatomic, assign) NSInteger maxCount;
