@@ -19,7 +19,10 @@ NSString const *removeOrder = @"app/myOrder/removeOrder";
 NSString const *getUserOrderList = @"app/myOrder/getUserOrderList";
 NSString const *getUserOrderDetail = @"app/myOrder/getOrderDetails";
 
-NSString *const sendEva = @"app/myOrder/evaluationFeatureOrDriver";
+NSString *const sendEva = @"app/evaluation/scenicEvaluation";
+NSString *const sendEvaD = @"app/evaluation/evaluationDriver";
+NSString *const sendCom = @"app/myOrder/complaintDriver";
+
 @implementation RequestBaseAPI (Order)
 
 -(RACSignal *)calcCharteredPriceWithTraveId:(NSInteger)traveId
@@ -105,6 +108,44 @@ NSString *const sendEva = @"app/myOrder/evaluationFeatureOrDriver";
 {
     NSDictionary *param = @{@"tourisId":tourisId?tourisId:@"",@"orderId":orderId?orderId:@"",@"content":content?content:@"",@"score":content?content:@"",@"contents":contents?contents:@""};
     return[ [self ZpostApiString:sendEva params:param attachKey:@"fileName" attachData:imageAr] map:^id(ResponseBaseData *data) {
+        if (!data.result_data) {
+            data.result_data = @"";
+        }
+        return data.result_data;
+    }];
+}
+-(RACSignal *)sendComplaintWithorderId:(NSString *)orderId withreason:(NSString *)reason withtitle:(NSString *)title
+{
+    NSString *params;
+    
+        params = [NSString stringWithFormat:@"server=%@&orderId=%@&reason=%@&title=%@",sendCom,orderId,reason,title];
+  
+    
+    return [[self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]]map:^id(ResponseBaseData *data) {
+        if (!data.result_data) {
+            data.result_data = @"";
+        }
+        return data.result_data;
+    }];
+}
+-(RACSignal *)sendEvaluationWithorderId:(NSString *)orderId withcontent:(NSString *)content withscore:(NSString *)score withImageAr:(NSArray *)imageAr
+{
+        NSDictionary *param = @{@"orderId":orderId ,@"content":content,@"score":score };
+    return[ [self ZpostApiString:sendEva params:param attachKey:@"fileName" attachData:imageAr] map:^id(ResponseBaseData *data) {
+        if (!data.result_data) {
+            data.result_data = @"";
+        }
+        return data.result_data;
+    }];
+}
+-(RACSignal *)sendEvaluationDriverWithorderId:(NSString *)orderId withcontent:(NSString *)content witheavscore:(NSString *)eavscore
+{
+    NSString *params;
+    
+    params = [NSString stringWithFormat:@"server=%@&orderId=%@&content=%@&eavscore=%@",sendEvaD,orderId,content,eavscore];
+    
+    
+    return [[self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]]map:^id(ResponseBaseData *data) {
         if (!data.result_data) {
             data.result_data = @"";
         }

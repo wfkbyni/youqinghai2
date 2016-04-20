@@ -197,6 +197,8 @@
 		35DDF8E51CC7712600C7F820 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DDF8DF1CC7712500C7F820 /* SDBrowserImageView.m */; };
 		35DDF8E61CC7712600C7F820 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DDF8E11CC7712500C7F820 /* SDPhotoBrowser.m */; };
 		35DDF8E71CC7712600C7F820 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DDF8E41CC7712500C7F820 /* SDWaitingView.m */; };
+		35DDF8EA1CC7B42E00C7F820 /* ZComplaintsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DDF8E91CC7B42E00C7F820 /* ZComplaintsViewController.m */; };
+		35DDF8ED1CC7BD2D00C7F820 /* ZCWhyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DDF8EC1CC7BD2D00C7F820 /* ZCWhyViewController.m */; };
 		35E3FFB41CA8CD8100876054 /* ZPersanalHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E3FFB31CA8CD8100876054 /* ZPersanalHeaderView.m */; };
 		35E3FFB61CA8CD9A00876054 /* ZPersonalHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E3FFB51CA8CD9A00876054 /* ZPersonalHeaderView.xib */; };
 		35E3FFB91CA90B3000876054 /* ZUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E3FFB81CA90B3000876054 /* ZUserModel.m */; };
@@ -661,6 +663,10 @@
 		35DDF8E21CC7712500C7F820 /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
 		35DDF8E31CC7712500C7F820 /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
 		35DDF8E41CC7712500C7F820 /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
+		35DDF8E81CC7B42E00C7F820 /* ZComplaintsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZComplaintsViewController.h; sourceTree = "<group>"; };
+		35DDF8E91CC7B42E00C7F820 /* ZComplaintsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZComplaintsViewController.m; sourceTree = "<group>"; };
+		35DDF8EB1CC7BD2D00C7F820 /* ZCWhyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCWhyViewController.h; sourceTree = "<group>"; };
+		35DDF8EC1CC7BD2D00C7F820 /* ZCWhyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCWhyViewController.m; sourceTree = "<group>"; };
 		35E3FFB21CA8CD8100876054 /* ZPersanalHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPersanalHeaderView.h; sourceTree = "<group>"; };
 		35E3FFB31CA8CD8100876054 /* ZPersanalHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPersanalHeaderView.m; sourceTree = "<group>"; };
 		35E3FFB51CA8CD9A00876054 /* ZPersonalHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZPersonalHeaderView.xib; sourceTree = "<group>"; };
@@ -1594,6 +1600,10 @@
 				357D73511CBFA8B600EAD35C /* EvaDriverViewController.m */,
 				9A24C34F1CC65BA300671233 /* PayViewController.h */,
 				9A24C3501CC65BA300671233 /* PayViewController.m */,
+				35DDF8E81CC7B42E00C7F820 /* ZComplaintsViewController.h */,
+				35DDF8E91CC7B42E00C7F820 /* ZComplaintsViewController.m */,
+				35DDF8EB1CC7BD2D00C7F820 /* ZCWhyViewController.h */,
+				35DDF8EC1CC7BD2D00C7F820 /* ZCWhyViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2554,6 +2564,7 @@
 				9A24C3141CBE6BC500671233 /* AISharedPay.m in Sources */,
 				9A637DAD1CA17EFE004D17BA /* Recommend.m in Sources */,
 				3533412C1CB6370700543CB4 /* ZCustomListModel.m in Sources */,
+				35DDF8EA1CC7B42E00C7F820 /* ZComplaintsViewController.m in Sources */,
 				35891BC31CB7B52000CE7002 /* TravelView.m in Sources */,
 				35891BC11CB7B52000CE7002 /* RelationView.m in Sources */,
 				35891BEE1CB7B59200CE7002 /* TourismTypeCell.m in Sources */,
@@ -2629,6 +2640,7 @@
 				35891BBE1CB7B52000CE7002 /* ConfirmOrderController.m in Sources */,
 				35891BD01CB7B55400CE7002 /* TourismDetailController.m in Sources */,
 				35A67D131CAB841F00B34994 /* ZAccountSecurityViewController.m in Sources */,
+				35DDF8ED1CC7BD2D00C7F820 /* ZCWhyViewController.m in Sources */,
 				35EB059A1CB94FF3003FDEFD /* OrderListDetailCell.m in Sources */,
 				B437E68A1CA43CE600091521 /* UINavigationBar+Awesome.m in Sources */,
 				35589AAA1CB7D4BC004DFE35 /* RequestBaseAPI+Main.m in Sources */,

@@ -14,7 +14,7 @@
 #import "OrderViewModel.h"
 #import "MyOrderEvaViewController.h"
 #import "PayViewController.h"
-
+#import "ZComplaintsViewController.h"
 @interface OrdersViewController ()<ZPageViewDelegate>{
     NSInteger orderState;   // 订单状态
 }
@@ -171,6 +171,11 @@
             }
         }else if(orderType == OrderTypeWithComplaintPay){
             // 投诉司机
+            {
+                ZComplaintsViewController *cvc = [[ZComplaintsViewController alloc]init];
+                cvc.listMod = model;
+                [self.navigationController pushViewController:cvc animated:YES];
+            }
         }
     }];
     return cell;

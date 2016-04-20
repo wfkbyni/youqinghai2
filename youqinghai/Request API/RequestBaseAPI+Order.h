@@ -103,4 +103,42 @@
                          withscore:(NSString *)score
                       withcontents:(NSString *)contents;
 
+/**
+ *  投诉司机
+ *
+ *  @param orderId <#orderId description#>
+ *  @param reason  <#reason description#>
+ *  @param title   <#title description#>
+ *
+ *  @return <#return value description#>
+ */
+-(RACSignal *)sendComplaintWithorderId:(NSString*)orderId
+                            withreason:(NSString*)reason
+                             withtitle:(NSString*)title;
+/**
+ *  评价景点
+ *
+ *  @param orderId <#orderId description#>
+ *  @param content <#content description#>
+ *  @param score   <#score description#>
+ *
+ *  @return <#return value description#>
+ */
+-(RACSignal*)sendEvaluationWithorderId:(NSString*)orderId
+                           withcontent:(NSString*)content
+                             withscore:(NSString*)score
+                           withImageAr:(NSArray*)imageAr;
+/**
+ *  评级司机
+ *
+ *  @param orderId  <#orderId description#>
+ *  @param content  <#content description#>
+ *  @param eavscore <#eavscore description#>
+ *
+ *  @return <#return value description#>
+ */
+-(RACSignal*)sendEvaluationDriverWithorderId:(NSString*)orderId
+                           withcontent:(NSString*)content
+                             witheavscore:(NSString*)eavscore
+                           ;
 @end

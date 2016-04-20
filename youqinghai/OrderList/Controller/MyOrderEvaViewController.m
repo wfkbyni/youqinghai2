@@ -69,6 +69,7 @@
 //    edv.orderlevel = self.level;
 //    edv.orderImage = self.images;
     edv.eva = NO;
+    edv.listMod =self.listMod;
     [self.navigationController pushViewController:edv animated:YES];
 }
 -(void)regis
@@ -81,6 +82,8 @@
     EvaDriverViewController *edv = [[EvaDriverViewController alloc]init];
     edv.orderStr =self.str;
     edv.orderlevel = self.level;
+    edv.eva = YES;
+    edv.listMod =self.listMod;
     [self.navigationController pushViewController:edv animated:YES];
 }
 
@@ -108,7 +111,7 @@
     cell.controller =self;
     cell.images = self.images;
     cell.placeholder.text = @"请输入您的评价内容";
- 
+   
       cell.photo = @"";
         cell.textViewheight.constant = 145;
     cell.TextBlcok = ^(NSString *text)
