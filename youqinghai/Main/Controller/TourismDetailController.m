@@ -16,8 +16,8 @@
 #import "ConfirmOrderController.h"
 #import "UMSocialData.h"
 #import "MainViewModel.h"
-
-@interface TourismDetailController (){
+#import "SDPhotoBrowser.h"
+@interface TourismDetailController ()<SDCycleScrollViewDelegate,SDPhotoBrowserDelegate>{
     BOOL isRequestTourismDetail;
     BOOL isRequestTourisEvaluate;
     BOOL isRequestServiceIntroduction;
@@ -34,7 +34,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (weak, nonatomic) IBOutlet UILabel *collectionNumLab;
 @property (weak, nonatomic) IBOutlet UIButton *collectionBtn;
-
+@property(assign,nonatomic)NSInteger iamgeIndex;
 @end
 
 @implementation TourismDetailController
@@ -66,7 +66,7 @@
         }];
         
         scrollView.imageURLStringsGroup = imageArray;
-        
+        scrollView.delegate =self;
         [_tableViewHeaderView addSubview:scrollView];
         
         UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -87,7 +87,31 @@
     
     return _tableViewHeaderView;
 }
-
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
+{
+    self.iamgeIndex = index;
+    SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
+   
+    browser.sourceImagesContainerView = cycleScrollView;
+    
+    browser.imageCount = 1;
+    
+    browser.currentImageIndex = 0;
+    
+    browser.delegate = self;
+    
+    [browser show]; // 展示图片浏览器
+}
+-(UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
+{
+    return nil;
+}
+-(NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
+{
+    Banner *obj = self.mainViewModel.traveltrip.banner[self.iamgeIndex];
+  
+    return [NSURL URLWithString:obj.imgUrl];
+}
 - (void)backAction:(UIButton *)sender{
     [self.navigationController popViewControllerAnimated:YES];
 }

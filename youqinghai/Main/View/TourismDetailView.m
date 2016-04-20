@@ -7,14 +7,31 @@
 //
 
 #import "TourismDetailView.h"
-
+#import "SDPhotoBrowser.h"
 #define line 20
 #define rowHeight 120
 #define leftViewWidth 80
 #define rightViewWidth kScreenSize.width - leftViewWidth
-
+@interface TourismDetailView()<SDPhotoBrowserDelegate>
+@property(strong,nonatomic)NSMutableArray *imageVS;
+@property(strong,nonatomic)NSMutableArray *imageAr;
+@property(assign,nonatomic)NSInteger iamgeIndex;
+@end
 @implementation TourismDetailView
-
+-(NSMutableArray *)imageAr
+{
+    if (!_imageAr) {
+        _imageAr = [NSMutableArray array];
+    }
+    return _imageAr;
+}
+-(NSMutableArray *)imageVS
+{
+    if (!_imageVS) {
+        _imageVS = [NSMutableArray array];
+    }
+    return _imageVS;
+}
 -(void)setViewlist:(NSArray *)viewlist{
     _viewlist = viewlist;
     
@@ -118,7 +135,7 @@
         [endLab setText:@"End"];
         [view addSubview:endLab];
     }
-    
+   
     return view;
 }
 
@@ -128,16 +145,26 @@
     
     NSArray *viewlist = traveltrip.viewlist;
     
+  
+    
+    UIView *imageV =[[UIView alloc] initWithFrame:CGRectMake(0, 0, rightViewWidth, heihgt)];
+    [view addSubview:imageV];
     float hLine = 10;
     float width = (rightViewWidth - 4 * hLine) / 3;
+   
     [viewlist enumerateObjectsUsingBlock:^(Trip *trip, NSUInteger idx, BOOL * _Nonnull stop) {
         NSInteger row = (viewlist.count % 3 == 0 ? (viewlist.count / 3) : (viewlist.count / 3 + 1)) - 1;
         UIImageView *itemView = [[UIImageView alloc] initWithFrame:CGRectMake(idx * hLine + idx * width + hLine, row * hLine + row * width, width, width)];
         [itemView sd_setImageWithURL:[NSURL URLWithString:trip.tripimgurl]];
         [itemView viewWithCornerRadius:5];
         [itemView viewWithBorderWidth:2 WithBorderColor:[UIColor whiteColor]];
-        [view addSubview:itemView];
-        
+        itemView.tag = _iamgeIndex;
+        _iamgeIndex++;
+        itemView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *singleTap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showImage:)];
+        [itemView addGestureRecognizer:singleTap1];
+        [imageV addSubview:itemView];
+        [self.imageAr addObject:trip];
         CGRect frame = itemView.frame;
         frame.origin.y = CGRectGetMaxY(itemView.frame) + 2;
         frame.size.height = 21;
@@ -147,11 +174,38 @@
         [itemName setText:trip.tripname];
         [itemName setTextColor:[UIColor whiteColor]];
         [view addSubview:itemName];
+        
     }];
-    
+    [self.imageVS addObject:imageV];
     return view;
 }
+-(void)showImage:(UITapGestureRecognizer*)tgr
+{
+       self.iamgeIndex = tgr.view.tag;
+    SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
+    NSLog(@"%ld    %ld    %ld",tgr.view.tag/3,tgr.view.tag,tgr.view.tag%3);
+    browser.sourceImagesContainerView = self.imageVS[tgr.view.tag/3];
+    
+    browser.imageCount = 1;
+    
+    browser.currentImageIndex = 0;
+    
+    browser.delegate = self;
+    
+    [browser show]; // 展示图片浏览器
+ 
 
+}
+-(UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
+{
+    return nil;
+}
+-(NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
+{
+    
+    Trip *trip = _imageAr[self.iamgeIndex];
+    return [NSURL URLWithString:trip.tripimgurl];
+}
 /**
  *  @brief 计算总高度
  *
