@@ -35,11 +35,7 @@
     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"1344607825" secret:@"2fe1f9573a6b6759f5d4abb041f3050c" RedirectURL:@"http://wmn.cn"];
     [UMSocialQQHandler setQQWithAppId:@"1105141688" appKey:@"81RIaPqLcKVFXT8I" url:@"http://www.wmn.cn/web/lawyer/todown"];
     
-    [UMSocialData defaultData].extConfig.qqData.title = @"游青海";
-    [UMSocialData defaultData].extConfig.wechatSessionData.title = @"游青海";
-    [UMSocialData defaultData].extConfig.qzoneData.title = @"游青海";
-    [UMSocialData defaultData].extConfig.wechatTimelineData.title = @"游青海";
-    [UMSocialData defaultData].extConfig.sinaData.shareText = @"游青海";
+   
     
     [self.window makeKeyAndVisible];
     return YES;

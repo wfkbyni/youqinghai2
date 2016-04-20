@@ -14,7 +14,7 @@
 #import "ServiceIntroductionView.h"
 #import "CarListViewController.h"
 #import "ConfirmOrderController.h"
-
+#import "UMSocialData.h"
 #import "MainViewModel.h"
 
 @interface TourismDetailController (){
@@ -93,7 +93,30 @@
 }
 
 - (void)sharedAction:(UIButton *)sender{
-    [self.view makeToast:@"分享功能待定..."];
+    //[self.view makeToast:@"分享功能待定..."];
+//    [UMSocialSnsService presentSnsIconSheetView:self
+//                                         appKey:@"570b744e67e58e12e2000466"
+//                                      shareText:@"快来使用游青海,定制您的专属旅程 http://www.baidu.com"
+//                                     shareImage:[UIImage imageNamed:@"AppIcon"]
+//                                shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToQzone,UMShareToSina]
+//                                       delegate:nil];
+    sender.userInteractionEnabled=NO;
+    [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:self.recommend.imgUrl] options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        
+    } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+        [UMSocialData defaultData].extConfig.qqData.title = self.recommend.title;
+        [UMSocialData defaultData].extConfig.wechatSessionData.title=self.recommend.title;
+        [UMSocialData defaultData].extConfig.wechatTimelineData.title=self.recommend.title;
+        [UMSocialData defaultData].extConfig.sinaData.shareText =[NSString stringWithFormat:@"%@ http://www.baidu.com",self.recommend.title];
+        [UMSocialSnsService presentSnsIconSheetView:self appKey:@"570b744e67e58e12e2000466"shareText:self.recommend.introduce shareImage:image shareToSnsNames:@[UMShareToWechatFavorite,UMShareToWechatTimeline,UMShareToWechatSession,UMShareToQQ,UMShareToQzone] delegate:nil];
+        sender.userInteractionEnabled=YES;
+
+    }];
+   
+
+   // [CoreUmengShare show:self text:dic.object[@"content"] image:dic.object[@"image"]];
+
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{

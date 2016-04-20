@@ -194,6 +194,9 @@
 		35D295551CB77D050029B8C1 /* ZTravelFCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D295531CB77D050029B8C1 /* ZTravelFCell.m */; };
 		35D295561CB77D050029B8C1 /* ZTravelFCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D295541CB77D050029B8C1 /* ZTravelFCell.xib */; };
 		35D295591CB7863C0029B8C1 /* ZFowUserTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D295581CB7863C0029B8C1 /* ZFowUserTableView.m */; };
+		35DDF8E51CC7712600C7F820 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DDF8DF1CC7712500C7F820 /* SDBrowserImageView.m */; };
+		35DDF8E61CC7712600C7F820 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DDF8E11CC7712500C7F820 /* SDPhotoBrowser.m */; };
+		35DDF8E71CC7712600C7F820 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DDF8E41CC7712500C7F820 /* SDWaitingView.m */; };
 		35E3FFB41CA8CD8100876054 /* ZPersanalHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E3FFB31CA8CD8100876054 /* ZPersanalHeaderView.m */; };
 		35E3FFB61CA8CD9A00876054 /* ZPersonalHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E3FFB51CA8CD9A00876054 /* ZPersonalHeaderView.xib */; };
 		35E3FFB91CA90B3000876054 /* ZUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E3FFB81CA90B3000876054 /* ZUserModel.m */; };
@@ -651,6 +654,13 @@
 		35D295541CB77D050029B8C1 /* ZTravelFCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZTravelFCell.xib; sourceTree = "<group>"; };
 		35D295571CB7863C0029B8C1 /* ZFowUserTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFowUserTableView.h; sourceTree = "<group>"; };
 		35D295581CB7863C0029B8C1 /* ZFowUserTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFowUserTableView.m; sourceTree = "<group>"; };
+		35DDF8DE1CC7712500C7F820 /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
+		35DDF8DF1CC7712500C7F820 /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
+		35DDF8E01CC7712500C7F820 /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
+		35DDF8E11CC7712500C7F820 /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
+		35DDF8E21CC7712500C7F820 /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		35DDF8E31CC7712500C7F820 /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
+		35DDF8E41CC7712500C7F820 /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
 		35E3FFB21CA8CD8100876054 /* ZPersanalHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPersanalHeaderView.h; sourceTree = "<group>"; };
 		35E3FFB31CA8CD8100876054 /* ZPersanalHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPersanalHeaderView.m; sourceTree = "<group>"; };
 		35E3FFB51CA8CD9A00876054 /* ZPersonalHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZPersonalHeaderView.xib; sourceTree = "<group>"; };
@@ -1537,6 +1547,20 @@
 			name = controller;
 			sourceTree = "<group>";
 		};
+		35DDF8DD1CC7712500C7F820 /* SDPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				35DDF8DE1CC7712500C7F820 /* SDBrowserImageView.h */,
+				35DDF8DF1CC7712500C7F820 /* SDBrowserImageView.m */,
+				35DDF8E01CC7712500C7F820 /* SDPhotoBrowser.h */,
+				35DDF8E11CC7712500C7F820 /* SDPhotoBrowser.m */,
+				35DDF8E21CC7712500C7F820 /* SDPhotoBrowserConfig.h */,
+				35DDF8E31CC7712500C7F820 /* SDWaitingView.h */,
+				35DDF8E41CC7712500C7F820 /* SDWaitingView.m */,
+			);
+			path = SDPhotoBrowser;
+			sourceTree = "<group>";
+		};
 		35E3FFC51CA934D500876054 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1791,6 +1815,7 @@
 		9A24C2011CBE656B00671233 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				35DDF8DD1CC7712500C7F820 /* SDPhotoBrowser */,
 				9A24C33E1CC3DC4D00671233 /* WXCustomScroeView */,
 				9A24C2961CBE6BC500671233 /* AISharedPay */,
 				9A1FEB3C1C9EE2CA0067B8D5 /* Request API */,
@@ -2560,6 +2585,8 @@
 				35891BAA1CB7B4C000CE7002 /* DriverCarPivViewTableViewCell.m in Sources */,
 				35A67D081CAA35E700B34994 /* ZPersonalDataViewController.m in Sources */,
 				9A24C3261CBE6BC500671233 /* payRequsestHandler.mm in Sources */,
+				35DDF8E61CC7712600C7F820 /* SDPhotoBrowser.m in Sources */,
+				35DDF8E71CC7712600C7F820 /* SDWaitingView.m in Sources */,
 				9A24C3271CBE6BC500671233 /* WXUtil.mm in Sources */,
 				35D295551CB77D050029B8C1 /* ZTravelFCell.m in Sources */,
 				B472E7731CBC9A9500A43CCB /* AIWebViewLoadRequest.m in Sources */,
@@ -2616,6 +2643,7 @@
 				9A1FEB3B1C9EE1770067B8D5 /* BaseViewController.m in Sources */,
 				9A24C3251CBE6BC500671233 /* ApiXml.mm in Sources */,
 				35891BE71CB7B59200CE7002 /* CustomMoveItemView.m in Sources */,
+				35DDF8E51CC7712600C7F820 /* SDBrowserImageView.m in Sources */,
 				35A67D0B1CAB796C00B34994 /* ZModifyViewController.m in Sources */,
 				B472E77F1CBC9CA200A43CCB /* JSParamHandler.m in Sources */,
 				35891BC21CB7B52000CE7002 /* SubmitOrderView.m in Sources */,

@@ -189,7 +189,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    OrderListModel *lm = self.listAr[indexPath.row];
+    OrderListModel *lm = self.listAr[indexPath.section];
     OrderDetailViewController *mOrderDetailViewController = [[OrderDetailViewController alloc] init];
     mOrderDetailViewController.ID = lm.orderId;
     [self.navigationController pushViewController:mOrderDetailViewController animated:YES];

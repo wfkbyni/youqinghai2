@@ -189,6 +189,11 @@
                     break;
                 case 1:
                 {
+                    [UMSocialData defaultData].extConfig.qqData.title = @"游青海";
+                    [UMSocialData defaultData].extConfig.wechatSessionData.title = @"游青海";
+                    [UMSocialData defaultData].extConfig.qzoneData.title = @"游青海";
+                    [UMSocialData defaultData].extConfig.wechatTimelineData.title = @"游青海";
+                    [UMSocialData defaultData].extConfig.sinaData.shareText = @"游青海";
                     [UMSocialSnsService presentSnsIconSheetView:self
                                                          appKey:@"570b744e67e58e12e2000466"
                                                       shareText:@"快来使用游青海,定制您的专属旅程 http://www.baidu.com"
