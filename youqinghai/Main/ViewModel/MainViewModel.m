@@ -99,7 +99,7 @@
                          map:^id(ResponseBaseData *data) {
         
                              
-        return data.result_data;
+        return data;
     }];
     
     return signal;

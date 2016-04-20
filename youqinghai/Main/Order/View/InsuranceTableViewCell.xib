@@ -25,7 +25,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZs-2F-HBV">
-                        <rect key="frame" x="94" y="11" width="198" height="21"/>
+                        <rect key="frame" x="89" y="11" width="198" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="198" id="QKF-pO-y42"/>
                         </constraints>
@@ -34,21 +34,22 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5V-R4-jYB">
-                        <rect key="frame" x="290" y="7" width="30" height="30"/>
+                        <rect key="frame" x="294" y="11" width="22" height="22"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="5rg-iy-OcG"/>
-                            <constraint firstAttribute="height" constant="30" id="hte-Mh-w6Y"/>
+                            <constraint firstAttribute="width" constant="22" id="5rg-iy-OcG"/>
+                            <constraint firstAttribute="height" constant="22" id="hte-Mh-w6Y"/>
                         </constraints>
+                        <state key="normal" image="cleancache"/>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Ez2-px-WfU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="2dD-l2-eEG"/>
                     <constraint firstItem="NZs-2F-HBV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="5Ky-7f-ecG"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="C5V-R4-jYB" secondAttribute="bottom" constant="-1.5" id="8T9-Mf-g0A"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="C5V-R4-jYB" secondAttribute="trailing" constant="-8" id="DL5-el-G8X"/>
-                    <constraint firstItem="C5V-R4-jYB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-1" id="Fky-uY-9nt"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="C5V-R4-jYB" secondAttribute="bottom" constant="2.5" id="8T9-Mf-g0A"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="C5V-R4-jYB" secondAttribute="trailing" constant="-4" id="DL5-el-G8X"/>
+                    <constraint firstItem="C5V-R4-jYB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="Fky-uY-9nt"/>
                     <constraint firstItem="Ez2-px-WfU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="hCc-xK-4qT"/>
-                    <constraint firstItem="NZs-2F-HBV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="86" id="jNo-pK-huj"/>
+                    <constraint firstItem="NZs-2F-HBV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="81" id="jNo-pK-huj"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -59,4 +60,7 @@
             <point key="canvasLocation" x="311" y="133"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="cleancache" width="22" height="22"/>
+    </resources>
 </document>

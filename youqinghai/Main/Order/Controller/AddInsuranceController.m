@@ -29,10 +29,6 @@
 }
 - (IBAction)addInsuranceAction:(id)sender {
     NSString *name = self.nameTextField.text;
-    if (name.length < 2 || name.length > 4) {
-        [self.view makeToast:@"请输入正确的名字"];
-        return;
-    }
     
     NSString *cardNo = self.NoTextField.text;
     if (cardNo.length != 18) {

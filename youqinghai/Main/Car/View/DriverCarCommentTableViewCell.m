@@ -85,6 +85,11 @@
 - (DriverCarCellFooterView *)footerView{
     if (!_footerView) {
         _footerView = [[DriverCarCellFooterView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.myTableView.frame) + 5, kScreenSize.width, 40) withTitle:@"全部评价>>" withIsShowLine:NO];
+        @weakify(self)
+        [_footerView setButtonClick:^{
+            @strongify(self);
+            [self makeToast:@"该功能暂未实现"];
+        }];
     }
     return _footerView;
 }

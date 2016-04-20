@@ -161,6 +161,11 @@
     [self attrString:_insuranceCount];
 }
 
+-(void)setCarType:(CarType *)carType{
+    _carType = carType;
+    [self attrString:_insuranceCount];
+}
+
 - (void)bindModel{
     [_textField1.rac_textSignal subscribeNext:^(id x) {
         self.order.contacts = x;
@@ -204,7 +209,7 @@
     
     [orderMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:_isCarpool ? @"人均金额:" : @"订单金额:" attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:15]}]];
     
-    [orderMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@天",_isCarpool ? _calcPrice.perPrice : _calCarPrice.orderPrice] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:18]}]];
+    [orderMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@天",_isCarpool ? @(_carType.dayPrice) : _calCarPrice.orderPrice] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:18]}]];
     
     self.calculateView.orderMoneyLab.attributedText = orderMoneyAttr;
     
@@ -212,7 +217,7 @@
     
     [orderTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:@"总金额:" attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:15]}]];
     
-    [orderTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%ld",  _isCarpool ? [_calcPrice.orderPrice intValue] * _seatsnum + insuranceMoney : [_calCarPrice.orderPrice intValue] + insuranceMoney] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:18]}]];
+    [orderTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%ld",  _isCarpool ? _carType.dayPrice * count + insuranceMoney : [_calCarPrice.orderPrice intValue] + insuranceMoney] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:18]}]];
     
     self.calculateView.totalMoneyLab.attributedText = orderTotalMoneyAttr;
     

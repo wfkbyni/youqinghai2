@@ -37,6 +37,10 @@
             lab.textAlignment = NSTextAlignmentCenter;
             lab.userInteractionEnabled = YES;
             
+            if ((i + 1) == items.count) {
+                _carTypeLabel = lab;
+            }
+            
             UIView *vLine = [[UIView alloc] initWithFrame:CGRectMake((i + 1) * width + 1, 10, 1, CGRectGetHeight(frame) - 20)];
             [vLine setBackgroundColor:[UIColor colorWithRed:0.90 green:0.90 blue:0.90 alpha:1.00]];
             

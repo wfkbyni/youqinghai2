@@ -128,6 +128,8 @@
                 weakSelf.orderViewModel.order.travelTime = [date timeIntervalSince1970] * 1000;
             }else if(type == TravelTypeWithCount){
                 weakSelf.orderViewModel.order.travelnum = [value integerValue];
+            }else if(type == TravelTypeWithType){
+                weakSelf.relationView.carType = value;
             }
         }];
     }

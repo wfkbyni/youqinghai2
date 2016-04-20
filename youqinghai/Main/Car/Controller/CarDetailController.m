@@ -96,6 +96,8 @@
         if (carDetail) {
             [_driverCarHeaderView bindData:carDetail];
             
+            [self showCollectionState:carDetail.isCollection];
+            
             [self.myTableView reloadData];
         }
     }];
@@ -225,16 +227,26 @@
 }
 
 - (void)addDriver{
-    [self.view makeToast:@"添加司机关注..."];
     [[self.mainViewModel addDriverOrRoteIdWithUserId:[[ZUserModel shareUserModel].userId integerValue] withTravelId:self.car.Id withType:0] subscribeNext:^(ResponseBaseData *data) {
         
         
+        RoteCollection *obj = [RoteCollection mj_objectWithKeyValues:data.result_data];
+        
+        [self showCollectionState:obj.state];
         
     } error:^(NSError *error) {
         [self.view makeToast:error.localizedDescription];
     } completed:^{
         
     }];
+}
+
+- (void)showCollectionState:(BOOL)isCollection{
+    if (isCollection) {
+        [_driverCarHeaderView.collectionBtn setImage:[UIImage imageNamed:@"favorited"] forState:UIControlStateNormal];
+    }else{
+        [_driverCarHeaderView.collectionBtn setImage:[UIImage imageNamed:@"collectionIcon"] forState:UIControlStateNormal];
+    }
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{

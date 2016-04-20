@@ -18,6 +18,8 @@ typedef NS_ENUM(NSInteger, BtnClickEvent) {
 
 @property (nonatomic, strong) UIImageView *bgImageView;
 
+@property (nonatomic, strong) UIButton *collectionBtn;
+
 @property (nonatomic, copy) void (^BtnClickEvent)(BtnClickEvent event);
 
 - (void)bindData:(CarDetail *)carDetail;

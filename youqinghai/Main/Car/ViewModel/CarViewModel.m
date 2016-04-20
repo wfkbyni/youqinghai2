@@ -18,10 +18,14 @@
                                                                withPriceState:self.priceState
                                                                    withTourId:self.tourId
                                                                withTravelTime:self.travelTime
-                                                                withPageIndex:1
+                                                                withPageIndex:self.pageIndex
                                                                  withPageSize:10] map:^id(ResponseBaseData *data) {
         
-        self.cars = [Car mj_objectArrayWithKeyValuesArray:data.result_data];
+        if (self.pageIndex == 1) {
+            self.cars = [Car mj_objectArrayWithKeyValuesArray:data.result_data];
+        }else{
+            [self.cars addObjectsFromArray:[Car mj_objectArrayWithKeyValuesArray:data.result_data]];
+        }
         return self.cars;
     }];
     

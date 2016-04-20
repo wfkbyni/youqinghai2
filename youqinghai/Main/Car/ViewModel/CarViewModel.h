@@ -19,8 +19,10 @@
 @property (nonatomic, assign) NSInteger driverId;      // 司机id
 @property (nonatomic, strong) CarDetail *carDetail;
 
+@property (nonatomic, assign) NSInteger pageIndex;
+
 // 车辆列表
-@property (nonatomic, strong) NSArray *cars;
+@property (nonatomic, strong) NSMutableArray *cars;
 // 车辆类型
 @property (nonatomic, strong) NSArray *carTypes;
 

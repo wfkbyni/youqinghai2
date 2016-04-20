@@ -19,6 +19,8 @@
 // 拼车数据
 @property (nonatomic, strong) CalcPrice *calcPrice;
 
+@property (nonatomic, strong) CarType *carType;
+
 @property (nonatomic, assign) NSInteger insuranceCount;       // 保险人数
 
 @property (nonatomic, assign) NSInteger seatsnum;             // 出游人数

@@ -9,8 +9,13 @@
 #import "DriverCarPivViewTableViewCell.h"
 #import "DriverCarCellHeaderView.h"
 #import "DriverCarCellFooterView.h"
+#import "SDPhotoBrowser.h"
 
-@interface DriverCarPivViewTableViewCell()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface DriverCarPivViewTableViewCell()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,SDPhotoBrowserDelegate>{
+    
+}
+
+@property (nonatomic, strong) NSMutableArray *allImagesArray;
 
 @property (nonatomic, strong) DriverCarCellHeaderView *headerView;
 
@@ -37,6 +42,10 @@
 
 - (void)setImgList:(NSArray *)imgList{
     _imgList = imgList;
+    self.allImagesArray = [NSMutableArray arrayWithCapacity:_imgList.count];
+    [_imgList enumerateObjectsUsingBlock:^(Img *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.allImagesArray addObject:obj.imgUrl];
+    }];
     [self.myCollectionView reloadData];
 }
 
@@ -86,6 +95,7 @@
     
     if (!_headerView) {
         _headerView = [[DriverCarCellHeaderView alloc] initWithFrame:CGRectZero withImageName:@"detail_pic" withTitle:@"司机/车辆图片"];
+        
     }
     
     return _headerView;
@@ -94,6 +104,23 @@
 - (DriverCarCellFooterView *)footerView{
     if (!_footerView) {
         _footerView = [[DriverCarCellFooterView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.myCollectionView.frame) + 5, kScreenSize.width, 40) withTitle:@"全部图片>>" withIsShowLine:YES];
+        [_footerView setUserInteractionEnabled:YES];
+        
+        @weakify(self)
+        [_footerView setButtonClick:^{
+            @strongify(self)
+            SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
+            
+            browser.sourceImagesContainerView = self.superview;
+            
+            browser.imageCount = self.allImagesArray.count;
+            
+            browser.currentImageIndex = 0;
+            
+            browser.delegate = self;
+            
+            [browser show]; // 展示图片浏览器
+        }];
     }
     return _footerView;
 }
@@ -112,6 +139,18 @@
         [_myCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     }
     return _myCollectionView;
+}
+
+-(UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
+{
+    return nil;
+}
+
+-(NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
+{
+    NSString *url = self.allImagesArray[index];
+    
+    return [NSURL URLWithString:url];
 }
 
 @end

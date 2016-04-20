@@ -44,9 +44,19 @@
     self.carViewModel = [[CarViewModel alloc] init];
     
     [self commonView];
-    [self loadCarListData];
     [self loadCarTypeListData];
     [self getStatisticsPlatformData];
+    
+    _myTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        self.carViewModel.pageIndex = 1;
+        [self loadCarListData];
+    }];
+    [_myTableView.mj_header beginRefreshing];
+    
+    _myTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        self.carViewModel.pageIndex ++;
+        [self loadCarListData];
+    }];
     
 }
 
@@ -129,6 +139,7 @@
     __weak typeof(CarListViewController *) weakSelf = self;
     [self.carTypeTableView setSelectCarType:^(CarType *carType) {
         weakSelf.carViewModel.cartypeId = carType.Id;
+        customMoveItemView.carTypeLabel.text = carType.cartypename;
         [weakSelf loadCarListData];
     }];
     
@@ -155,11 +166,19 @@
         @strongify(self)
         int code = [[error.userInfo objectForKey:@"result_code"] intValue];
         if (code == 1) {
-            self.carViewModel.cars = @[];
-            [self.myTableView reloadData];
+            //self.carViewModel.cars = @[].mutableCopy;
+            //[self.myTableView reloadData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.myTableView.mj_footer endRefreshingWithNoMoreData];
+                [self.view makeToast:[error.userInfo objectForKey:@"message"]];
+            });
         }
-    } completed:^{
         
+        [self.myTableView.mj_footer endRefreshing];
+        [self.myTableView.mj_header endRefreshing];
+    } completed:^{
+        [self.myTableView.mj_header endRefreshing];
+        [self.myTableView.mj_footer endRefreshing];
     }];
 }
 

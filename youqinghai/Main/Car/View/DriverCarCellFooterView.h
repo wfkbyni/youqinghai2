@@ -12,4 +12,6 @@
 
 -(instancetype)initWithFrame:(CGRect)frame withTitle:(NSString *)title withIsShowLine:(BOOL)isShowLine;
 
+@property (nonatomic, copy) void(^buttonClick)();
+
 @end

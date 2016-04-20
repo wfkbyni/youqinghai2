@@ -21,6 +21,8 @@
     BOOL isRequestTourismDetail;
     BOOL isRequestTourisEvaluate;
     BOOL isRequestServiceIntroduction;
+    
+    NSArray *allImageArray;
 }
 
 @property (nonatomic, strong) MainViewModel *mainViewModel;
@@ -65,6 +67,7 @@
             [imageArray addObject:obj.imgUrl];
         }];
         
+        allImageArray = imageArray;
         scrollView.imageURLStringsGroup = imageArray;
         scrollView.delegate =self;
         [_tableViewHeaderView addSubview:scrollView];
@@ -94,9 +97,9 @@
    
     browser.sourceImagesContainerView = cycleScrollView;
     
-    browser.imageCount = 1;
+    browser.imageCount = allImageArray.count;
     
-    browser.currentImageIndex = 0;
+    browser.currentImageIndex = index;
     
     browser.delegate = self;
     
@@ -108,9 +111,9 @@
 }
 -(NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
 {
-    Banner *obj = self.mainViewModel.traveltrip.banner[self.iamgeIndex];
+    NSString *url = allImageArray[index];
   
-    return [NSURL URLWithString:obj.imgUrl];
+    return [NSURL URLWithString:url];
 }
 - (void)backAction:(UIButton *)sender{
     [self.navigationController popViewControllerAnimated:YES];
@@ -293,7 +296,9 @@
     
     [[self.mainViewModel addDriverOrRoteIdWithUserId:[[ZUserModel shareUserModel].userId integerValue] withTravelId:self.mainViewModel.tourisId withType:0] subscribeNext:^(ResponseBaseData *data) {
         
+        RoteCollection *obj = [RoteCollection mj_objectWithKeyValues:data.result_data];
         
+        [self showCollectionState:obj.state withCollectionNum:obj.collNum];
         
     } error:^(NSError *error) {
         [self.view makeToast:error.localizedDescription];
@@ -324,7 +329,7 @@
     if (isCollection) {
         [self.collectionBtn setImage:[UIImage imageNamed:@"favorited"] forState:UIControlStateNormal];
     }else{
-        [self.collectionBtn setImage:[UIImage imageNamed:@"favorites"] forState:UIControlStateNormal];
+        [self.collectionBtn setImage:[UIImage imageNamed:@"collectionIcon"] forState:UIControlStateNormal];
     }
 }
 

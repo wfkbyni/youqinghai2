@@ -25,9 +25,16 @@
         [button setTitle:title forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [button.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
+        [button addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
     }
     return self;
+}
+
+- (void)btnClick:(UIButton *)sender{
+    if (_buttonClick) {
+        _buttonClick();
+    }
 }
 
 @end

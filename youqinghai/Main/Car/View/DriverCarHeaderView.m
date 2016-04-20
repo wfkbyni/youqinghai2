@@ -77,14 +77,14 @@
     
     [view addSubview:backBtn];
     
-    UIButton *collectionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    collectionBtn.frame = CGRectMake(CGRectGetWidth(self.frame) - 40 - 10, 30, 40, 40);
-    [collectionBtn setTag:BtnClickEventWithCollection];
-    [collectionBtn setImage:[UIImage imageNamed:@"collection"] forState:UIControlStateNormal];
-    
-    [view addSubview:collectionBtn];
+    _collectionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _collectionBtn.frame = CGRectMake(CGRectGetWidth(self.frame) - 40 - 10, 30, 40, 40);
+    [_collectionBtn setTag:BtnClickEventWithCollection];
+    [_collectionBtn setImage:[UIImage imageNamed:@"collection"] forState:UIControlStateNormal];
+    [view addSubview:_collectionBtn];
     
     [backBtn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_collectionBtn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     
     _carName = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, CGRectGetWidth(self.frame) / 2, 20)];
     [_carName setFont:[UIFont systemFontOfSize:18.0f]];

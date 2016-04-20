@@ -290,7 +290,7 @@
         
         [controller addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"%ld",i] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [_travelCount setText:[NSString stringWithFormat:@"%@人",action.title]];
-            self.mySeatsnum = [action.title intValue];
+            //self.mySeatsnum = [action.title intValue];
             if (_TravelSelectBlock) {
                 _TravelSelectBlock(TravelTypeWithCount,action.title);
             }
