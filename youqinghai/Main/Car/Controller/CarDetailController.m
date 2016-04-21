@@ -58,7 +58,10 @@
     [charteredBtn setBackgroundColor:[UIColor orangeColor]];
     [charteredBtn setTitle:@"立即包车" forState:UIControlStateNormal];
     [charteredBtn addTarget:self action:@selector(charteredAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:charteredBtn];
+    if (self.car.nickname) {
+        [self.view addSubview:charteredBtn];
+    }
+    
 }
 
 - (void)charteredAction:(id)sender{
