@@ -7,10 +7,10 @@
 //
 
 #import "ZDriverFTableView.h"
-#import "ZDriverCell.h"
+
 #import "RequestBaseAPI+Personal.h"
 @interface ZDriverFTableView ()<UITableViewDataSource,UITableViewDelegate>
-@property(nonatomic,strong)NSMutableArray *tabAr;
+
 @property(copy,nonatomic)NSString *pages;
 @end
 @implementation ZDriverFTableView
@@ -103,7 +103,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    if (self.selectBlock) {
+        self.selectBlock(indexPath)
+        ;    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ZDriverCell.h"
+typedef void (^selectBlock)(NSIndexPath*);
 @interface ZDriverFTableView : UITableView
-
+@property(strong,nonatomic)selectBlock selectBlock;
+@property(nonatomic,strong)NSMutableArray *tabAr;
 @end

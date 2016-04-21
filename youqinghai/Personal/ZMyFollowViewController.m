@@ -13,6 +13,7 @@
 #import "ZTravelFTableView.h"
 #import "ZFowUserTableView.h"
 #import "TourismDetailController.h"
+#import "CarDetailController.h"
 @interface ZMyFollowViewController ()<ZPageViewDelegate,UIScrollViewDelegate>
 @property(weak,nonatomic)ZPageView *pageView;
 @property(nonatomic,weak)UIScrollView *scrollView;
@@ -61,6 +62,13 @@
     self.driverFTableView = tableView;
     tableView.backgroundColor= [UIColor whiteColor];
     [self.scrollView addSubview:tableView];
+     tableView.selectBlock = ^(NSIndexPath *indexPath){
+       ZDriverModel *driverMod= self.driverFTableView.tabAr[indexPath.row];
+         CarDetailController *car = [[CarDetailController alloc]init];
+         car.car = [[Car alloc]init];
+         car.car.driverId = driverMod.driverId.integerValue;
+         [self.navigationController pushViewController:car animated:YES];
+     };
 }
 -(void)setTravelFTableView
 {
