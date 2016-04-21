@@ -32,6 +32,14 @@
     _dataS =dataS;
      [self setBtn];
 }
+-(void)setButtonTitle:(NSArray*)titles
+{
+    for (int i = 0; i < self.btns.count; i++ ) {
+        UIButton *btn = self.btns[i];
+        [btn setTitle:titles[i] forState:UIControlStateNormal];
+        
+    }
+}
 -(void)setBtn
 {
     CGFloat btnW = self.frame.size.width/self.dataS.count;

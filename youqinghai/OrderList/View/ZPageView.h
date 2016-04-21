@@ -28,4 +28,10 @@
  *  @param index <#index description#>
  */
 -(void)selectedIndex:(NSNumber*)index;
+/**
+ *  修改按钮文字
+ *
+ *  @param titles <#titles description#>
+ */
+-(void)setButtonTitle:(NSArray*)titles;
 @end

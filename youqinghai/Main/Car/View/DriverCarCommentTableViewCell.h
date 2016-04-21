@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^selectBlock)(NSInteger);
+
 @interface DriverCarCommentTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) NSArray *evalist;
-
+@property(strong,nonatomic)selectBlock selectBlock;
 /**
  *  @brief 计算行高
  *

@@ -51,4 +51,19 @@
  *
  */
 - (RACSignal *)getStatisticsPlatformData;
+
+/**
+ *  获取司机全部评价
+ *
+ *  @param driverId  <#driverId description#>
+ *  @param grade     <#grade description#>
+ *  @param pageIndex <#pageIndex description#>
+ *  @param pageSize  <#pageSize description#>
+ *
+ *  @return <#return value description#>
+ */
+-(RACSignal*)getAllEvaDateWithdriverId:(NSString*)driverId
+                             withgrade:(NSString*)grade
+                         withpageIndex:(NSString*)pageIndex
+                          withpageSize:(NSString*)pageSize;
 @end

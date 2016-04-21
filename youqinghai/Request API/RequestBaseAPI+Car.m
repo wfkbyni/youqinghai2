@@ -52,4 +52,24 @@ NSString const *statisticsPlatformData = @"app/driverCarInfo/statisticsPlatformD
     return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
 }
 
+
+-(RACSignal*)getAllEvaDateWithdriverId:(NSString*)driverId
+                             withgrade:(NSString*)grade
+                         withpageIndex:(NSString*)pageIndex
+                          withpageSize:(NSString*)pageSize
+{
+    
+    NSString *param = [NSString stringWithFormat:@"server=%@&driverId=%@&pageIndex=%@&pageSize=%@",@"app/driverCarInfo/getAllEavList", driverId,pageIndex,pageSize];
+    if (grade) {
+       param= [param stringByAppendingString:[NSString stringWithFormat:@"&grade=%@",grade]];
+    }
+    param = [GTMBase64 desEncrypt:param];
+    return [[self requestWithType:RequestAPITypePost params:param]map:^id(ResponseBaseData *data) {
+        if (!data.result_data) {
+            data.result_data = @"";
+        }
+        return data.result_data;
+    }];
+    
+}
 @end

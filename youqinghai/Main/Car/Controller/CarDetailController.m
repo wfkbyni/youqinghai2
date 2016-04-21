@@ -16,7 +16,7 @@
 #import "DriverCarIntroduceTableViewCell.h"
 
 #import "ConfirmOrderController.h"
-
+#import "ZCarEvaViewController.h"
 @interface CarDetailController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) CarViewModel *carViewModel;
@@ -203,7 +203,15 @@
             }
             
             cell.evalist = _carViewModel.carDetail.evalist;
-            
+            cell.selectBlock = ^(NSInteger ID){
+                if (ID) {
+                    ZCarEvaViewController *cev = [[ZCarEvaViewController alloc]init];
+                    cev.driverId = @(ID).stringValue;
+                    [self.navigationController pushViewController:cev animated:YES];
+                }else{
+                    [self.view makeToast:@"暂无评价"];
+                }
+            };
             return cell;
         }
             break;

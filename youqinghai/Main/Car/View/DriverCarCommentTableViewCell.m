@@ -89,6 +89,15 @@
         [_footerView setButtonClick:^{
             @strongify(self);
             [self makeToast:@"该功能暂未实现"];
+            if (self.selectBlock) {
+                if (self.evalist.count) {
+                    Eav *e = self.evalist[0];
+                    self.selectBlock(e.driverId);
+                }else{
+                     self.selectBlock(0);
+                }
+              
+            }
         }];
     }
     return _footerView;
