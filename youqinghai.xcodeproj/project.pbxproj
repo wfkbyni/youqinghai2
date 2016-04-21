@@ -199,6 +199,7 @@
 		35DDF8E71CC7712600C7F820 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DDF8E41CC7712500C7F820 /* SDWaitingView.m */; };
 		35DDF8EA1CC7B42E00C7F820 /* ZComplaintsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DDF8E91CC7B42E00C7F820 /* ZComplaintsViewController.m */; };
 		35DDF8ED1CC7BD2D00C7F820 /* ZCWhyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DDF8EC1CC7BD2D00C7F820 /* ZCWhyViewController.m */; };
+		35DDF8F01CC87C6400C7F820 /* ZCarEvaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DDF8EF1CC87C6400C7F820 /* ZCarEvaViewController.m */; };
 		35E3FFB41CA8CD8100876054 /* ZPersanalHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E3FFB31CA8CD8100876054 /* ZPersanalHeaderView.m */; };
 		35E3FFB61CA8CD9A00876054 /* ZPersonalHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E3FFB51CA8CD9A00876054 /* ZPersonalHeaderView.xib */; };
 		35E3FFB91CA90B3000876054 /* ZUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E3FFB81CA90B3000876054 /* ZUserModel.m */; };
@@ -667,6 +668,8 @@
 		35DDF8E91CC7B42E00C7F820 /* ZComplaintsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZComplaintsViewController.m; sourceTree = "<group>"; };
 		35DDF8EB1CC7BD2D00C7F820 /* ZCWhyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCWhyViewController.h; sourceTree = "<group>"; };
 		35DDF8EC1CC7BD2D00C7F820 /* ZCWhyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCWhyViewController.m; sourceTree = "<group>"; };
+		35DDF8EE1CC87C6400C7F820 /* ZCarEvaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCarEvaViewController.h; sourceTree = "<group>"; };
+		35DDF8EF1CC87C6400C7F820 /* ZCarEvaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCarEvaViewController.m; sourceTree = "<group>"; };
 		35E3FFB21CA8CD8100876054 /* ZPersanalHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPersanalHeaderView.h; sourceTree = "<group>"; };
 		35E3FFB31CA8CD8100876054 /* ZPersanalHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPersanalHeaderView.m; sourceTree = "<group>"; };
 		35E3FFB51CA8CD9A00876054 /* ZPersonalHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZPersonalHeaderView.xib; sourceTree = "<group>"; };
@@ -1415,6 +1418,8 @@
 				35891B801CB7B4C000CE7002 /* CarListViewController.h */,
 				35891B811CB7B4C000CE7002 /* CarListViewController.m */,
 				35891B821CB7B4C000CE7002 /* CarListViewController.xib */,
+				35DDF8EE1CC87C6400C7F820 /* ZCarEvaViewController.h */,
+				35DDF8EF1CC87C6400C7F820 /* ZCarEvaViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2528,6 +2533,7 @@
 				35891C061CB7B5F500CE7002 /* Order.m in Sources */,
 				9A24C33D1CC3C5A500671233 /* StatisticsPlatformDataView.m in Sources */,
 				9A1FEB4A1C9EF3C90067B8D5 /* GTMBase64.m in Sources */,
+				35DDF8F01CC87C6400C7F820 /* ZCarEvaViewController.m in Sources */,
 				35EB059C1CB94FF3003FDEFD /* YQHRadiusButton.m in Sources */,
 				35EB059B1CB94FF3003FDEFD /* pageBtn.m in Sources */,
 				9A24C34E1CC3DC4D00671233 /* WXCustomScroeView.m in Sources */,

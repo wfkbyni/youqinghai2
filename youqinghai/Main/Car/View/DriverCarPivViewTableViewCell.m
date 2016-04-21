@@ -109,17 +109,22 @@
         @weakify(self)
         [_footerView setButtonClick:^{
             @strongify(self)
-            SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
-            
-            browser.sourceImagesContainerView = self.myCollectionView;
-            
-            browser.imageCount = self.allImagesArray.count;
-            
-            browser.currentImageIndex = 0;
-            
-            browser.delegate = self;
-            
-            [browser show]; // 展示图片浏览器
+            if (self.allImagesArray.count > 0) {
+                SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
+                
+                browser.sourceImagesContainerView = self.myCollectionView;
+                
+                browser.imageCount = self.allImagesArray.count;
+                
+                browser.currentImageIndex = 0;
+                
+                browser.delegate = self;
+                
+                [browser show]; // 展示图片浏览器
+            }else{
+                
+                [self makeToast:@"暂无更多图片"];
+            }
         }];
     }
     return _footerView;
