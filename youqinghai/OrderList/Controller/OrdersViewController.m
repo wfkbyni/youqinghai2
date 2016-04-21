@@ -15,6 +15,16 @@
 #import "MyOrderEvaViewController.h"
 #import "PayViewController.h"
 #import "ZComplaintsViewController.h"
+
+@interface QQHAlertView : UIAlertView
+@property (nonatomic, strong) OrderListModel *orderListModel;
+
+@end
+
+@implementation QQHAlertView
+
+@end
+
 @interface OrdersViewController ()<ZPageViewDelegate>{
     NSInteger orderState;   // 订单状态
 }
@@ -155,13 +165,16 @@
         
         if (orderType == OrderTypeWithCancel) {
             // 取消订单
-            [self cancelOrder:model];
+           // [self cancelOrder:model];
+            
+            [self showAlertWithTag:2 withModel:model];
         }else if(orderType == OrderTypeWithConfirmPay){
             // 立即支付
             [self confirmOrder:model];
         }else if(orderType == OrderTypeWithDeleteOrder){
             // 删除订单
-            [self deleteOrder:model];
+            [self showAlertWithTag:1 withModel:model];
+            //[self deleteOrder:model];
         }else if(orderType == OrderTypeWithEvaluate){
             // 评价订单
             {
@@ -269,7 +282,8 @@
         
         [self.view makeToast:data.message];
         if (data.result_code == 0) {
-            [self.navigationController popViewControllerAnimated:YES];
+            [self headerRefresh];
+          //  [self.navigationController popViewControllerAnimated:YES];
         }else{
             
         }
@@ -277,4 +291,31 @@
         YQHLog(@"%@",error);
     }];
 }
+
+
+#pragma mark --- show alert view
+- (void) showAlertWithTag:(NSInteger)tag withModel:(OrderListModel *)model{
+    
+    QQHAlertView *av = [[QQHAlertView alloc] initWithTitle:@"提示" message:@"确定要删除该订单吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    av.tag = tag;
+    av.orderListModel = model;
+    [av show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    QQHAlertView *av = (QQHAlertView *)alertView;
+    if (buttonIndex == 1) {
+        
+        if (av.tag == 1) {
+            //删除定单
+            [self deleteOrder:av.orderListModel];
+        }else if (alertView.tag == 2) {
+            [self cancelOrder:av.orderListModel];
+        }
+    }
+}
+
+
+
 @end

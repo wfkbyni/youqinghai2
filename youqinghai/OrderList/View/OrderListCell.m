@@ -27,6 +27,8 @@
     YQHRadiusButton *_cancelBT;
     YQHRadiusButton *_confirmPayBT;
     
+    CGFloat _cancelX,_confirmX;
+    
 }
 
 @end
@@ -175,6 +177,14 @@
     [_confirmPayBT setOrigin:CGPointMake(self.width - _confirmPayBT.width-10,(_bottomSubView.height - _confirmPayBT.height)/2)];
     [_cancelBT setOrigin:CGPointMake(_confirmPayBT.x-_confirmPayBT.width - 5,_confirmPayBT.y)];
 
+    _cancelX = _cancelBT.x;
+    _confirmX = _confirmPayBT.x;
+    
+    if (YES == _confirmPayBT.hidden) {
+        [_cancelBT setX:_confirmX];
+    }else{
+        [_cancelBT setX:_cancelX];
+    }
 }
 -(void)setOrderListMod:(OrderListModel *)orderListMod
 {
@@ -182,6 +192,7 @@
     self.textLabel.text = orderListMod.singletime;
     NSLog(@"%@",orderListMod.singletime);
     [_cancelBT setHidden:NO];
+    [_confirmPayBT setHidden:NO];
     switch (orderListMod.state.integerValue) {
         case 0:
             self.detailTextLabel.text = @"待付款";
@@ -196,23 +207,27 @@
             [_confirmPayBT setTitle:@"完成出游" forState:UIControlStateNormal];
             _cancelBT.tag = OrderTypeWithComplaintPay;
             _confirmPayBT.tag = OrderTypeWithComplete;
+            _confirmPayBT.hidden = YES;
             break;
         case 2:
             self.detailTextLabel.text = @"待评价";
             [_confirmPayBT setTitle:@"立即评价" forState:UIControlStateNormal];
             [_cancelBT setHidden:YES];
             _confirmPayBT.tag = OrderTypeWithEvaluate;
+          
             break;
         case 3:
             self.detailTextLabel.text = @"已完成";
             [_confirmPayBT setTitle:@"删除订单" forState:UIControlStateNormal];
             [_cancelBT setHidden:YES];
             _confirmPayBT.tag = OrderTypeWithDeleteOrder;
+          
             break;
         case 4:
             self.detailTextLabel.text = @"取消订单";
-            [_confirmPayBT setHidden:YES];
+            [_confirmPayBT setTitle:@"删除订单" forState:UIControlStateNormal];
             [_cancelBT setHidden:YES];
+            _confirmPayBT.tag = OrderTypeWithDeleteOrder;
             break;
         default:
             break;

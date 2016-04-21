@@ -11,9 +11,15 @@
 #import "OrderListDetailCell.h"
 #import "YQHRadiusButton.h"
 #import "OrderViewModel.h"
-
+#import "ZComplaintsViewController.h"
+#import "MyOrderEvaViewController.h"
+#import "PayViewController.h"
 @interface OrderDetailViewController () {
 
+    YQHRadiusButton *_confirmPayBt;
+    YQHRadiusButton *_cancelBt;
+    
+    CGFloat _cancelX,_confirmX;
 }
 @property (nonatomic, strong) OrderViewModel *orderViewModel;
 @property (nonatomic, strong) NSMutableArray *datasourceOfTitles;
@@ -68,6 +74,10 @@
 }
 
 - (void)commonInit {
+    
+    self.tableView.tableFooterView = self.tableViewFooterView;
+    [self.view addSubview:self.footerView];
+    
     _datasourceOfTitles = [NSMutableArray array];
     _datasourceOfValues = [NSMutableArray array];
     
@@ -77,6 +87,8 @@
     [_datasourceOfTitles addObject:titles1];
     [_datasourceOfTitles addObject:titles2];
     [_datasourceOfTitles addObject:titles3];
+    _cancelBt.hidden = NO;
+    _confirmPayBt.hidden = NO;
     NSString *Statype;
     switch (_orderListMod.state.integerValue) {
         case 0:
@@ -84,15 +96,26 @@
             break;
         case 1:
             Statype = @"待完成";
+            [_cancelBt setTitle:@"投诉司机" forState:UIControlStateNormal];
+            _confirmPayBt.hidden = YES;
+            [_cancelBt setX:_confirmX];
             break;
         case 2:
             Statype = @"待评价";
+            _cancelBt.hidden = YES;
+            [_confirmPayBt setTitle:@"立即评价" forState:UIControlStateNormal];
+
             break;
         case 3:
             Statype = @"已完成";
+            [_confirmPayBt setTitle:@"删除订单" forState:UIControlStateNormal];
+            _cancelBt.hidden = YES;
+
             break;
         case 4:
             Statype = @"取消订单";
+            [_confirmPayBt setTitle:@"删除订单" forState:UIControlStateNormal];
+            _cancelBt.hidden = YES;
             break;
         default:
             break;
@@ -109,8 +132,7 @@
     
     
     
-    self.tableView.tableFooterView = self.tableViewFooterView;
-    [self.view addSubview:self.footerView];
+    
 
 }
 
@@ -167,10 +189,15 @@
 -(void)tableView:(UITableView *)tableView  didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     if (indexPath.section ==2&&indexPath.row==0) {
-        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",self.orderListMod.urgentTel];
-        UIWebView * callWebview = [[UIWebView alloc] init];
-        [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
-        [self.view addSubview:callWebview];
+        if (self.orderListMod.phone.length > 0) {
+            NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",self.orderListMod.phone];
+            UIWebView * callWebview = [[UIWebView alloc] init];
+            [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+            [self.view addSubview:callWebview];
+        }else{
+            [self.view makeToast:@"未提供电话号码."];
+        }
+       
     }
 }
 - (UIView *)footerView {
@@ -185,25 +212,34 @@
     
     UIColor *color = [UIColor redColor];
     
-    YQHRadiusButton *confirmPayBt = [YQHRadiusButton createWithTitle:@"立即支付" withColor:color];
+    _confirmPayBt = [YQHRadiusButton createWithTitle:@"立即支付" withColor:color];
     
-    [confirmPayBt setOrigin:CGPointMake(self.view.width - confirmPayBt.width-10,(lView.height - confirmPayBt.height)/2)];
-    [lView addSubview:confirmPayBt];
+    [_confirmPayBt setOrigin:CGPointMake(self.view.width - _confirmPayBt.width-10,(lView.height - _confirmPayBt.height)/2)];
+    [lView addSubview:_confirmPayBt];
 
     
      color = [UIColor colorWithRed:200.0/255.0 green:200.0/255.0 blue:200.0/255.0 alpha:1];
     
-    YQHRadiusButton *cancelBt = [YQHRadiusButton createWithTitle:@"取消订单" withColor:color];
+    _cancelBt = [YQHRadiusButton createWithTitle:@"取消订单" withColor:color];
     
-    [cancelBt setOrigin:CGPointMake(confirmPayBt.x-cancelBt.width - 5,confirmPayBt.y)];
-    [lView addSubview:cancelBt];
+    [_cancelBt setOrigin:CGPointMake(_confirmPayBt.x-_cancelBt.width - 5,_confirmPayBt.y)];
+
+    [_cancelBt addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [_confirmPayBt addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+
+    [lView addSubview:_cancelBt];
     
+    
+    _cancelX = _cancelBt.x;
+    _confirmX = _confirmPayBt.x;
     lView.layer.borderWidth = 0.5;
     lView.layer.masksToBounds = YES;
     lView.layer.borderColor = color.CGColor;
    
     return lView;
 }
+
+
 
 
 - (UIView *)tableViewFooterView {
@@ -217,5 +253,91 @@
 }
 
 
+- (IBAction)buttonClicked:(UIButton *)sender {
+
+    NSString *title = sender.titleLabel.text;
+    if ([title hasPrefix:@"投诉司机"]) {
+        ZComplaintsViewController *cvc = [[ZComplaintsViewController alloc]init];
+        cvc.listMod = self.orderListMod;
+        [self.navigationController pushViewController:cvc animated:YES];
+    }else if ([title hasPrefix:@"立即评价"]) {
+    
+        MyOrderEvaViewController *oev = [[MyOrderEvaViewController alloc]init];
+        oev.listMod = self.orderListMod;
+        [self.navigationController pushViewController:oev animated:YES];
+    }else if ([title hasPrefix:@"立即支付"]) {
+    
+        [self confirmOrder];
+    }else if ([title hasPrefix:@"取消订单"]) {
+        
+        [self showAlertWithTag:2];
+    }else if ([title hasPrefix:@"删除订单"]) {
+        
+        [self showAlertWithTag:1];
+    }
+    
+}
+
+ - (void)confirmOrder{
+    
+    PayViewController *controller = [[PayViewController alloc] init];
+    controller.orderListModel = self.orderListMod;
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)cancelOrder{
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[self.orderViewModel cancelOrderWithOrderNo:self.orderListMod.orderId] subscribeNext:^(ResponseBaseData *data) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        [self.view makeToast:data.message];
+        if (data.result_code == 0) {
+            
+            self.orderListMod.state = @"4";
+            [self.tableView reloadData];
+            //   [self.navigationController popViewControllerAnimated:YES];
+        }
+    } error:^(NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        YQHLog(@"%@",error);
+    }];
+}
+
+
+- (void)deleteOrder{
+    [[self.orderViewModel deleteOrder:self.orderListMod.orderId] subscribeNext:^(ResponseBaseData *data) {
+        
+        [self.view makeToast:data.message];
+        if (data.result_code == 0) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            
+        }
+    } error:^(NSError *error) {
+        YQHLog(@"%@",error);
+    }];
+}
+
+
+- (void) showAlertWithTag:(NSInteger)tag {
+    
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定要删除该订单吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    av.tag = tag;
+    [av show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    
+    if (buttonIndex == 1) {
+        
+        if (alertView.tag == 1) {
+            //删除定单
+            [self deleteOrder];
+        }else if (alertView.tag == 2) {
+            [self cancelOrder];
+        }
+    }
+}
 
 @end

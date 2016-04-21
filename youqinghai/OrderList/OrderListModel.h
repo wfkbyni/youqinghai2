@@ -34,6 +34,7 @@
 @property(strong,nonatomic)NSString *dayNum;
 @property(strong,nonatomic)NSString *orderMoney;
 @property(strong,nonatomic)NSString *Typename;
+@property (strong, nonatomic) NSString *phone;
 @end
 //"travelTime": 出游时间,
 //"nickname": "司机呢称",
