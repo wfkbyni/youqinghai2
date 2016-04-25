@@ -8,6 +8,7 @@
 
 #import "TourismDetailView.h"
 #import "SDPhotoBrowser.h"
+#import "TourismDetailController.h"
 #define line 20
 #define rowHeight 120
 #define leftViewWidth 80
@@ -42,7 +43,7 @@
     if (viewlist.count > 0) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.frame];
         [self addSubview:imageView];
-        //[imageView setImage:[UIImage im]];
+        [imageView setImage:[imageView clipImage:[UIImage imageNamed:@"detail"] toSize:imageView.frame.size]];
         
         UIView *bgView = [[UIView alloc] initWithFrame:self.frame];
         [bgView setBackgroundColor:[UIColor blackColor]];
@@ -161,8 +162,6 @@
     
     NSArray *viewlist = traveltrip.viewlist;
     
-  
-    
     UIView *imageV =[[UIView alloc] initWithFrame:CGRectMake(0, 0, rightViewWidth, heihgt)];
     [view addSubview:imageV];
     float hLine = 10;
@@ -197,19 +196,18 @@
 }
 -(void)showImage:(UITapGestureRecognizer*)tgr
 {
-       self.iamgeIndex = tgr.view.tag;
-    SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
-    NSLog(@"%ld    %ld    %ld",tgr.view.tag/3,tgr.view.tag,tgr.view.tag%3);
-    browser.sourceImagesContainerView = self.imageVS[tgr.view.tag/3];
+    YQHLog(@"%ld    %ld    %ld",tgr.view.tag/3,tgr.view.tag,tgr.view.tag%3);
     
-    browser.imageCount = 1;
-    
-    browser.currentImageIndex = 0;
-    
-    browser.delegate = self;
-    
-    [browser show]; // 展示图片浏览器
+    Trip *trip = self.imageAr[tgr.view.tag];
+
+    Recommend *recommend = [[Recommend alloc] init];
+    recommend.Id = trip.Id;
  
+    [[NSUserDefaults standardUserDefaults] setObject:@(recommend.Id) forKey:YQHTourisId];
+   
+    TourismDetailController *controller = [[TourismDetailController alloc] init];
+    controller.recommend = recommend;
+    [self.navigationController pushViewController:controller animated:YES];
 
 }
 -(UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index

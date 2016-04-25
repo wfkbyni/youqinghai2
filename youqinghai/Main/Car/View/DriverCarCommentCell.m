@@ -44,7 +44,7 @@
     
     [self.evatTimeView setText:time];
 
-    [self.scroeView setScroe:eav.eavscore];
+    [self.scroeView setScroe:eav.eavscore * 2];
     
     self.contentLabView.text = eav.content;
 }

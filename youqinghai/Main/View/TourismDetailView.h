@@ -19,4 +19,6 @@ typedef NS_ENUM(NSInteger, LeftViewModel) {
 
 @property (nonatomic, strong) NSArray *viewlist;
 
+@property (nonatomic, strong) UINavigationController *navigationController;
+
 @end
