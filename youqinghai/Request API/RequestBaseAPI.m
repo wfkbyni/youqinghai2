@@ -109,7 +109,7 @@
                       params:(NSDictionary *)params
                    attachKey:(NSString *)attachKey
                   attachData:(NSArray *)attachData{
-    RACSignal *resultSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+    RACSignal *resultSignal = [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         NSInteger length = 0;
         
         NSString *urlString = [RequestUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -139,8 +139,8 @@
         return [RACDisposable disposableWithBlock:^{
             [task cancel];
         }];
-    }];
-    return resultSignal;
+    }] replay];
+    return resultSignal ;
 }
 #pragma mark - 上传附件
 - (RACSignal *)postApiString:(NSString *)apiString
