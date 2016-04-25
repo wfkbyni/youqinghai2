@@ -50,7 +50,12 @@ NSString *const personalgetCustomizedDetails= @"app/customizedtourism/getCustomi
 -(RACSignal *)addFeedBackWithData:(NSArray *)imageAr andText:(NSString *)text
 {
     NSDictionary *param = @{@"userDrverId":@([ZUserModel shareUserModel].userId.integerValue),@"type":@"0",@"content":text};
-    return [self ZpostApiString:personalFeedBack params:param attachKey:@"fileName" attachData:imageAr];
+    return [[self ZpostApiString:personalFeedBack params:param attachKey:@"fileName" attachData:imageAr]map:^id(ResponseBaseData *data) {
+        if (!data.result_data) {
+            data.result_data = @"";
+        }
+        return data.result_data;
+    }];
 }
 
 -(RACSignal *)userInfoWithNickName:(NSString *)nickName withSex:(NSString *)sex withAutograph:(NSString *)autograph

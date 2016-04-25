@@ -47,8 +47,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="placeholder" destination="whC-aE-9sD" id="BrT-tW-HQh"/>
-                <outlet property="textView" destination="whC-aE-9sD" id="DVT-4t-MWS"/>
+                <outlet property="placeholder" destination="whC-aE-9sD" id="hmG-AQ-kPq"/>
+                <outlet property="textView" destination="0xt-UO-9Og" id="t4d-EK-uM3"/>
                 <outlet property="textViewheight" destination="Dyn-8C-jOn" id="Rvz-f0-XWH"/>
             </connections>
         </tableViewCell>

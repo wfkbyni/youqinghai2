@@ -15,7 +15,7 @@
 typedef void (^TextBlcok)(NSString*);
 typedef void(^imageBlcok)(NSMutableArray*);
 @interface ZTextViewCell : UITableViewCell<UITextViewDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *textView;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UILabel *placeholder;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewheight;
 @property(strong,nonatomic)NSString* strText;

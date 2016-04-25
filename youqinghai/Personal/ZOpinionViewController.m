@@ -84,6 +84,13 @@
     cell.photo = @"";
     cell.textViewheight.constant = 145;
     
+    
+    cell.textView.text = self.str;
+    if (cell.textView.text.length == 0) {
+        cell.placeholder.hidden = NO;
+    }else{
+        cell.placeholder.hidden = YES;
+    }
     cell.TextBlcok = ^(NSString *text)
     {
         self.str = text;

@@ -187,6 +187,7 @@
     
     if (indexPath.row==0) {
         MyOrderEvaCell *cell = [[NSBundle mainBundle] loadNibNamed:@"MyOrderEvaCell" owner:nil options:nil].firstObject;
+        cell.starView.starCount = self.level;
         cell.evaNumBlock = ^(NSInteger level){
             self.level = level;
         };
@@ -196,7 +197,12 @@
     cell.controller =self;
     cell.images = self.images;
     cell.placeholder.text = @"请输入您的评价内容";
-    
+    cell.textView.text = self.str;
+    if (cell.textView.text.length == 0) {
+        cell.placeholder.hidden = NO;
+    }else{
+        cell.placeholder.hidden = YES;
+    }
     
     cell.textViewheight.constant = 145+ImageH+12;
     cell.TextBlcok = ^(NSString *text)
