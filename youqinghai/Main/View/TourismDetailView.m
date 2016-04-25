@@ -42,7 +42,7 @@
     if (viewlist.count > 0) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.frame];
         [self addSubview:imageView];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:@"http://hiphotos.baidu.com/lvpics/pic/item/a1ad16fa4f2fd8fe59ee90d9.jpg"]];
+        //[imageView setImage:[UIImage im]];
         
         UIView *bgView = [[UIView alloc] initWithFrame:self.frame];
         [bgView setBackgroundColor:[UIColor blackColor]];
@@ -56,7 +56,9 @@
         float __rowHeight = [self tourismRowHeight:traveltrip];
         
         LeftViewModel model;
-        if (idx == 0) {
+        if (idx == 0 && idx == _viewlist.count - 1) {
+            model = LeftViewModelTopAndBottom;
+        }else if(idx == 0){
             model = LeftViewModelTop;
         }else if(idx == _viewlist.count - 1){
             model = LeftViewModelBottom;
@@ -121,14 +123,28 @@
             [radiusView viewWithCornerRadius:5];
             [view addSubview:radiusView];
             break;
+        }case LeftViewModelTopAndBottom:{
+            offset = 10;
+            
+            radiusView = [[UIView alloc] initWithFrame:CGRectMake(leftViewWidth - 20, heihgt - 30, 10, 10)];
+            [radiusView setBackgroundColor:[UIColor whiteColor]];
+            [radiusView viewWithCornerRadius:5];
+            [view addSubview:radiusView];
+            break;
         }
     }
     
-    UIView *vLine = [[UIView alloc] initWithFrame:CGRectMake(leftViewWidth - 16, offset, 2, model == LeftViewModelBottom ? heihgt - 21 : heihgt)];
+    if (model == LeftViewModelTopAndBottom) {
+        heihgt = heihgt - 31;
+    }else if(model == LeftViewModelBottom){
+        heihgt = heihgt - 21;
+    }
+    
+    UIView *vLine = [[UIView alloc] initWithFrame:CGRectMake(leftViewWidth - 16, offset, 2, heihgt)];
     [vLine setBackgroundColor:[UIColor whiteColor]];
     [view addSubview:vLine];
     
-    if (model == LeftViewModelBottom) {
+    if (model == LeftViewModelBottom || model == LeftViewModelTopAndBottom) {
         UILabel *endLab = [[UILabel alloc] initWithFrame:CGRectMake(leftViewWidth - 25, CGRectGetMaxY(vLine.frame), 40, 20)];
         [endLab setFont:[UIFont systemFontOfSize:12.0f]];
         [endLab setTextColor:[UIColor whiteColor]];

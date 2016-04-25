@@ -227,7 +227,7 @@
         responseBaseData.result_data = value;
         
         //解析结果
-        YQHLog(@"Response  -->\n" "URL:  %@\n" "data:\n%@\n", task.currentRequest.URL, value);
+        //YQHLog(@"Response  -->\n" "URL:  %@\n" "data:\n%@\n", task.currentRequest.URL, value);
         
         [subscriber sendNext:responseBaseData];
         [subscriber sendCompleted];

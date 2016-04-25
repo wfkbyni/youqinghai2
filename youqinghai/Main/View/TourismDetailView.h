@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, LeftViewModel) {
-    LeftViewModelTop,       // 上
-    LeftViewModelCenter,    // 中
-    LeftViewModelBottom     // 下
+    LeftViewModelTop,        // 上
+    LeftViewModelCenter,     // 中
+    LeftViewModelBottom,     // 下
+    LeftViewModelTopAndBottom   // 只有一条数据
 };
 
 @interface TourismDetailView : UIScrollView
