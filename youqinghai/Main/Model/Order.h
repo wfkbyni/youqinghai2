@@ -57,6 +57,9 @@ Json数据格式
 @property (nonatomic, strong) NSNumber *orderPrice;         // 订单总价格
 @property (nonatomic, strong) NSNumber *orderReserve;       // 预付金额
 @property (nonatomic, strong) NSString *isInsuranceMoney;   // 保险金额
+@property (nonatomic, strong) NSNumber *dayNum;
+@property (nonatomic, strong) NSNumber *dayPrice;
+@property (nonatomic, strong) NSNumber *moneyColumn;        // 预定金额比例
 
 @end
 
@@ -66,6 +69,7 @@ Json数据格式
 @property (nonatomic, strong) NSNumber *deposit;            // 预付定金,
 @property (nonatomic, strong) NSNumber *mathchValue;        // 系统保险金额
 @property (nonatomic, strong) NSArray *listType;            //
+@property (nonatomic, strong) NSNumber *moneyColumn;        // 预定金额比例
 //"listType": [
 //             {
 //                 "id": 车辆类型Id,

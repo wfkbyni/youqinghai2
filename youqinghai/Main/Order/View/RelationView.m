@@ -227,7 +227,7 @@
     
     [orderTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:@"总金额:" attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:15]}]];
     
-    NSInteger orderTotalMoney = _isCarpool ? _carType.dayPrice * _travelNum * _days : [_calCarPrice.orderPrice intValue] * _travelNum * _days;
+    NSInteger orderTotalMoney = _isCarpool ? _carType.dayPrice * _travelNum * _days * ((double)[_calcPrice.mathchValue integerValue] / 100) : [_calCarPrice.orderPrice intValue] * _travelNum * _days * ((double)[_calCarPrice.matchingValue integerValue] / 100);
     [orderTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%ld", orderTotalMoney] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:18]}]];
     
     self.calculateView.totalMoneyLab.attributedText = orderTotalMoneyAttr;

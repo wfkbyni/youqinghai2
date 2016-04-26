@@ -61,7 +61,7 @@
 - (UIView *)tableViewHeaderView{
     
     if (!_tableViewHeaderView) {
-        float height = kScreenSize.width * 0.5;
+        float height = kScreenSize.width * 0.8;
         _tableViewHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenSize.width, height)];
         
         scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenSize.width, height) delegate:nil placeholderImage:nil];
@@ -70,13 +70,13 @@
         [_tableViewHeaderView addSubview:scrollView];
         
         UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [backBtn setFrame:CGRectMake(10, 30, 40, 40)];
+        [backBtn setFrame:CGRectMake(10, 20, 40, 40)];
         [backBtn setImage:[UIImage imageNamed:@"arrow_left"] forState:UIControlStateNormal];
         
         [_tableViewHeaderView addSubview:backBtn];
         
         UIButton *sharedBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        sharedBtn.frame = CGRectMake(CGRectGetWidth(_tableViewHeaderView.frame) - 40 - 10, 30, 40, 40);
+        sharedBtn.frame = CGRectMake(CGRectGetWidth(_tableViewHeaderView.frame) - 40 - 10, 20, 40, 40);
         [sharedBtn setImage:[UIImage imageNamed:@"shard"] forState:UIControlStateNormal];
         
         [_tableViewHeaderView addSubview:sharedBtn];

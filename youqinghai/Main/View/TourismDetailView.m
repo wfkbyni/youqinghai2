@@ -38,6 +38,10 @@
     
     float height = [self calculateHeight];
     
+    if (height < (kScreenSize.height - kScreenSize.width * 0.8 - 40)) {
+        height = kScreenSize.height - kScreenSize.width * 0.8 - 40;
+    }
+    
     [self setFrame:CGRectMake(0, 0, kScreenSize.width, height)];
     
     if (viewlist.count > 0) {

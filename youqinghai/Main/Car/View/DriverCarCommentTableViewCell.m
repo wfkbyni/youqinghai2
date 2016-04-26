@@ -88,7 +88,6 @@
         @weakify(self)
         [_footerView setButtonClick:^{
             @strongify(self);
-            [self makeToast:@"该功能暂未实现"];
             if (self.selectBlock) {
                 if (self.evalist.count) {
                     Eav *e = self.evalist[0];

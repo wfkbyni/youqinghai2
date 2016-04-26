@@ -38,6 +38,8 @@
     [self commonView];
     
     [self requestBindData];
+    
+    NSLog(@"%@",[ZUserModel shareUserModel].userId);
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -50,7 +52,7 @@
     
     self.myTableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
     
-    _myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenSize.width, kScreenSize.height) style:UITableViewStyleGrouped];
+    _myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenSize.width, kScreenSize.height - 44) style:UITableViewStyleGrouped];
     _myTableView.tableFooterView = [UIView new];
     _myTableView.dataSource = self;
     _myTableView.delegate = self;
@@ -87,7 +89,7 @@
 
 - (UIView *)tableViewHeaderView{
     
-    SDCycleScrollView *scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenSize.width, kScreenSize.width * 0.5) delegate:nil placeholderImage:nil];
+    SDCycleScrollView *scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenSize.width, kScreenSize.width * 0.8) delegate:nil placeholderImage:nil];
     
     NSMutableArray *imageArray = [[NSMutableArray alloc] initWithCapacity:[self.mainViewModel.homePageData.banner count]];
     //NSMutableArray *titleArray = [[NSMutableArray alloc] initWithCapacity:[self.mainViewModel.homePageData.banner count]];

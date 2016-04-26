@@ -71,14 +71,14 @@
     [view addSubview:_bgImageView];
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backBtn setFrame:CGRectMake(10, 30, 40, 40)];
+    [backBtn setFrame:CGRectMake(10, 20, 40, 40)];
     [backBtn setTag:BtnClickEventWithBack];
     [backBtn setImage:[UIImage imageNamed:@"arrow_left"] forState:UIControlStateNormal];
     
     [view addSubview:backBtn];
     
     _collectionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _collectionBtn.frame = CGRectMake(CGRectGetWidth(self.frame) - 40 - 10, 30, 40, 40);
+    _collectionBtn.frame = CGRectMake(CGRectGetWidth(self.frame) - 40 - 10, 20, 40, 40);
     [_collectionBtn setTag:BtnClickEventWithCollection];
     [_collectionBtn setImage:[UIImage imageNamed:@"collection"] forState:UIControlStateNormal];
     [view addSubview:_collectionBtn];

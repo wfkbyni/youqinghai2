@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '49588C7399F4D8C0820A0EC2'
+               BlueprintIdentifier = '3FCA1D956BC6E35593471E5A'
                BlueprintName = 'VODBCache'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libVODBCache.a'>

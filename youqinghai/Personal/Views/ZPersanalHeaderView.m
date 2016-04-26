@@ -64,6 +64,7 @@
         
         return;
     }
+    NSLog(@"%@   %@",user.userId,user.nickname);
     [_UserName setTitle:user.nickname forState:UIControlStateNormal];
     [_UserName sizeToFit];
     _nameW.constant = _UserName.bounds.size.width;

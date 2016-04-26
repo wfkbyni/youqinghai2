@@ -264,6 +264,7 @@
 		9A24C3631CC6796000671233 /* CardNo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A24C3621CC6796000671233 /* CardNo.m */; };
 		9A24C3671CC6823A00671233 /* InsuranceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A24C3651CC6823A00671233 /* InsuranceTableViewCell.m */; };
 		9A24C3681CC6823A00671233 /* InsuranceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A24C3661CC6823A00671233 /* InsuranceTableViewCell.xib */; };
+		9A47ED4A1CCFAC440092F0BA /* PublishTravelsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A47ED491CCFAC440092F0BA /* PublishTravelsController.m */; };
 		9A637DAD1CA17EFE004D17BA /* Recommend.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DAC1CA17EFE004D17BA /* Recommend.m */; };
 		9A637DB01CA17FF2004D17BA /* TourismType.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DAF1CA17FF2004D17BA /* TourismType.m */; };
 		9A637DB31CA1809B004D17BA /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DB21CA1809B004D17BA /* Banner.m */; };
@@ -858,6 +859,8 @@
 		9A24C3641CC6823A00671233 /* InsuranceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceTableViewCell.h; sourceTree = "<group>"; };
 		9A24C3651CC6823A00671233 /* InsuranceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceTableViewCell.m; sourceTree = "<group>"; };
 		9A24C3661CC6823A00671233 /* InsuranceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InsuranceTableViewCell.xib; sourceTree = "<group>"; };
+		9A47ED481CCFAC440092F0BA /* PublishTravelsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishTravelsController.h; sourceTree = "<group>"; };
+		9A47ED491CCFAC440092F0BA /* PublishTravelsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishTravelsController.m; sourceTree = "<group>"; };
 		9A637DAB1CA17EFE004D17BA /* Recommend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recommend.h; sourceTree = "<group>"; };
 		9A637DAC1CA17EFE004D17BA /* Recommend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recommend.m; sourceTree = "<group>"; };
 		9A637DAE1CA17FF2004D17BA /* TourismType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourismType.h; sourceTree = "<group>"; };
@@ -2200,6 +2203,8 @@
 				B437E6AB1CA43FB600091521 /* TravelsViewController.h */,
 				B437E6AC1CA43FB600091521 /* TravelsViewController.m */,
 				B437E6AD1CA43FB600091521 /* Views */,
+				9A47ED481CCFAC440092F0BA /* PublishTravelsController.h */,
+				9A47ED491CCFAC440092F0BA /* PublishTravelsController.m */,
 			);
 			path = Travels;
 			sourceTree = "<group>";
@@ -2601,6 +2606,7 @@
 				35891BA81CB7B4C000CE7002 /* DriverCarHeaderView.m in Sources */,
 				35891BAA1CB7B4C000CE7002 /* DriverCarPivViewTableViewCell.m in Sources */,
 				35A67D081CAA35E700B34994 /* ZPersonalDataViewController.m in Sources */,
+				9A47ED4A1CCFAC440092F0BA /* PublishTravelsController.m in Sources */,
 				9A24C3261CBE6BC500671233 /* payRequsestHandler.mm in Sources */,
 				35DDF8E61CC7712600C7F820 /* SDPhotoBrowser.m in Sources */,
 				35DDF8E71CC7712600C7F820 /* SDWaitingView.m in Sources */,
