@@ -75,10 +75,11 @@
     headerView.viewController = self;
     __weak PersonalViewController *blockSelf= self;
     headerView.btnBlcok = ^(int type){
-        if (![ZUserModel shareUserModel].userId) {
-            [self loginPush];
+       
+        if ([ZUserModel  pushLogin:self]) {
             return ;
         }
+         
         if (type) {
             ZPersonalDataViewController *pdv = [[ZPersonalDataViewController alloc]init];
             [self.navigationController pushViewController:pdv animated:YES];

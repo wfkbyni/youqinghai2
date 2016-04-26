@@ -7,7 +7,7 @@
 //
 
 #import "ZUserModel.h"
-
+#import "ZLoginViewController.h"
 @implementation ZUserModel
 +(instancetype)shareUserModel
 {
@@ -29,5 +29,16 @@
          [ZUserModel shareUserModel].passWord = passWord?passWord:[ZUserModel shareUserModel].passWord;
     }];
     return signal;
+}
++(BOOL)pushLogin:(UIViewController*)controller
+{
+    if (![ZUserModel shareUserModel].userId) {
+        ZLoginViewController *login = [[ZLoginViewController alloc]init];
+        [controller.navigationController pushViewController:login animated:YES];
+        return YES;
+    }else{
+        return NO;
+    }
+
 }
 @end

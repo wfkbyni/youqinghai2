@@ -23,7 +23,23 @@
 @property(nonatomic,copy)NSString *collection;
 @property(nonatomic,copy)NSString *passWord;
 +(instancetype)shareUserModel;
+/**
+ *  登录账号
+ *
+ *  @param phone    账号
+ *  @param passWord 密码
+ *
+ *  @return <#return value description#>
+ */
 -(RACSignal *)getUserDataWithPhone:(NSString*)phone andPassWord:(NSString*)passWord;
+/**
+ *  判断是否登录
+ *
+ *  @param controller 控制器
+ *
+ *  @return <#return value description#>
+ */
++(BOOL)pushLogin:(UIViewController*)controller;
 @end
 //{"parise":0,"sex":1,"phone":"13458540072","travelCount":0,"autograph":"帅哥就是你","nickname":"你很帅","userId":4,"headUrl":"http://img.smartmiyi.com/userHeadUrl/1457678872657__headimage.jpg","collection":0}
 //"parise":被赞次数,
