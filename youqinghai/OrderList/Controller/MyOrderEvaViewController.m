@@ -70,6 +70,7 @@
 //    edv.orderImage = self.images;
     edv.eva = NO;
     edv.listMod =self.listMod;
+
     [self.navigationController pushViewController:edv animated:YES];
 }
 -(void)regis
@@ -84,6 +85,7 @@
     edv.orderlevel = self.level;
     edv.eva = YES;
     edv.listMod =self.listMod;
+    edv.orderImage = self.images;
     [self.navigationController pushViewController:edv animated:YES];
 }
 
@@ -103,6 +105,7 @@
     if (indexPath.row==0) {
         MyOrderEvaCell *cell = [[NSBundle mainBundle] loadNibNamed:@"MyOrderEvaCell" owner:nil options:nil].firstObject;
         cell.starView.starCount = self.level;
+        cell.evaNum.text = [@(self.level).stringValue stringByAppendingString:@".0分"];
         cell.evaNumBlock = ^(NSInteger level){
             self.level = level;
         };

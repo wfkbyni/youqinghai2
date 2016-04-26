@@ -160,7 +160,14 @@
     
     _subView.frame = (CGRect){0,self.textLabel.relativeY+5,self.width  ,134};
     
-    _picIV.frame = (CGRect){leftEdge,10.0f,150,112};
+    
+    CGFloat w = [UIScreen mainScreen].bounds.size.width;
+    if (w>350) {
+        _picIV.frame = (CGRect){leftEdge,10.0f,150,112};
+    }else{
+        _picIV.frame = (CGRect){leftEdge,10.0f,112,112};
+    }
+    
     CGFloat x    = _picIV.relativeX+5;
     _titleLB.frame    = (CGRect){x,_picIV.y,self.width - x,20};
     
