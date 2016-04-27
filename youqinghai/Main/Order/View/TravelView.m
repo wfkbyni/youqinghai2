@@ -229,6 +229,7 @@
                 self.carDetail.cartypeId = carType.Id;
                 self.mySeatsnum = carType.seatsnum;
                 if (_TravelSelectBlock) {
+                    [_travelCount setText:[NSString stringWithFormat:@"%@人",@(carType.seatsnum)]];
                     _TravelSelectBlock(TravelTypeWithType,carType);
                 }
             }];

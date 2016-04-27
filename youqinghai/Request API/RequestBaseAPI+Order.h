@@ -26,9 +26,15 @@
  *  @brief 计算拼车价格
  *
  *  @param traveId 景点id
+ *  @param carTypeId 车辆类型Id
+ *  @param travelNum 出游人数
+ *  @param isInsurance 是否购买保险(保险人数)
  *
  */
-- (RACSignal *)calcPriceWithTraveId:(NSInteger)traveId;
+- (RACSignal *)calcPriceWithTraveId:(NSInteger)traveId
+                      withCarTypeId:(NSInteger)carTypeId
+                      withTravelNum:(NSInteger)travelNum
+                    withIsInsurance:(NSInteger)isInsurance;
 
 /**
  *  @brief 生成支付订单（1.0）

@@ -39,8 +39,25 @@ NSString *const sendCom = @"app/myOrder/complaintDriver";
     return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
 }
 
--(RACSignal *)calcPriceWithTraveId:(NSInteger)traveId{
-    NSString *params = [NSString stringWithFormat:@"server=%@&traveId=%ld",calcPrice,traveId];
+-(RACSignal *)calcPriceWithTraveId:(NSInteger)traveId withCarTypeId:(NSInteger)carTypeId withTravelNum:(NSInteger)travelNum withIsInsurance:(NSInteger)isInsurance{
+    NSString *params;
+    if (carTypeId != 0 && travelNum != 0 && isInsurance != 0) {
+        params = [NSString stringWithFormat:@"server=%@&traveId=%ld&carTypeId=%ld&travelNum=%ld&isInsurance=%ld",calcPrice,traveId,carTypeId,travelNum,isInsurance];
+    }else if(carTypeId != 0 && travelNum != 0){
+        params = [NSString stringWithFormat:@"server=%@&traveId=%ld&carTypeId=%ld&travelNum=%ld",calcPrice,traveId,carTypeId,travelNum];
+    }else if(travelNum != 0 && isInsurance != 0){
+        params = [NSString stringWithFormat:@"server=%@&traveId=%ld&travelNum=%ld&isInsurance=%ld",calcPrice,traveId,travelNum,isInsurance];
+    }else if(carTypeId != 0 && isInsurance != 0){
+        params = [NSString stringWithFormat:@"server=%@&traveId=%ld&carTypeId=%ld&isInsurance=%ld",calcPrice,traveId,carTypeId,isInsurance];
+    }else if(carTypeId != 0){
+        params = [NSString stringWithFormat:@"server=%@&traveId=%ld&carTypeId=%ld",calcPrice,traveId,carTypeId];
+    }else if(travelNum != 0){
+        params = [NSString stringWithFormat:@"server=%@&traveId=%ld&travelNum=%ld",calcPrice,traveId,travelNum];
+    }else if(isInsurance != 0){
+        params = [NSString stringWithFormat:@"server=%@&traveId=%ld&isInsurance=%ld",calcPrice,traveId,isInsurance];
+    }else{
+        params = [NSString stringWithFormat:@"server=%@&traveId=%ld",calcPrice,traveId];
+    }
     
     return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
 }

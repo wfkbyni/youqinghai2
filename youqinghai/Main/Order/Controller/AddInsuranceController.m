@@ -32,7 +32,8 @@
     
     NSString *cardNo = self.NoTextField.text;
     if (cardNo.length != 18) {
-        [self.view makeToast:@"请输入正确的身份证号码"];
+        NSValue *value = [NSValue valueWithCGPoint:CGPointMake([UIScreen mainScreen].bounds.size.width / 2, [UIScreen mainScreen].bounds.size.height / 2)];
+        [self.view makeToast:@"请输入正确的身份证号码" duration:2 position:value];
         return;
     }
     

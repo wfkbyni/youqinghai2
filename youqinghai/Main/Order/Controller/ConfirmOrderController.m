@@ -102,7 +102,10 @@
 }
 
 - (void)loadCalcPrice{
-    [[self.orderViewModel calcPrice] subscribeNext:^(CalcPrice *calcPrice) {
+    [[self.orderViewModel calcPriceWithTraveId:self.orderViewModel.traveId
+                                 withCarTypeId:self.carDetail.cartypeId
+                                 withTravelNum:self.orderViewModel.order.travelnum
+                               withIsInsurance:isInsurance] subscribeNext:^(CalcPrice *calcPrice) {
         
         self.relationView.calcPrice = calcPrice;
         self.travelView.calcPrice = calcPrice;
@@ -151,17 +154,20 @@
              _travelView.carDetail = [CarDetail new];
         }
        
-        __weak typeof(self) weakSelf = self;
+        @weakify(self)
         [_travelView setTravelSelectBlock:^(TravelType type, id value) {
+            @strongify(self)
             if (type == TravelTypeWithDate) {
                 NSDate *date = value;
-                weakSelf.orderViewModel.order.travelTime = [date timeIntervalSince1970] * 1000;
+                self.orderViewModel.order.travelTime = [date timeIntervalSince1970] * 1000;
             }else if(type == TravelTypeWithCount){
-                weakSelf.relationView.travelNum = [value integerValue];
-                weakSelf.orderViewModel.order.travelnum = [value integerValue];
+                self.relationView.travelNum = [value integerValue];
+                self.orderViewModel.order.travelnum = [value integerValue];
             }else if(type == TravelTypeWithType){
-                weakSelf.relationView.carType = value;
+                self.relationView.carType = value;
             }
+            
+            [self getData];
         }];
     }
     return _travelView;

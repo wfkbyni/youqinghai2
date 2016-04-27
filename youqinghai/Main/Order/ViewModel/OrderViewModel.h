@@ -31,7 +31,19 @@
  */
 - (RACSignal *)calcCharteredPriceWihtIsInsurance:(NSInteger)isInsurance;
 
-- (RACSignal *)calcPrice;
+/**
+ *  @brief 计算拼车订单价格（1.0）
+ *
+ *  @param traveId     景点Id
+ *  @param carTypeId   车辆类型Id
+ *  @param travelNum   出游人数
+ *  @param isInsurance 是否购买保险(保险人数)
+ *
+ */
+- (RACSignal *)calcPriceWithTraveId:(NSInteger)traveId
+                      withCarTypeId:(NSInteger)carTypeId
+                      withTravelNum:(NSInteger)travelNum
+                    withIsInsurance:(NSInteger)isInsurance;
 
 /**
  *  @brief 生成支付订单（1.0）

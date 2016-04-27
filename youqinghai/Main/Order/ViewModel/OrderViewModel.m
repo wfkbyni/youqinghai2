@@ -31,8 +31,11 @@
     return signal;
 }
 
--(RACSignal *)calcPrice{
-    RACSignal *signal = [[[RequestBaseAPI standardAPI] calcPriceWithTraveId:self.traveId] map:^id(ResponseBaseData *data) {
+-(RACSignal *)calcPriceWithTraveId:(NSInteger)traveId
+                     withCarTypeId:(NSInteger)carTypeId
+                     withTravelNum:(NSInteger)travelNum
+                   withIsInsurance:(NSInteger)isInsurance{
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] calcPriceWithTraveId:traveId withCarTypeId:carTypeId withTravelNum:travelNum withIsInsurance:isInsurance] map:^id(ResponseBaseData *data) {
         self.cPrice = [CalcPrice mj_objectWithKeyValues:data.result_data];
         return self.cPrice;
     }];
