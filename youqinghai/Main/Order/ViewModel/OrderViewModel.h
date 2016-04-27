@@ -27,9 +27,9 @@
 
 /**
  *  @brief 计算包车订单价格（1.0）
- *
+ *  IsInsurance : 保险人数
  */
-- (RACSignal *)calcCharteredPrice;
+- (RACSignal *)calcCharteredPriceWihtIsInsurance:(NSInteger)isInsurance;
 
 - (RACSignal *)calcPrice;
 

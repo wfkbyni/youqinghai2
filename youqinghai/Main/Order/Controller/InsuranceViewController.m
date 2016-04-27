@@ -31,6 +31,8 @@
     [self.myTableView setDataSource:self];
     [self.myTableView setDelegate:self];
     [self.myTableView registerNib:[UINib nibWithNibName:@"InsuranceTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    
+    [self loadCacheData];
 }
 
 - (void)loadCacheData{
@@ -54,14 +56,11 @@
     }];
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
-    [self loadCacheData];
-}
-
 - (void)addInsuranceAction{
     AddInsuranceController *controller = [[AddInsuranceController alloc] init];
+    [controller setAddSuccess:^{
+        [self loadCacheData];
+    }];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, ValueType) {
+    ValueTypeWithInsuranceCount,        // 保险人数
+};
+
 @interface RelationView : UIView
 
 @property (nonatomic, strong) Order *order;
@@ -32,5 +36,8 @@
 @property (nonatomic, strong) NSArray *insuranceArray;        // 被保人数据
 
 @property (nonatomic, strong) UINavigationController *navigationController;
+
+// 用于返回一些值
+@property (nonatomic, copy) void(^returnSomingValue)(ValueType type, id obj);
 
 @end

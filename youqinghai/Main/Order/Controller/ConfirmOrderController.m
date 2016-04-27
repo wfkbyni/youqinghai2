@@ -16,7 +16,9 @@
 #import "OrderViewModel.h"
 #import "CarViewModel.h"
 
-@interface ConfirmOrderController ()
+@interface ConfirmOrderController (){
+    NSInteger isInsurance;
+}
 
 @property (nonatomic, strong) UIScrollView *myScrollView;
 
@@ -38,6 +40,7 @@
     self.title = @"确认订单";
     
     [self.view setBackgroundColor:[UIColor colorWithRed:0.94 green:0.94 blue:0.95 alpha:1.00]];
+    
     
     [self.view addSubview:self.myScrollView];
     
@@ -75,12 +78,27 @@
     }];
     
     self.relationView.isCarpool = _isCarpool;
+    
+    [self getData];
+}
+
+- (void)popViewController{
+    
+    [CardNo removeAllCachedObjectsSuccess:^(NSArray *array) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)getData{
     if (_isCarpool) {
         [self loadCalcPrice];
     }else{
         [self requestCalcCharteredPriceData];
     }
-
 }
 
 - (void)loadCalcPrice{
@@ -101,7 +119,7 @@
 // 获取包车价格
 - (void)requestCalcCharteredPriceData{
     
-    [[self.orderViewModel calcCharteredPrice] subscribeNext:^(CalCarPrice *calCarPrice) {
+    [[self.orderViewModel calcCharteredPriceWihtIsInsurance:isInsurance] subscribeNext:^(CalCarPrice *calCarPrice) {
         
         self.relationView.calCarPrice = calCarPrice;
         self.travelView.calCarPrice = calCarPrice;
@@ -154,6 +172,19 @@
     if (!_relationView) {
         _relationView = [[RelationView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.travelView.frame) + 10, kScreenSize.width, 250 + 130)];
         _relationView.navigationController = self.navigationController;
+        @weakify(self)
+        [_relationView setReturnSomingValue:^(ValueType type, id obj) {
+            @strongify(self)
+            switch (type) {
+                case ValueTypeWithInsuranceCount:
+                    isInsurance = [(NSArray *)obj count];
+                    [self getData];
+                    break;
+                    
+                default:
+                    break;
+            }
+        }];
     }
     
     return _relationView;

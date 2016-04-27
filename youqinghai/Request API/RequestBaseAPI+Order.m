@@ -29,7 +29,12 @@ NSString *const sendCom = @"app/myOrder/complaintDriver";
                               withCarTypeId:(NSInteger)driverId
                             withIsInsurance:(NSInteger)isInsurance{
     
-    NSString *params = [NSString stringWithFormat:@"server=%@&traveId=%ld&driverId=%ld",calcCharteredPrice,traveId,driverId];//[NSString stringWithFormat:@"server=%@&traveId=%ld&carTypeId=%ld&isInsurance=%ld",calcCharteredPrice,traveId,carTypeId,isInsurance];
+    NSString *params;
+    if (isInsurance == 0) {
+        params = [NSString stringWithFormat:@"server=%@&traveId=%ld&driverId=%ld",calcCharteredPrice,traveId,driverId];
+    }else{
+        params = [NSString stringWithFormat:@"server=%@&traveId=%ld&driverId=%ld&isInsurance=%ld",calcCharteredPrice,traveId,driverId,isInsurance];
+    }
     
     return [self requestWithType:RequestAPITypePost params:[self getDesEncryptWithString:params]];
 }

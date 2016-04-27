@@ -10,4 +10,6 @@
 
 @interface AddInsuranceController : BaseViewController
 
+@property (nonatomic, copy) void(^addSuccess)();
+
 @end

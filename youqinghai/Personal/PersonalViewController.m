@@ -61,7 +61,6 @@
             [_headerView setData];
         });
     }
-    
 }
 -(void)viewWillAppear:(BOOL)animated
 {

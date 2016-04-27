@@ -19,9 +19,9 @@
     return self;
 }
 
--(RACSignal *)calcCharteredPrice{
+-(RACSignal *)calcCharteredPriceWihtIsInsurance:(NSInteger)isInsurance{
     
-    RACSignal *signal = [[[RequestBaseAPI standardAPI] calcCharteredPriceWithTraveId:self.traveId withCarTypeId:self.driverId withIsInsurance:0] map:^id(ResponseBaseData *data) {
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] calcCharteredPriceWithTraveId:self.traveId withCarTypeId:self.driverId withIsInsurance:isInsurance] map:^id(ResponseBaseData *data) {
         
         self.calCarPrice = [CalCarPrice mj_objectWithKeyValues:data.result_data];
         

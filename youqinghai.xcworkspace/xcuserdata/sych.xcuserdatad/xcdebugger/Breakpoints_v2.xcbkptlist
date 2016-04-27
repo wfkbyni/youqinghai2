@@ -57,22 +57,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "youqinghai/Main/Model/ZUserModel.m"
-            timestampString = "482250439.556912"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "-getUserDataWithPhone:andPassWord:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Pods/SDCycleScrollView/SDCycleScrollView/Lib/SDCycleScrollView/SDCycleScrollView.m"
             timestampString = "482423152.246162"
             startingColumnNumber = "9223372036854775807"
@@ -170,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youqinghai/Main/Order/Controller/ConfirmOrderController.m"
-            timestampString = "482859796.409999"
+            timestampString = "483453111.888087"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "-confirmOrder"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,13 +170,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youqinghai/Main/Order/Controller/ConfirmOrderController.m"
-            timestampString = "482859796.409999"
+            timestampString = "483453111.888087"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "-confirmOrder"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__38-[ConfirmOrderController confirmOrder]_block_invoke"
+                  moduleName = "&#x6e38;&#x9752;&#x6d77;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/Main/Order/Controller/ConfirmOrderController.m"
+                  timestampString = "483453376.749215"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "233"
+                  endingLineNumber = "233"
+                  offsetFromSymbolStart = "166">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__38-[ConfirmOrderController confirmOrder]_block_invoke_2"
+                  moduleName = "&#x6e38;&#x9752;&#x6d77;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/Main/Order/Controller/ConfirmOrderController.m"
+                  timestampString = "483453376.749422"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "236"
+                  endingLineNumber = "236"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -202,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youqinghai/Request API/RequestBaseAPI+Order.m"
-            timestampString = "482774355.272541"
+            timestampString = "483452214.190077"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "-addOrderWithOrder:"
             landmarkType = "5">
          </BreakpointContent>
@@ -218,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youqinghai/Request API/RequestBaseAPI+Order.m"
-            timestampString = "482774420.208163"
+            timestampString = "483452214.190077"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "-addOrderWithOrder:"
             landmarkType = "5">
          </BreakpointContent>
@@ -265,13 +281,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "youqinghai/Personal/PersonalViewController.m"
-            timestampString = "483371609.306648"
+            filePath = "youqinghai/Main/Order/Controller/ConfirmOrderController.m"
+            timestampString = "483453111.888087"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "-getUserData"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "-travelView"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

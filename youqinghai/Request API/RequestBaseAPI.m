@@ -225,6 +225,7 @@
         
         NSString *value = [GTMBase64 desDecrypt:string];
         responseBaseData.result_data = value;
+        //NSLog(@"%@",task.currentRequest.URL);
         
         //解析结果
         //YQHLog(@"Response  -->\n" "response data:\n%@\n", responseBaseData.result_data);

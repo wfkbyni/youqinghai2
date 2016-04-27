@@ -46,6 +46,10 @@
     
     [self.view makeToast:@"添加成功"];
     
+    if (_addSuccess) {
+        _addSuccess();
+    }
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 

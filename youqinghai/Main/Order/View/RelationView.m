@@ -104,6 +104,14 @@
                 _insuranceCount = 0;
                 [self attrString:0];
             }
+            
+            if (_returnSomingValue) {
+                if (checked) {
+                    _returnSomingValue(ValueTypeWithInsuranceCount, _insuranceArray);
+                }else{
+                    _returnSomingValue(ValueTypeWithInsuranceCount, @[]);
+                }
+            }
         };
         
         [checkBox setBtnClickEvent:^(CheckBoxView *sender) {
@@ -143,38 +151,38 @@
     [self attrString:_insuranceCount];
 }
 
--(void)setCalcPrice:(CalcPrice *)calcPrice{
-    _calcPrice = calcPrice;
-    
-    [self attrString:_insuranceCount];
-}
-
--(void)setIsCarpool:(BOOL)isCarpool{
-    _isCarpool = isCarpool;
-    
-    [self attrString:_insuranceCount];
-}
-
-- (void)setSeatsnum:(NSInteger)seatsnum{
-    _seatsnum = seatsnum;
-    
-    [self attrString:_insuranceCount];
-}
-
--(void)setCarType:(CarType *)carType{
-    _carType = carType;
-    [self attrString:_insuranceCount];
-}
-
--(void)setDays:(NSInteger )days{
-    _days = days;
-    [self attrString:_insuranceCount];
-}
-
-- (void)setTravelNum:(NSInteger)travelNum{
-    _travelNum = travelNum;
-    [self attrString:_insuranceCount];
-}
+//-(void)setCalcPrice:(CalcPrice *)calcPrice{
+//    _calcPrice = calcPrice;
+//    
+//    [self attrString:_insuranceCount];
+//}
+//
+//-(void)setIsCarpool:(BOOL)isCarpool{
+//    _isCarpool = isCarpool;
+//    
+//    [self attrString:_insuranceCount];
+//}
+//
+//- (void)setSeatsnum:(NSInteger)seatsnum{
+//    _seatsnum = seatsnum;
+//    
+//    [self attrString:_insuranceCount];
+//}
+//
+//-(void)setCarType:(CarType *)carType{
+//    _carType = carType;
+//    [self attrString:_insuranceCount];
+//}
+//
+//-(void)setDays:(NSInteger )days{
+//    _days = days;
+//    [self attrString:_insuranceCount];
+//}
+//
+//- (void)setTravelNum:(NSInteger)travelNum{
+//    _travelNum = travelNum;
+//    [self attrString:_insuranceCount];
+//}
 
 - (void)bindModel{
     [_textField1.rac_textSignal subscribeNext:^(id x) {
@@ -202,7 +210,7 @@
     
     [fuseMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:@"保险金额:" attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:14]}]];
     
-    [fuseMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@/天",_isCarpool ? _calcPrice.mathchValue : _calCarPrice.matchingValue] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:16]}]];
+    [fuseMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@/人",_isCarpool ? _calcPrice.mathchValue : _calCarPrice.matchingValue] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:16]}]];
     
     self.fuseMoneyLab.attributedText = fuseMoneyAttr;
     
@@ -210,7 +218,7 @@
     
     [fuseTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:@"总金额:" attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:14]}]];
     
-    NSInteger insuranceMoney = _isCarpool ? [_calcPrice.mathchValue intValue] * count : [_calCarPrice.matchingValue intValue] * count;
+    NSInteger insuranceMoney = _isCarpool ? [_calcPrice.mathchValue intValue] : [_calCarPrice.isInsuranceMoney integerValue];
     [fuseTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%lu",insuranceMoney] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:16]}]];
     
     self.fuseTotalMoneyLab.attributedText = fuseTotalMoneyAttr;
@@ -219,7 +227,7 @@
     
     [orderMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:_isCarpool ? @"人均金额:" : @"订单金额:" attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:15]}]];
     
-    [orderMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@天",_isCarpool ? @(_carType.dayPrice) : _calCarPrice.orderPrice] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:18]}]];
+    [orderMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@天",_isCarpool ? @(_carType.dayPrice) : _calCarPrice.dayPrice] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:18]}]];
     
     self.calculateView.orderMoneyLab.attributedText = orderMoneyAttr;
     
@@ -227,12 +235,12 @@
     
     [orderTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:@"总金额:" attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:15]}]];
     
-    NSInteger orderTotalMoney = _isCarpool ? _carType.dayPrice * _travelNum * _days * ((double)[_calcPrice.mathchValue integerValue] / 100) : [_calCarPrice.orderPrice intValue] * _travelNum * _days * ((double)[_calCarPrice.matchingValue integerValue] / 100);
+    NSInteger orderTotalMoney = _isCarpool ? 0 : [_calCarPrice.orderPrice integerValue];//_isCarpool ? _carType.dayPrice * _travelNum * _days * ((double)[_calcPrice.mathchValue integerValue] / 100) : [_calCarPrice.orderPrice intValue] * _travelNum * _days * ((double)[_calCarPrice.matchingValue integerValue] / 100);
     [orderTotalMoneyAttr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%ld", orderTotalMoney] attributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:18]}]];
     
     self.calculateView.totalMoneyLab.attributedText = orderTotalMoneyAttr;
     
-    self.totalMoeny = [NSNumber numberWithInteger:orderTotalMoney + insuranceMoney];
+    self.totalMoeny = [NSNumber numberWithInteger:_isCarpool ? 0 : [_calCarPrice.orderReserve integerValue]];
     self.calculateView.earnestMoneyLab.text = [NSString stringWithFormat:@"￥%@",self.totalMoeny];
 }
 
@@ -292,7 +300,9 @@
     [controller setInsuranceDataCall:^(NSArray *array) {
         _insuranceCount = array.count;
         _insuranceArray = array;
-        [self attrString:_insuranceCount];
+        if (_returnSomingValue) {
+            _returnSomingValue(ValueTypeWithInsuranceCount, array);
+        }
     }];
 }
 
