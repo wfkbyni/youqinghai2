@@ -35,7 +35,6 @@
     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"1344607825" secret:@"2fe1f9573a6b6759f5d4abb041f3050c" RedirectURL:@"http://wmn.cn"];
     [UMSocialQQHandler setQQWithAppId:@"1105141688" appKey:@"81RIaPqLcKVFXT8I" url:@"http://www.wmn.cn/web/lawyer/todown"];
     
-   
     
     [self.window makeKeyAndVisible];
     return YES;

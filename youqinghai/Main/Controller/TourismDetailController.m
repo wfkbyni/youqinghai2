@@ -354,6 +354,7 @@
 - (TourismDetailView *)tourismDetailView{
     if (!_tourismDetailView) {
         _tourismDetailView = [[TourismDetailView alloc] init];
+        _tourismDetailView.tourismId = _recommend.Id;
         _tourismDetailView.navigationController = self.navigationController;
         _tourismDetailView.viewlist = self.mainViewModel.traveltrip.traveltriplist;
         [[NSUserDefaults standardUserDefaults] setObject:@(self.mainViewModel.traveltrip.traveltriplist.count) forKey:YQHViewlist];

@@ -30,9 +30,10 @@
 - (IBAction)addInsuranceAction:(id)sender {
     NSString *name = self.nameTextField.text;
     
+    NSValue *value = [NSValue valueWithCGPoint:CGPointMake([UIScreen mainScreen].bounds.size.width / 2, [UIScreen mainScreen].bounds.size.height / 2)];
     NSString *cardNo = self.NoTextField.text;
     if (cardNo.length != 18) {
-        NSValue *value = [NSValue valueWithCGPoint:CGPointMake([UIScreen mainScreen].bounds.size.width / 2, [UIScreen mainScreen].bounds.size.height / 2)];
+        
         [self.view makeToast:@"请输入正确的身份证号码" duration:2 position:value];
         return;
     }
@@ -45,7 +46,7 @@
     
     [model cacheObject];
     
-    [self.view makeToast:@"添加成功"];
+    [self.view makeToast:@"添加成功" duration:2 position:value];
     
     if (_addSuccess) {
         _addSuccess();

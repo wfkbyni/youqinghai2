@@ -273,6 +273,8 @@
 		9A637DC11CA18993004D17BA /* TempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DBF1CA18993004D17BA /* TempViewController.m */; };
 		9A637DC21CA18993004D17BA /* TempViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A637DC01CA18993004D17BA /* TempViewController.xib */; };
 		9A637DCB1CA2D8AC004D17BA /* UIView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DCA1CA2D8AC004D17BA /* UIView+Helper.m */; };
+		9A8952691CD0F9BC00E53F57 /* WebTourisController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8952671CD0F9BC00E53F57 /* WebTourisController.m */; };
+		9A89526A1CD0F9BC00E53F57 /* WebTourisController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A8952681CD0F9BC00E53F57 /* WebTourisController.xib */; };
 		9AD4BE3A1CB7E44400C1C89B /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD4BE391CB7E44400C1C89B /* Const.m */; };
 		9AF1C0121C9ED3E100AD2FC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF1C0111C9ED3E100AD2FC1 /* main.m */; };
 		9AF1C0151C9ED3E100AD2FC1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF1C0141C9ED3E100AD2FC1 /* AppDelegate.m */; };
@@ -876,6 +878,9 @@
 		9A637DC01CA18993004D17BA /* TempViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TempViewController.xib; sourceTree = "<group>"; };
 		9A637DC91CA2D8AC004D17BA /* UIView+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Helper.h"; sourceTree = "<group>"; };
 		9A637DCA1CA2D8AC004D17BA /* UIView+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Helper.m"; sourceTree = "<group>"; };
+		9A8952661CD0F9BC00E53F57 /* WebTourisController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebTourisController.h; sourceTree = "<group>"; };
+		9A8952671CD0F9BC00E53F57 /* WebTourisController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebTourisController.m; sourceTree = "<group>"; };
+		9A8952681CD0F9BC00E53F57 /* WebTourisController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebTourisController.xib; sourceTree = "<group>"; };
 		9AD4BE381CB7E44400C1C89B /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		9AD4BE391CB7E44400C1C89B /* Const.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Const.m; sourceTree = "<group>"; };
 		9AF1C00D1C9ED3E100AD2FC1 /* 游青海.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "游青海.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2066,6 +2071,9 @@
 				35891BCB1CB7B55400CE7002 /* TouristroutesViewController.h */,
 				35891BCC1CB7B55400CE7002 /* TouristroutesViewController.m */,
 				35891BCD1CB7B55400CE7002 /* TouristroutesViewController.xib */,
+				9A8952661CD0F9BC00E53F57 /* WebTourisController.h */,
+				9A8952671CD0F9BC00E53F57 /* WebTourisController.m */,
+				9A8952681CD0F9BC00E53F57 /* WebTourisController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2387,6 +2395,7 @@
 				B472E7871CBCA0C700A43CCB /* html in Resources */,
 				35D2954B1CB669FA0029B8C1 /* ZFowUserCell.xib in Resources */,
 				357D72C81CBCD23900EAD35C /* UMSCommentInputControlleriPad.xib in Resources */,
+				9A89526A1CD0F9BC00E53F57 /* WebTourisController.xib in Resources */,
 				354A684C1CB38AD2001F3F5D /* ZImageFidCell.xib in Resources */,
 				35E3FFB61CA8CD9A00876054 /* ZPersonalHeaderView.xib in Resources */,
 				9A24C34D1CC3DC4D00671233 /* stars_on@3x.png in Resources */,
@@ -2529,6 +2538,7 @@
 				B437E6991CA43D3700091521 /* SRSlimeView.m in Sources */,
 				35891BA51CB7B4C000CE7002 /* DriverCarCommentCell.m in Sources */,
 				35891BA41CB7B4C000CE7002 /* DriverCarCellHeaderView.m in Sources */,
+				9A8952691CD0F9BC00E53F57 /* WebTourisController.m in Sources */,
 				35891B9B1CB7B4C000CE7002 /* CarDetailController.m in Sources */,
 				35891C0A1CB7B5F500CE7002 /* Trip.m in Sources */,
 				9A637DB31CA1809B004D17BA /* Banner.m in Sources */,

@@ -9,6 +9,7 @@
 #import "TourismDetailView.h"
 #import "SDPhotoBrowser.h"
 #import "TourismDetailController.h"
+#import "WebTourisController.h"
 #define line 20
 #define rowHeight 120
 #define leftViewWidth 80
@@ -204,13 +205,11 @@
     
     Trip *trip = self.imageAr[tgr.view.tag];
 
-    Recommend *recommend = [[Recommend alloc] init];
-    recommend.Id = trip.Id;
- 
-    [[NSUserDefaults standardUserDefaults] setObject:@(recommend.Id) forKey:YQHTourisId];
+
+    [[NSUserDefaults standardUserDefaults] setObject:@(trip.Id) forKey:YQHTourisId];
    
-    TourismDetailController *controller = [[TourismDetailController alloc] init];
-    controller.recommend = recommend;
+    WebTourisController *controller = [WebTourisController new];
+    controller.tourismId = _tourismId;
     [self.navigationController pushViewController:controller animated:YES];
 
 }
