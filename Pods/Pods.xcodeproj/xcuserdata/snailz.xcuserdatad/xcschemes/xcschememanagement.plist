@@ -78,16 +78,21 @@
 		<key>Toast.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>9</integer>
 		</dict>
 		<key>UzysAssetsPickerController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>10</integer>
 		</dict>
 		<key>VODBCache.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
+		<key>YYText.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>12</integer>
@@ -100,12 +105,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0DD45D120FF06341384541371A0D6397</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>133F584FC94DB4F1AF03C77FA7DDE104</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>16D3185319BBDF62AF3DC63D9E5FCC43</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>17ABCAF01489E2477E2531A23367547B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -130,6 +145,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>36D59E8A0F01503D52CEB93551ADE5DE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3916280F6792B6899D848B12DBCF9740</key>
 		<dict>
 			<key>primary</key>
@@ -150,6 +170,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>58A210C10D1E0FFB5BDED9AB63BCEEB9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>638017749958C00B00C2D6B5F363E560</key>
 		<dict>
 			<key>primary</key>
@@ -165,7 +190,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>751F2925BBBBE9EBD382E8324C2192C2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>79E816C5130AC97C342FF98D1E60E580</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7D8253104C656272B2A0B1A85012A872</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -205,7 +240,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BB74F3ACE6EC9674F971E44CB6018EA0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E16ADEB10B06AD552300722C9B75A796</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E33951BA1189F98FAB6AF1EEFAC92CCD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

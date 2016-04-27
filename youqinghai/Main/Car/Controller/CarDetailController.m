@@ -65,6 +65,10 @@
 }
 
 - (void)charteredAction:(id)sender{
+    if ([ZUserModel  pushLogin:self]) {
+        return ;
+    }
+    
     ConfirmOrderController *controller = [[ConfirmOrderController alloc] init];
     controller.driverId = self.carViewModel.driverId;
     controller.isCarpool = NO;
@@ -114,12 +118,16 @@
         @weakify(self)
         [_driverCarHeaderView setBtnClickEvent:^(BtnClickEvent event) {
             @strongify(self)
+
             switch (event) {
                 case BtnClickEventWithBack: {
                     [self.navigationController popViewControllerAnimated:YES];
                     break;
                 }
                 case BtnClickEventWithCollection: {
+                    if ([ZUserModel  pushLogin:self]) {
+                        return ;
+                    }
                     [self addDriver];
                     break;
                 }
@@ -238,7 +246,7 @@
 }
 
 - (void)addDriver{
-    [[self.mainViewModel addDriverOrRoteIdWithUserId:[[ZUserModel shareUserModel].userId integerValue] withTravelId:self.car.Id withType:0] subscribeNext:^(ResponseBaseData *data) {
+    [[self.mainViewModel addDriverOrRoteIdWithUserId:[[ZUserModel shareUserModel].userId integerValue] withTravelId:self.car.driverId withType:1] subscribeNext:^(ResponseBaseData *data) {
         
         
         RoteCollection *obj = [RoteCollection mj_objectWithKeyValues:data.result_data];

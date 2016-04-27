@@ -80,13 +80,15 @@
     }else{
         [self requestCalcCharteredPriceData];
     }
+
 }
 
 - (void)loadCalcPrice{
     [[self.orderViewModel calcPrice] subscribeNext:^(CalcPrice *calcPrice) {
         
         self.relationView.calcPrice = calcPrice;
-        
+        self.travelView.calcPrice = calcPrice;
+
     } error:^(NSError *error) {
         YQHLog(@"%@",error);
     }];
@@ -102,6 +104,8 @@
     [[self.orderViewModel calcCharteredPrice] subscribeNext:^(CalCarPrice *calCarPrice) {
         
         self.relationView.calCarPrice = calCarPrice;
+        self.travelView.calCarPrice = calCarPrice;
+
         
     } error:^(NSError *error) {
         YQHLog(@"%@",error);

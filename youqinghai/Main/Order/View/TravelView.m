@@ -59,7 +59,7 @@
     
     [_travelCount setText:[NSString stringWithFormat:@"%ld人",carDetail.seatsnum]];
     NSInteger travelCount = [[[NSUserDefaults standardUserDefaults] objectForKey:YQHViewlist] intValue];
-    [_travelDay setText:[NSString stringWithFormat:@"%ld天",travelCount]];
+    [_travelDay setText:[NSString stringWithFormat:@"%ld天",[self.calCarPrice.dayNum integerValue]]];
     self.mySeatsnum = carDetail.seatsnum;
     _viewlist = travelCount;
 }
@@ -143,9 +143,7 @@
     [self addSubview:[self lineWithFrame:CGRectMake(0, 150, CGRectGetWidth(frame), 1)]];
 }
 
--(void)setCalcPrice:(CalcPrice *)calcPrice{
-    _calcPrice = calcPrice;
-}
+
 // 分隔线
 - (UIView *)lineWithFrame:(CGRect)frame{
     
@@ -301,5 +299,17 @@
     
     [_navigationController presentViewController:controller animated:YES completion:NULL];
 }
+
+-(void)setCalCarPrice:(CalCarPrice *)calCarPrice{
+    _calCarPrice = calCarPrice;
+    [_travelDay setText:[NSString stringWithFormat:@"%ld天",[self.calCarPrice.dayNum integerValue]]];
+ 
+}
+-(void)setCalcPrice:(CalcPrice *)calcPrice{
+    _calcPrice = calcPrice;
+    [_travelDay setText:[NSString stringWithFormat:@"%ld天",[self.calcPrice.day integerValue]]];
+    
+}
+
 
 @end

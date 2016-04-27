@@ -297,7 +297,10 @@
 
 - (IBAction)addRoteAction:(id)sender {
     
-    [[self.mainViewModel addDriverOrRoteIdWithUserId:[[ZUserModel shareUserModel].userId integerValue] withTravelId:self.mainViewModel.tourisId withType:0] subscribeNext:^(ResponseBaseData *data) {
+    if ([ZUserModel  pushLogin:self]) {
+        return ;
+    }
+    [[self.mainViewModel addDriverOrRoteIdWithUserId:[[ZUserModel shareUserModel].userId integerValue] withTravelId:self.mainViewModel.typeId withType:0] subscribeNext:^(ResponseBaseData *data) {
         
         RoteCollection *obj = [RoteCollection mj_objectWithKeyValues:data.result_data];
         
@@ -312,6 +315,9 @@
 
 // 拼车
 - (IBAction)carPoolAction:(id)sender {
+    if ([ZUserModel  pushLogin:self]) {
+        return ;
+    }
     ConfirmOrderController *controller = [[ConfirmOrderController alloc] init];
     controller.isCarpool = YES;
     [self.navigationController pushViewController:controller animated:YES];
