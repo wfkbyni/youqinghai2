@@ -100,11 +100,11 @@
                
                 break;
             case 2:
-                if (![_reqModel.textCod isEqualToString:cell.fieldText.text]) {
-                    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:@"对不起,验证码错误" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
-                    [alert show];
-                    return;
-                }
+//                if (![_reqModel.textCod isEqualToString:cell.fieldText.text]) {
+//                    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:@"对不起,验证码错误" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+//                    [alert show];
+//                    return;
+//                }
                 _reqModel.serverCod = cell.fieldText.text;
 //
 

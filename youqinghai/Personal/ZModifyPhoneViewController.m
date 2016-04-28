@@ -103,11 +103,11 @@
                 
                 break;
             case 2:
-                if (![_phoneModel.testCod isEqualToString:cell.fieldText.text]) {
-                    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:@"验证码错误" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
-                    [alert show];
-                    return;
-                }
+//                if (![_phoneModel.testCod isEqualToString:cell.fieldText.text]) {
+//                    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:@"验证码错误" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+//                    [alert show];
+//                    return;
+//                }
                 _phoneModel.serverCod = cell.fieldText.text;
                 break;
             default:
