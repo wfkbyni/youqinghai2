@@ -19,7 +19,7 @@
     self.title = @"投诉司机";
     self.view.backgroundColor = spaceColor238238238();
     self.tableView.backgroundColor = [UIColor clearColor];
-    self.array = @[@"司机未如约而至",@"受到司机骚扰",@"司机选择的线路有问题",@"司机额外收费",@"司机未完成订单"];
+    self.array = @[@"服务态度恶劣",@"司机绕路",@"司机迟到",@"司机爽约或拒载",@"司机原因导致行程被取消",@"骚扰乘客",@"危险驾驶"];
     // Do any additional setup after loading the view.
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
