@@ -103,7 +103,7 @@
 
 - (void)loadCalcPrice{
     [[self.orderViewModel calcPriceWithTraveId:self.orderViewModel.traveId
-                                 withCarTypeId:self.carDetail.cartypeId
+                                 withCarTypeId:self.relationView.carType.Id
                                  withTravelNum:self.orderViewModel.order.travelnum
                                withIsInsurance:isInsurance] subscribeNext:^(CalcPrice *calcPrice) {
         
