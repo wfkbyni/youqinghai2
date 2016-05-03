@@ -12,8 +12,8 @@
 
 
 #pragma mark --- 微信支付重要信息
-#define WX_APP_DESC        @"律师快答"
-#define WX_APP_ID          @"wx43ff5e12f54abd91"               //APPID 需要配置
+#define WX_APP_DESC        @"游青海"
+#define WX_APP_ID          @"wxeb076ac34fb771b7"               //APPID 需要配置
 
 
 //#define WX_APP_SECRET      @"7fdfb41d6291700596530d9ebdae64f4" //appsecret

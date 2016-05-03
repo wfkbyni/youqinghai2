@@ -173,8 +173,9 @@
     float width = (rightViewWidth - 4 * hLine) / 3;
    
     [viewlist enumerateObjectsUsingBlock:^(Trip *trip, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSInteger row = (viewlist.count % 3 == 0 ? (viewlist.count / 3) : (viewlist.count / 3 + 1)) - 1;
-        UIImageView *itemView = [[UIImageView alloc] initWithFrame:CGRectMake(idx * hLine + idx * width + hLine, row * hLine + row * width, width, width)];
+        NSInteger row = idx / 3;
+        NSInteger column = idx % 3;
+        UIImageView *itemView = [[UIImageView alloc] initWithFrame:CGRectMake(column * hLine + column * width + hLine, row * hLine + row * width + (row == 0 ? 0 : row * 20), width, width)];
         [itemView sd_setImageWithURL:[NSURL URLWithString:trip.tripimgurl]];
         [itemView viewWithCornerRadius:5];
         [itemView viewWithBorderWidth:2 WithBorderColor:[UIColor whiteColor]];

@@ -265,6 +265,9 @@
 		9A24C3671CC6823A00671233 /* InsuranceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A24C3651CC6823A00671233 /* InsuranceTableViewCell.m */; };
 		9A24C3681CC6823A00671233 /* InsuranceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A24C3661CC6823A00671233 /* InsuranceTableViewCell.xib */; };
 		9A47ED4A1CCFAC440092F0BA /* PublishTravelsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A47ED491CCFAC440092F0BA /* PublishTravelsController.m */; };
+		9A622A6A1CD8D26F006A03B9 /* RequestBaseAPI+Pay.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A691CD8D26F006A03B9 /* RequestBaseAPI+Pay.m */; };
+		9A622A701CD8D455006A03B9 /* PayViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A6F1CD8D455006A03B9 /* PayViewModel.m */; };
+		9A622A731CD8E24A006A03B9 /* PayInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A721CD8E24A006A03B9 /* PayInfo.m */; };
 		9A637DAD1CA17EFE004D17BA /* Recommend.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DAC1CA17EFE004D17BA /* Recommend.m */; };
 		9A637DB01CA17FF2004D17BA /* TourismType.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DAF1CA17FF2004D17BA /* TourismType.m */; };
 		9A637DB31CA1809B004D17BA /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DB21CA1809B004D17BA /* Banner.m */; };
@@ -863,6 +866,12 @@
 		9A24C3661CC6823A00671233 /* InsuranceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InsuranceTableViewCell.xib; sourceTree = "<group>"; };
 		9A47ED481CCFAC440092F0BA /* PublishTravelsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishTravelsController.h; sourceTree = "<group>"; };
 		9A47ED491CCFAC440092F0BA /* PublishTravelsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishTravelsController.m; sourceTree = "<group>"; };
+		9A622A681CD8D26F006A03B9 /* RequestBaseAPI+Pay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RequestBaseAPI+Pay.h"; sourceTree = "<group>"; };
+		9A622A691CD8D26F006A03B9 /* RequestBaseAPI+Pay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RequestBaseAPI+Pay.m"; sourceTree = "<group>"; };
+		9A622A6E1CD8D455006A03B9 /* PayViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayViewModel.h; path = youqinghai/OrderList/PayViewModel.h; sourceTree = SOURCE_ROOT; };
+		9A622A6F1CD8D455006A03B9 /* PayViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PayViewModel.m; path = youqinghai/OrderList/PayViewModel.m; sourceTree = SOURCE_ROOT; };
+		9A622A711CD8E24A006A03B9 /* PayInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayInfo.h; sourceTree = "<group>"; };
+		9A622A721CD8E24A006A03B9 /* PayInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayInfo.m; sourceTree = "<group>"; };
 		9A637DAB1CA17EFE004D17BA /* Recommend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recommend.h; sourceTree = "<group>"; };
 		9A637DAC1CA17EFE004D17BA /* Recommend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recommend.m; sourceTree = "<group>"; };
 		9A637DAE1CA17FF2004D17BA /* TourismType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourismType.h; sourceTree = "<group>"; };
@@ -1646,6 +1655,8 @@
 		35EB05961CB94FF3003FDEFD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9A622A6E1CD8D455006A03B9 /* PayViewModel.h */,
+				9A622A6F1CD8D455006A03B9 /* PayViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1655,6 +1666,8 @@
 			children = (
 				35EB059F1CB9534E003FDEFD /* OrderListModel.h */,
 				35EB05A01CB9534E003FDEFD /* OrderListModel.m */,
+				9A622A711CD8E24A006A03B9 /* PayInfo.h */,
+				9A622A721CD8E24A006A03B9 /* PayInfo.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1797,6 +1810,8 @@
 				35589AA61CB7D4BC004DFE35 /* RequestBaseAPI+User.h */,
 				35589AA71CB7D4BC004DFE35 /* RequestBaseAPI+User.m */,
 				9A1FEB541C9EF65F0067B8D5 /* ResponseBaseData */,
+				9A622A681CD8D26F006A03B9 /* RequestBaseAPI+Pay.h */,
+				9A622A691CD8D26F006A03B9 /* RequestBaseAPI+Pay.m */,
 			);
 			name = "Request API";
 			path = "../Request API";
@@ -2518,6 +2533,7 @@
 				354A68551CB4BD5F001F3F5D /* ZCustomTourismViewController.m in Sources */,
 				354A68521CB3C47D001F3F5D /* ZMoreViewController.m in Sources */,
 				354A68471CB387E6001F3F5D /* ZLoginViewController.m in Sources */,
+				9A622A6A1CD8D26F006A03B9 /* RequestBaseAPI+Pay.m in Sources */,
 				9A24C31C1CBE6BC500671233 /* AlixPayResult.m in Sources */,
 				358418FA1CC6388D00D2026E /* ZCostomDetModel.m in Sources */,
 				35D295351CB656910029B8C1 /* ZDriverFTableView.m in Sources */,
@@ -2658,9 +2674,11 @@
 				B437E6A51CA43D5300091521 /* UIButton+Block.m in Sources */,
 				35891BA91CB7B4C000CE7002 /* DriverCarIntroduceTableViewCell.m in Sources */,
 				9A637DC11CA18993004D17BA /* TempViewController.m in Sources */,
+				9A622A701CD8D455006A03B9 /* PayViewModel.m in Sources */,
 				9A637DCB1CA2D8AC004D17BA /* UIView+Helper.m in Sources */,
 				35891BBE1CB7B52000CE7002 /* ConfirmOrderController.m in Sources */,
 				35891BD01CB7B55400CE7002 /* TourismDetailController.m in Sources */,
+				9A622A731CD8E24A006A03B9 /* PayInfo.m in Sources */,
 				35A67D131CAB841F00B34994 /* ZAccountSecurityViewController.m in Sources */,
 				35DDF8ED1CC7BD2D00C7F820 /* ZCWhyViewController.m in Sources */,
 				35EB059A1CB94FF3003FDEFD /* OrderListDetailCell.m in Sources */,

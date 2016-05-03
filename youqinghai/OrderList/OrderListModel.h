@@ -13,7 +13,7 @@
 @property(strong,nonatomic)NSString *nickname;
 @property(strong,nonatomic)NSString *urgent;
 @property(strong,nonatomic)NSString *state;
-@property(strong,nonatomic)NSString *orderNum;
+@property(strong,nonatomic)NSString *ordernum;
 @property(strong,nonatomic)NSString *carname;
 @property(strong,nonatomic)NSString *orderReserve;
 @property(strong,nonatomic)NSString *contactsTel;

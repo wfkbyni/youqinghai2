@@ -7,8 +7,12 @@
 //
 
 #import "PayViewController.h"
+#import "PayViewModel.h"
+#import "PayInfo.h"
 
-@interface PayViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface PayViewController ()<UITableViewDelegate,UITableViewDataSource>{
+    PayViewModel *viewModel;
+}
 @property (nonatomic, strong) UITableView *myTableView;
 @end
 
@@ -30,6 +34,8 @@
     [_myTableView setBackgroundColor:[UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00]];
     
     [self.view addSubview:_myTableView];
+    
+    viewModel = [[PayViewModel alloc] init];
     
 }
 
@@ -145,14 +151,39 @@
     
     if (indexPath.section) {
         if (indexPath.row == 0) {
-            [AISharedPay handleAlipay:nil paymentBlock:^(BOOL success, id object, NSString *msg) {
-                
-            }];
+            
+            [self alipayWithSubject:self.orderListModel.Typename withBody:@"无" withPrice:@"0.01"/*self.orderListModel.orderReserve*/ withOutTradeNo:self.orderListModel.ordernum];
+            
         }else{
-            [AISharedPay handleWeixinPayment:nil paymentBlock:^(BOOL success, id object, NSString *msg) {
-                
-            }];
+            
+            [self wxWithOutTradeNo:self.orderListModel.ordernum withBody:@"无" withTotalFee:@"0.01"/*self.orderListModel.orderReserve*/];
         }
     }
+}
+
+- (void)alipayWithSubject:(NSString *)subject withBody:(NSString *)body withPrice:(NSString *)price withOutTradeNo:(NSString *)outTradeNo{
+    RACSignal *singal = [viewModel getPayDemoActivityWithSubject:subject withBody:body withPrice:price withOutTradeNo:outTradeNo];
+    [singal subscribeNext:^(PayInfo *payInfo) {
+        [AISharedPay handleAlipay:payInfo.orderInfo paymentBlock:^(BOOL success, id object, NSString *msg) {
+            
+        }];
+    } error:^(NSError *error) {
+        
+    } completed:^{
+        
+    }];
+}
+
+- (void)wxWithOutTradeNo:(NSString *)outTradeNo withBody:(NSString *)body withTotalFee:(NSString *)totalFee{
+    RACSignal *signal = [viewModel getCreateOrderWithOutTradeNo:outTradeNo withBody:body withTotalFee:totalFee];
+    [signal subscribeNext:^(id x) {
+        [AISharedPay handleWeixinPayment:nil paymentBlock:^(BOOL success, id object, NSString *msg) {
+            
+        }];
+    } error:^(NSError *error) {
+        
+    } completed:^{
+        
+    }];
 }
 @end
