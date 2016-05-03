@@ -345,22 +345,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "youqinghai/OrderList/Controller/PayViewController.m"
-            timestampString = "483976490.449283"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "youqinghai/OrderList/PayViewModel.m"
             timestampString = "483976135.63876"
             startingColumnNumber = "9223372036854775807"
@@ -369,54 +353,6 @@
             endingLineNumber = "28"
             landmarkName = "-getCreateOrderWithOutTradeNo:withBody:withTotalFee:"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "youqinghai/OrderList/Controller/PayViewController.m"
-            timestampString = "483976507.173172"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "-alipayWithSubject:withBody:withPrice:withOutTradeNo:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__73-[PayViewController alipayWithSubject:withBody:withPrice:withOutTradeNo:]_block_invoke"
-                  moduleName = "&#x6e38;&#x9752;&#x6d77;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/OrderList/Controller/PayViewController.m"
-                  timestampString = "483976703.894024"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "167"
-                  endingLineNumber = "167"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__73-[PayViewController alipayWithSubject:withBody:withPrice:withOutTradeNo:]_block_invoke_2"
-                  moduleName = "&#x6e38;&#x9752;&#x6d77;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/OrderList/Controller/PayViewController.m"
-                  timestampString = "483976703.89421"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "169"
-                  endingLineNumber = "169"
-                  offsetFromSymbolStart = "96">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
