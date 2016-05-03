@@ -31,9 +31,9 @@
 //    [self.window setRootViewController:nav];
 //    
     [UMSocialData setAppKey:AppKey_Umeng];
-    [UMSocialWechatHandler setWXAppId:@"wx43ff5e12f54abd91" appSecret:@"ec07e19c18659631b468724dade4495c" url:@"http://www.wmn.cn/web/lawyer/todown"];
-    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"1344607825" secret:@"2fe1f9573a6b6759f5d4abb041f3050c" RedirectURL:@"http://wmn.cn"];
-    [UMSocialQQHandler setQQWithAppId:@"1105141688" appKey:@"81RIaPqLcKVFXT8I" url:@"http://www.wmn.cn/web/lawyer/todown"];
+    [UMSocialWechatHandler setWXAppId:@"wxeb076ac34fb771b7" appSecret:@"6dc56b5630579fa7d4b614edabfa3434" url:@"http://www.wmn.cn/web/lawyer/todown"];
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"1799384586" secret:@"dc96ffc3a2ca7eeb3f8e8c63d8493d9f" RedirectURL:@"http://wmn.cn"];
+    [UMSocialQQHandler setQQWithAppId:@"1105195687" appKey:@"1Mj6wJJiiYtLZJaJ" url:@"http://www.wmn.cn/web/lawyer/todown"];
     
     
     [self.window makeKeyAndVisible];
