@@ -156,7 +156,7 @@
             
         }else{
             
-            [self wxWithOutTradeNo:self.orderListModel.ordernum withBody:@"无" withTotalFee:@"0.01"/*self.orderListModel.orderReserve*/];
+            [self wxWithOutTradeNo:self.orderListModel.ordernum withBody:@"无" withTotalFee:@"1"/*self.orderListModel.orderReserve*/];
         }
     }
 }

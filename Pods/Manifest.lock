@@ -22,6 +22,7 @@ PODS:
   - MBProgressHUD (0.9.2)
   - MJExtension (3.0.10)
   - MJRefresh (3.1.0)
+  - QBImagePickerController (2.6.0)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -53,6 +54,7 @@ DEPENDENCIES:
   - MBProgressHUD
   - MJExtension
   - MJRefresh
+  - QBImagePickerController
   - ReactiveCocoa
   - SDCycleScrollView
   - SDWebImage
@@ -69,6 +71,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  QBImagePickerController: 095c2b2973de4da267334d2cfcac989c2eb5cdc2
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDCycleScrollView: ae016cb4cc4036523917f146ede6f7b11d408f6a
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461

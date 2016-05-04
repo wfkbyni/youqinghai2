@@ -268,6 +268,16 @@
 		9A622A6A1CD8D26F006A03B9 /* RequestBaseAPI+Pay.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A691CD8D26F006A03B9 /* RequestBaseAPI+Pay.m */; };
 		9A622A701CD8D455006A03B9 /* PayViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A6F1CD8D455006A03B9 /* PayViewModel.m */; };
 		9A622A731CD8E24A006A03B9 /* PayInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A721CD8E24A006A03B9 /* PayInfo.m */; };
+		9A622A891CDA41A9006A03B9 /* VOImagePicker.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A622A751CDA41A9006A03B9 /* VOImagePicker.strings */; };
+		9A622A8A1CDA41A9006A03B9 /* VOAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A791CDA41A9006A03B9 /* VOAlbumCell.m */; };
+		9A622A8B1CDA41A9006A03B9 /* VOAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A7B1CDA41A9006A03B9 /* VOAlbumsViewController.m */; };
+		9A622A8C1CDA41A9006A03B9 /* VOAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A7D1CDA41A9006A03B9 /* VOAssetCell.m */; };
+		9A622A8D1CDA41A9006A03B9 /* VOAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A7F1CDA41A9006A03B9 /* VOAssetsViewController.m */; };
+		9A622A8E1CDA41A9006A03B9 /* VOCheckmarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A811CDA41A9006A03B9 /* VOCheckmarkView.m */; };
+		9A622A8F1CDA41A9006A03B9 /* VOImagePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A622A821CDA41A9006A03B9 /* VOImagePicker.storyboard */; };
+		9A622A901CDA41A9006A03B9 /* VOImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A841CDA41A9006A03B9 /* VOImagePickerController.m */; };
+		9A622A911CDA41A9006A03B9 /* VOVideoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A861CDA41A9006A03B9 /* VOVideoIconView.m */; };
+		9A622A921CDA41A9006A03B9 /* VOVideoIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A881CDA41A9006A03B9 /* VOVideoIndicatorView.m */; };
 		9A637DAD1CA17EFE004D17BA /* Recommend.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DAC1CA17EFE004D17BA /* Recommend.m */; };
 		9A637DB01CA17FF2004D17BA /* TourismType.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DAF1CA17FF2004D17BA /* TourismType.m */; };
 		9A637DB31CA1809B004D17BA /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DB21CA1809B004D17BA /* Banner.m */; };
@@ -872,6 +882,25 @@
 		9A622A6F1CD8D455006A03B9 /* PayViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PayViewModel.m; path = youqinghai/OrderList/PayViewModel.m; sourceTree = SOURCE_ROOT; };
 		9A622A711CD8E24A006A03B9 /* PayInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayInfo.h; sourceTree = "<group>"; };
 		9A622A721CD8E24A006A03B9 /* PayInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayInfo.m; sourceTree = "<group>"; };
+		9A622A761CDA41A9006A03B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/VOImagePicker.strings; sourceTree = "<group>"; };
+		9A622A771CDA41A9006A03B9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/VOImagePicker.strings; sourceTree = "<group>"; };
+		9A622A781CDA41A9006A03B9 /* VOAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOAlbumCell.h; sourceTree = "<group>"; };
+		9A622A791CDA41A9006A03B9 /* VOAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOAlbumCell.m; sourceTree = "<group>"; };
+		9A622A7A1CDA41A9006A03B9 /* VOAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOAlbumsViewController.h; sourceTree = "<group>"; };
+		9A622A7B1CDA41A9006A03B9 /* VOAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOAlbumsViewController.m; sourceTree = "<group>"; };
+		9A622A7C1CDA41A9006A03B9 /* VOAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOAssetCell.h; sourceTree = "<group>"; };
+		9A622A7D1CDA41A9006A03B9 /* VOAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOAssetCell.m; sourceTree = "<group>"; };
+		9A622A7E1CDA41A9006A03B9 /* VOAssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOAssetsViewController.h; sourceTree = "<group>"; };
+		9A622A7F1CDA41A9006A03B9 /* VOAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOAssetsViewController.m; sourceTree = "<group>"; };
+		9A622A801CDA41A9006A03B9 /* VOCheckmarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOCheckmarkView.h; sourceTree = "<group>"; };
+		9A622A811CDA41A9006A03B9 /* VOCheckmarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOCheckmarkView.m; sourceTree = "<group>"; };
+		9A622A821CDA41A9006A03B9 /* VOImagePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VOImagePicker.storyboard; sourceTree = "<group>"; };
+		9A622A831CDA41A9006A03B9 /* VOImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOImagePickerController.h; sourceTree = "<group>"; };
+		9A622A841CDA41A9006A03B9 /* VOImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOImagePickerController.m; sourceTree = "<group>"; };
+		9A622A851CDA41A9006A03B9 /* VOVideoIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOVideoIconView.h; sourceTree = "<group>"; };
+		9A622A861CDA41A9006A03B9 /* VOVideoIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOVideoIconView.m; sourceTree = "<group>"; };
+		9A622A871CDA41A9006A03B9 /* VOVideoIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOVideoIndicatorView.h; sourceTree = "<group>"; };
+		9A622A881CDA41A9006A03B9 /* VOVideoIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOVideoIndicatorView.m; sourceTree = "<group>"; };
 		9A637DAB1CA17EFE004D17BA /* Recommend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recommend.h; sourceTree = "<group>"; };
 		9A637DAC1CA17EFE004D17BA /* Recommend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recommend.m; sourceTree = "<group>"; };
 		9A637DAE1CA17FF2004D17BA /* TourismType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourismType.h; sourceTree = "<group>"; };
@@ -1853,6 +1882,7 @@
 		9A24C2011CBE656B00671233 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				9A622A741CDA41A9006A03B9 /* VOImagePicker */,
 				35DDF8DD1CC7712500C7F820 /* SDPhotoBrowser */,
 				9A24C33E1CC3DC4D00671233 /* WXCustomScroeView */,
 				9A24C2961CBE6BC500671233 /* AISharedPay */,
@@ -2070,6 +2100,31 @@
 				9A24C3451CC3DC4D00671233 /* stars_on@3x.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		9A622A741CDA41A9006A03B9 /* VOImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				9A622A751CDA41A9006A03B9 /* VOImagePicker.strings */,
+				9A622A781CDA41A9006A03B9 /* VOAlbumCell.h */,
+				9A622A791CDA41A9006A03B9 /* VOAlbumCell.m */,
+				9A622A7A1CDA41A9006A03B9 /* VOAlbumsViewController.h */,
+				9A622A7B1CDA41A9006A03B9 /* VOAlbumsViewController.m */,
+				9A622A7C1CDA41A9006A03B9 /* VOAssetCell.h */,
+				9A622A7D1CDA41A9006A03B9 /* VOAssetCell.m */,
+				9A622A7E1CDA41A9006A03B9 /* VOAssetsViewController.h */,
+				9A622A7F1CDA41A9006A03B9 /* VOAssetsViewController.m */,
+				9A622A801CDA41A9006A03B9 /* VOCheckmarkView.h */,
+				9A622A811CDA41A9006A03B9 /* VOCheckmarkView.m */,
+				9A622A821CDA41A9006A03B9 /* VOImagePicker.storyboard */,
+				9A622A831CDA41A9006A03B9 /* VOImagePickerController.h */,
+				9A622A841CDA41A9006A03B9 /* VOImagePickerController.m */,
+				9A622A851CDA41A9006A03B9 /* VOVideoIconView.h */,
+				9A622A861CDA41A9006A03B9 /* VOVideoIconView.m */,
+				9A622A871CDA41A9006A03B9 /* VOVideoIndicatorView.h */,
+				9A622A881CDA41A9006A03B9 /* VOVideoIndicatorView.m */,
+			);
+			path = VOImagePicker;
 			sourceTree = "<group>";
 		};
 		9A637DBA1CA186EE004D17BA /* Controller */ = {
@@ -2382,6 +2437,7 @@
 				en,
 				Base,
 				"zh-Hans",
+				ja,
 			);
 			mainGroup = 9AF1C0041C9ED3E100AD2FC1;
 			productRefGroup = 9AF1C00E1C9ED3E100AD2FC1 /* Products */;
@@ -2434,6 +2490,7 @@
 				9A24C34B1CC3DC4D00671233 /* stars_on.png in Resources */,
 				B472E7881CBCA0C700A43CCB /* img in Resources */,
 				35891B9F1CB7B4C000CE7002 /* CarListViewController.xib in Resources */,
+				9A622A8F1CDA41A9006A03B9 /* VOImagePicker.storyboard in Resources */,
 				35891BEF1CB7B59200CE7002 /* TourismTypeCell.xib in Resources */,
 				9A637DC21CA18993004D17BA /* TempViewController.xib in Resources */,
 				9A24C34A1CC3DC4D00671233 /* stars_off@3x.png in Resources */,
@@ -2467,6 +2524,7 @@
 				35891B9C1CB7B4C000CE7002 /* CarDetailController.xib in Resources */,
 				B472E7861CBCA0C700A43CCB /* dist in Resources */,
 				357D72AC1CBCD23900EAD35C /* bubble_min@2x.png in Resources */,
+				9A622A891CDA41A9006A03B9 /* VOImagePicker.strings in Resources */,
 				35D295561CB77D050029B8C1 /* ZTravelFCell.xib in Resources */,
 				357D72CB1CBCD23900EAD35C /* UMSLoginViewController.xib in Resources */,
 				357D72B51CBCD23900EAD35C /* umeng_fb_audio_dialog_cancel@2x.png in Resources */,
@@ -2591,6 +2649,7 @@
 				9A24C31E1CBE6BC500671233 /* DataSigner.m in Sources */,
 				35D2952A1CB641330029B8C1 /* ZRouteFTableView.m in Sources */,
 				9A24C3511CC65BA300671233 /* PayViewController.m in Sources */,
+				9A622A921CDA41A9006A03B9 /* VOVideoIndicatorView.m in Sources */,
 				35891BCE1CB7B55400CE7002 /* RedirectViewController.m in Sources */,
 				35E3FFB41CA8CD8100876054 /* ZPersanalHeaderView.m in Sources */,
 				9A24C3221CBE6BC500671233 /* openssl_wrapper.m in Sources */,
@@ -2606,6 +2665,7 @@
 				35891BC11CB7B52000CE7002 /* RelationView.m in Sources */,
 				35891BEE1CB7B59200CE7002 /* TourismTypeCell.m in Sources */,
 				B472E7751CBC9A9500A43CCB /* HybridViewController.m in Sources */,
+				9A622A8E1CDA41A9006A03B9 /* VOCheckmarkView.m in Sources */,
 				35D295431CB669C20029B8C1 /* ZTravelFTableView.m in Sources */,
 				9A24C31B1CBE6BC500671233 /* PayOrderEntity.m in Sources */,
 				357D72C21CBCD23900EAD35C /* UMTextView.m in Sources */,
@@ -2623,10 +2683,12 @@
 				35891BED1CB7B59200CE7002 /* TourismDetailView.m in Sources */,
 				354A68441CB36ACB001F3F5D /* ZModifyPassWordViewController.m in Sources */,
 				35589AA91CB7D4BC004DFE35 /* RequestBaseAPI+Car.m in Sources */,
+				9A622A8D1CDA41A9006A03B9 /* VOAssetsViewController.m in Sources */,
 				35891BA71CB7B4C000CE7002 /* DriverCarCommentTableViewCell.m in Sources */,
 				35D2953C1CB6577E0029B8C1 /* ZDriverCell.m in Sources */,
 				9A637DB01CA17FF2004D17BA /* TourismType.m in Sources */,
 				35891BBF1CB7B52000CE7002 /* CalculateView.m in Sources */,
+				9A622A8B1CDA41A9006A03B9 /* VOAlbumsViewController.m in Sources */,
 				35EB05981CB94FF3003FDEFD /* OrdersViewController.m in Sources */,
 				3513C35E1CB7C45D005B59BE /* NSString+Helper.m in Sources */,
 				35891BA81CB7B4C000CE7002 /* DriverCarHeaderView.m in Sources */,
@@ -2640,6 +2702,7 @@
 				35D295551CB77D050029B8C1 /* ZTravelFCell.m in Sources */,
 				B472E7731CBC9A9500A43CCB /* AIWebViewLoadRequest.m in Sources */,
 				35D295511CB763810029B8C1 /* ZFowUserModel.m in Sources */,
+				9A622A911CDA41A9006A03B9 /* VOVideoIconView.m in Sources */,
 				35891C031CB7B5F500CE7002 /* Car.m in Sources */,
 				9A24C3151CBE6BC500671233 /* PayOrder.m in Sources */,
 				B437E6B91CA43FCA00091521 /* PersonalCell.m in Sources */,
@@ -2659,6 +2722,7 @@
 				35891C071CB7B5F500CE7002 /* ServiceIntroduction.m in Sources */,
 				35891BEC1CB7B59200CE7002 /* TourisEvaluateView.m in Sources */,
 				35891BA01CB7B4C000CE7002 /* CarListCell.m in Sources */,
+				9A622A8C1CDA41A9006A03B9 /* VOAssetCell.m in Sources */,
 				357D72A51CBCD23900EAD35C /* AIUmengConst.m in Sources */,
 				354A684B1CB38AD2001F3F5D /* ZImageFidCell.m in Sources */,
 				35EB059D1CB94FF3003FDEFD /* ZPageView.m in Sources */,
@@ -2670,7 +2734,9 @@
 				35891BEB1CB7B59200CE7002 /* TourisEvaluateCell.m in Sources */,
 				B437E6B01CA43FB600091521 /* TravelsViewController.m in Sources */,
 				9A24C3181CBE6BC500671233 /* APAuthV2Info.m in Sources */,
+				9A622A901CDA41A9006A03B9 /* VOImagePickerController.m in Sources */,
 				9A24C3241CBE6BC500671233 /* RSADataVerifier.m in Sources */,
+				9A622A8A1CDA41A9006A03B9 /* VOAlbumCell.m in Sources */,
 				B437E6A51CA43D5300091521 /* UIButton+Block.m in Sources */,
 				35891BA91CB7B4C000CE7002 /* DriverCarIntroduceTableViewCell.m in Sources */,
 				9A637DC11CA18993004D17BA /* TempViewController.m in Sources */,
@@ -2730,6 +2796,15 @@
 				357D72491CBCD23800EAD35C /* zh-Hans */,
 			);
 			name = UMSocialLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		9A622A751CDA41A9006A03B9 /* VOImagePicker.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A622A761CDA41A9006A03B9 /* Base */,
+				9A622A771CDA41A9006A03B9 /* ja */,
+			);
+			name = VOImagePicker.strings;
 			sourceTree = "<group>";
 		};
 		9AF1C01E1C9ED3E100AD2FC1 /* LaunchScreen.storyboard */ = {

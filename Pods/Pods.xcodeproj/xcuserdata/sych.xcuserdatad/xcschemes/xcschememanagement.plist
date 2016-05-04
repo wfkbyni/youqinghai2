@@ -44,6 +44,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>QBImagePickerController-QBImagePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>QBImagePickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ReactiveCocoa.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,12 +92,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0DD45D120FF06341384541371A0D6397</key>
+		<key>12F829084E4B59A9DC8BCC22F50B6461</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>17ABCAF01489E2477E2531A23367547B</key>
+		<key>1963113B43D464A8C35EC706FDDC22B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2250E945890D6CA72A2A96F969C3CA45</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,7 +112,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>36D59E8A0F01503D52CEB93551ADE5DE</key>
+		<key>3F3F4590825C9432211775797CBA9347</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,17 +122,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>58A210C10D1E0FFB5BDED9AB63BCEEB9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>751F2925BBBBE9EBD382E8324C2192C2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7D8253104C656272B2A0B1A85012A872</key>
+		<key>66A189C06A706495B2B8B477C0AA9947</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,12 +147,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BB74F3ACE6EC9674F971E44CB6018EA0</key>
+		<key>C2E7C4F8F0C48F3E7A776C2A5EFFF547</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E33951BA1189F98FAB6AF1EEFAC92CCD</key>
+		<key>C6280930FD07322AE5532FC86F952FF5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C85B595D0F46B0C1EFAE61F87A681812</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DBC187EF2B375B2E1EC3C5DC508DAFE3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EE98A8F388D7A3F8296432E6EC5FD021</key>
 		<dict>
 			<key>primary</key>
 			<true/>
