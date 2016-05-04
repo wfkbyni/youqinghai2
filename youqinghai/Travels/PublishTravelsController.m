@@ -149,7 +149,11 @@
         [cell.contentView addSubview:imageView];
     }
     
-    [imageView sd_setImageWithURL:[NSURL URLWithString:collectionData[indexPath.row]]];
+    if (collectionData.count == indexPath.row) {
+        
+    }else{
+        [imageView sd_setImageWithURL:[NSURL URLWithString:collectionData[indexPath.row]]];
+    }
     
     [imageView setBackgroundColor:[UIColor colorWithRed:arc4random_uniform(255.0f) / 255.0f green:arc4random_uniform(255.0f) / 255.0f blue:arc4random_uniform(255.0f) / 255.0f alpha:1]];
     return cell;
@@ -375,6 +379,7 @@
          } completed:^{
              collectionData = imageUrls;
              
+             [self changeCollectionViewHeight];
              [self.myCollectionView reloadData];
          }];
     }];
@@ -431,6 +436,8 @@
     } completed:^{
         
         collectionData = imageUrls;
+        
+        [self changeCollectionViewHeight];
         
         [self.myCollectionView reloadData];
     }];
