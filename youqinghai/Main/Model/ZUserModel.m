@@ -41,4 +41,15 @@
     }
 
 }
+
++ (NSString *)getUserIdNeedLogin:(UIViewController*)controller {
+    if (![ZUserModel shareUserModel].userId) {
+        ZLoginViewController *login = [[ZLoginViewController alloc]init];
+        [controller.navigationController pushViewController:login animated:YES];
+        return nil;
+    }else{
+        return [ZUserModel shareUserModel].userId;
+    }
+}
+
 @end

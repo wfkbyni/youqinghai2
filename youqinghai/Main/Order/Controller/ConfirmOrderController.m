@@ -15,7 +15,7 @@
 
 #import "OrderViewModel.h"
 #import "CarViewModel.h"
-
+#import "PayViewController.h"
 @interface ConfirmOrderController (){
     NSInteger isInsurance;
 }
@@ -237,7 +237,9 @@
         NSLog(@"%@",x);
         [self.view makeToast:@"订单添加成功，请到我的订单查看"];
         [CardNo removeAllCachedObjectsSuccess:^(NSArray *array) {
-            
+            PayViewController *controller = [[PayViewController alloc] init];
+            controller.orderListModel = self.orderViewModel;
+            [self.navigationController pushViewController:controller animated:YES];
             
         } failure:^(NSError *error) {
             

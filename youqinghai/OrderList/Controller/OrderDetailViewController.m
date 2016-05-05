@@ -123,7 +123,7 @@
     NSString *mom = @"￥";
     
     
-    NSArray *values1 = @[_orderListMod.ordernum == nil ? @"" : _orderListMod.ordernum,_orderListMod.singletime,Statype];
+    NSArray *values1 = @[_orderListMod.orderNum == nil ? @"" : _orderListMod.ordernum,_orderListMod.singletime,Statype];
     NSArray *values2 = @[_orderListMod.tourName,_orderListMod.travelTime,[_orderListMod.travelnum stringByAppendingString:@"人"],[_orderListMod.dayNum stringByAppendingString:@"天"],_orderListMod.carTypeName,[mom stringByAppendingString:_orderListMod.orderMoney],[mom stringByAppendingString:_orderListMod.orderReserve]];
     NSArray *values3 = @[_orderListMod.nickname,_orderListMod.carname,_orderListMod.contacts,_orderListMod.contactsTel,_orderListMod.urgent,_orderListMod.urgentTel,_orderListMod.insuranceCost.integerValue?@"  是":@"  否"];
     [_datasourceOfValues addObject:values1];

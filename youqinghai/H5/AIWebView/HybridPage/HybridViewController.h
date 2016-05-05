@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "AIWebViewLoadRequest.h"
-#import "AIWebView.h"
+#import "HybridHeader.h"
+
 typedef NS_ENUM(NSUInteger, JFWebViewLoadType) {
   JFWebViewLoadType_DocumentsSource = 0,//documents下面文件加载
   JFWebViewLoadType_BundleSource = 1,	  //bundle下面文件加载

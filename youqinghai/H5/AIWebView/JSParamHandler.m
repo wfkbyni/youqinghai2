@@ -113,9 +113,21 @@ static NSString *Crypt_Value = @"Crypt_Value";
  */
 - (NSMutableDictionary* ) encryptParams{
     //将NSDictionary转为json字符串
-    NSMutableDictionary *rtnParam = nil;
-    
-    return rtnParam;
+//    NSData *data = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:nil];
+//    NSMutableDictionary *rtnParam = nil;
+//    if (data.length > 0) {//数据有效，则进行加密
+//        NSString *key =  [WDCrypto randomKey];
+//        NSDictionary *encryptParams = [WDCrypto encryptWithDESAndRSA:data withKey:key keyPath:nil];
+//        //加密后的key
+//        NSString *deskey = [encryptParams objectForKey:@"key"];
+//        //加密后的param
+//        NSString *jsonParam  = [encryptParams objectForKey:@"data"];
+//        rtnParam = [NSMutableDictionary dictionary];
+//        [rtnParam setObject:jsonParam forKey:Crypt_Value];
+//        [rtnParam setObject:deskey forKey:Crypt_Key];
+//    }
+//    return rtnParam;
+    return nil;
 }
 
 

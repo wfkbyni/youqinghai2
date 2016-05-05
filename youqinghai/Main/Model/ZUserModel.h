@@ -40,6 +40,14 @@
  *  @return <#return value description#>
  */
 +(BOOL)pushLogin:(UIViewController*)controller;
+/**
+ *  判断是否登录,已登录则返回用户ID，未登陆不需要进入登录页面
+ *
+ *  @param controller 控制器
+ *
+ *  @return <#return value description#>
+ */
++ (NSString *)getUserIdNeedLogin:(UIViewController*)controller;
 @end
 //{"parise":0,"sex":1,"phone":"13458540072","travelCount":0,"autograph":"帅哥就是你","nickname":"你很帅","userId":4,"headUrl":"http://img.smartmiyi.com/userHeadUrl/1457678872657__headimage.jpg","collection":0}
 //"parise":被赞次数,

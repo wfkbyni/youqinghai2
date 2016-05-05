@@ -32,7 +32,7 @@ static NSString * key_LoadError = @"key_LoadError";
   webview.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth;
   [self addSubview:webview];
   objc_setAssociatedObject(self, (__bridge const void *)(key_UIWebView), webview, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-  return webview;
+   return webview;
 }
 
 - (UIWebView *)webView{
@@ -45,7 +45,7 @@ static NSString * key_LoadError = @"key_LoadError";
 
 - (void)scalesPageToFit:(BOOL)fit
 {
-  self.webView.scalesPageToFit = fit;
+   self.webView.scalesPageToFit = fit;
 }
 - (void)clearWebView{
   [self releaseBlocks];

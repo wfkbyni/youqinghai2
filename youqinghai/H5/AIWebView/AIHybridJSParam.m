@@ -8,6 +8,7 @@
 
 #import "AIHybridJSParam.h"
 #import <objc/runtime.h>
+#import "ServerConfig.h"
 #import "JSParamHandler.h"
 #import "AIWebView.h"
 
@@ -137,7 +138,7 @@
     
     if(self.webviewLoadType ==  HybridWebViewLoadType_Local){
         //设置本地的资源,直接返回
-        [self setFileURL:[[NSBundle mainBundle] pathForResource:@"JSNativeInteractive.html" ofType:nil]];
+       // [self setFileURL:@"JSNativeInteractive.html"];
         return;
     }
     
@@ -157,7 +158,7 @@
     
     if(_loadType == HybridWebViewLoadType_URL){
         if (![fileURL hasPrefix:@"http"]) {
-            fileURL = [@""  stringByAppendingPathComponent:fileURL];
+            fileURL = [ServerConfig.serverURL  stringByAppendingPathComponent:fileURL];
         }
         
         NSString *paramString =  [self.jsonParam urlParamToString:UrlStringEncodeType_NO] ;

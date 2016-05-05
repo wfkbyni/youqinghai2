@@ -14,7 +14,7 @@
 - (void)loadURLRequest;
 
 
-- (void)loadRequestWithURL:(id)url;
+//- (void)loadRequestWithURL:(id)url;
 
 
 @end

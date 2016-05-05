@@ -40,8 +40,8 @@
 		</div>
 		
 		<div class="travels_pinglunzan">
-			<div class="ping">评论 <span id="ping">123</span></div>
-			<div class="zan">赞 <span  id="zan">73</span></div>
+			<div class="ping">评论 <span id="ping">0</span></div>
+			<div class="zan">赞 <span  id="zan">0</span></div>
 			<div class="clear"></div>
 		</div>
 		
@@ -95,6 +95,7 @@
     // 每页展示4个
     var num = 4;
     var pageStart = 0,pageEnd = 0;
+    var travelsId = JsToNativeTravelDetail.getTravelId();
 
     // dropload
     $('.zx-travels').dropload({
@@ -103,9 +104,8 @@
             $.ajax({
                  url:"http://www.sinata.cn:9402/swimQinghai/app/travelsDynamic/getTravelsDetails",
                  dataType: 'jsonp',
-                 data:{"travelsId":1},
+                 data:{"travelsId":travelsId},
                  jsonp:'callback',
-				
                 success: function(data){
 				var imglength= data.result_data.image.length;
 				if(imglength == 1){

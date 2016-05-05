@@ -7,7 +7,8 @@
 //
 
 #import "AIWebViewLoadRequest.h"
-#import "AIHybridJSParam.h"
+#import "HybridHeader.h"
+
 #define WeakPointer(weakSelf) __weak __typeof(&*self)weakSelf = self
 
 @implementation UIWebView (LoadURL)
@@ -18,7 +19,12 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self loadRequest:request];
   }else if ([url isKindOfClass:[NSString class]]){
-      NSURL *URL = [NSURL URLWithString:url];
+      
+      NSURL *URL = nil;
+      if (self.webviewLoadType == HybridWebViewLoadType_Local) {
+          URL = [[NSBundle mainBundle] URLForResource:url withExtension:nil];
+      }else
+          URL = [NSURL URLWithString:url];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     [self loadRequest:request];
     
@@ -41,8 +47,6 @@
     [self preloadTemples];
 
 //    [self openHomeWithRelativePathFile:self.fileURL];
-      [self loadRequestWithURL:self.fileURL];
-
   }else
     [self loadRequestWithURL:self.fileURL];
 }
@@ -54,13 +58,9 @@
 -(void)preloadTemples{
   
   dispatch_async(dispatch_get_global_queue(0, 0), ^{
-////    WeakPointer(weakSelf);
-//    [iPUDownloadResource downloadResource:^(float progress) {
-////      NSString *progressStr = [NSString stringWithFormat:@"加载%.0f%%",progress*100];
-////      [weakSelf showGlobalHUD:progressStr];
-//      if (progress == 1.0) {
-////        [weakSelf hideHUD];
-//        //加载数据
+//     [iPUDownloadResource downloadResource:^(float progress) {
+//        if (progress == 1.0) {
+//         //加载数据
 //        [self openHomeWithRelativePathFile:self.fileURL];
 //      }
 //    }];

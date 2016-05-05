@@ -7,6 +7,8 @@
 //
 
 #import "HybridViewController.h"
+#define WeakPointer(weakSelf) __weak __typeof(&*self)weakSelf = self
+
 @implementation HybridViewController
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -31,7 +33,7 @@
   
   [super loadView];
   self.view.backgroundColor = [UIColor whiteColor];
-  // [self.view loadWebView];//加载webview
+   //[self.view loadWebView];//加载webview
   self.navigationItem.leftBarButtonItem = self.leftBackItem;
 
 }
@@ -42,9 +44,10 @@
   [super viewDidLoad];
 
   //建立桥接
-   
-  [self addLeftBarItem];
+  [self.view loadBridge];
   
+
+    self.webView.webviewLoadType = HybridWebViewLoadType_Local;
   [self configBlock];
   
 }
@@ -61,12 +64,20 @@
 
 - (void) configBlock
 {
-   
+  WeakPointer(weakSelf);
+  [weakSelf.view setLoadWebViewFinishedBlock:^{
+    NSLog(@"--->");
+//    [weakSelf.view.webView stringByEvaluatingJavaScriptFromString:
+//     @"document.body.style.zoom=0.5"
+//     ];
+  }];
 }
 -(void)viewDidAppear:(BOOL)animated{
   
   [super viewDidAppear:animated];
-   
+  
+  self.isNestedPush = NO;
+  
 }
 
 

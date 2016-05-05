@@ -30,8 +30,9 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStyleDone target:self action:@selector(myAction:)];
     
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"travels" withExtension:@"html" subdirectory:@"html"];
-    [self.webView loadRequestWithURL:url];
+    self.view.webView.fileURL =  @"JSNativeInteractive.html" ;//@"travels.html";
+     self.view.webView.webviewLoadType = HybridWebViewLoadType_Local;
+     [self.view.webView loadURLRequest];
     
 }
 

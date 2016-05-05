@@ -131,8 +131,12 @@
         [UMSocialData defaultData].extConfig.qqData.title = self.recommend.title;
         [UMSocialData defaultData].extConfig.wechatSessionData.title=self.recommend.title;
         [UMSocialData defaultData].extConfig.wechatTimelineData.title=self.recommend.title;
-        [UMSocialData defaultData].extConfig.sinaData.shareText =[NSString stringWithFormat:@"%@ http://www.baidu.com",self.recommend.title];
-        [UMSocialSnsService presentSnsIconSheetView:self appKey:@"570b744e67e58e12e2000466"shareText:self.recommend.introduce shareImage:image shareToSnsNames:@[UMShareToWechatFavorite,UMShareToWechatTimeline,UMShareToWechatSession,UMShareToQQ,UMShareToQzone] delegate:nil];
+        NSString *url = [NSString stringWithFormat:@"http://www.sinata.cn:9402/swimQinghai/share?code=0&Id=%zi", self.recommend.Id];
+        [UMSocialWechatHandler setWXAppId:@"wxeb076ac34fb771b7" appSecret:@"6dc56b5630579fa7d4b614edabfa3434" url:url];
+        [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"1799384586" secret:@"dc96ffc3a2ca7eeb3f8e8c63d8493d9f" RedirectURL:url];
+        [UMSocialQQHandler setQQWithAppId:@"1105195687" appKey:@"1Mj6wJJiiYtLZJaJ" url:url];
+        
+        [UMSocialSnsService presentSnsIconSheetView:self appKey:@"570b744e67e58e12e2000466"shareText:self.recommend.introduce shareImage:image shareToSnsNames:@[UMShareToWechatTimeline,UMShareToWechatSession,UMShareToQQ,UMShareToQzone,UMShareToSina] delegate:nil];
         sender.userInteractionEnabled=YES;
 
     }];

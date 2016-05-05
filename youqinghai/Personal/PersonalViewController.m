@@ -189,15 +189,22 @@
                     break;
                 case 1:
                 {
-                    [UMSocialData defaultData].extConfig.qqData.title = @"游青海";
-                    [UMSocialData defaultData].extConfig.wechatSessionData.title = @"游青海";
-                    [UMSocialData defaultData].extConfig.qzoneData.title = @"游青海";
-                    [UMSocialData defaultData].extConfig.wechatTimelineData.title = @"游青海";
-                    [UMSocialData defaultData].extConfig.sinaData.shareText = @"游青海";
+                    [UMSocialData defaultData].extConfig.qqData.title = @"游青海-带你体验青海的美";
+                    [UMSocialData defaultData].extConfig.wechatSessionData.title = @"游青海-带你体验青海的美";
+                    [UMSocialData defaultData].extConfig.qzoneData.title = @"游青海-带你体验青海的美";
+                    [UMSocialData defaultData].extConfig.wechatTimelineData.title = @"游青海-带你体验青海的美";
+                    [UMSocialData defaultData].extConfig.sinaData.shareText = @"游青海-带你体验青海的美";
+                    
+                    NSString *url = @"http://www.sinata.cn:9402/swimQinghai/share";
+                    
+                    [UMSocialWechatHandler setWXAppId:@"wxeb076ac34fb771b7" appSecret:@"6dc56b5630579fa7d4b614edabfa3434" url:url];
+                    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"1799384586" secret:@"dc96ffc3a2ca7eeb3f8e8c63d8493d9f" RedirectURL:url];
+                    [UMSocialQQHandler setQQWithAppId:@"1105195687" appKey:@"1Mj6wJJiiYtLZJaJ" url:url];
+                    UIImage *image = [UIImage imageNamed:@"iconApp"];
                     [UMSocialSnsService presentSnsIconSheetView:self
                                                          appKey:@"570b744e67e58e12e2000466"
-                                                      shareText:@"快来使用游青海,定制您的专属旅程 http://www.baidu.com"
-                                                     shareImage:[UIImage imageNamed:@"AppIcon"]
+                                                      shareText:@"游青海APP将为您提供高质量的全省旅游用车等服务!"
+                                                     shareImage:image
                                                 shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToQzone,UMShareToSina]
                                                        delegate:self];
                 }

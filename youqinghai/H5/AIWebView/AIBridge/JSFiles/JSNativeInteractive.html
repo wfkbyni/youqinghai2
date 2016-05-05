@@ -1,0 +1,270 @@
+<html>
+    <head lang="en">
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta name="misapplication-tap-highlight" content="no"/>
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="MobileOptimized" content="320"/>
+        <meta name="keywords" content="">
+            <meta name="description" content="">
+                <title>这是JS测试文档</title>
+                <script type="text/javascript" src="./JSToNativeInteractive.js"></script>
+                </head>
+    
+    <body onload="">
+        <br>
+        <p>
+        onclick="jumpToNativeTravelShare()";
+        <br>
+        <input id="login" type="button" value="shareTravel" onclick="jumpToNativeTravelShare('游青海标题','游青海简介','12','http://cnews.chinadaily.com.cn/att/site1/20160505/eca86bd9e2f11894e7dc01.jpeg')"/>
+        </p>
+ 
+ 
+ <p>
+ onclick="getUserIdNeedLogin()";
+ <br>
+ <input id="login" type="button" value="getUserIdNeedLogin" onclick="getUserIdNeedLogin(function(userId){
+ alert(userId);
+ })"/>
+ </p>
+ 
+ 
+ <p>
+ onclick="jumpToTravelDetail()";
+ <br>
+ <input id="login" type="button" value="jumpToTravelDetail" onclick="jumpToTravelDetail('游记详情',12)"/>
+ </p>
+ 
+ 
+ <p>
+ onclick="jumpToPersonDetail()";
+ <br>
+ <input id="login" type="button" value="jumpToPersonDetail" onclick="jumpToPersonDetail('用户详情',1)"/>
+ </p>
+ 
+ 
+ <p>
+ //获取参数
+ onclick="getValueFromJSParam('travelsId');"
+ <br>
+ <input id="testMethod222" type="button" value="获取当前页面的参数(travelsId)" style="height=200px;width=200px;"  onclick="getValueFromJSParam('travelsId',function(msg){alert(msg);});"/>
+ </p>
+ 
+ <p>
+ //获取userid参数
+ onclick="getValueFromJSParam('userid');"
+ <br>
+ <input id="testMethod222" type="button" value="获取当前页面的参数(userid)" style="height=200px;width=200px;"  onclick="getValueFromJSParam('userid',function(msg){alert(msg);});"/>
+ </p>
+ 
+ <p>
+ //获取参数
+ onclick="jumpToTravelComment();"
+ <br>
+ <input id="testMethod222" type="button" value="jumpToTravelComment" style="height=200px;width=200px;"  onclick="jumpToTravelComment()"/>
+ </p>
+ 
+ 
+ <p>
+ //获取参数
+ onclick="clickreturn();"
+ <br>
+ <input id="testMethod222" type="button" value="clickreturn" style="height=200px;width=200px;"  onclick="clickreturn()"/>
+ </p>
+ 
+ 
+ 
+        <p>
+        onclick="openPage('a.jsp',{'pKey':'pValue'},'新页面','2',true)";
+        <br>
+        <input id="login" type="button" value="打开新页面" onclick="openPage('http://localhost:8080/emalldemo/product/product_list.jsp',{'pKey':'pValue'},'新页面',2,true)"/>
+        </p>
+        <p>
+        onclick="openPage('http://www.baidu.com',{'pKey':'pValue'},'新页面','-1',true)";
+        <br>
+        <input id="login" type="button" value="打开百度" onclick="openPage('http://www.baidu.com',{'pKey':'pValue'},'新页面',-1,true)"/>
+        </p>
+        onclick="setPageTitle('我是新标题')"
+        <br>
+        <input id="setPageTitle" type="button" value="设置标题" onclick="setPageTitle('我是新标题')"/>
+        </p>
+        <p>
+        onclick="setTextBarItem('完成',1)"
+        <br>
+        <input id="setTextBarItem" type="button" value="设置右侧文字按钮" onclick="setTextBarItem('完成',1)"/>
+        <br>
+        </p>
+        <p>
+        //0 代表左侧， 1 代表右侧，12代表字号，CC00XF 是字体颜色
+        onclick="setTextBarItem('按钮标题',0,12,'CC00FF')"
+        <br>
+        <input id="setTextBarItem" type="button" value="设置左侧文字按钮" onclick="setTextBarItem('菜单',0,12,'CC00FF')"/>
+        <br>
+        </p>
+        
+        <p>
+        onclick="setImageBarItem('图片链接地址',0)"
+        <br>
+        <input id="setImageBarItem" type="button" value="设置左侧图片按钮" onclick="setImageBarItem('http://m.360buyimg.com/mobilecms/s80x80_jfs/t2401/304/893337264/4249/3d40e699/56333ef6Nba360270.png',0)"/>
+        <br>
+        </p>
+        <p>
+        onclick="setImageBarItem('图片链接地址',1)"
+        <br>
+        <input id="setImageBarItem" type="button" value="设置右侧图片按钮" onclick="setImageBarItem('http://m.360buyimg.com/mobilecms/s80x80_jfs/t2401/304/893337264/4249/3d40e699/56333ef6Nba360270.png',1)"/>
+        <br>
+        </p>
+        
+       
+        <p>
+        onclick="showCustomAlert('')"
+        <br>
+        <input id="showCustomAlert" type="button" value="显示弹出框" onclick="showCustomAlert('删除好友','您确定从通讯录中移除该好友吗','取消','确定',function(direction){alert(direction);})"/>
+        <br>
+        </p>
+        <p>
+        onclick="showSysAlert('对不起，您的操作失效了!现在需要重新登录吗?','不需要','重新登录','10')"
+        //分别对应: 提示内容(必填)，左按钮(必填),右按钮(选填,可为null),弹窗的索引值(选填)
+        <br>
+        <input id="backButtonAction" type="button" value="系统弹出框1"  onclick="showSysAlert('对不起，您的操作失效了!现在需要重新登录吗?','取消','确定','1')"/>
+        </p>
+        <p>
+        onclick="showSysAlert('对不起，您的操作失效了!现在需要重新登录吗?','不需要','重新登录','10')"
+        //分别对应: 提示内容(必填)，左按钮(必填),右按钮(选填,可为null),弹窗的索引值(选填)
+        <br>
+        <input id="backButtonAction" type="button" value="系统弹出框10"  onclick="showSysAlert('对不起，您的操作失效了!现在需要重新登录吗?','不需要','重新登录','10')"/>
+        </p>
+        <p>
+        onclick="toLoginView()"
+        <br>
+        <input id="toLoginView" type="button" value="点击登录"  onclick="toLoginView()"/>
+        </p>
+        <p>
+        onclick="popByCount(2,true)"
+        <br>
+        <input id="testMethod222" type="button" value="退回2个"   onclick="popByCount(2,true)"/>
+        </p>
+        <p>
+        onclick="clickObj.leftButtonClick();"
+        <br>
+        <input id="testMethod222" type="button" value="点击左按钮" style="height=200px;width=200px;"  onclick="clickObj.leftButtonClick();"/>
+        </p>
+        <p>
+        onclick="clickObj.rightButtonClick();"
+        <br>
+        <input id="testMethod222" type="button" value="点击右按钮" style="height=200px;width=200px;"  onclick="clickObj.rightButtonClick();"/>
+        </p>
+        
+        
+      
+        
+        
+        <p>
+        //保存sessionID
+        onclick="saveSessionID('abcdeftg');"
+        <br>
+        <input id="testMethod222" type="button" value="保存sessionID" style="height=200px;width=200px;"  onclick="saveSessionID('abcdeftg');"/>
+        </p>
+        
+        <p>
+        //获取sessionID
+        onclick="getSessionID();"
+        <br>
+        <input id="testMethod222" type="button" value="获取sessionID" style="height=200px;width=200px;"  onclick="getSessionID(function(sessionID){
+            alert(sessionID['sessionID']);
+        });"/>
+        </p>
+        
+        
+        //保存saveLoginInfo
+        onclick="saveLoginInfo('abcdeftg');"
+        <br>
+        <input id="saveLoginInfo" type="button" value="保存saveLoginInfo" style="height=200px;width=200px;"  onclick="saveLoginInfo('saveLoginInfoTest');"/>
+        </p>
+        //获取loginInfo
+        onclick="getLoginInfo();"
+        <br>
+        <input id="getLoginInfo" type="button" value="获取getLoginInfo" style="height=200px;width=200px;"  onclick="getLoginInfo(function(loginInfo){
+        alert(loginInfo['webUrl']);
+        });"/>
+        </p>
+        
+        <p>
+        //showToast
+        onclick="showToast();"
+        <br>
+        <input id="testMethod222" type="button" value="Toast提示" style="height=200px;width=200px;"  onclick="showToast('消息提示消息提示');"/>
+        </p>
+        
+        <p>
+        //第二种方式传参，参数放在url的?号
+        onclick="openPage('a.jsp?pKey=pValue',null,'新页面','2',true)";
+        <br>
+        <input id="login" type="button" value="新页面" onclick="openPage('./JSToNativeInteractive.html?pKey=pValue',null,'演示带问好传参','2',true)"/>
+        </p>
+        <p>
+        <p>
+        //获取问号后的参数
+        onclick="getValueFromURLParam('pKey');"
+        <br>
+        <input id="testMethod222" type="button" value="获取当前页面的参数" style="height=200px;width=200px;"  onclick="getValueFromURLParam('pKey',function(msg){alert(msg);});"/>
+        </p>
+        
+        <p>
+        //点击进入左侧按钮
+        onclick="showMenu();"
+        <br>
+         <input id="toLeftView" type="button" value="到左侧按钮"  onclick="showMenu()"/>
+        </p>
+        
+        //加载菊花
+        onclick="showHUD('title');"
+        <br>
+        <input id="showHUD" type="button" value="加载菊花"  onclick="showHUD('在加载')"/>
+        </p>
+        //刷新当前页面
+        onclick="refresh();"
+        <br>
+        <input id="refresh" type="button" value="刷新当前页面"  onclick="refresh()"/>
+        </p>
+       
+        
+    </body>
+    
+    <script>
+        
+        
+        var clickObj = new function(){
+            this.leftButtonClick = function(){
+                
+            };
+            
+            this.rightButtonClick = function(){
+                alert('我点击了右侧原生按钮！');
+                
+            };
+        };
+    
+    var alertObj = new function(){
+        this.leftAlertButtonClick = function(index){
+            if(index == 10) {
+                alert('他点击了弹窗10的左侧按钮了！');
+            }else if(index == 1) {
+                alert('点击弹窗1了！');
+
+            }
+        };
+        
+        this.rightAlertButtonClick = function(index){
+            if(index == 10) {
+                toLoginView();
+            }else {
+                alert('他点击了弹窗1的右侧按钮了！');
+
+            }
+        };
+    };
+    
+        </script>
+    
+</html>
