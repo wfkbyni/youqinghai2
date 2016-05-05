@@ -167,13 +167,13 @@
             // 取消订单
            // [self cancelOrder:model];
             
-            [self showAlertWithTag:2 withModel:model];
+            [self showAlertWithTag:2 withModel:model message:@"确定要取消该订单吗?"];
         }else if(orderType == OrderTypeWithConfirmPay){
             // 立即支付
             [self confirmOrder:model];
         }else if(orderType == OrderTypeWithDeleteOrder){
             // 删除订单
-            [self showAlertWithTag:1 withModel:model];
+            [self showAlertWithTag:1 withModel:model message:@"确定要删除该订单吗?"];
             //[self deleteOrder:model];
         }else if(orderType == OrderTypeWithEvaluate){
             // 评价订单
@@ -294,9 +294,9 @@
 
 
 #pragma mark --- show alert view
-- (void) showAlertWithTag:(NSInteger)tag withModel:(OrderListModel *)model{
+- (void) showAlertWithTag:(NSInteger)tag withModel:(OrderListModel *)model message:(NSString *)msg{
     
-    QQHAlertView *av = [[QQHAlertView alloc] initWithTitle:@"提示" message:@"确定要删除该订单吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    QQHAlertView *av = [[QQHAlertView alloc] initWithTitle:@"提示" message:msg delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     av.tag = tag;
     av.orderListModel = model;
     [av show];

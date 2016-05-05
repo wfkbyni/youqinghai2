@@ -237,4 +237,8 @@
     return _datasource;
 }
 
+- (void)gotoOrders {
+    OrdersViewController *ovc = [[OrdersViewController alloc]init];
+    [self.navigationController pushViewController:ovc animated:YES];
+}
 @end

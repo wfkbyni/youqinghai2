@@ -12,5 +12,6 @@
 @interface CarDetailController : BaseViewController
 
 @property (nonatomic, strong) Car *car;
+@property (nonatomic, strong) NSString *paytitle;
 
 @end

@@ -266,10 +266,10 @@
         [self confirmOrder];
     }else if ([title hasPrefix:@"取消订单"]) {
         
-        [self showAlertWithTag:2];
+        [self showAlertWithTag:2 message:@"确定要取消该订单吗?"];
     }else if ([title hasPrefix:@"删除订单"]) {
         
-        [self showAlertWithTag:1];
+        [self showAlertWithTag:1 message: @"确定要删除该订单吗?"];
     }
     
 }
@@ -315,12 +315,13 @@
 }
 
 
-- (void) showAlertWithTag:(NSInteger)tag {
+- (void) showAlertWithTag:(NSInteger)tag message:(NSString *)msg{
     
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定要删除该订单吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:msg delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     av.tag = tag;
     [av show];
 }
+
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     

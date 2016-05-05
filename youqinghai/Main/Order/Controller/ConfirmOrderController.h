@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) CarDetail *carDetail;
 
+@property (nonatomic, strong) NSString *paytitle;
 // 是否拼车
 @property (nonatomic, assign) BOOL isCarpool;
 

@@ -235,6 +235,7 @@
     Car *car = self.carViewModel.cars[indexPath.row];
     car.travelTime = [NSString stringWithFormat:@"%ld",interval];
     controller.car = car;
+    controller.paytitle = self.recommend.title;
     [self.navigationController pushViewController:controller animated:YES];
 }
 

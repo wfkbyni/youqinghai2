@@ -44,9 +44,13 @@
 
 -(RACSignal *)addOrder{
     
-    RACSignal *signal = [[[RequestBaseAPI standardAPI] addOrderWithOrder:self.order] map:^id(ResponseBaseData *data) {
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] addOrderWithOrder:self.order] map:^id(ResponseBaseData *responseData) {
         
-        return data.result_data;
+        NSData *data = [responseData.result_data dataUsingEncoding:NSUTF8StringEncoding];
+        
+        NSDictionary *params = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        return params;
+
     }];
     
     return signal;

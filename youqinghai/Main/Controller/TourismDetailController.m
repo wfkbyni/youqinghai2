@@ -324,6 +324,8 @@
     }
     ConfirmOrderController *controller = [[ConfirmOrderController alloc] init];
     controller.isCarpool = YES;
+    controller.paytitle = self.recommend.title;
+
     [self.navigationController pushViewController:controller animated:YES];
 }
 

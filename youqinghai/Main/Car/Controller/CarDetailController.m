@@ -72,6 +72,7 @@
     ConfirmOrderController *controller = [[ConfirmOrderController alloc] init];
     controller.driverId = self.carViewModel.driverId;
     controller.isCarpool = NO;
+    controller.paytitle = self.paytitle;
     self.carViewModel.carDetail.travelTime = self.car.travelTime;
     controller.carDetail = self.carViewModel.carDetail;
     [self.navigationController pushViewController:controller animated:YES];

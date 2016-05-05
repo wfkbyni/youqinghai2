@@ -9,7 +9,10 @@
 #import "PayViewController.h"
 #import "PayViewModel.h"
 #import "PayInfo.h"
-
+#import "OrdersViewController.h"
+#import "PersonalViewController.h"
+#import "MainViewController.h"
+#import "AITabBarController.h"
 @interface PayViewController ()<UITableViewDelegate,UITableViewDataSource>{
     PayViewModel *viewModel;
 }
@@ -163,11 +166,12 @@
 
 - (void)alipayWithSubject:(NSString *)subject withBody:(NSString *)body withPrice:(NSString *)price withOutTradeNo:(NSString *)outTradeNo{
     RACSignal *singal = [viewModel getPayDemoActivityWithSubject:subject withBody:body withPrice:price withOutTradeNo:outTradeNo];
+    __weak PayViewController *weakself = self;
+
     [singal subscribeNext:^(PayInfo *payInfo) {
         [AISharedPay handleAlipay:payInfo.orderInfo paymentBlock:^(BOOL success, id object, NSString *msg) {
-            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:msg delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
-            [av show];
-            // [self.view makeToast:msg];
+            [weakself processResult:msg];
+
         }];
     } error:^(NSError *error) {
         
@@ -178,11 +182,11 @@
 
 - (void)wxWithOutTradeNo:(NSString *)outTradeNo withBody:(NSString *)body withTotalFee:(NSString *)totalFee{
     RACSignal *signal = [viewModel getCreateOrderWithOutTradeNo:outTradeNo withBody:body withTotalFee:totalFee];
+    __weak PayViewController *weakself = self;
     [signal subscribeNext:^(NSDictionary *params) {
         [AISharedPay handleWeixinPayment:params paymentBlock:^(BOOL success, id object, NSString *msg) {
-            // [self.view makeToast:msg];
-            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:msg delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
-            [av show];
+            
+            [weakself processResult:msg];
             
         }];
 
@@ -192,4 +196,30 @@
         
     }];
 }
+
+
+- (void) processResult:(NSString *)msg {
+    UINavigationController *nav = [AITabBarController sharedTabbar].selectedViewController;
+    
+    UIViewController *bottomController = [nav viewControllers][0];
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    if ([bottomController isKindOfClass:[PersonalViewController class]]) {
+        //直接进入到我的订单页面
+        PersonalViewController *personal = (PersonalViewController *)bottomController;
+        [personal gotoOrders];
+        
+    }else  if ([bottomController isKindOfClass:[MainViewController class]]) {
+        bottomController.navigationController.navigationBarHidden = NO;
+        OrdersViewController *ovc = [[OrdersViewController alloc]init];
+        [bottomController.navigationController pushViewController:ovc animated:YES];
+        //[AITabBarController sharedTabbar].selectedIndex = 2;
+        //         UINavigationController *bNav = [AITabBarController sharedTabbar].selectedViewController;
+        //          UIViewController *bController = [bNav viewControllers][0];
+        //         PersonalViewController *personal = (PersonalViewController *)bController;
+        //         [personal gotoOrders];
+        
+    }
+}
+
+
 @end

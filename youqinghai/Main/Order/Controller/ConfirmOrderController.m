@@ -233,14 +233,17 @@
         return;
     }
     
-    [[self.orderViewModel addOrder] subscribeNext:^(id x) {
-        NSLog(@"%@",x);
+    [[self.orderViewModel addOrder] subscribeNext:^(NSDictionary* params) {
+        NSLog(@"%@",params);
         [self.view makeToast:@"订单添加成功，请到我的订单查看"];
         [CardNo removeAllCachedObjectsSuccess:^(NSArray *array) {
             PayViewController *controller = [[PayViewController alloc] init];
-            controller.orderListModel = self.orderViewModel;
+            OrderListModel *orderListModel = [[OrderListModel alloc] init];
+            orderListModel.Typename = self.paytitle;
+            orderListModel.orderReserve = [NSString stringWithFormat:@"%@", params[@"totalFee"]];
+            orderListModel.ordernum = [NSString stringWithFormat:@"%@",params[@"outTradeNo"]];
+            controller.orderListModel = orderListModel;
             [self.navigationController pushViewController:controller animated:YES];
-            
         } failure:^(NSError *error) {
             
         }];
