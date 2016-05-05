@@ -10,9 +10,17 @@
 #import "TravelCell.h"
 #import "AIWebViewLoadRequest.h"
 #import "AIHybridJSParam.h"
+#import "TravelsViewModel.h"
 
 #import "AINavigationController.h"
 #import "PublishTravelsController.h"
+
+#import "KMMessagView.h"
+
+@interface TravelsViewController(){
+    KMMessagView *messagebox;
+}
+@end
 
 @implementation TravelsViewController
 
@@ -34,6 +42,26 @@
      self.view.webView.webviewLoadType = HybridWebViewLoadType_Local;
      [self.view.webView loadURLRequest];
     
+    TravelsViewModel *viewModel = [[TravelsViewModel alloc] init];
+    
+    CGSize size=[UIScreen mainScreen].bounds.size;
+    CGRect boxFrame=CGRectMake(0,size.height, size.width, 45);
+    messagebox=[[KMMessagView alloc]initWithFrame:boxFrame PlaceText:@"评论" PlaceColor:[UIColor lightGrayColor]];
+    [messagebox sendMessage:^(NSString *txt) {
+        NSLog(@"%@",txt);
+        [[viewModel commentTravelsWithTravelId:0 withComContent:txt] subscribeNext:^(id x) {
+            
+        } error:^(NSError *error) {
+            
+        }];
+    }];
+    [self.view addSubview:messagebox];
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [messagebox.inputView resignFirstResponder];
 }
 
 - (void)myAction:(id)sender{

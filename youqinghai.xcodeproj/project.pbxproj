@@ -280,6 +280,11 @@
 		9A622A921CDA41A9006A03B9 /* VOVideoIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A881CDA41A9006A03B9 /* VOVideoIndicatorView.m */; };
 		9A622A961CDB7F1D006A03B9 /* TravelsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A951CDB7F1D006A03B9 /* TravelsViewModel.m */; };
 		9A622A991CDB7F49006A03B9 /* RequestBaseAPI+Travels.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A981CDB7F49006A03B9 /* RequestBaseAPI+Travels.m */; };
+		9A622AA31CDB954B006A03B9 /* send_arrow_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A622A9C1CDB954B006A03B9 /* send_arrow_left@2x.png */; };
+		9A622AA41CDB954B006A03B9 /* send_blue_arrow_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A622A9D1CDB954B006A03B9 /* send_blue_arrow_left@2x.png */; };
+		9A622AA51CDB954B006A03B9 /* subline.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A622A9E1CDB954B006A03B9 /* subline.png */; };
+		9A622AA61CDB954B006A03B9 /* KMMessagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622AA01CDB954B006A03B9 /* KMMessagView.m */; };
+		9A622AA71CDB954B006A03B9 /* KMPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622AA21CDB954B006A03B9 /* KMPlaceholderTextView.m */; };
 		9A637DAD1CA17EFE004D17BA /* Recommend.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DAC1CA17EFE004D17BA /* Recommend.m */; };
 		9A637DB01CA17FF2004D17BA /* TourismType.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DAF1CA17FF2004D17BA /* TourismType.m */; };
 		9A637DB31CA1809B004D17BA /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DB21CA1809B004D17BA /* Banner.m */; };
@@ -917,6 +922,13 @@
 		9A622A951CDB7F1D006A03B9 /* TravelsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravelsViewModel.m; sourceTree = "<group>"; };
 		9A622A971CDB7F49006A03B9 /* RequestBaseAPI+Travels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RequestBaseAPI+Travels.h"; sourceTree = "<group>"; };
 		9A622A981CDB7F49006A03B9 /* RequestBaseAPI+Travels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RequestBaseAPI+Travels.m"; sourceTree = "<group>"; };
+		9A622A9C1CDB954B006A03B9 /* send_arrow_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "send_arrow_left@2x.png"; sourceTree = "<group>"; };
+		9A622A9D1CDB954B006A03B9 /* send_blue_arrow_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "send_blue_arrow_left@2x.png"; sourceTree = "<group>"; };
+		9A622A9E1CDB954B006A03B9 /* subline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = subline.png; sourceTree = "<group>"; };
+		9A622A9F1CDB954B006A03B9 /* KMMessagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMMessagView.h; sourceTree = "<group>"; };
+		9A622AA01CDB954B006A03B9 /* KMMessagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMMessagView.m; sourceTree = "<group>"; };
+		9A622AA11CDB954B006A03B9 /* KMPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMPlaceholderTextView.h; sourceTree = "<group>"; };
+		9A622AA21CDB954B006A03B9 /* KMPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPlaceholderTextView.m; sourceTree = "<group>"; };
 		9A637DAB1CA17EFE004D17BA /* Recommend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recommend.h; sourceTree = "<group>"; };
 		9A637DAC1CA17EFE004D17BA /* Recommend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recommend.m; sourceTree = "<group>"; };
 		9A637DAE1CA17FF2004D17BA /* TourismType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourismType.h; sourceTree = "<group>"; };
@@ -1919,6 +1931,7 @@
 		9A24C2011CBE656B00671233 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				9A622A9A1CDB954B006A03B9 /* KMCompent */,
 				9A622A741CDA41A9006A03B9 /* VOImagePicker */,
 				35DDF8DD1CC7712500C7F820 /* SDPhotoBrowser */,
 				9A24C33E1CC3DC4D00671233 /* WXCustomScroeView */,
@@ -2171,6 +2184,28 @@
 				9A622A951CDB7F1D006A03B9 /* TravelsViewModel.m */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9A622A9A1CDB954B006A03B9 /* KMCompent */ = {
+			isa = PBXGroup;
+			children = (
+				9A622A9B1CDB954B006A03B9 /* images */,
+				9A622A9F1CDB954B006A03B9 /* KMMessagView.h */,
+				9A622AA01CDB954B006A03B9 /* KMMessagView.m */,
+				9A622AA11CDB954B006A03B9 /* KMPlaceholderTextView.h */,
+				9A622AA21CDB954B006A03B9 /* KMPlaceholderTextView.m */,
+			);
+			path = KMCompent;
+			sourceTree = "<group>";
+		};
+		9A622A9B1CDB954B006A03B9 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				9A622A9C1CDB954B006A03B9 /* send_arrow_left@2x.png */,
+				9A622A9D1CDB954B006A03B9 /* send_blue_arrow_left@2x.png */,
+				9A622A9E1CDB954B006A03B9 /* subline.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		9A637DBA1CA186EE004D17BA /* Controller */ = {
@@ -2578,6 +2613,7 @@
 				354A684C1CB38AD2001F3F5D /* ZImageFidCell.xib in Resources */,
 				35E3FFB61CA8CD9A00876054 /* ZPersonalHeaderView.xib in Resources */,
 				9A24C34D1CC3DC4D00671233 /* stars_on@3x.png in Resources */,
+				9A622AA41CDB954B006A03B9 /* send_blue_arrow_left@2x.png in Resources */,
 				357D72B61CBCD23900EAD35C /* umeng_fb_audio_dialog_content@2x.png in Resources */,
 				35891BA61CB7B4C000CE7002 /* DriverCarCommentCell.xib in Resources */,
 				B437E6971CA43D3700091521 /* sr_refresh@2X.png in Resources */,
@@ -2591,6 +2627,7 @@
 				357D72B91CBCD23900EAD35C /* umeng_fb_audio_play_03@2x.png in Resources */,
 				B43EAEEF1CDB30DA0066A34A /* JSToNativeCommon.js in Resources */,
 				357D72DD1CBCD23900EAD35C /* WeiboSDK.bundle in Resources */,
+				9A622AA51CDB954B006A03B9 /* subline.png in Resources */,
 				357D72BA1CBCD23900EAD35C /* umeng_fb_audio_play_default@2x.png in Resources */,
 				357D72B21CBCD23900EAD35C /* ToolViewInputVoice@2x.png in Resources */,
 				357D72B41CBCD23900EAD35C /* umeng_add_photo@2x.png in Resources */,
@@ -2633,6 +2670,7 @@
 				35891B9C1CB7B4C000CE7002 /* CarDetailController.xib in Resources */,
 				357D72AC1CBCD23900EAD35C /* bubble_min@2x.png in Resources */,
 				9A622A891CDA41A9006A03B9 /* VOImagePicker.strings in Resources */,
+				9A622AA31CDB954B006A03B9 /* send_arrow_left@2x.png in Resources */,
 				35D295561CB77D050029B8C1 /* ZTravelFCell.xib in Resources */,
 				357D72CB1CBCD23900EAD35C /* UMSLoginViewController.xib in Resources */,
 				357D72B51CBCD23900EAD35C /* umeng_fb_audio_dialog_cancel@2x.png in Resources */,
@@ -2743,6 +2781,7 @@
 				35E51D0B1CBAC88100A653FB /* ZOpinionViewController.m in Sources */,
 				35589AAB1CB7D4BC004DFE35 /* RequestBaseAPI+Order.m in Sources */,
 				354A685E1CB4F622001F3F5D /* ZUserMessModel.m in Sources */,
+				9A622AA61CDB954B006A03B9 /* KMMessagView.m in Sources */,
 				35891BA21CB7B4C000CE7002 /* CarTypeTableView.m in Sources */,
 				B437E6A91CA43D5300091521 /* UIView+Layout.m in Sources */,
 				35589AAD1CB7D4BC004DFE35 /* RequestBaseAPI+User.m in Sources */,
@@ -2794,6 +2833,7 @@
 				357D73471CBF8D0000EAD35C /* MyOrderEvaViewController.m in Sources */,
 				35891BD21CB7B55400CE7002 /* TouristroutesViewController.m in Sources */,
 				35891BED1CB7B59200CE7002 /* TourismDetailView.m in Sources */,
+				9A622AA71CDB954B006A03B9 /* KMPlaceholderTextView.m in Sources */,
 				354A68441CB36ACB001F3F5D /* ZModifyPassWordViewController.m in Sources */,
 				35589AA91CB7D4BC004DFE35 /* RequestBaseAPI+Car.m in Sources */,
 				9A622A991CDB7F49006A03B9 /* RequestBaseAPI+Travels.m in Sources */,

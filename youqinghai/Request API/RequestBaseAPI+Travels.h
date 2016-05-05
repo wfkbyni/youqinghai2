@@ -20,4 +20,13 @@
  */
 - (RACSignal *)publishTravelsWithContent:(NSString *)content withFiles:(NSArray *)files;
 
+/**
+ *  @brief 评论游记（1.0）
+ *
+ *  @param travelId   游记Id
+ *  @param comContent 评论内容
+ *
+ */
+- (RACSignal *)commentTravelsWithTravelId:(NSInteger)travelId withComContent:(NSString *)comContent;
+
 @end

@@ -10,17 +10,29 @@
 
 // 发表游记
 NSString *const publishTravels = @"app/operation/publishTravels";
+// 评论游记（1.0）
+NSString *const commentTravels = @"app/operation/commentTravels";
 
 @implementation RequestBaseAPI (Travels)
 
 -(RACSignal *)publishTravelsWithContent:(NSString *)content withFiles:(NSArray *)files{
     
-    NSMutableDictionary *dic = @[].mutableCopy;
+    NSMutableDictionary *dic = @{}.mutableCopy;
     
-    dic[@"userId"] = @([ZUserModel shareUserModel].userId.integerValue);
+    NSString *userId = [ZUserModel shareUserModel].userId;
+    dic[@"userId"] = userId;
     dic[@"content"] = content;
     
     return [self ZpostApiString:publishTravels params:dic attachKey:@"fileName" attachData:files];
+}
+
+-(RACSignal *)commentTravelsWithTravelId:(NSInteger)travelId withComContent:(NSString *)comContent{
+    
+    NSString *userId = [ZUserModel shareUserModel].userId;
+    
+    NSString *params = [NSString stringWithFormat:@"server=%@&travelId=%@&userId=%@&comContent=%@",commentTravels,@(travelId),userId,comContent];
+    
+    return [self requestWithType:RequestAPITypePost params:params];
 }
 
 @end

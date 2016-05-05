@@ -117,6 +117,7 @@
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         [self setHeadersForRequestSerializer:manager.requestSerializer withParametersLength:length];
         manager.responseSerializer             = [AFJSONResponseSerializer serializer];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         NSURLSessionDataTask *task = [manager POST:urlString parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
            // [formData appendPartWithFormData:attachData name:attachKey];
             for (int i = 0; i<attachData.count ; i++) {

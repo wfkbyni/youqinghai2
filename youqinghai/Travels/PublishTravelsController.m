@@ -60,33 +60,22 @@
 }
 
 - (void)cancelAction:(id)sender{
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)submitAction:(id)sender{
-//    NSMutableArray *imageSignals = [NSMutableArray array];
-//    __block NSMutableArray *images = [collectionData mutableCopy];
-//    [collectionData enumerateObjectsUsingBlock:^(NSString *imageStr, NSUInteger idx, BOOL * stop) {
-//        NSURL *url = [NSURL URLWithString:imageStr];
-//        if ([url isFileURL]) {
-//            RACSignal *signal = [[[WXRestAPI standardAPI] uploadImageWithFile:url.path] map:^id(NSDictionary *dic) {
-//                images[idx] = dic[@"url"];
-//                [[NSFileManager defaultManager] removeItemAtURL:url error:nil];
-//                return dic;
-//            }];
-//            [imageSignals addObject:signal];
-//        }
-//        else{
-//            RACSignal *signal = [RACSignal return:imageStr];
-//            [imageSignals addObject:signal];
-//        }
-//    }];
-    
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     RACSignal *signal = [viewModel publishTravelsWithContent:@"abcd" withFiles:collectionData];
-    [signal subscribeNext:^(id x) {
-        
+    [signal subscribeNext:^(ResponseBaseData *data) {
+        if (data.result_code == 0) {
+            [self.navigationController.view makeToast:@"游记发表成功"];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
     } error:^(NSError *error) {
-        
+        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        [self.view makeToast:[error.userInfo objectForKey:@"message"]];
     }];
 }
 
@@ -178,7 +167,7 @@
     if (collectionData.count == indexPath.row) {
         
     }else{
-        [imageView sd_setImageWithURL:[NSURL URLWithString:collectionData[indexPath.row]]];
+        [imageView setImage:collectionData[indexPath.row]];
     }
     
     [imageView setBackgroundColor:[UIColor colorWithRed:arc4random_uniform(255.0f) / 255.0f green:arc4random_uniform(255.0f) / 255.0f blue:arc4random_uniform(255.0f) / 255.0f alpha:1]];
@@ -296,46 +285,18 @@
     }
 }
 
-
-#pragma mark - UIImagePickerControllerDelegate
-- (NSString *)UUID{
-    CFUUIDRef puuid        = CFUUIDCreate( nil );
-    CFStringRef uuidString = CFUUIDCreateString( nil, puuid );
-    NSString * result      = (__bridge_transfer NSString *)uuidString;
-    CFRelease(puuid);
-    return result;
-}
-
-- (NSString*)documentDirectory{
-    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-}
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     @autoreleasepool {
-        NSData *finalImageData = UIImageJPEGRepresentation(image, 0.8);
-        if(finalImageData == nil){
-            finalImageData = UIImagePNGRepresentation(image);
-        }
+        CGSize imageSize = image.size;
+        CGFloat scale = MIN(MIN(kScreenSize.width/imageSize.width, kScreenSize.height / imageSize.height) * 3, 1);
+        image = [self scaleImage:image toScale:scale];
         
-        NSString *fileName = [[self UUID] stringByAppendingString:@".jpg"];
-        NSArray *pathComponents = @[[self documentDirectory],fileName];
+        [collectionData addObject:image];
         
-        NSString *filePath = [[NSURL fileURLWithPathComponents:pathComponents] path];
+        [self changeCollectionViewHeight];
         
-        [finalImageData writeToFile:filePath
-                         atomically:YES];
-#ifdef WX_DEBUG
-        NSDictionary *fileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
-        WXLog(@"fileSize: %.2f MB\nfilePath: %@",[fileInfo[NSFileSize] floatValue] /(1024*1024),filePath);
-#endif
-        NSURL *url = [NSURL fileURLWithPath:filePath];
-        if (!collectionData) {
-            collectionData = [NSMutableArray arrayWithObject:@[url.absoluteString]];
-        }
-        else{
-            collectionData = [NSMutableArray arrayWithObjects:[collectionData arrayByAddingObject:url.absoluteString], nil];
-        }
+        [self.myCollectionView reloadData];
     }
     
     [picker dismissViewControllerAnimated:YES completion:nil];
@@ -355,59 +316,30 @@
 {
     [imagePickerController dismissViewControllerAnimated:YES completion:^{
         //[self.view showLoadingHudWithText:nil];
-        __block NSMutableArray *signals = [NSMutableArray array];
         @autoreleasepool {
             [assets enumerateObjectsUsingBlock:^(ALAsset *aAsset, NSUInteger idx, BOOL *stop) {
-                RACSignal *signal = [[[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-                    ALAssetRepresentation *rep = [aAsset defaultRepresentation];
-                    CGImageRef ref = [rep fullResolutionImage];
-                    if (ref) {
-                        UIImage *image = [[UIImage alloc] initWithCGImage:ref];
-                        CGSize imageSize = image.size;
-                        CGFloat scale = MIN(MIN(kScreenSize.width/imageSize.width, kScreenSize.height / imageSize.height) * 3, 1);
-                        image = [self scaleImage:image toScale:scale];
-                        
-                        NSData *finalImageData = UIImageJPEGRepresentation(image, 0.8);
-                        
-                        if(finalImageData == nil){
-                            finalImageData = UIImagePNGRepresentation(image);
-                        }
-                        
-                        NSString *fileName = [[self UUID] stringByAppendingString:@".jpg"];
-                        NSArray *pathComponents = @[[self documentDirectory],fileName];
-                        
-                        NSString *filePath = [[NSURL fileURLWithPathComponents:pathComponents] path];
-                        
-                        [finalImageData writeToFile:filePath
-                                         atomically:YES];
-#ifdef WX_DEBUG
-                        NSDictionary *fileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
-                        WXLog(@"fileSize: %.2f MB\nfilePath: %@",[fileInfo[NSFileSize] floatValue] /(1024*1024),filePath);
-#endif
-                        NSURL *url = [NSURL fileURLWithPath:filePath];
-                        [subscriber sendNext:url.absoluteString];
-                        [subscriber sendCompleted];
-                    }
-                    else{
-                        [subscriber sendCompleted];
-                    }
-                    return nil;
-                }] subscribeOn:[RACScheduler schedulerWithPriority:RACSchedulerPriorityBackground]] deliverOn:[RACScheduler mainThreadScheduler]];
-                [signals addObject:signal];
+                ALAssetRepresentation *rep = [aAsset defaultRepresentation];
+                CGImageRef ref = [rep fullResolutionImage];
+                if (ref) {
+                    UIImage *image = [[UIImage alloc] initWithCGImage:ref];
+                    CGSize imageSize = image.size;
+                    CGFloat scale = MIN(MIN(kScreenSize.width/imageSize.width, kScreenSize.height / imageSize.height) * 3, 1);
+                    image = [self scaleImage:image toScale:scale];
+                    
+                    [collectionData addObject:image];
+                }
+                else{
+                    
+                }
+
             }];
+            
+            
+            [self changeCollectionViewHeight];
+            
+            [self.myCollectionView reloadData];
         }
         
-        __block NSMutableArray *imageUrls = collectionData.count > 0? [collectionData mutableCopy] :@[].mutableCopy;
-        [[[RACSignal merge:signals]
-          deliverOn:[RACScheduler mainThreadScheduler]]
-         subscribeNext:^(id x) {
-             [imageUrls addObject:x];
-         } completed:^{
-             collectionData = imageUrls;
-             
-             [self changeCollectionViewHeight];
-             [self.myCollectionView reloadData];
-         }];
     }];
 }
 
@@ -420,52 +352,31 @@
 
 - (void)vo_imagePickerController:(VOImagePickerController *)imagePickerController didFinishPickingAssets:(NSArray *)assets{
     [imagePickerController dismissViewControllerAnimated:YES completion:nil];
-    __block NSMutableArray *signals = [NSMutableArray array];
     [assets enumerateObjectsUsingBlock:^(PHAsset *aAsset, NSUInteger idx, BOOL *stop) {
-        RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            CGFloat scale = MIN(MIN(kScreenSize.width/aAsset.pixelWidth, kScreenSize.height / aAsset.pixelHeight) * 3, 1);
-            CGSize targetSize = CGSizeMake(aAsset.pixelWidth * scale, aAsset.pixelHeight * scale);
-            PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
-            options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;            options.synchronous = NO;
-            options.networkAccessAllowed = YES;
-            options.progressHandler = ^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
-                YQHLog(@"%f", progress);
-            };
-            [[PHImageManager defaultManager] requestImageForAsset:aAsset targetSize:targetSize contentMode:PHImageContentModeDefault options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info){
-                YQHLog(@"size:%@",NSStringFromCGSize(result.size));
-                NSData *imageData = UIImageJPEGRepresentation(result, 0.8);
-                
-                if(imageData == nil){
-                    imageData = UIImagePNGRepresentation(result);
-                }
-                NSString *fileName = [[self UUID] stringByAppendingString:@".jpg"];
-                NSArray *pathComponents = @[[self documentDirectory],fileName];
-                NSString *filePath = [[NSURL fileURLWithPathComponents:pathComponents] path];
-                [imageData writeToFile:filePath
-                            atomically:YES];
-#ifdef WX_DEBUG
-                NSDictionary *fileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
-                WXLog(@"fileSize: %.2f MB\nfilePath: %@",[fileInfo[NSFileSize] floatValue] /(1024*1024),filePath);
-#endif
-                NSURL *url = [NSURL fileURLWithPath:filePath];
-                [subscriber sendNext:url.absoluteString];
-                [subscriber sendCompleted];
-            }];
-            return nil;
-        }];
-        [signals addObject:signal];
-    }];
+        CGFloat scale = MIN(MIN(kScreenSize.width/aAsset.pixelWidth, kScreenSize.height / aAsset.pixelHeight) * 3, 1);
+        CGSize targetSize = CGSizeMake(aAsset.pixelWidth * scale, aAsset.pixelHeight * scale);
+        PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
+        options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;            options.synchronous = NO;
+        options.networkAccessAllowed = YES;
+        options.progressHandler = ^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
+            YQHLog(@"%f", progress);
+        };
+        [[PHImageManager defaultManager] requestImageForAsset:aAsset targetSize:targetSize contentMode:PHImageContentModeDefault options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info){
+            YQHLog(@"before size:%@",NSStringFromCGSize(result.size));
+            
+            CGSize imageSize = result.size;
+            CGFloat scale = MIN(MIN(kScreenSize.width/imageSize.width, kScreenSize.height / imageSize.height) * 3, 1);
+            result = [self scaleImage:result toScale:scale];
+            
+            YQHLog(@"after size:%@",NSStringFromCGSize(result.size));
+            
+            [collectionData addObject:result];
+            
+            [self changeCollectionViewHeight];
+            
+            [self.myCollectionView reloadData];
 
-    __block NSMutableArray *imageUrls = collectionData > 0? [collectionData mutableCopy] :@[].mutableCopy;
-    [[RACSignal merge:signals] subscribeNext:^(id x) {
-        [imageUrls addObject:x];
-    } completed:^{
-        
-        collectionData = imageUrls;
-        
-        [self changeCollectionViewHeight];
-        
-        [self.myCollectionView reloadData];
+        }];
     }];
 }
 
