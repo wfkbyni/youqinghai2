@@ -7,7 +7,7 @@
 //
 
 
-#define ALIPAY_APP_SCHEME  @"LawyerClient" //需要配置
+#define ALIPAY_APP_SCHEME  @"alipayyouqinghai" //需要配置
 
 
 

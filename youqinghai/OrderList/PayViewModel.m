@@ -25,9 +25,10 @@
 -(RACSignal *)getCreateOrderWithOutTradeNo:(NSString *)outTradeNo withBody:(NSString *)body withTotalFee:(NSString *)totalFee{
     
     return [[[RequestBaseAPI standardAPI] getCreateOrderWithOutTradeNo:outTradeNo withBody:body withTotalFee:totalFee] map:^id(ResponseBaseData *value) {
-        PayInfo *payInfo = [PayInfo mj_objectWithKeyValues:value.result_data];
+        NSData *data = [value.result_data dataUsingEncoding:NSUTF8StringEncoding];
         
-        return payInfo;
+        NSDictionary *params = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        return params;
     }];
 }
 

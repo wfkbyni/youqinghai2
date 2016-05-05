@@ -297,7 +297,7 @@
     req.prepayId            = [params objectForKey:@"prepayId"];
     req.nonceStr            = [params objectForKey:@"nonceStr"];
     req.timeStamp           = stamp.intValue;
-    req.package             = [params objectForKey:@"package"];
+    req.package             = [params objectForKey:@"packagename"];
     req.sign                = [params objectForKey:@"sign"];
     BOOL d=  [WXApi sendReq:req];
     if (d) {

@@ -165,7 +165,9 @@
     RACSignal *singal = [viewModel getPayDemoActivityWithSubject:subject withBody:body withPrice:price withOutTradeNo:outTradeNo];
     [singal subscribeNext:^(PayInfo *payInfo) {
         [AISharedPay handleAlipay:payInfo.orderInfo paymentBlock:^(BOOL success, id object, NSString *msg) {
-            
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:msg delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
+            [av show];
+            // [self.view makeToast:msg];
         }];
     } error:^(NSError *error) {
         
@@ -176,10 +178,14 @@
 
 - (void)wxWithOutTradeNo:(NSString *)outTradeNo withBody:(NSString *)body withTotalFee:(NSString *)totalFee{
     RACSignal *signal = [viewModel getCreateOrderWithOutTradeNo:outTradeNo withBody:body withTotalFee:totalFee];
-    [signal subscribeNext:^(id x) {
-        [AISharedPay handleWeixinPayment:nil paymentBlock:^(BOOL success, id object, NSString *msg) {
+    [signal subscribeNext:^(NSDictionary *params) {
+        [AISharedPay handleWeixinPayment:params paymentBlock:^(BOOL success, id object, NSString *msg) {
+            // [self.view makeToast:msg];
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:msg delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
+            [av show];
             
         }];
+
     } error:^(NSError *error) {
         
     } completed:^{
