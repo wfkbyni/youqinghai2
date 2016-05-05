@@ -11,9 +11,11 @@
 #include <AVFoundation/AVFoundation.h>
 #import "VOImagePickerController.h"
 #import "QBImagePickerController.h"
+#import "TravelsViewModel.h"
 
 @interface PublishTravelsController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,VOImagePickerControllerDelegate,QBImagePickerControllerDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
     NSMutableArray *collectionData;
+    TravelsViewModel *viewModel;
 }
 
 @property (nonatomic, strong) UITableView *myTableView;
@@ -36,6 +38,7 @@
     [self commonTableView];
  
     collectionData = [NSMutableArray array];
+    viewModel = [TravelsViewModel new];
 }
 
 - (void)navBarButtonItem{
@@ -61,7 +64,30 @@
 }
 
 - (void)submitAction:(id)sender{
-    [self.view makeToast:@"开发中"];
+//    NSMutableArray *imageSignals = [NSMutableArray array];
+//    __block NSMutableArray *images = [collectionData mutableCopy];
+//    [collectionData enumerateObjectsUsingBlock:^(NSString *imageStr, NSUInteger idx, BOOL * stop) {
+//        NSURL *url = [NSURL URLWithString:imageStr];
+//        if ([url isFileURL]) {
+//            RACSignal *signal = [[[WXRestAPI standardAPI] uploadImageWithFile:url.path] map:^id(NSDictionary *dic) {
+//                images[idx] = dic[@"url"];
+//                [[NSFileManager defaultManager] removeItemAtURL:url error:nil];
+//                return dic;
+//            }];
+//            [imageSignals addObject:signal];
+//        }
+//        else{
+//            RACSignal *signal = [RACSignal return:imageStr];
+//            [imageSignals addObject:signal];
+//        }
+//    }];
+    
+    RACSignal *signal = [viewModel publishTravelsWithContent:@"abcd" withFiles:collectionData];
+    [signal subscribeNext:^(id x) {
+        
+    } error:^(NSError *error) {
+        
+    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

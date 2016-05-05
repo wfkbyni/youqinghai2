@@ -161,38 +161,6 @@
             endingLineNumber = "236"
             landmarkName = "-confirmOrder"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ConfirmOrderController confirmOrder]"
-                  moduleName = "&#x6e38;&#x9752;&#x6d77;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/Main/Order/Controller/ConfirmOrderController.m"
-                  timestampString = "484068559.923241"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "236"
-                  endingLineNumber = "236"
-                  offsetFromSymbolStart = "2688">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__38-[ConfirmOrderController confirmOrder]_block_invoke"
-                  moduleName = "&#x6e38;&#x9752;&#x6d77;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/Main/Order/Controller/ConfirmOrderController.m"
-                  timestampString = "484068559.923458"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "236"
-                  endingLineNumber = "236"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -218,12 +186,12 @@
                   moduleName = "&#x6e38;&#x9752;&#x6d77;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/Main/Order/Controller/ConfirmOrderController.m"
-                  timestampString = "484068559.924215"
+                  timestampString = "484146544.013295"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "239"
                   endingLineNumber = "239"
-                  offsetFromSymbolStart = "196">
+                  offsetFromSymbolStart = "166">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -233,12 +201,12 @@
                   moduleName = "&#x6e38;&#x9752;&#x6d77;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/Main/Order/Controller/ConfirmOrderController.m"
-                  timestampString = "484068559.924347"
+                  timestampString = "484146544.013637"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "242"
                   endingLineNumber = "242"
-                  offsetFromSymbolStart = "56">
+                  offsetFromSymbolStart = "52">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -378,12 +346,12 @@
                   moduleName = "&#x6e38;&#x9752;&#x6d77;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/OrderList/Controller/PayViewController.m"
-                  timestampString = "484068559.927229"
+                  timestampString = "484146544.017922"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "180"
                   endingLineNumber = "180"
-                  offsetFromSymbolStart = "76">
+                  offsetFromSymbolStart = "55">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -393,7 +361,7 @@
                   moduleName = "&#x6e38;&#x9752;&#x6d77;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/OrderList/Controller/PayViewController.m"
-                  timestampString = "484068559.927359"
+                  timestampString = "484146544.018054"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "182"
@@ -426,12 +394,12 @@
                   moduleName = "&#x6e38;&#x9752;&#x6d77;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/OrderList/Controller/PayViewController.m"
-                  timestampString = "484068559.928126"
+                  timestampString = "484146544.019198"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "185"
                   endingLineNumber = "185"
-                  offsetFromSymbolStart = "56">
+                  offsetFromSymbolStart = "52">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -441,7 +409,7 @@
                   moduleName = "&#x6e38;&#x9752;&#x6d77;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/OrderList/Controller/PayViewController.m"
-                  timestampString = "484068559.928255"
+                  timestampString = "484146544.019356"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "187"
@@ -490,12 +458,12 @@
                   moduleName = "&#x6e38;&#x9752;&#x6d77;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/Travels/PublishTravelsController.m"
-                  timestampString = "484068559.929556"
+                  timestampString = "484146544.021501"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "334"
                   endingLineNumber = "334"
-                  offsetFromSymbolStart = "156">
+                  offsetFromSymbolStart = "160">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -505,14 +473,62 @@
                   moduleName = "&#x6e38;&#x9752;&#x6d77;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/Travels/PublishTravelsController.m"
-                  timestampString = "484068559.929676"
+                  timestampString = "484146544.021647"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "334"
                   endingLineNumber = "334"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youqinghai/Travels/ViewModel/TravelsViewModel.m"
+            timestampString = "484147569.244302"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "-publishTravelsWithContent:withFiles:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youqinghai/Travels/PublishTravelsController.m"
+            timestampString = "484147672.958467"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "-submitAction:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youqinghai/Travels/PublishTravelsController.m"
+            timestampString = "484147673.838404"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "-submitAction:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

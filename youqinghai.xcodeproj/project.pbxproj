@@ -278,6 +278,8 @@
 		9A622A901CDA41A9006A03B9 /* VOImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A841CDA41A9006A03B9 /* VOImagePickerController.m */; };
 		9A622A911CDA41A9006A03B9 /* VOVideoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A861CDA41A9006A03B9 /* VOVideoIconView.m */; };
 		9A622A921CDA41A9006A03B9 /* VOVideoIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A881CDA41A9006A03B9 /* VOVideoIndicatorView.m */; };
+		9A622A961CDB7F1D006A03B9 /* TravelsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A951CDB7F1D006A03B9 /* TravelsViewModel.m */; };
+		9A622A991CDB7F49006A03B9 /* RequestBaseAPI+Travels.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A622A981CDB7F49006A03B9 /* RequestBaseAPI+Travels.m */; };
 		9A637DAD1CA17EFE004D17BA /* Recommend.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DAC1CA17EFE004D17BA /* Recommend.m */; };
 		9A637DB01CA17FF2004D17BA /* TourismType.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DAF1CA17FF2004D17BA /* TourismType.m */; };
 		9A637DB31CA1809B004D17BA /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A637DB21CA1809B004D17BA /* Banner.m */; };
@@ -901,6 +903,10 @@
 		9A622A861CDA41A9006A03B9 /* VOVideoIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOVideoIconView.m; sourceTree = "<group>"; };
 		9A622A871CDA41A9006A03B9 /* VOVideoIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOVideoIndicatorView.h; sourceTree = "<group>"; };
 		9A622A881CDA41A9006A03B9 /* VOVideoIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOVideoIndicatorView.m; sourceTree = "<group>"; };
+		9A622A941CDB7F1D006A03B9 /* TravelsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravelsViewModel.h; sourceTree = "<group>"; };
+		9A622A951CDB7F1D006A03B9 /* TravelsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravelsViewModel.m; sourceTree = "<group>"; };
+		9A622A971CDB7F49006A03B9 /* RequestBaseAPI+Travels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RequestBaseAPI+Travels.h"; sourceTree = "<group>"; };
+		9A622A981CDB7F49006A03B9 /* RequestBaseAPI+Travels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RequestBaseAPI+Travels.m"; sourceTree = "<group>"; };
 		9A637DAB1CA17EFE004D17BA /* Recommend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recommend.h; sourceTree = "<group>"; };
 		9A637DAC1CA17EFE004D17BA /* Recommend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recommend.m; sourceTree = "<group>"; };
 		9A637DAE1CA17FF2004D17BA /* TourismType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourismType.h; sourceTree = "<group>"; };
@@ -1841,6 +1847,8 @@
 				9A1FEB541C9EF65F0067B8D5 /* ResponseBaseData */,
 				9A622A681CD8D26F006A03B9 /* RequestBaseAPI+Pay.h */,
 				9A622A691CD8D26F006A03B9 /* RequestBaseAPI+Pay.m */,
+				9A622A971CDB7F49006A03B9 /* RequestBaseAPI+Travels.h */,
+				9A622A981CDB7F49006A03B9 /* RequestBaseAPI+Travels.m */,
 			);
 			name = "Request API";
 			path = "../Request API";
@@ -2127,6 +2135,15 @@
 			path = VOImagePicker;
 			sourceTree = "<group>";
 		};
+		9A622A931CDB7EE7006A03B9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9A622A941CDB7F1D006A03B9 /* TravelsViewModel.h */,
+				9A622A951CDB7F1D006A03B9 /* TravelsViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		9A637DBA1CA186EE004D17BA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -2278,6 +2295,7 @@
 		B437E6AA1CA43FB600091521 /* Travels */ = {
 			isa = PBXGroup;
 			children = (
+				9A622A931CDB7EE7006A03B9 /* ViewModel */,
 				B437E6AB1CA43FB600091521 /* TravelsViewController.h */,
 				B437E6AC1CA43FB600091521 /* TravelsViewController.m */,
 				B437E6AD1CA43FB600091521 /* Views */,
@@ -2637,6 +2655,7 @@
 				9A1FEB441C9EEA120067B8D5 /* ResponseBaseData.m in Sources */,
 				35EB05971CB94FF3003FDEFD /* OrderDetailViewController.m in Sources */,
 				35D295401CB658400029B8C1 /* ZDriverModel.m in Sources */,
+				9A622A961CDB7F1D006A03B9 /* TravelsViewModel.m in Sources */,
 				B437E67C1CA43CDC00091521 /* AINavigationController.m in Sources */,
 				35589AA81CB7D4BC004DFE35 /* RequestBaseAPI.m in Sources */,
 				35891B9E1CB7B4C000CE7002 /* CarListViewController.m in Sources */,
@@ -2683,6 +2702,7 @@
 				35891BED1CB7B59200CE7002 /* TourismDetailView.m in Sources */,
 				354A68441CB36ACB001F3F5D /* ZModifyPassWordViewController.m in Sources */,
 				35589AA91CB7D4BC004DFE35 /* RequestBaseAPI+Car.m in Sources */,
+				9A622A991CDB7F49006A03B9 /* RequestBaseAPI+Travels.m in Sources */,
 				9A622A8D1CDA41A9006A03B9 /* VOAssetsViewController.m in Sources */,
 				35891BA71CB7B4C000CE7002 /* DriverCarCommentTableViewCell.m in Sources */,
 				35D2953C1CB6577E0029B8C1 /* ZDriverCell.m in Sources */,
