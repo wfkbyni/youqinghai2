@@ -313,16 +313,26 @@
 		B437E6B11CA43FB600091521 /* TravelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B437E6AF1CA43FB600091521 /* TravelCell.m */; };
 		B437E6B81CA43FCA00091521 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B437E6B41CA43FCA00091521 /* PersonalViewController.m */; };
 		B437E6B91CA43FCA00091521 /* PersonalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B437E6B71CA43FCA00091521 /* PersonalCell.m */; };
-		B472E7721CBC9A9500A43CCB /* AIWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = B472E7551CBC9A9500A43CCB /* AIWebView.m */; };
-		B472E7731CBC9A9500A43CCB /* AIWebViewLoadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B472E7571CBC9A9500A43CCB /* AIWebViewLoadRequest.m */; };
-		B472E7751CBC9A9500A43CCB /* HybridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B472E75D1CBC9A9500A43CCB /* HybridViewController.m */; };
-		B472E77C1CBC9C8300A43CCB /* AIHybridJSParam.m in Sources */ = {isa = PBXBuildFile; fileRef = B472E77B1CBC9C8300A43CCB /* AIHybridJSParam.m */; };
-		B472E77F1CBC9CA200A43CCB /* JSParamHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = B472E77E1CBC9CA200A43CCB /* JSParamHandler.m */; };
-		B472E7851CBCA0C700A43CCB /* css in Resources */ = {isa = PBXBuildFile; fileRef = B472E7801CBCA0C700A43CCB /* css */; };
-		B472E7861CBCA0C700A43CCB /* dist in Resources */ = {isa = PBXBuildFile; fileRef = B472E7811CBCA0C700A43CCB /* dist */; };
-		B472E7871CBCA0C700A43CCB /* html in Resources */ = {isa = PBXBuildFile; fileRef = B472E7821CBCA0C700A43CCB /* html */; };
-		B472E7881CBCA0C700A43CCB /* img in Resources */ = {isa = PBXBuildFile; fileRef = B472E7831CBCA0C700A43CCB /* img */; };
-		B472E7891CBCA0C700A43CCB /* js in Resources */ = {isa = PBXBuildFile; fileRef = B472E7841CBCA0C700A43CCB /* js */; };
+		B43EAE9F1CDB20D80066A34A /* iconApp.png in Resources */ = {isa = PBXBuildFile; fileRef = B43EAE9E1CDB20D80066A34A /* iconApp.png */; };
+		B43EAEEC1CDB30DA0066A34A /* AIWebViewBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EAEC61CDB30DA0066A34A /* AIWebViewBridge.m */; };
+		B43EAEED1CDB30DA0066A34A /* common.js in Resources */ = {isa = PBXBuildFile; fileRef = B43EAEC81CDB30DA0066A34A /* common.js */; };
+		B43EAEEE1CDB30DA0066A34A /* JSNativeInteractive.html in Resources */ = {isa = PBXBuildFile; fileRef = B43EAEC91CDB30DA0066A34A /* JSNativeInteractive.html */; };
+		B43EAEEF1CDB30DA0066A34A /* JSToNativeCommon.js in Resources */ = {isa = PBXBuildFile; fileRef = B43EAECA1CDB30DA0066A34A /* JSToNativeCommon.js */; };
+		B43EAEF01CDB30DA0066A34A /* JSToNativeInteractive.js in Resources */ = {isa = PBXBuildFile; fileRef = B43EAECB1CDB30DA0066A34A /* JSToNativeInteractive.js */; };
+		B43EAEF21CDB30DA0066A34A /* ObjcLookupMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EAECF1CDB30DA0066A34A /* ObjcLookupMethod.m */; };
+		B43EAEF31CDB30DA0066A34A /* WebViewJavascriptBridge.js.txt in Resources */ = {isa = PBXBuildFile; fileRef = B43EAED21CDB30DA0066A34A /* WebViewJavascriptBridge.js.txt */; };
+		B43EAEF41CDB30DA0066A34A /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EAED31CDB30DA0066A34A /* WebViewJavascriptBridge.m */; };
+		B43EAEF51CDB30DA0066A34A /* AIHybridJSParam.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EAED51CDB30DA0066A34A /* AIHybridJSParam.m */; };
+		B43EAEF61CDB30DA0066A34A /* AINavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EAED81CDB30DA0066A34A /* AINavigationBar.m */; };
+		B43EAEF71CDB30DA0066A34A /* AIWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EAEDA1CDB30DA0066A34A /* AIWebView.m */; };
+		B43EAEF81CDB30DA0066A34A /* AIWebViewLoadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EAEDC1CDB30DA0066A34A /* AIWebViewLoadRequest.m */; };
+		B43EAEF91CDB30DA0066A34A /* HybridJSApi.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EAEDF1CDB30DA0066A34A /* HybridJSApi.m */; };
+		B43EAEFA1CDB30DA0066A34A /* HybridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EAEE21CDB30DA0066A34A /* HybridViewController.m */; };
+		B43EAEFB1CDB30DA0066A34A /* JSParamHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EAEE41CDB30DA0066A34A /* JSParamHandler.m */; };
+		B43EAEFC1CDB30DA0066A34A /* NSDictionary+Null.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EAEE61CDB30DA0066A34A /* NSDictionary+Null.m */; };
+		B43EAEFD1CDB30DA0066A34A /* ServerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EAEE81CDB30DA0066A34A /* ServerConfig.m */; };
+		B43EAF011CDB34C70066A34A /* HybridJSBusinessApi.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EAF001CDB34C70066A34A /* HybridJSBusinessApi.m */; };
+		B43EAF031CDB48790066A34A /* assets in Resources */ = {isa = PBXBuildFile; fileRef = B43EAF021CDB48790066A34A /* assets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -968,21 +978,40 @@
 		B437E6B41CA43FCA00091521 /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
 		B437E6B61CA43FCA00091521 /* PersonalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCell.h; sourceTree = "<group>"; };
 		B437E6B71CA43FCA00091521 /* PersonalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCell.m; sourceTree = "<group>"; };
-		B472E7541CBC9A9500A43CCB /* AIWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIWebView.h; sourceTree = "<group>"; };
-		B472E7551CBC9A9500A43CCB /* AIWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIWebView.m; sourceTree = "<group>"; };
-		B472E7561CBC9A9500A43CCB /* AIWebViewLoadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIWebViewLoadRequest.h; sourceTree = "<group>"; };
-		B472E7571CBC9A9500A43CCB /* AIWebViewLoadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIWebViewLoadRequest.m; sourceTree = "<group>"; };
-		B472E75C1CBC9A9500A43CCB /* HybridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HybridViewController.h; sourceTree = "<group>"; };
-		B472E75D1CBC9A9500A43CCB /* HybridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HybridViewController.m; sourceTree = "<group>"; };
-		B472E77A1CBC9C8300A43CCB /* AIHybridJSParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHybridJSParam.h; sourceTree = "<group>"; };
-		B472E77B1CBC9C8300A43CCB /* AIHybridJSParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHybridJSParam.m; sourceTree = "<group>"; };
-		B472E77D1CBC9CA200A43CCB /* JSParamHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSParamHandler.h; sourceTree = "<group>"; };
-		B472E77E1CBC9CA200A43CCB /* JSParamHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSParamHandler.m; sourceTree = "<group>"; };
-		B472E7801CBCA0C700A43CCB /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
-		B472E7811CBCA0C700A43CCB /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
-		B472E7821CBCA0C700A43CCB /* html */ = {isa = PBXFileReference; lastKnownFileType = folder; path = html; sourceTree = "<group>"; };
-		B472E7831CBCA0C700A43CCB /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
-		B472E7841CBCA0C700A43CCB /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
+		B43EAE9E1CDB20D80066A34A /* iconApp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconApp.png; sourceTree = "<group>"; };
+		B43EAEC51CDB30DA0066A34A /* AIWebViewBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIWebViewBridge.h; sourceTree = "<group>"; };
+		B43EAEC61CDB30DA0066A34A /* AIWebViewBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIWebViewBridge.m; sourceTree = "<group>"; };
+		B43EAEC81CDB30DA0066A34A /* common.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = common.js; sourceTree = "<group>"; };
+		B43EAEC91CDB30DA0066A34A /* JSNativeInteractive.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = JSNativeInteractive.html; sourceTree = "<group>"; };
+		B43EAECA1CDB30DA0066A34A /* JSToNativeCommon.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JSToNativeCommon.js; sourceTree = "<group>"; };
+		B43EAECB1CDB30DA0066A34A /* JSToNativeInteractive.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JSToNativeInteractive.js; sourceTree = "<group>"; };
+		B43EAECE1CDB30DA0066A34A /* ObjcLookupMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjcLookupMethod.h; sourceTree = "<group>"; };
+		B43EAECF1CDB30DA0066A34A /* ObjcLookupMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjcLookupMethod.m; sourceTree = "<group>"; };
+		B43EAED11CDB30DA0066A34A /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
+		B43EAED21CDB30DA0066A34A /* WebViewJavascriptBridge.js.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WebViewJavascriptBridge.js.txt; sourceTree = "<group>"; };
+		B43EAED31CDB30DA0066A34A /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
+		B43EAED41CDB30DA0066A34A /* AIHybridJSParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHybridJSParam.h; sourceTree = "<group>"; };
+		B43EAED51CDB30DA0066A34A /* AIHybridJSParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHybridJSParam.m; sourceTree = "<group>"; };
+		B43EAED71CDB30DA0066A34A /* AINavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AINavigationBar.h; sourceTree = "<group>"; };
+		B43EAED81CDB30DA0066A34A /* AINavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AINavigationBar.m; sourceTree = "<group>"; };
+		B43EAED91CDB30DA0066A34A /* AIWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIWebView.h; sourceTree = "<group>"; };
+		B43EAEDA1CDB30DA0066A34A /* AIWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIWebView.m; sourceTree = "<group>"; };
+		B43EAEDB1CDB30DA0066A34A /* AIWebViewLoadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIWebViewLoadRequest.h; sourceTree = "<group>"; };
+		B43EAEDC1CDB30DA0066A34A /* AIWebViewLoadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIWebViewLoadRequest.m; sourceTree = "<group>"; };
+		B43EAEDD1CDB30DA0066A34A /* HybridHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HybridHeader.h; sourceTree = "<group>"; };
+		B43EAEDE1CDB30DA0066A34A /* HybridJSApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HybridJSApi.h; sourceTree = "<group>"; };
+		B43EAEDF1CDB30DA0066A34A /* HybridJSApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HybridJSApi.m; sourceTree = "<group>"; };
+		B43EAEE11CDB30DA0066A34A /* HybridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HybridViewController.h; sourceTree = "<group>"; };
+		B43EAEE21CDB30DA0066A34A /* HybridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HybridViewController.m; sourceTree = "<group>"; };
+		B43EAEE31CDB30DA0066A34A /* JSParamHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSParamHandler.h; sourceTree = "<group>"; };
+		B43EAEE41CDB30DA0066A34A /* JSParamHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSParamHandler.m; sourceTree = "<group>"; };
+		B43EAEE51CDB30DA0066A34A /* NSDictionary+Null.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Null.h"; sourceTree = "<group>"; };
+		B43EAEE61CDB30DA0066A34A /* NSDictionary+Null.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Null.m"; sourceTree = "<group>"; };
+		B43EAEE71CDB30DA0066A34A /* ServerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerConfig.h; sourceTree = "<group>"; };
+		B43EAEE81CDB30DA0066A34A /* ServerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerConfig.m; sourceTree = "<group>"; };
+		B43EAEFF1CDB34C70066A34A /* HybridJSBusinessApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HybridJSBusinessApi.h; sourceTree = "<group>"; };
+		B43EAF001CDB34C70066A34A /* HybridJSBusinessApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HybridJSBusinessApi.m; sourceTree = "<group>"; };
+		B43EAF021CDB48790066A34A /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2213,6 +2242,7 @@
 			children = (
 				9A1FEB2E1C9EDCB90067B8D5 /* PrefixHeader.pch */,
 				9AF1C0111C9ED3E100AD2FC1 /* main.m */,
+				B43EAE9E1CDB20D80066A34A /* iconApp.png */,
 				9A1FEB411C9EE7580067B8D5 /* Common.h */,
 			);
 			name = "Supporting Files";
@@ -2354,42 +2384,100 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		B472E6CA1CBC980400A43CCB /* H5 */ = {
+		B43EAEC31CDB30DA0066A34A /* AIWebView */ = {
 			isa = PBXGroup;
 			children = (
-				B472E7801CBCA0C700A43CCB /* css */,
-				B472E7811CBCA0C700A43CCB /* dist */,
-				B472E7821CBCA0C700A43CCB /* html */,
-				B472E7831CBCA0C700A43CCB /* img */,
-				B472E7841CBCA0C700A43CCB /* js */,
-				B472E73E1CBC9A9500A43CCB /* AIWebView */,
-			);
-			name = H5;
-			sourceTree = "<group>";
-		};
-		B472E73E1CBC9A9500A43CCB /* AIWebView */ = {
-			isa = PBXGroup;
-			children = (
-				B472E77D1CBC9CA200A43CCB /* JSParamHandler.h */,
-				B472E77E1CBC9CA200A43CCB /* JSParamHandler.m */,
-				B472E77A1CBC9C8300A43CCB /* AIHybridJSParam.h */,
-				B472E77B1CBC9C8300A43CCB /* AIHybridJSParam.m */,
-				B472E7541CBC9A9500A43CCB /* AIWebView.h */,
-				B472E7551CBC9A9500A43CCB /* AIWebView.m */,
-				B472E7561CBC9A9500A43CCB /* AIWebViewLoadRequest.h */,
-				B472E7571CBC9A9500A43CCB /* AIWebViewLoadRequest.m */,
-				B472E75B1CBC9A9500A43CCB /* HybridPage */,
+				B43EAEFF1CDB34C70066A34A /* HybridJSBusinessApi.h */,
+				B43EAF001CDB34C70066A34A /* HybridJSBusinessApi.m */,
+				B43EAEC41CDB30DA0066A34A /* AIBridge */,
+				B43EAED41CDB30DA0066A34A /* AIHybridJSParam.h */,
+				B43EAED51CDB30DA0066A34A /* AIHybridJSParam.m */,
+				B43EAED61CDB30DA0066A34A /* AINavigationBar */,
+				B43EAED91CDB30DA0066A34A /* AIWebView.h */,
+				B43EAEDA1CDB30DA0066A34A /* AIWebView.m */,
+				B43EAEDB1CDB30DA0066A34A /* AIWebViewLoadRequest.h */,
+				B43EAEDC1CDB30DA0066A34A /* AIWebViewLoadRequest.m */,
+				B43EAEDD1CDB30DA0066A34A /* HybridHeader.h */,
+				B43EAEDE1CDB30DA0066A34A /* HybridJSApi.h */,
+				B43EAEDF1CDB30DA0066A34A /* HybridJSApi.m */,
+				B43EAEE01CDB30DA0066A34A /* HybridPage */,
+				B43EAEE31CDB30DA0066A34A /* JSParamHandler.h */,
+				B43EAEE41CDB30DA0066A34A /* JSParamHandler.m */,
+				B43EAEE51CDB30DA0066A34A /* NSDictionary+Null.h */,
+				B43EAEE61CDB30DA0066A34A /* NSDictionary+Null.m */,
+				B43EAEE71CDB30DA0066A34A /* ServerConfig.h */,
+				B43EAEE81CDB30DA0066A34A /* ServerConfig.m */,
 			);
 			path = AIWebView;
 			sourceTree = "<group>";
 		};
-		B472E75B1CBC9A9500A43CCB /* HybridPage */ = {
+		B43EAEC41CDB30DA0066A34A /* AIBridge */ = {
 			isa = PBXGroup;
 			children = (
-				B472E75C1CBC9A9500A43CCB /* HybridViewController.h */,
-				B472E75D1CBC9A9500A43CCB /* HybridViewController.m */,
+				B43EAEC51CDB30DA0066A34A /* AIWebViewBridge.h */,
+				B43EAEC61CDB30DA0066A34A /* AIWebViewBridge.m */,
+				B43EAEC71CDB30DA0066A34A /* JSFiles */,
+				B43EAECD1CDB30DA0066A34A /* LookupMethod */,
+				B43EAED01CDB30DA0066A34A /* WebViewJavascriptBridge */,
+			);
+			path = AIBridge;
+			sourceTree = "<group>";
+		};
+		B43EAEC71CDB30DA0066A34A /* JSFiles */ = {
+			isa = PBXGroup;
+			children = (
+				B43EAEC81CDB30DA0066A34A /* common.js */,
+				B43EAEC91CDB30DA0066A34A /* JSNativeInteractive.html */,
+				B43EAECA1CDB30DA0066A34A /* JSToNativeCommon.js */,
+				B43EAECB1CDB30DA0066A34A /* JSToNativeInteractive.js */,
+			);
+			path = JSFiles;
+			sourceTree = "<group>";
+		};
+		B43EAECD1CDB30DA0066A34A /* LookupMethod */ = {
+			isa = PBXGroup;
+			children = (
+				B43EAECE1CDB30DA0066A34A /* ObjcLookupMethod.h */,
+				B43EAECF1CDB30DA0066A34A /* ObjcLookupMethod.m */,
+			);
+			path = LookupMethod;
+			sourceTree = "<group>";
+		};
+		B43EAED01CDB30DA0066A34A /* WebViewJavascriptBridge */ = {
+			isa = PBXGroup;
+			children = (
+				B43EAED11CDB30DA0066A34A /* WebViewJavascriptBridge.h */,
+				B43EAED21CDB30DA0066A34A /* WebViewJavascriptBridge.js.txt */,
+				B43EAED31CDB30DA0066A34A /* WebViewJavascriptBridge.m */,
+			);
+			path = WebViewJavascriptBridge;
+			sourceTree = "<group>";
+		};
+		B43EAED61CDB30DA0066A34A /* AINavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				B43EAED71CDB30DA0066A34A /* AINavigationBar.h */,
+				B43EAED81CDB30DA0066A34A /* AINavigationBar.m */,
+			);
+			path = AINavigationBar;
+			sourceTree = "<group>";
+		};
+		B43EAEE01CDB30DA0066A34A /* HybridPage */ = {
+			isa = PBXGroup;
+			children = (
+				B43EAEE11CDB30DA0066A34A /* HybridViewController.h */,
+				B43EAEE21CDB30DA0066A34A /* HybridViewController.m */,
 			);
 			path = HybridPage;
+			sourceTree = "<group>";
+		};
+		B472E6CA1CBC980400A43CCB /* H5 */ = {
+			isa = PBXGroup;
+			children = (
+				B43EAF021CDB48790066A34A /* assets */,
+				B43EAEC31CDB30DA0066A34A /* AIWebView */,
+			);
+			name = H5;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2462,8 +2550,10 @@
 				B437E6961CA43D3700091521 /* sr_refresh.png in Resources */,
 				35E3FFC11CA92AAC00876054 /* ZmessCenterCell.xib in Resources */,
 				9A24C3281CBE6BC500671233 /* readme.txt in Resources */,
+				B43EAEF31CDB30DA0066A34A /* WebViewJavascriptBridge.js.txt in Resources */,
+				B43EAEF01CDB30DA0066A34A /* JSToNativeInteractive.js in Resources */,
 				9A24C3481CC3DC4D00671233 /* stars_off.png in Resources */,
-				B472E7871CBCA0C700A43CCB /* html in Resources */,
+				B43EAEEE1CDB30DA0066A34A /* JSNativeInteractive.html in Resources */,
 				35D2954B1CB669FA0029B8C1 /* ZFowUserCell.xib in Resources */,
 				357D72C81CBCD23900EAD35C /* UMSCommentInputControlleriPad.xib in Resources */,
 				9A89526A1CD0F9BC00E53F57 /* WebTourisController.xib in Resources */,
@@ -2481,16 +2571,18 @@
 				357D72C91CBCD23900EAD35C /* UMShareEditViewController.xib in Resources */,
 				357D72AE1CBCD23900EAD35C /* microphone@2x.png in Resources */,
 				357D72B91CBCD23900EAD35C /* umeng_fb_audio_play_03@2x.png in Resources */,
+				B43EAEEF1CDB30DA0066A34A /* JSToNativeCommon.js in Resources */,
 				357D72DD1CBCD23900EAD35C /* WeiboSDK.bundle in Resources */,
 				357D72BA1CBCD23900EAD35C /* umeng_fb_audio_play_default@2x.png in Resources */,
 				357D72B21CBCD23900EAD35C /* ToolViewInputVoice@2x.png in Resources */,
 				357D72B41CBCD23900EAD35C /* umeng_add_photo@2x.png in Resources */,
 				357D72AA1CBCD23900EAD35C /* UMFeedbackLocalizable.strings in Resources */,
 				357D72B11CBCD23900EAD35C /* ToolViewInputTextHL@2x.png in Resources */,
+				B43EAEED1CDB30DA0066A34A /* common.js in Resources */,
 				9A24C34B1CC3DC4D00671233 /* stars_on.png in Resources */,
-				B472E7881CBCA0C700A43CCB /* img in Resources */,
 				35891B9F1CB7B4C000CE7002 /* CarListViewController.xib in Resources */,
 				9A622A8F1CDA41A9006A03B9 /* VOImagePicker.storyboard in Resources */,
+				B43EAE9F1CDB20D80066A34A /* iconApp.png in Resources */,
 				35891BEF1CB7B59200CE7002 /* TourismTypeCell.xib in Resources */,
 				9A637DC21CA18993004D17BA /* TempViewController.xib in Resources */,
 				9A24C34A1CC3DC4D00671233 /* stars_off@3x.png in Resources */,
@@ -2510,19 +2602,17 @@
 				9A24C3561CC66E7600671233 /* InsuranceViewController.xib in Resources */,
 				9A24C3161CBE6BC500671233 /* AlipaySDK.bundle in Resources */,
 				35891BA11CB7B4C000CE7002 /* CarListCell.xib in Resources */,
-				B472E7851CBCA0C700A43CCB /* css in Resources */,
 				357D72B81CBCD23900EAD35C /* umeng_fb_audio_play_02@2x.png in Resources */,
 				357D72B31CBCD23900EAD35C /* ToolViewInputVoiceHL@2x.png in Resources */,
 				357D72B01CBCD23900EAD35C /* ToolViewInputText@2x.png in Resources */,
 				35891BD31CB7B55400CE7002 /* TouristroutesViewController.xib in Resources */,
 				357D72C41CBCD23900EAD35C /* UMSocialLocalizable.strings in Resources */,
+				B43EAF031CDB48790066A34A /* assets in Resources */,
 				357D72CC1CBCD23900EAD35C /* UMSnsAccountViewController.xib in Resources */,
 				9AF1C01D1C9ED3E100AD2FC1 /* Assets.xcassets in Resources */,
-				B472E7891CBCA0C700A43CCB /* js in Resources */,
 				9A24C3491CC3DC4D00671233 /* stars_off@2x.png in Resources */,
 				357D72C71CBCD23900EAD35C /* UMSCommentInputController.xib in Resources */,
 				35891B9C1CB7B4C000CE7002 /* CarDetailController.xib in Resources */,
-				B472E7861CBCA0C700A43CCB /* dist in Resources */,
 				357D72AC1CBCD23900EAD35C /* bubble_min@2x.png in Resources */,
 				9A622A891CDA41A9006A03B9 /* VOImagePicker.strings in Resources */,
 				35D295561CB77D050029B8C1 /* ZTravelFCell.xib in Resources */,
@@ -2600,7 +2690,10 @@
 				35D295591CB7863C0029B8C1 /* ZFowUserTableView.m in Sources */,
 				9AF1C0151C9ED3E100AD2FC1 /* AppDelegate.m in Sources */,
 				35A67D161CABA88300B34994 /* ZModifyPhoneViewController.m in Sources */,
+				B43EAEFC1CDB30DA0066A34A /* NSDictionary+Null.m in Sources */,
+				B43EAEF71CDB30DA0066A34A /* AIWebView.m in Sources */,
 				9A24C3211CBE6BC500671233 /* NSDataEx.m in Sources */,
+				B43EAEF41CDB30DA0066A34A /* WebViewJavascriptBridge.m in Sources */,
 				9AD4BE3A1CB7E44400C1C89B /* Const.m in Sources */,
 				35D2952E1CB6421E0029B8C1 /* ZRouteFCell.m in Sources */,
 				B437E68C1CA43CE600091521 /* UIViewController+TableView.m in Sources */,
@@ -2608,7 +2701,6 @@
 				9A24C3551CC66E7600671233 /* InsuranceViewController.m in Sources */,
 				35E3FFC01CA92AAC00876054 /* ZmessCenterCell.m in Sources */,
 				357D734B1CBF8EDB00EAD35C /* MyOrderEvaCell.m in Sources */,
-				B472E77C1CBC9C8300A43CCB /* AIHybridJSParam.m in Sources */,
 				B437E6991CA43D3700091521 /* SRSlimeView.m in Sources */,
 				35891BA51CB7B4C000CE7002 /* DriverCarCommentCell.m in Sources */,
 				35891BA41CB7B4C000CE7002 /* DriverCarCellHeaderView.m in Sources */,
@@ -2621,6 +2713,8 @@
 				353341261CB51AFB00543CB4 /* ZTextViewCell.m in Sources */,
 				35891C061CB7B5F500CE7002 /* Order.m in Sources */,
 				9A24C33D1CC3C5A500671233 /* StatisticsPlatformDataView.m in Sources */,
+				B43EAEF51CDB30DA0066A34A /* AIHybridJSParam.m in Sources */,
+				B43EAEF61CDB30DA0066A34A /* AINavigationBar.m in Sources */,
 				9A1FEB4A1C9EF3C90067B8D5 /* GTMBase64.m in Sources */,
 				35DDF8F01CC87C6400C7F820 /* ZCarEvaViewController.m in Sources */,
 				35EB059C1CB94FF3003FDEFD /* YQHRadiusButton.m in Sources */,
@@ -2639,6 +2733,7 @@
 				35D295401CB658400029B8C1 /* ZDriverModel.m in Sources */,
 				B437E67C1CA43CDC00091521 /* AINavigationController.m in Sources */,
 				35589AA81CB7D4BC004DFE35 /* RequestBaseAPI.m in Sources */,
+				B43EAEFB1CDB30DA0066A34A /* JSParamHandler.m in Sources */,
 				35891B9E1CB7B4C000CE7002 /* CarListViewController.m in Sources */,
 				35EB05A11CB9534E003FDEFD /* OrderListModel.m in Sources */,
 				9A24C3631CC6796000671233 /* CardNo.m in Sources */,
@@ -2664,7 +2759,6 @@
 				35891BC31CB7B52000CE7002 /* TravelView.m in Sources */,
 				35891BC11CB7B52000CE7002 /* RelationView.m in Sources */,
 				35891BEE1CB7B59200CE7002 /* TourismTypeCell.m in Sources */,
-				B472E7751CBC9A9500A43CCB /* HybridViewController.m in Sources */,
 				9A622A8E1CDA41A9006A03B9 /* VOCheckmarkView.m in Sources */,
 				35D295431CB669C20029B8C1 /* ZTravelFTableView.m in Sources */,
 				9A24C31B1CBE6BC500671233 /* PayOrderEntity.m in Sources */,
@@ -2687,6 +2781,8 @@
 				35891BA71CB7B4C000CE7002 /* DriverCarCommentTableViewCell.m in Sources */,
 				35D2953C1CB6577E0029B8C1 /* ZDriverCell.m in Sources */,
 				9A637DB01CA17FF2004D17BA /* TourismType.m in Sources */,
+				B43EAF011CDB34C70066A34A /* HybridJSBusinessApi.m in Sources */,
+				B43EAEFD1CDB30DA0066A34A /* ServerConfig.m in Sources */,
 				35891BBF1CB7B52000CE7002 /* CalculateView.m in Sources */,
 				9A622A8B1CDA41A9006A03B9 /* VOAlbumsViewController.m in Sources */,
 				35EB05981CB94FF3003FDEFD /* OrdersViewController.m in Sources */,
@@ -2700,7 +2796,6 @@
 				35DDF8E71CC7712600C7F820 /* SDWaitingView.m in Sources */,
 				9A24C3271CBE6BC500671233 /* WXUtil.mm in Sources */,
 				35D295551CB77D050029B8C1 /* ZTravelFCell.m in Sources */,
-				B472E7731CBC9A9500A43CCB /* AIWebViewLoadRequest.m in Sources */,
 				35D295511CB763810029B8C1 /* ZFowUserModel.m in Sources */,
 				9A622A911CDA41A9006A03B9 /* VOVideoIconView.m in Sources */,
 				35891C031CB7B5F500CE7002 /* Car.m in Sources */,
@@ -2708,11 +2803,12 @@
 				B437E6B91CA43FCA00091521 /* PersonalCell.m in Sources */,
 				B437E6B81CA43FCA00091521 /* PersonalViewController.m in Sources */,
 				B437E6B11CA43FB600091521 /* TravelCell.m in Sources */,
+				B43EAEF21CDB30DA0066A34A /* ObjcLookupMethod.m in Sources */,
 				35E3FFB91CA90B3000876054 /* ZUserModel.m in Sources */,
 				9A24C3231CBE6BC500671233 /* RSADataSigner.m in Sources */,
-				B472E7721CBC9A9500A43CCB /* AIWebView.m in Sources */,
 				357D72A71CBCD23900EAD35C /* AppDelegate+Umeng.m in Sources */,
 				3556DA7F1CB3567500723C6E /* ZRegisteredViewController.m in Sources */,
+				B43EAEFA1CDB30DA0066A34A /* HybridViewController.m in Sources */,
 				B437E67D1CA43CDC00091521 /* AITabBarController.m in Sources */,
 				9A24C3201CBE6BC500671233 /* MD5DataSigner.m in Sources */,
 				35E3FFBC1CA91F8400876054 /* ZMessCenterViewController.m in Sources */,
@@ -2727,15 +2823,18 @@
 				354A684B1CB38AD2001F3F5D /* ZImageFidCell.m in Sources */,
 				35EB059D1CB94FF3003FDEFD /* ZPageView.m in Sources */,
 				35891BAB1CB7B4C000CE7002 /* CarViewModel.m in Sources */,
+				B43EAEF91CDB30DA0066A34A /* HybridJSApi.m in Sources */,
 				9A24C31F1CBE6BC500671233 /* DataVerifier.m in Sources */,
 				357D72BE1CBCD23900EAD35C /* UMChatToolBar.m in Sources */,
 				357D72A41CBCD23900EAD35C /* AIUmengCheckUpdate.m in Sources */,
 				357D73521CBFA8B600EAD35C /* EvaDriverViewController.m in Sources */,
+				B43EAEEC1CDB30DA0066A34A /* AIWebViewBridge.m in Sources */,
 				35891BEB1CB7B59200CE7002 /* TourisEvaluateCell.m in Sources */,
 				B437E6B01CA43FB600091521 /* TravelsViewController.m in Sources */,
 				9A24C3181CBE6BC500671233 /* APAuthV2Info.m in Sources */,
 				9A622A901CDA41A9006A03B9 /* VOImagePickerController.m in Sources */,
 				9A24C3241CBE6BC500671233 /* RSADataVerifier.m in Sources */,
+				B43EAEF81CDB30DA0066A34A /* AIWebViewLoadRequest.m in Sources */,
 				9A622A8A1CDA41A9006A03B9 /* VOAlbumCell.m in Sources */,
 				B437E6A51CA43D5300091521 /* UIButton+Block.m in Sources */,
 				35891BA91CB7B4C000CE7002 /* DriverCarIntroduceTableViewCell.m in Sources */,
@@ -2763,7 +2862,6 @@
 				35891BE71CB7B59200CE7002 /* CustomMoveItemView.m in Sources */,
 				35DDF8E51CC7712600C7F820 /* SDBrowserImageView.m in Sources */,
 				35A67D0B1CAB796C00B34994 /* ZModifyViewController.m in Sources */,
-				B472E77F1CBC9CA200A43CCB /* JSParamHandler.m in Sources */,
 				35891BC21CB7B52000CE7002 /* SubmitOrderView.m in Sources */,
 				9A637DBD1CA18711004D17BA /* MainViewController.m in Sources */,
 				35D2954E1CB66A110029B8C1 /* ZTravelModel.m in Sources */,
