@@ -60,11 +60,19 @@
 }
 
 - (void)cancelAction:(id)sender{
-    
+    [_yyTextView resignFirstResponder];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)submitAction:(id)sender{
+    
+    [_yyTextView resignFirstResponder];
+    
+    if (_yyTextView.text.length == 0) {
+        [self.view makeToast:@"游记内容不能为空"];
+        return;
+    }
+    
     [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     RACSignal *signal = [viewModel publishTravelsWithContent:@"abcd" withFiles:collectionData];
     [signal subscribeNext:^(ResponseBaseData *data) {
