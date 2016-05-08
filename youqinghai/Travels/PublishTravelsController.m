@@ -166,19 +166,36 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewCell" forIndexPath:indexPath];
     
     UIImageView *imageView = [cell viewWithTag:1000 + indexPath.row];
-    if (!imageView) {
-        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [self viewWidth], [self viewWidth])];
-        imageView.tag = 1000 + indexPath.row;
-        [cell.contentView addSubview:imageView];
+    if (imageView) {
+        [imageView removeFromSuperview];
+        imageView = nil;
     }
+    
+    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [self viewWidth], [self viewWidth])];
+    imageView.tag = 1000 + indexPath.row;
+    [cell.contentView addSubview:imageView];
+    
+    UIButton *deleteBtn = [cell viewWithTag:indexPath.row + 100];
+    if (deleteBtn) {
+        [deleteBtn removeFromSuperview];
+        deleteBtn = nil;
+    }
+    deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    deleteBtn.frame = CGRectMake(CGRectGetMaxX(imageView.frame) - 20, CGRectGetMinX(imageView.frame), 20, 20);
+    [deleteBtn setImage:[UIImage imageNamed:@"delete_01"] forState:UIControlStateNormal];
+    [cell.contentView addSubview:deleteBtn];
+    deleteBtn.tag = indexPath.row + 100;
+    [deleteBtn addTarget:self action:@selector(deleteImageView:) forControlEvents:UIControlEventTouchUpInside];
     
     if (collectionData.count == indexPath.row) {
         
+        deleteBtn.hidden = YES;
+        [imageView setImage:[UIImage imageNamed:@"游记_发布_06"]];
     }else{
+        deleteBtn.hidden = NO;
         [imageView setImage:collectionData[indexPath.row]];
     }
     
-    [imageView setBackgroundColor:[UIColor colorWithRed:arc4random_uniform(255.0f) / 255.0f green:arc4random_uniform(255.0f) / 255.0f blue:arc4random_uniform(255.0f) / 255.0f alpha:1]];
     return cell;
 }
 
@@ -188,27 +205,43 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    if (([UIDevice currentDevice].systemVersion.floatValue > 8.0)) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"选择图片" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        UIAlertAction *takePhotoAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self choosePhotoActionWithType:0];
-        }];
-        UIAlertAction *albumAction = [UIAlertAction actionWithTitle:@"手机相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self choosePhotoActionWithType:1];
-        }];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-        [alertController addAction:takePhotoAction];
-        [alertController addAction:albumAction];
-        [alertController addAction:cancelAction];
-        [self presentViewController:alertController animated:YES completion:nil];
+    if (collectionData.count == indexPath.row) {
+        if (([UIDevice currentDevice].systemVersion.floatValue > 8.0)) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"选择图片" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *takePhotoAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self choosePhotoActionWithType:0];
+            }];
+            UIAlertAction *albumAction = [UIAlertAction actionWithTitle:@"手机相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self choosePhotoActionWithType:1];
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+            [alertController addAction:takePhotoAction];
+            [alertController addAction:albumAction];
+            [alertController addAction:cancelAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+        else{
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"选择图片"
+                                                                     delegate:self
+                                                            cancelButtonTitle:@"取消"
+                                                       destructiveButtonTitle:nil
+                                                            otherButtonTitles:@"拍照", @"手机相册", nil];
+            [actionSheet showInView:self.view];
+        }
     }
-    else{
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"选择图片"
-                                                                 delegate:self
-                                                        cancelButtonTitle:@"取消"
-                                                   destructiveButtonTitle:nil
-                                                        otherButtonTitles:@"拍照", @"手机相册", nil];
-        [actionSheet showInView:self.view];
+}
+
+- (void)deleteImageView:(UIButton *)sender{
+    NSInteger tag = sender.tag - 100;
+    
+    NSObject *obj = collectionData[tag];
+    if (obj) {
+        
+        [collectionData removeObject:obj];
+        
+        [self changeCollectionViewHeight];
+        
+        [self.myCollectionView reloadData];
     }
 }
 

@@ -36,7 +36,7 @@
 #pragma mark subline draw
 -(void)addLineView{
     [_subLine removeFromSuperview];
-    _subLine=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"subline.png"]];
+    //_subLine=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"subline.png"]];
     [_subLine setContentMode:UIViewContentModeScaleToFill];
     [self addSubline:_subLine];
     

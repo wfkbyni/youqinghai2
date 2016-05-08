@@ -22,20 +22,22 @@
         //添加顶分割线
        //[self addSubview:[self addUpline]];
         //添加输入框
-        CGRect textFrame=CGRectMake(10, 6,self.frame.size.width-K_right_padding, 33);
+        CGRect textFrame=CGRectMake(0, 6,self.frame.size.width-50, 33);
         _Inputview=[[KMPlaceholderTextView alloc]initWithFrame:textFrame PlaceText:placeText PlaceColor:placeColor];
         _Inputview.delegate=self;
         [_Inputview TextViewSizeChange:^(CGSize size) {
             [self TextViewDidChange:size];
             
         }];
-        _Inputview.returnKeyType=UIReturnKeyDone;
+        _Inputview.returnKeyType = UIReturnKeySend;
         _Inputview.font=[UIFont systemFontOfSize:14.0];
         [self addSubview:_Inputview];
         //添加发送按钮
-        CGRect buttonFram=CGRectMake(self.frame.size.width-K_right_padding+10, 6, 33, 33);
+        CGRect buttonFram=CGRectMake(self.frame.size.width-K_right_padding - 20, 6, 50, 33);
         _sendButton=[[UIButton alloc]initWithFrame:buttonFram];
-        [_sendButton setBackgroundImage:[UIImage imageNamed:@"send_arrow_left@2x.png"] forState:UIControlStateNormal];
+        //[_sendButton setBackgroundImage:[UIImage imageNamed:@"send_arrow_left@2x.png"] forState:UIControlStateNormal];
+        [_sendButton setTitle:@"发送" forState:UIControlStateNormal];
+        [_sendButton setTitleColor:[UIColor colorWithRed:0.04 green:0.69 blue:0.78 alpha:1.00] forState:UIControlStateNormal];
         [_sendButton addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_sendButton];
         
@@ -69,15 +71,15 @@
 -(void)TextViewDidChange:(CGSize)size{
     self.frame=CGRectMake(0, self.frame.origin.y, self.frame.size.width,size.height+6*2);
     self.frame=CGRectMake(0,maxy-(self.frame.size.height > 20 * 5 ? 20 * 5 - 5 : self.frame.size.height), self.frame.size.width, self.frame.size.height);
-    _Inputview.frame=CGRectMake(10, 6, self.frame.size.width-K_right_padding, size.height > 20 * 5 ? 20 * 5 : size.height);
+    _Inputview.frame=CGRectMake(0, 6, self.frame.size.width-K_right_padding - 10, size.height > 20 * 5 ? 20 * 5 : size.height);
     [_Inputview setContentSize:CGSizeMake(CGRectGetWidth(_Inputview.frame), size.height)];
     
     if (_Inputview.Textnil) {
-        [_sendButton setBackgroundImage:[UIImage imageNamed:@"send_arrow_left@2x.png"] forState:UIControlStateNormal];
-          CGRect buttonFram=CGRectMake(self.frame.size.width-K_right_padding+10, 6, 33, 33);
+        //[_sendButton setBackgroundImage:[UIImage imageNamed:@"send_arrow_left@2x.png"] forState:UIControlStateNormal];
+          CGRect buttonFram=CGRectMake(self.frame.size.width-K_right_padding - 10, 6, 50, 33);
         _sendButton.frame=buttonFram;
     }else{
-        [_sendButton setBackgroundImage:[UIImage imageNamed:@"send_blue_arrow_left@2x.png"] forState:UIControlStateNormal];
+        //[_sendButton setBackgroundImage:[UIImage imageNamed:@"send_blue_arrow_left@2x.png"] forState:UIControlStateNormal];
         [self resetSendButtonPostion:size];
     }
 }
@@ -110,9 +112,9 @@
     [UIView animateWithDuration:boardAnimationDuration delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
         CGFloat keyBoardY=frame.origin.y;
         CGFloat keyBoardHeigh=frame.size.height;
-        maxy=[UIScreen mainScreen].bounds.size.height-keyBoardHeigh;
+        maxy=[UIScreen mainScreen].bounds.size.height - keyBoardHeigh;
         CGRect frame=self.frame;
-        frame.origin.y=keyBoardY-CGRectGetHeight(self.frame);
+        frame.origin.y=keyBoardY - CGRectGetHeight(self.frame) - 49;
         self.frame=frame;
         
     } completion:^(BOOL finished) {

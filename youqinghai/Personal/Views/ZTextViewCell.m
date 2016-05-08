@@ -137,7 +137,7 @@
         
         UIButton *deleteBtn = [[UIButton alloc]initWithFrame:CGRectMake(ImageH-30, -15, 44, 44)];
         //deleteBtn.backgroundColor = [UIColor greenColor];
-        [deleteBtn setImage:[UIImage imageNamed:@"游记_发布_03"] forState:UIControlStateNormal];
+        [deleteBtn setImage:[UIImage imageNamed:@"delete_01"] forState:UIControlStateNormal];
         deleteBtn.imageEdgeInsets = UIEdgeInsetsMake(11, 11, 11, 11);
         
         [deleteBtn addTarget:self action:@selector(deleteImage:) forControlEvents:UIControlEventTouchDown];

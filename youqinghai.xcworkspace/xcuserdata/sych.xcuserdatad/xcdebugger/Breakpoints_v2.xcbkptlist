@@ -186,12 +186,12 @@
                   moduleName = "&#x6e38;&#x9752;&#x6d77;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/Main/Order/Controller/ConfirmOrderController.m"
-                  timestampString = "484155137.626972"
+                  timestampString = "484404994.050651"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "239"
                   endingLineNumber = "239"
-                  offsetFromSymbolStart = "177">
+                  offsetFromSymbolStart = "180">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -201,12 +201,12 @@
                   moduleName = "&#x6e38;&#x9752;&#x6d77;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/Main/Order/Controller/ConfirmOrderController.m"
-                  timestampString = "484155137.627173"
+                  timestampString = "484404994.0508"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "239"
                   endingLineNumber = "239"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "19">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -369,6 +369,38 @@
             endingLineNumber = "186"
             landmarkName = "-wxWithOutTradeNo:withBody:withTotalFee:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[PayViewController wxWithOutTradeNo:withBody:withTotalFee:]"
+                  moduleName = "&#x6e38;&#x9752;&#x6d77;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/OrderList/Controller/PayViewController.m"
+                  timestampString = "484404994.056468"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "186"
+                  endingLineNumber = "186"
+                  offsetFromSymbolStart = "174">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__60-[PayViewController wxWithOutTradeNo:withBody:withTotalFee:]_block_invoke"
+                  moduleName = "&#x6e38;&#x9752;&#x6d77;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sych/Desktop/%E6%B8%B8%E9%9D%92%E6%B5%B7/QQHGit/youqinghai/OrderList/Controller/PayViewController.m"
+                  timestampString = "484404994.056591"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "187"
+                  endingLineNumber = "187"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -378,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youqinghai/Travels/PublishTravelsController.m"
-            timestampString = "484155111.270685"
+            timestampString = "484404681.447218"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
+            startingLineNumber = "336"
+            endingLineNumber = "336"
             landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "5">
          </BreakpointContent>
@@ -394,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youqinghai/Travels/PublishTravelsController.m"
-            timestampString = "484155111.270685"
+            timestampString = "484404681.447218"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "345"
-            endingLineNumber = "345"
+            startingLineNumber = "379"
+            endingLineNumber = "379"
             landmarkName = "-qb_imagePickerController:didSelectAssets:"
             landmarkType = "5">
          </BreakpointContent>
