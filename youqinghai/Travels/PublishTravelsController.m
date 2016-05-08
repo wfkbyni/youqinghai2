@@ -308,7 +308,7 @@
                 imagePicker.delegate = self;
                 imagePicker.allowsMultipleSelection = YES;
                 imagePicker.mediaType = VOImagePickerMediaTypeImage;
-                imagePicker.maximumNumberOfSelection = 9 - collectionData.count;
+                imagePicker.maximumNumberOfSelection = 6 - collectionData.count;
                 [self presentViewController:imagePicker animated:YES completion:nil];
             }
             else{
@@ -316,7 +316,7 @@
                 imagePicker.delegate = self;
                 imagePicker.allowsMultipleSelection = YES;
                 imagePicker.filterType = QBImagePickerControllerFilterTypePhotos;
-                imagePicker.maximumNumberOfSelection = 9 - collectionData.count;
+                imagePicker.maximumNumberOfSelection = 6 - collectionData.count;
                 [self presentViewController:imagePicker animated:YES completion:nil];
             }
         }
