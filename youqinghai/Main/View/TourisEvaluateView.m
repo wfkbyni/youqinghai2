@@ -9,9 +9,9 @@
 #import "TourisEvaluateView.h"
 #import "TourisEvaluateCell.h"
 
-@interface TourisEvaluateView()<UITableViewDataSource, UITableViewDelegate>
-
-@property (nonatomic, strong) UITableView *myTableView;
+@interface TourisEvaluateView()<UITableViewDataSource, UITableViewDelegate>{
+    NSInteger pageIndex;
+}
 
 @property (nonatomic, strong) NSArray *tourisEvaluates;
 
@@ -73,6 +73,7 @@
     if (cell == nil) {
         cell = [[TourisEvaluateCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdeitifier];
     }
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     cell.tourisEvaluate = _tourisEvaluates[indexPath.row];
     

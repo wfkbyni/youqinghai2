@@ -18,6 +18,7 @@
 -(instancetype)init{
     if (self = [super init]) {
         self.mark = 1;
+        self.pageIndex = 1;
     }
     return self;
 }
@@ -25,11 +26,20 @@
 -(RACSignal *)getHomePageData{
     
     RACSignal *signal = [[[RequestBaseAPI standardAPI] getHomePageDataWithMark:self.mark
-                                                                 withPageIndex:1
+                                                                 withPageIndex:self.pageIndex
                                                                   withPageSize:pageSize]
                          map:^id(ResponseBaseData *data) {
         
-        self.homePageData = [HomePageData mj_objectWithKeyValues:data.result_data];
+                             if (!self.homePageData || self.pageIndex == 1) {
+                                 self.homePageData = [HomePageData mj_objectWithKeyValues:data.result_data];
+                             }else{
+                                 HomePageData *homePageData = [HomePageData mj_objectWithKeyValues:data.result_data];
+                                 
+                                 NSArray *recommends = homePageData.recommend;
+                                 NSMutableArray *arrays = [NSMutableArray arrayWithArray:self.homePageData.recommend];
+                                 [arrays addObjectsFromArray:recommends];
+                                 self.homePageData.recommend = arrays;
+                             }
         
         return self.homePageData;
     }];
@@ -40,7 +50,7 @@
 -(RACSignal *)getTouristroutesList{
     
     RACSignal *signal = [[[RequestBaseAPI standardAPI] getTouristroutesListWithTypeId:self.typeId
-                                                                        wihtPageIndex:1
+                                                                        wihtPageIndex:self.pageIndex
                                                                          withPageSize:pageSize]
                          map:^id(ResponseBaseData *data) {
         

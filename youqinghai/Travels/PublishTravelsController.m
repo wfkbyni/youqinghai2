@@ -73,6 +73,11 @@
         return;
     }
     
+    if (!collectionData || collectionData.count == 0) {
+        [self.view makeToast:@"请选择照片"];
+        return;
+    }
+    
     [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     RACSignal *signal = [viewModel publishTravelsWithContent:@"abcd" withFiles:collectionData];
     [signal subscribeNext:^(ResponseBaseData *data) {
@@ -206,6 +211,12 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     if (collectionData.count == indexPath.row) {
+        
+        if (collectionData.count >= 6) {
+            [self.view makeToast:@"最多只能发6张照片" duration:2 position:CSToastPositionCenter];
+            return;
+        }
+        
         if (([UIDevice currentDevice].systemVersion.floatValue > 8.0)) {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"选择图片" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *takePhotoAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

@@ -64,7 +64,7 @@
     UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 44)];
     
     NSDate *date = [NSDate date];
-    interval = [date timeIntervalSince1970] + 24 * 60 * 60;
+    interval = [date timeIntervalSince1970];
     
     NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:interval];
     
@@ -169,6 +169,10 @@
             //self.carViewModel.cars = @[].mutableCopy;
             //[self.myTableView reloadData];
             dispatch_async(dispatch_get_main_queue(), ^{
+                if (self.carViewModel.pageIndex == 1) {
+                    [self.carViewModel.cars removeAllObjects];
+                    [self.myTableView reloadData];
+                }
                 [self.myTableView.mj_footer endRefreshingWithNoMoreData];
                 [self.view makeToast:[error.userInfo objectForKey:@"message"]];
             });
@@ -258,6 +262,7 @@
             interval = [picker.date timeIntervalSince1970] * 1000;
             self.carViewModel.travelTime = interval;
             
+            self.carViewModel.pageIndex = 1;
             [self loadCarListData];
             
         }];

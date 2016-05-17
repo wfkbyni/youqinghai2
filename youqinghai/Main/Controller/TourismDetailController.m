@@ -124,7 +124,27 @@
 //                                     shareImage:[UIImage imageNamed:@"AppIcon"]
 //                                shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToQzone,UMShareToSina]
 //                                       delegate:nil];
+    
     sender.userInteractionEnabled=NO;
+    if (self.recommend.imgUrl && self.recommend.imgUrl.length > 0) {
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.recommend.imgUrl]];
+        if (data) {
+            UIImage *image = [UIImage imageWithData:data];
+            
+            [UMSocialData defaultData].extConfig.qqData.title = self.recommend.title;
+            [UMSocialData defaultData].extConfig.wechatSessionData.title=self.recommend.title;
+            [UMSocialData defaultData].extConfig.wechatTimelineData.title=self.recommend.title;
+            NSString *url = [NSString stringWithFormat:@"http://www.sinata.cn:9402/swimQinghai/share?code=0&Id=%zi", self.recommend.Id];
+            [UMSocialWechatHandler setWXAppId:@"wxeb076ac34fb771b7" appSecret:@"6dc56b5630579fa7d4b614edabfa3434" url:url];
+            [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"1799384586" secret:@"dc96ffc3a2ca7eeb3f8e8c63d8493d9f" RedirectURL:url];
+            [UMSocialQQHandler setQQWithAppId:@"1105195687" appKey:@"1Mj6wJJiiYtLZJaJ" url:url];
+            
+            [UMSocialSnsService presentSnsIconSheetView:self appKey:@"570b744e67e58e12e2000466"shareText:self.recommend.introduce shareImage:image shareToSnsNames:@[UMShareToWechatTimeline,UMShareToWechatSession,UMShareToQQ,UMShareToQzone,UMShareToSina] delegate:nil];
+            sender.userInteractionEnabled=YES;
+        }
+    }
+    
+    /*sender.userInteractionEnabled=NO;
     [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:self.recommend.imgUrl] options:SDWebImageDownloaderUseNSURLCache progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
     } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
@@ -139,7 +159,7 @@
         [UMSocialSnsService presentSnsIconSheetView:self appKey:@"570b744e67e58e12e2000466"shareText:self.recommend.introduce shareImage:image shareToSnsNames:@[UMShareToWechatTimeline,UMShareToWechatSession,UMShareToQQ,UMShareToQzone,UMShareToSina] delegate:nil];
         sender.userInteractionEnabled=YES;
 
-    }];
+    }];*/
    
 
    // [CoreUmengShare show:self text:dic.object[@"content"] image:dic.object[@"image"]];

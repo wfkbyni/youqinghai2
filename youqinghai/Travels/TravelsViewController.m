@@ -32,6 +32,10 @@
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
+    
+    self.view.webView.fileURL =   @"assets/html/travels.html";//@"assets/html/JSNativeInteractive.html"
+    self.view.webView.webviewLoadType = HybridWebViewLoadType_Local;
+    [self.view.webView loadURLRequest];
   
 }
 - (void)viewWillDisappear:(BOOL)animated {
@@ -46,9 +50,7 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStyleDone target:self action:@selector(myAction:)];
     
-    self.view.webView.fileURL =   @"assets/html/travels.html";//@"assets/html/JSNativeInteractive.html"
-     self.view.webView.webviewLoadType = HybridWebViewLoadType_Local;
-     [self.view.webView loadURLRequest];
+    
     
 //    TravelsViewModel *viewModel = [[TravelsViewModel alloc] init];
 //    CGSize size=[UIScreen mainScreen].bounds.size;

@@ -229,7 +229,7 @@
         //NSLog(@"%@",task.currentRequest.URL);
         
         //解析结果
-        //YQHLog(@"Response  -->\n" "response data:\n%@\n", responseBaseData.result_data);
+        YQHLog(@"Response  -->\n" "response data:\n%@\n", responseBaseData.result_data);
         
         [subscriber sendNext:responseBaseData];
         [subscriber sendCompleted];

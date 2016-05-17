@@ -14,13 +14,16 @@
 @property (nonatomic, assign) NSInteger typeId;     // 线路类型Id
 @property (nonatomic, assign) NSInteger tourisId;   // 线路id
 @property (nonatomic, strong) Traveltrip *traveltrip;
+
+@property (nonatomic, assign) NSInteger pageIndex;
+
 //@property (nonatomic, assign) NSInteger routeId;    // 线路Id
 
 // 主页的数据
 @property (nonatomic, strong) HomePageData *homePageData;
 
 // 推荐线路
-@property (nonatomic, strong) NSArray *recommends;
+@property (nonatomic, strong) NSMutableArray *recommends;
 
 // 评论列表
 @property (nonatomic, strong) NSArray *tourisEvaluate;

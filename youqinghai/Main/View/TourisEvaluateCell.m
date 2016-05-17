@@ -10,7 +10,9 @@
 
 #import "TourismTypeItemCell.h"
 
-@interface TourisEvaluateCell()
+#import "SDPhotoBrowser.h"
+
+@interface TourisEvaluateCell()<SDPhotoBrowserDelegate>
 
 @property (strong, nonatomic) UIImageView *userImgView;
 @property (strong, nonatomic) UILabel *userNameLab;
@@ -61,6 +63,7 @@
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
             imageView.tag = 100 + i;
             imageView.hidden = YES;
+            [imageView setUserInteractionEnabled:YES];
             [self.contentView addSubview:imageView];
             
             [_imageViewArray addObject:imageView];
@@ -102,7 +105,11 @@
         NSInteger rowIndex = idx / 3;
         
         UIImageView *imageView = _imageViewArray[idx];
+        imageView.tag = idx;
         imageView.hidden = NO;
+        
+        UIGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
+        [imageView addGestureRecognizer:tapGesture];
         
         CGRect frame = CGRectMake(columnIndex * (picWidth + 10) + CGRectGetMaxX(_userImgView.frame) + 10 , rowIndex * (picWidth + 10) + CGRectGetMaxY(_contentLab.frame) + 10, picWidth, picWidth);
         imageView.frame = frame;
@@ -112,6 +119,34 @@
     }];
     
     [self layoutIfNeeded];
+}
+
+- (void)tapGesture:(UITapGestureRecognizer *)gesture{
+    SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
+    
+    browser.sourceImagesContainerView = self.contentView;
+    
+    browser.imageCount = _listImages.count;
+    
+    browser.currentImageIndex = gesture.view.tag;
+    
+    browser.delegate = self;
+    
+    [browser show]; // 展示图片浏览器
+
+}
+
+-(UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
+{
+    return nil;
+}
+
+-(NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
+{
+    NSDictionary *dic = _listImages[index];
+    NSString *url = dic[@"imgUrl"];
+    
+    return [NSURL URLWithString:url];
 }
 
 /**

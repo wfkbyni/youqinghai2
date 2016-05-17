@@ -10,6 +10,7 @@
 
 @interface TourisEvaluateView : UIView
 
+@property (nonatomic, strong) UITableView *myTableView;
 @property (nonatomic ,strong) NSArray *tourisEvaluate;
 
 @end

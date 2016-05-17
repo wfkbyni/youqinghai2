@@ -16,11 +16,15 @@
 #import "RecommendTypeCell.h"
 
 
-@interface MainViewController()<UITableViewDataSource,UITableViewDelegate>
+@interface MainViewController()<UITableViewDataSource,UITableViewDelegate>{
+    SDCycleScrollView *bannerScrollView;
+}
 
 @property (nonatomic, strong) MainViewModel *mainViewModel;
 
 @property (nonatomic, strong) UITableView *myTableView;
+
+@property (nonatomic, strong) MJRefreshComponent *refreshComponent;
 
 @end
 
@@ -35,9 +39,9 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationController.navigationBarHidden = YES;
     
-    [self commonView];
+    self.mainViewModel = [[MainViewModel alloc] init];
     
-    [self requestBindData];
+    [self commonView];
     
     NSLog(@"%@",[ZUserModel shareUserModel].userId);
 }
@@ -61,7 +65,21 @@
     
     [self.view addSubview:_myTableView];
     
+    bannerScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenSize.width, kScreenSize.width * 0.8) delegate:nil placeholderImage:nil];
+    [_myTableView setTableHeaderView:bannerScrollView];
+    
     _myTableView.mj_header = [MJRefreshHeader headerWithRefreshingBlock:^{
+        _refreshComponent = _myTableView.mj_header;
+        
+        self.mainViewModel.pageIndex = 1;
+        [self requestBindData];
+    }];
+    [_myTableView.mj_header beginRefreshing];
+    
+    _myTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        _refreshComponent = _myTableView.mj_footer;
+        
+        self.mainViewModel.pageIndex ++;
         [self requestBindData];
     }];
     
@@ -71,26 +89,30 @@
 }
 
 - (void)requestBindData{
-    self.mainViewModel = [[MainViewModel alloc] init];
     
-    [[self.mainViewModel getHomePageData]  subscribeError:^(NSError *error) {
-        [_myTableView.mj_header endRefreshing];
-    } completed:^{
-        [_myTableView.mj_header endRefreshing];
-    }];
-    
-    [RACObserve(self.mainViewModel, homePageData) subscribeNext:^(id x) {
-        [_myTableView setTableHeaderView:[self tableViewHeaderView]];
+    [[self.mainViewModel getHomePageData] subscribeNext:^(HomePageData *homePageData) {
         
+        if (_refreshComponent == _myTableView.mj_header) {
+            [_myTableView.mj_header endRefreshing];
+        }else{
+            if (homePageData.recommend.count % 10 != 0) {
+                [self.myTableView.mj_footer endRefreshingWithNoMoreData];
+            }else{
+                [_myTableView.mj_footer endRefreshing];
+            }
+        }
+        
+        [self setBannerData];
         [self.myTableView reloadData];
+        
+    } error:^(NSError *error) {
+        [_myTableView.mj_header endRefreshing];
+        [_myTableView.mj_footer endRefreshing];
     }];
     
 }
 
-- (UIView *)tableViewHeaderView{
-    
-    SDCycleScrollView *scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenSize.width, kScreenSize.width * 0.8) delegate:nil placeholderImage:nil];
-    
+- (void)setBannerData{
     NSMutableArray *imageArray = [[NSMutableArray alloc] initWithCapacity:[self.mainViewModel.homePageData.banner count]];
     //NSMutableArray *titleArray = [[NSMutableArray alloc] initWithCapacity:[self.mainViewModel.homePageData.banner count]];
     [self.mainViewModel.homePageData.banner enumerateObjectsUsingBlock:^(Banner *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -99,11 +121,13 @@
     }];
     
     if (imageArray.count > 0) {
-        scrollView.imageURLStringsGroup = imageArray;
+        bannerScrollView.imageURLStringsGroup = imageArray;
     }
     //scrollView.titlesGroup = titleArray;
     
-    [scrollView setClickItemOperationBlock:^(NSInteger index) {
+    @weakify(self)
+    [bannerScrollView setClickItemOperationBlock:^(NSInteger index) {
+        @strongify(self)
         Banner *banner = self.mainViewModel.homePageData.banner[index];
         
         RedirectViewController *controller = [[RedirectViewController alloc] init];
@@ -111,8 +135,6 @@
         
         [self.navigationController pushViewController:controller animated:YES];
     }];
-    
-    return scrollView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
