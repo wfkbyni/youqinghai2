@@ -10,7 +10,7 @@
 #import "RequestBaseAPI+Personal.h"
 #import "ZTravelFCell.h"
 @interface ZTravelFTableView ()<UITableViewDataSource,UITableViewDelegate>
-@property(nonatomic,strong)NSMutableArray *tabAr;
+
 @property(copy,nonatomic)NSString *pages;
 @end
 @implementation ZTravelFTableView
@@ -97,7 +97,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    if (self.selectBlock) {
+        self.selectBlock(indexPath)
+        ;    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

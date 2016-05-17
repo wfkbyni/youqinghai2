@@ -15,8 +15,7 @@
 - (void) openPage:(JSDictionary *)jsParam{
   //1.未打开过新页面
   //2.传递的参数有效
-  if (NO == self.isNestedPush && [jsParam isKindOfClass:[JSDictionary class]]) {
-    self.isNestedPush = YES;
+  if ([jsParam isKindOfClass:[JSDictionary class]]) {
      JSMDictionary *jsonParam  =  [jsParam objectForKey:key_JSParam];
     HybridViewController *viewController = [[HybridViewController alloc] init];
     viewController.view.webView.fileURL   = [jsParam valueForKeyOfNSString:key_PagePath];

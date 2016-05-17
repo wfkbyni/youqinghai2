@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ZFowUserCell.h"
+typedef void (^selectBlock)(NSIndexPath*);
 @interface ZFowUserTableView : UITableView
+@property(strong,nonatomic)selectBlock selectBlock;
 
+@property(nonatomic,strong)NSMutableArray *tabAr;
 @end

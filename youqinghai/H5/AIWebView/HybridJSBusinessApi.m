@@ -13,7 +13,7 @@
 #import "TravelsViewModel.h"
 #import <objc/runtime.h>
 #import "AITabBarController.h"
-
+#import "HybridJSApi.h"
 static NSString * key_UIComment = @"key_UIComment";
 static NSString * key_TravelModel = @"key_TravelModel";
 
@@ -68,6 +68,26 @@ static NSString * key_TravelModel = @"key_TravelModel";
 
     [self sendComment:travelId];
  
+}
+
+/**
+ ** 跳转到个人详情页
+ **/
+- (void) jumpToPersonDetail:(NSString *)userId {
+
+   //assets/html/travels_personal.html @"pagePath" @"param"
+    NSDictionary *jsParam = @{@"pagePath":@"assets/html/travels_personal.html",@"param":@{@"userId":userId},@"isInter":@"0",@"title":@"用户详情"};
+    [self openPage:jsParam];
+}
+
+/**
+ ** 跳转到游记详情页
+ **/
+- (void) jumpToTravelDetail:(NSString *)travelsId {
+    
+    //assets/html/travels_personal.html @"pagePath" @"param"
+    NSDictionary *jsParam = @{@"pagePath":@"assets/html/travels_details.html",@"param":@{@"travelsId":travelsId},@"isInter":@"0",@"title":@"游记详情"};
+    [self openPage:jsParam];
 }
 
 

@@ -7,10 +7,10 @@
 //
 
 #import "ZFowUserTableView.h"
-#import "ZFowUserCell.h"
+
 #import "RequestBaseAPI+Personal.h"
 @interface ZFowUserTableView ()<UITableViewDataSource,UITableViewDelegate>
-@property(nonatomic,strong)NSMutableArray *tabAr;
+
 @property(copy,nonatomic)NSString *pages;
 @end
 @implementation ZFowUserTableView
@@ -100,7 +100,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    if (self.selectBlock) {
+        self.selectBlock(indexPath)
+        ;    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

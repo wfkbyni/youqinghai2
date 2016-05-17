@@ -14,6 +14,7 @@
 #import "ZFowUserTableView.h"
 #import "TourismDetailController.h"
 #import "CarDetailController.h"
+#import "HybridJSBusinessApi.h"
 @interface ZMyFollowViewController ()<ZPageViewDelegate,UIScrollViewDelegate>
 @property(weak,nonatomic)ZPageView *pageView;
 @property(nonatomic,weak)UIScrollView *scrollView;
@@ -36,6 +37,10 @@
     [self setTravelFTableView];
     [self setFowUserTableView];
     // Do any additional setup after loading the view.
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    
 }
 -(void)setRouteFTableView
 {
@@ -74,14 +79,22 @@
 {
     ZTravelFTableView *tableView = [[ZTravelFTableView alloc] initWithFrame:CGRectMake(self.scrollView.frame.size.width, 12, self.scrollView.frame.size.width, self.scrollView.frame.size.height-12)style:UITableViewStyleGrouped];
     self.travelFTableView = tableView;
-    
+    tableView.selectBlock = ^(NSIndexPath *indexPath){
+        ZTravelModel *traMod= self.travelFTableView.tabAr[indexPath.row];
+        [self jumpToTravelDetail:traMod.ID];
+    };
     [self.scrollView addSubview:tableView];
 }
 -(void)setFowUserTableView
 {
     ZFowUserTableView *tableView = [[ZFowUserTableView alloc] initWithFrame:CGRectMake(self.scrollView.frame.size.width*3, 12, self.scrollView.frame.size.width, self.scrollView.frame.size.height-12)style:UITableViewStylePlain];
     self.fowUserTableView = tableView;
+    
     tableView.backgroundColor= [UIColor whiteColor];
+    tableView.selectBlock = ^(NSIndexPath *indexPath){
+        ZFowUserModel *userModel= self.fowUserTableView.tabAr[indexPath.row];
+        [self jumpToPersonDetail:userModel.userId];
+    };
     [self.scrollView addSubview:tableView];
 }
 -(void)setPageView

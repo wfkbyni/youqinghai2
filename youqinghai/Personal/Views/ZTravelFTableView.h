@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ZTravelFCell.h"
+typedef void (^selectBlock)(NSIndexPath*);
 @interface ZTravelFTableView : UITableView
-
+@property(strong,nonatomic)selectBlock selectBlock;
+@property(nonatomic,strong)NSMutableArray *tabAr;
 @end

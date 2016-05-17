@@ -25,4 +25,12 @@
  ** 拉起评论输入框
  **/
 - (void) jumpToTravelComment:(NSString *)travelId;
+/**
+ ** 跳转到个人详情页
+ **/
+- (void) jumpToPersonDetail:(NSString *)userId;
+/**
+ ** 跳转到游记详情页
+ **/
+- (void) jumpToTravelDetail:(NSString *)travelsId;
 @end
