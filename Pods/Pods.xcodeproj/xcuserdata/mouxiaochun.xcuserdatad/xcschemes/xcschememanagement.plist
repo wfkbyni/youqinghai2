@@ -9,29 +9,129 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>FDFullscreenPopGesture.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>IQKeyboardManager.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>MJExtension.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
+		</dict>
+		<key>MJRefresh.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>QBImagePickerController-QBImagePicker.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
+		<key>QBImagePickerController.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
 		<key>ReactiveCocoa.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
+		</dict>
+		<key>SDCycleScrollView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>Toast.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
+		<key>UzysAssetsPickerController.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
+		<key>VODBCache.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>16</integer>
+		</dict>
+		<key>YYText.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>17</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>12F829084E4B59A9DC8BCC22F50B6461</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1963113B43D464A8C35EC706FDDC22B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2250E945890D6CA72A2A96F969C3CA45</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2C71DE0FB8A6E5BB6EAF9FB037D799CC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3F3F4590825C9432211775797CBA9347</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>55DBDD8B7D446F1D618F303A9FB53209</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>66A189C06A706495B2B8B477C0AA9947</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8F74D9EA91F4C43190670066BAC37D44</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
 		<dict>
 			<key>primary</key>
@@ -52,7 +152,42 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9F12FB4A63E20F601CFB2E64A65B57C1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B7FE3EC65FD7DCEF15D6FA0C7ABF1B93</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C2E7C4F8F0C48F3E7A776C2A5EFFF547</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C6280930FD07322AE5532FC86F952FF5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C85B595D0F46B0C1EFAE61F87A681812</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DBC187EF2B375B2E1EC3C5DC508DAFE3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EE98A8F388D7A3F8296432E6EC5FD021</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE2F1D7B9D9FCEA148517E4657B243F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

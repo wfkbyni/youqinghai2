@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9AF1C00C1C9ED3E100AD2FC1"
-               BuildableName = "&#x6e38;&#x9752;&#x6d77;.app"
-               BlueprintName = "youqinghai"
-               ReferencedContainer = "container:youqinghai.xcodeproj">
+               BlueprintIdentifier = "C85B595D0F46B0C1EFAE61F87A681812"
+               BuildableName = "QBImagePicker.bundle"
+               BlueprintName = "QBImagePickerController-QBImagePicker"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,15 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9AF1C00C1C9ED3E100AD2FC1"
-            BuildableName = "&#x6e38;&#x9752;&#x6d77;.app"
-            BlueprintName = "youqinghai"
-            ReferencedContainer = "container:youqinghai.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -51,16 +42,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9AF1C00C1C9ED3E100AD2FC1"
-            BuildableName = "&#x6e38;&#x9752;&#x6d77;.app"
-            BlueprintName = "youqinghai"
-            ReferencedContainer = "container:youqinghai.xcodeproj">
+            BlueprintIdentifier = "C85B595D0F46B0C1EFAE61F87A681812"
+            BuildableName = "QBImagePicker.bundle"
+            BlueprintName = "QBImagePickerController-QBImagePicker"
+            ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -70,16 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9AF1C00C1C9ED3E100AD2FC1"
-            BuildableName = "&#x6e38;&#x9752;&#x6d77;.app"
-            BlueprintName = "youqinghai"
-            ReferencedContainer = "container:youqinghai.xcodeproj">
+            BlueprintIdentifier = "C85B595D0F46B0C1EFAE61F87A681812"
+            BuildableName = "QBImagePicker.bundle"
+            BlueprintName = "QBImagePickerController-QBImagePicker"
+            ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
