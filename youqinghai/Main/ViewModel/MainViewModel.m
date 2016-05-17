@@ -11,7 +11,7 @@
 
 #import "HomePageData.h"
 
-#define pageSize 20
+#define pageSize 10
 
 @implementation MainViewModel
 

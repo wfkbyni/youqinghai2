@@ -73,12 +73,12 @@ function getValueFromJSParam(key,jsCallback){
 }
 
 
-function getTravelId() {
+function getTravelId(jsCallback) {
     sendMessage('getValueFromJSParam:','travelsId',jsCallback);
     
 }
 
-function getTravelPersonId() {
+function getTravelPersonId(jsCallback) {
     sendMessage('getValueFromJSParam:','userid',jsCallback);
 
 }

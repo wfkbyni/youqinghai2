@@ -9,6 +9,14 @@
 #import "HybridJSBusinessApi.h"
 #import "UMSocialData.h"
 #import "ZUserModel.h"
+#import "KMMessagView.h"
+#import "TravelsViewModel.h"
+#import <objc/runtime.h>
+#import "AITabBarController.h"
+
+static NSString * key_UIComment = @"key_UIComment";
+static NSString * key_TravelModel = @"key_TravelModel";
+
 @implementation UIViewController (YQHBusinessApi)
 
 /**
@@ -27,8 +35,7 @@
         [UMSocialData defaultData].extConfig.qqData.title =  title;
         [UMSocialData defaultData].extConfig.wechatSessionData.title= title;
         [UMSocialData defaultData].extConfig.wechatTimelineData.title= title;
-//        NSString *url = [NSString stringWithFormat:@"http://www.sinata.cn:9402/swimQinghai/share?code=0&Id=%zi", Id];
-        [UMSocialWechatHandler setWXAppId:@"wxeb076ac34fb771b7" appSecret:@"6dc56b5630579fa7d4b614edabfa3434" url:url];
+         [UMSocialWechatHandler setWXAppId:@"wxeb076ac34fb771b7" appSecret:@"6dc56b5630579fa7d4b614edabfa3434" url:url];
         [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"1799384586" secret:@"dc96ffc3a2ca7eeb3f8e8c63d8493d9f" RedirectURL:url];
         [UMSocialQQHandler setQQWithAppId:@"1105195687" appKey:@"1Mj6wJJiiYtLZJaJ" url:url];
         
@@ -57,4 +64,52 @@
     return userId;
 }
 
-@end
+- (void) jumpToTravelComment:(NSString *)travelId {
+
+    [self sendComment:travelId];
+ 
+}
+
+
+- (void)sendComment:(NSString *)travelId{
+    KMMessagView *messagebox = objc_getAssociatedObject(self, (__bridge const void *)(key_UIComment));
+    if (!messagebox) {
+        CGSize size=[UIScreen mainScreen].bounds.size;
+        CGRect boxFrame=CGRectMake(0,size.height, size.width, 45);
+        messagebox=[[KMMessagView alloc]initWithFrame:boxFrame PlaceText:@"评论" PlaceColor:[UIColor lightGrayColor]];
+        messagebox.isHiddenBar = self.isHiddenBar;
+        __weak UIViewController *weakSelf = self;
+        [messagebox sendMessage:^(NSString *txt) {
+            NSLog(@"%@",txt);
+            [[weakSelf.travelsViewModel commentTravelsWithTravelId:[travelId integerValue] withComContent:txt] subscribeNext:^(id x) {
+                
+            } error:^(NSError *error) {
+                
+            }];
+        }];
+        [self.view addSubview:messagebox];
+    }
+    [messagebox.Inputview becomeFirstResponder];
+   
+}
+
+- (TravelsViewModel *)travelsViewModel {
+    TravelsViewModel *viewModel = objc_getAssociatedObject(self, (__bridge const void *)(key_TravelModel));
+    if (!viewModel) {
+         viewModel = [[TravelsViewModel alloc] init];
+        objc_setAssociatedObject(self, (__bridge const void *)(key_TravelModel),viewModel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return viewModel;
+}
+
+- (BOOL)isHiddenBar{
+
+    UINavigationController* nav =  [AITabBarController sharedTabbar].selectedViewController;
+    NSArray *array = nav.viewControllers ;
+    if (array.count > 1) {
+        return YES;
+    }
+    return NO;
+}
+
+ @end

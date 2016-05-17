@@ -7,6 +7,8 @@
 <link href="../css/base.css" rel="stylesheet" />
 <link href="../css/travels_details.css" rel="stylesheet" />
 <link rel="stylesheet" href="../dist/dropload.css">
+ <script type="text/javascript" src="../js/JSToNativeInteractive.js"></script>
+ 
 </head>
 
 <body>
@@ -95,7 +97,15 @@
     // 每页展示4个
     var num = 4;
     var pageStart = 0,pageEnd = 0;
-    var travelsId = JsToNativeTravelDetail.getTravelId();
+    var travelsId = 0;
+	getTravelId(function(travelId){
+					 if(''==travelId){
+					 alert('空')
+					 }
+					 else{
+					 travelsId = travelId;
+					 }
+				 })
 
     // dropload
     $('.zx-travels').dropload({
@@ -103,7 +113,7 @@
         loadDownFn : function(me){
             $.ajax({
                  url:"http://www.sinata.cn:9402/swimQinghai/app/travelsDynamic/getTravelsDetails",
-                 dataType: 'jsonp',
+                 dataType: 'json',
                  data:{"travelsId":travelsId},
                  jsonp:'callback',
                 success: function(data){

@@ -8,8 +8,7 @@
 
 #import "HybridJSApi.h"
 #import "HybridViewController.h"
-
-
+ 
 @implementation UIViewController (HybridJSApi)
 
 //打开新的VC
@@ -35,6 +34,9 @@
     [self.navigationController pushViewController:viewController animated:YES];
   }
 }
+
+
+ 
 
 
 //打开原生VC

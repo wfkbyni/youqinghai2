@@ -21,4 +21,8 @@
  ** 获取当前APP登陆用户的ID，如果木有登陆不需要跳转到登陆页面，还回值为空
  **/
 - (NSString *)getUserIdNotNeedLogin;
+/**
+ ** 拉起评论输入框
+ **/
+- (void) jumpToTravelComment:(NSString *)travelId;
 @end

@@ -45,9 +45,7 @@
 
   //建立桥接
   [self.view loadBridge];
-  
-
-    self.webView.webviewLoadType = HybridWebViewLoadType_Local;
+  self.webView.webviewLoadType = HybridWebViewLoadType_Local;
   [self configBlock];
   
 }

@@ -7,6 +7,7 @@
 <link href="../css/base.css" rel="stylesheet" />
 <link href="../css/travels_personal.css" rel="stylesheet" />
 <link rel="stylesheet" href="../dist/dropload.css">
+<script type="text/javascript" src="../js/JSToNativeInteractive.js"></script>
 </head>
 
 <body>
@@ -49,7 +50,7 @@
 			
 		</div>
 		<div class="zxinfocenter">
-		<!--循环start
+		
 		<div class="travels_none">
 			<div class="travels_info">
 				<div class="travels_infoleft">
@@ -89,7 +90,7 @@
 		
 		
 		</div>
-		循环end-->
+		
 		</div>
 	</div>
 
@@ -105,296 +106,370 @@
     // 每页展示4个
     var num = 4;
     var pageStart = 0,pageEnd = 0;
-    var userId = JsToNativeTravelPersonDetail.getTravelPersonId();
-    var loguserId = JsToNativeTravelPersonDetail.getUserIdNotNeedLogin();
-    // dropload
-    $('.zx-travels').dropload({
-        scrollArea : window,
-        loadDownFn : function(me){
-            $.ajax({
-                 url:"http://www.sinata.cn:9402/swimQinghai/app/travelsDynamic/getUserTravelsList",
-                 dataType: 'jsonp',
-                 data:{"userId":userId,"loguserId":loguserId},
-                 jsonp:'callback',
-                success: function(data){
-				  $("#personal_span").html(data.result_data.nickname);
-				  $("#touxiang").attr('src',data.result_data.headUrl); 
-				  $("#phone").html(data.result_data.phone);
-				  $("#jianjie").html(data.result_data.autograph);
-				  $("#luxing").html(data.result_data.travelCount);
-				  $("#guanzhu").html(data.result_data.collection);
-				  $("#beizan").html(data.result_data.parise);
-				  $("#tid").val(data.result_data.userId);
-				 // $("#issc").val(data.result_data.userId);
-				  var issc = data.result_data.sex;
-				  if(issc == 1){
-				  	$("#man").hide();
-				  }else if(issc == 0){
-				  	$("#women").hide();
-				  }
-				  
-				  
-				  var sex = data.result_data.isfollowUser;
-				  if(sex == 1){
-				  	$("#shouchang").hide();
-				  }else if(sex == 0){
-				  	$("#shouchang1").hide();
-				  }
-				  
-				 
-                    var result = '';
-                    counter++;
-                    pageEnd = num * counter;
-                    pageStart = pageEnd - num;
-                    for(var i = pageStart; i < pageEnd; i++){
-                       result +=  '<div class="travels_none">'
-					   				+'<input type="hidden" value="'+data.result_data.isfollowUser+'"/>'
-									+'<input type="hidden" value="'+data.result_data.travelsList[i].isPraise+'" id="travelsIdinput"/>'
-									+'<input type="hidden" value="'+data.result_data.travelsList[i].IsFollow+'" id="IsFollowinput"/>'
-									+'<div class="travels_info">'
-									+'<div class="travels_infoleft">'
-									+'</div>'
-									+'<div class="travels_infocenter">'
-									+'<div class="infocentertime">'
-									+''+data.result_data.travelsList[i].addTime+''
-									+'</div>'
-									+'</div>'
-									+'<div class="travels_inforight">'
-									+'<span class="span1">'
-									+'<img src="../img/yan.jpg" class="imgsize" style="height:0.8em;"/>'
-									+'</span>'
-									+'<span>'
-									+''+data.result_data.travelsList[i].views+''
-									+'</span>'
-									+'</div>'
-									+'<div class="clear"></div>'
-									+'</div>'
-									+'<div class="travels_photo">'
-									+'<a  href="javascript:void(0);" onclick="JsToNativeTravelPersonDetail.jumpToTravelDetail('+data.result_data.travelsList[i].travelsId+')" class="travels_infodetiala">'
-									+'<img src="'+data.result_data.travelsList[i].imgUrl+'"/>'
-									+'</a>'
-									+'</div>'
-									+'<div class="travels_infodetial">'
-									+'<a  href="javascript:void(0);" onclick="JsToNativeTravelPersonDetail.jumpToTravelDetail('+data.result_data.travelsList[i].travelsId+')" class="travels_infodetiala">'
-									+''+data.result_data.travelsList[i].content+''
-									+'</a>'
-									+'</div>'
-									+'<div class="travels_zhuanfa">'
-									+'<span class="zan">'
-									+'<img src="../img/zan1.png" class="imgsize" onclick="zanClick(this,'+data.result_data.travelsList[i].userId+','+data.result_data.travelsList[i].travelsId+',1)" id="anzan"/>' 
-									+'<img src="../img/zan.png" class="imgsize" onclick="zanClick(this,'+data.result_data.travelsList[i].userId+','+data.result_data.travelsList[i].travelsId+',1)" id="hongzan"/>' 
-									+'</span>'
-									+'<span class="zannum">'
-									+''+data.result_data.travelsList[i].praise+''
-									+'</span>'
-									+'<span class="fabiao">'
-									+'<a  href="javascript:void(0);" onclick="JsToNativeTravelPersonDetail.jumpToNativeTravelShare('+data.result_data.travelsList[i].travelsId+',\''+data.result_data.travelsList[i].content+'\',\''+data.result_data.travelsList[i].imgUrl+'\')">'
-									+'<img src="../img/zhuanfa.jpg" class="imgsize"/>'
-									+'</a>'
-									+'</span>'
-									+'<span class="xin">'
-									+'<img src="../img/xin.png" class="imgsize" id="anxin" onclick="xinClick(this,'+data.result_data.travelsList[i].userId+','+data.result_data.travelsList[i].travelsId+',0)"/>' 
-									+'<img src="../img/xin1.png" class="imgsize" id="hongxin" onclick="xinClick(this,'+data.result_data.travelsList[i].userId+','+data.result_data.travelsList[i].travelsId+',0)"/>' 
-									+'</span>'
-									+'<span class="zhuanfa">'
-									+'<a href="javascript:void(0);" onclick="JsToNativeTravelPersonDetail.jumpToTravelComment('+data.result_data.travelsList[i].travelsId+')">'
-									<!--'+data.result_data[i].travelsId+'-->
-									+'<img src="../img/fabiao.jpg" class="imgsize"/>'
-									+'</a>'
-									+'</span>'
-									+'</div>'
-                                    +'</div>';	
-						 if((i + 1) >= data.result_data.travelsList.length){
-                            // 锁定
-                            me.lock();
-                            // 无数据
-                            me.noData();
-                            break;
-                        }
-                       
-                    }
-                    // 为了测试，延迟1秒加载
-                    setTimeout(function(){
-                        $('.zxinfocenter').append(result);
-						 var appendlength =  $('.zx-travels').find(".travels_none").length;  
-						 $(".travels_none").each(function(){
-						 
-						 	 var travelsIdinput = ($(this).find("#travelsIdinput").val());
-							 	if(travelsIdinput == 1){
-							 		$(this).find("#anzan").hide();
-							 	}else if(travelsIdinput == 0){
-							 		$(this).find("#hongzan").hide();
-								}
-							 
-							 var IsFollowinput = ($(this).find("#IsFollowinput").val());
-								 if(IsFollowinput == 1){
-							 		$(this).find("#anxin").hide();
-							 	}else if(IsFollowinput == 0){
-							 		$(this).find("#hongxin").hide();
-								}
-    						});
-                        // 每次数据加载完，必须重置
-                        me.resetload();
-                    },1000);
-                },
-                error: function(xhr, type){
-                    alert('Ajax error!');
-                    // 即使加载出错，也得重置
-                    me.resetload();
+      var userId = 0;
+      getTravelPersonId(function(userId){
+           if(''==userId){
+              
+            }else{
+                        userId = userId;
+                        // dropload
+                        $('.zx-travels').dropload({
+                                                  scrollArea : window,
+                                                  loadDownFn : function(me){
+                                                 
+                                                  $.ajax({
+                                                         url:"http://www.sinata.cn:9402/swimQinghai/app/travelsDynamic/getUserTravelsList",
+                                                         dataType: 'jsonp',
+                                                         data:{"userId":userId},
+                                                         jsonp:'callback',
+                                                         success: function(data){
+                                                         $("#personal_span").html(data.result_data.nickname);
+                                                         $("#touxiang").attr('src',data.result_data.headUrl);
+                                                         $("#phone").html(data.result_data.phone);
+                                                         $("#jianjie").html(data.result_data.autograph);
+                                                         $("#luxing").html(data.result_data.travelCount);
+                                                         $("#guanzhu").html(data.result_data.collection);
+                                                         $("#beizan").html(data.result_data.parise);
+                                                         $("#tid").val(data.result_data.userId);
+                                                         // $("#issc").val(data.result_data.userId);
+                                                         var issc = data.result_data.sex;
+                                                         if(issc == 1){
+                                                         $("#man").hide();
+                                                         }else if(issc == 0){
+                                                         $("#women").hide();
+                                                         }
+                                                         
+                                                         
+                                                         var sex = data.result_data.isfollowUser;
+                                                         if(sex == 1){
+                                                         $("#shouchang").hide();
+                                                         }else if(sex == 0){
+                                                         $("#shouchang1").hide();
+                                                         }
+                                                         
+                                                         
+                                                         var result = '';
+                                                         counter++;
+                                                         pageEnd = num * counter;
+                                                         pageStart = pageEnd - num;
+                                                         for(var i = pageStart; i < pageEnd; i++){
+                                                         result +=  '<div class="travels_none">'
+                                                         +'<input type="hidden" value="'+data.result_data.isfollowUser+'"/>'
+                                                         +'<input type="hidden" value="'+data.result_data.travelsList[i].isPraise+'" id="travelsIdinput"/>'
+                                                         +'<input type="hidden" value="'+data.result_data.travelsList[i].IsFollow+'" id="IsFollowinput"/>'
+                                                         +'<div class="travels_info">'
+                                                         +'<div class="travels_infoleft">'
+                                                         +'</div>'
+                                                         +'<div class="travels_infocenter">'
+                                                         +'<div class="infocentertime">'
+                                                         +''+data.result_data.travelsList[i].addTime+''
+                                                         +'</div>'
+                                                         +'</div>'
+                                                         +'<div class="travels_inforight">'
+                                                         +'<span class="span1">'
+                                                         +'<img src="../img/yan.jpg" class="imgsize" style="height:0.8em;"/>'
+                                                         +'</span>'
+                                                         +'<span>'
+                                                         +''+data.result_data.travelsList[i].views+''
+                                                         +'</span>'
+                                                         +'</div>'
+                                                         +'<div class="clear"></div>'
+                                                         +'</div>'
+                                                         +'<div class="travels_photo">'
+                                                         +'<a  href="javascript:void(0);" onclick="jumpToTravelDetail(\'游记详情\','+data.result_data.travelsList[i].travelsId+')" class="travels_infodetiala">'
+                                                         +'<img src="'+data.result_data.travelsList[i].imgUrl+'"/>'
+                                                         +'</a>'
+                                                         +'</div>'
+                                                         +'<div class="travels_infodetial">'
+                                                         +'<a  href="javascript:void(0);" onclick="jumpToTravelDetail(\'游记详情\','+data.result_data.travelsList[i].travelsId+')" class="travels_infodetiala">'
+                                                         +''+data.result_data.travelsList[i].content+''
+                                                         +'</a>'
+                                                         +'</div>'
+                                                         +'<div class="travels_zhuanfa">'
+                                                         +'<span class="zan">'
+                                                         +'<img src="../img/zan1.png" class="imgsize" onclick="zanClick(this,'+data.result_data.travelsList[i].userId+','+data.result_data.travelsList[i].travelsId+',1)" id="anzan"/>'
+                                                         +'<img src="../img/zan.png" class="imgsize" onclick="zanClick(this,'+data.result_data.travelsList[i].userId+','+data.result_data.travelsList[i].travelsId+',1)" id="hongzan"/>' 
+                                                         +'</span>'
+                                                         +'<span class="zannum">'
+                                                         +''+data.result_data.travelsList[i].praise+''
+                                                         +'</span>'
+                                                         +'<span class="fabiao">'
+                                                         +'<a  href="javascript:void(0);" onclick="jumpToNativeTravelShare(\'游记分享\',\''+data.result_data.travelsList[i].content+'\',\''+data.result_data.travelsList[i].travelsId+'\',\''+data.result_data.travelsList[i].imgUrl+'\')">'
+                                                         +'<img src="../img/zhuanfa.jpg" class="imgsize"/>'
+                                                         +'</a>'
+                                                         +'</span>'
+                                                         +'<span class="xin">'
+                                                         +'<img src="../img/xin.png" class="imgsize" id="anxin" onclick="xinClick(this,'+data.result_data.travelsList[i].userId+','+data.result_data.travelsList[i].travelsId+',0)"/>' 
+                                                         +'<img src="../img/xin1.png" class="imgsize" id="hongxin" onclick="xinClick(this,'+data.result_data.travelsList[i].userId+','+data.result_data.travelsList[i].travelsId+',0)"/>' 
+                                                         +'</span>'
+                                                         +'<span class="zhuanfa">'
+                                                         +'<a href="javascript:void(0);" onclick="jumpToTravelComment('+data.result_data.travelsList[i].travelsId+')">'
+                                                         <!--'+data.result_data[i].travelsId+'-->
+                                                         +'<img src="../img/fabiao.jpg" class="imgsize"/>'
+                                                         +'</a>'
+                                                         +'</span>'
+                                                         +'</div>'
+                                                         +'</div>';	
+                                                         if((i + 1) >= data.result_data.travelsList.length){
+                                                         // 锁定
+                                                         me.lock();
+                                                         // 无数据
+                                                         me.noData();
+                                                         break;
+                                                         }
+                                                         
+                                                         }
+                                                         // 为了测试，延迟1秒加载
+                                                         setTimeout(function(){
+                                                                    $('.zxinfocenter').append(result);
+                                                                    var appendlength =  $('.zx-travels').find(".travels_none").length;  
+                                                                    $(".travels_none").each(function(){
+                                                                                            
+                                                                                            var travelsIdinput = ($(this).find("#travelsIdinput").val());
+                                                                                            if(travelsIdinput == 1){
+                                                                                            $(this).find("#anzan").hide();
+                                                                                            }else if(travelsIdinput == 0){
+                                                                                            $(this).find("#hongzan").hide();
+                                                                                            }
+                                                                                            
+                                                                                            var IsFollowinput = ($(this).find("#IsFollowinput").val());
+                                                                                            if(IsFollowinput == 1){
+                                                                                            $(this).find("#anxin").hide();
+                                                                                            }else if(IsFollowinput == 0){
+                                                                                            $(this).find("#hongxin").hide();
+                                                                                            }
+                                                                                            });
+                                                                    // 每次数据加载完，必须重置
+                                                                    me.resetload();
+                                                                    },1000);
+                                                         },
+                                                         error: function(xhr, type){
+                                                         alert('Ajax error!');
+                                                         // 即使加载出错，也得重置
+                                                         me.resetload();
+                                                         }
+                                                         });
+                                                  }
+                                                  });
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                 }
-            });
-        }
-    });
+            })
+
+     
+      
+	
+      
+      
+      
 });
 
 
 function zanClick(e,userId,travelId,friendId){
-	var thisid = $(e).attr('id');
-	if(thisid =="anzan"){
-	 var friendId=JsToNativeTravelPersonDetail.getUserIdNeedLogin();
-	    if(friendId!=null){
-	    $(e).attr('src','../img/zan.png');
-		$(e).attr('id','hongzan');
-		var c = parseInt($(e).parents("span").next().html());
-		$(e).parents("span").next().html(c+1);
-
-		$.ajax({
-                url:"http://www.sinata.cn:9402/swimQinghai/app/operation/clickTravels",
-                 dataType: 'jsonp',
-                 data:{"userId":userId,"travelId":travelId,"friendId":friendId},
-                 jsonp:'callback',
-                success:function(data){
-
-                },
-                error:function(a,b){
-
-                }
-            });
-
-	    }
-
-	}else if(thisid =="hongzan"){
- var friendId=JsToNativeTravelPersonDetail.getUserIdNeedLogin();
-	    if(friendId!=null){
-	    $(e).attr('src','../img/zan1.png');
-		$(e).attr('id','anzan');
-		var c = parseInt($(e).parents("span").next().html());
-		$(e).parents("span").next().html(c-1);
-		$.ajax({
-               url:"http://www.sinata.cn:9402/swimQinghai/app/operation/clickTravels",
-                 dataType: 'jsonp',
-                data:{"userId":userId,"travelId":travelId,"friendId":friendId},
-                 jsonp:'callback',
-                success:function(data){
-                  // alert("成功");
-                },
-                error:function(a,b){
-
-                }
-            });
-	    }
-
-	}
+     var friendId= '';
+    getUserIdNeedLogin(function(friendId){
+                      
+                       friendId=friendId;
+                       
+                      
+                       var thisid = $(e).attr('id');
+                       if(thisid =="anzan"){
+                       
+                      
+                       
+                       if(friendId!=''){
+                      
+                       $(e).attr('src','../img/zan.png');
+                       $(e).attr('id','hongzan');
+                       var c = parseInt($(e).parents("span").next().html());
+                       $(e).parents("span").next().html(c+1);
+                       
+                       $.ajax({
+                              url:"http://www.sinata.cn:9402/swimQinghai/app/operation/clickTravels",
+                              dataType: 'jsonp',
+                              data:{"userId":userId,"travelId":travelId,"friendId":friendId},
+                              jsonp:'callback',
+                              success:function(data){
+                              
+                              },
+                              error:function(a,b){
+                              
+                              }
+                              });
+                       
+                       }
+                       
+                       }else if(thisid =="hongzan"){
+                       
+                       if(friendId!=''){
+                       
+                       $(e).attr('src','../img/zan1.png');
+                       $(e).attr('id','anzan');
+                       var c = parseInt($(e).parents("span").next().html());
+                       $(e).parents("span").next().html(c-1);
+                       $.ajax({
+                              url:"http://www.sinata.cn:9402/swimQinghai/app/operation/clickTravels",
+                              dataType: 'jsonp',
+                              data:{"userId":userId,"travelId":travelId,"friendId":friendId},
+                              jsonp:'callback',
+                              success:function(data){
+                              // alert("成功");
+                              },
+                              error:function(a,b){
+                              
+                              }
+                              });
+                       }
+                       
+                       }
+                       
+                       
+                       
+    })
+	
 }
 function xinClick(e,userId,travelId,type){
-	var thisid = $(e).attr('id');
-	if(thisid =="anxin"){
-	    var friendId=JsToNativeTravelPersonDetail.getUserIdNeedLogin();
-	    if(friendId!=null){
-	    $(e).attr('src','../img/xin1.png');
-		$(e).attr('id','hongxin');
-		$.ajax({
-                url:"http://www.sinata.cn:9402/swimQinghai/app/operation/addTravelsUserCollection",
-                 dataType: 'jsonp',
-                 data:{"userId":friendId,"travelId":travelId,"type":type},
-                 jsonp:'callback',
-                success:function(data){
-                  // alert("成功");
-                },
-                error:function(a,b){
-                    console.log(a);
-                    console.log(b);
-
-                }
-            });
-	    }
-
-	}else if(thisid =="hongxin"){
-	  var friendId=JsToNativeTravelPersonDetail.getUserIdNeedLogin();
-	    if(friendId!=null){
-	    $(e).attr('src','../img/xin.png');
-		$(e).attr('id','anxin');
-		$.ajax({
-                url:"http://www.sinata.cn:9402/swimQinghai/app/operation/addTravelsUserCollection",
-                dataType: 'jsonp',
-                data:{"userId":friendId,"travelId":travelId,"type":type},
-                 jsonp:'callback',
-                success:function(data){
-                  // alert("成功");
-                },
-                error:function(a,b){
-                    console.log(a);
-                    console.log(b);
-
-                }
-            });
-	    }
-
-	}
+    
+    
+    
+    var friendId= '';
+    getUserIdNeedLogin(function(friendId){
+                       
+    friendId=friendId;
+                       
+     
+                       
+                       
+                       
+                       var thisid = $(e).attr('id');
+                       if(thisid =="anxin"){
+                       var friendId=friendId;
+                       if(friendId!=''){
+                       $(e).attr('src','../img/xin1.png');
+                       $(e).attr('id','hongxin');
+                       $.ajax({
+                              url:"http://www.sinata.cn:9402/swimQinghai/app/operation/addTravelsUserCollection",
+                              dataType: 'jsonp',
+                              data:{"userId":friendId,"travelId":travelId,"type":type},
+                              jsonp:'callback',
+                              success:function(data){
+                              // alert("成功");
+                              },
+                              error:function(a,b){
+                              console.log(a);
+                              console.log(b);
+                              
+                              }
+                              });
+                       }
+                       
+                       }else if(thisid =="hongxin"){
+                       
+                       if(friendId!=''){
+                       $(e).attr('src','../img/xin.png');
+                       $(e).attr('id','anxin');
+                       $.ajax({
+                              url:"http://www.sinata.cn:9402/swimQinghai/app/operation/addTravelsUserCollection",
+                              dataType: 'jsonp',
+                              data:{"userId":friendId,"travelId":travelId,"type":type},
+                              jsonp:'callback',
+                              success:function(data){
+                              // alert("成功");
+                              },
+                              error:function(a,b){
+                              console.log(a);
+                              console.log(b);
+                              
+                              }
+                              });
+                       }
+                       
+                       }
+                       
+                       
+                       
+    })
+    
 }
 
 function clickreturn(){
-	JsToNativeTravelPersonDetail.clickreturn();
+	clickreturn();
 }
 
 function clicksc(e){
+    
+    
+    
+    var friendId= '';
+    getUserIdNeedLogin(function(friendId){
+                       
+    friendId=friendId;
+                       
+                       var thisid = $(e).attr('id');
+                       if(thisid =="shouchang"){
+                      
+                       var travelId =  $("#tid").val();
+                       if(friendId!=''){
+                       $(e).attr('src','../img/shouchang1.png');
+                       $(e).attr('id','shouchang1');
+                       $.ajax({
+                              url:"http://www.sinata.cn:9402/swimQinghai/app/operation/addTravelsUserCollection",
+                              dataType: 'jsonp',
+                              data:{"userId":friendId,"travelId":travelId,"type":'1'},
+                              jsonp:'callback',
+                              success:function(data){
+                              // alert("成功");
+                              },
+                              error:function(a,b){
+                              console.log(a);
+                              console.log(b);
+                              
+                              }
+                              });
+                       }
+                       
+                       }else if(thisid =="shouchang1"){
+                       
+                       var travelId =  $("#tid").val();
+                       if(friendId!=''){
+                       $(e).attr('src','../img/shouchang.png');
+                       $(e).attr('id','shouchang');
+                       $.ajax({
+                              url:"http://www.sinata.cn:9402/swimQinghai/app/operation/addTravelsUserCollection",
+                              dataType: 'jsonp',
+                              data:{"userId":friendId,"travelId":travelId,"type":'1'},
+                              jsonp:'callback',
+                              success:function(data){
+                              // alert("成功");
+                              },
+                              error:function(a,b){
+                              console.log(a);
+                              console.log(b);
+                              
+                              }
+                              });
+                       }
+                       
+                       }
+                       
+                       
+                       
+                       
+    })
+    
+    
+    
+    
 
-	var thisid = $(e).attr('id');
-	if(thisid =="shouchang"){
-	    var friendId=JsToNativeTravelPersonDetail.getUserIdNeedLogin();
-		var travelId =  $("#tid").val();
-	    if(friendId!=null){
-	    $(e).attr('src','../img/shouchang1.png');
-		$(e).attr('id','shouchang1');
-		$.ajax({
-                url:"http://www.sinata.cn:9402/swimQinghai/app/operation/addTravelsUserCollection",
-                 dataType: 'jsonp',
-                 data:{"userId":friendId,"travelId":travelId,"type":'1'},
-                 jsonp:'callback',
-                success:function(data){
-                  // alert("成功");
-                },
-                error:function(a,b){
-                    console.log(a);
-                    console.log(b);
 
-                }
-            });
-	    }
-
-	}else if(thisid =="shouchang1"){
-	  var friendId=JsToNativeTravelPersonDetail.getUserIdNeedLogin();
-	  var travelId =  $("#tid").val();
-	    if(friendId!=null){
-	    $(e).attr('src','../img/shouchang.png');
-		$(e).attr('id','shouchang');
-		$.ajax({
-                url:"http://www.sinata.cn:9402/swimQinghai/app/operation/addTravelsUserCollection",
-                dataType: 'jsonp',
-                data:{"userId":friendId,"travelId":travelId,"type":'1'},
-                 jsonp:'callback',
-                success:function(data){
-                  // alert("成功");
-                },
-                error:function(a,b){
-                    console.log(a);
-                    console.log(b);
-
-                }
-            });
-	    }
-
-	}
 	
 }
 	

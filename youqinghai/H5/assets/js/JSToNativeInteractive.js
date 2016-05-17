@@ -1,6 +1,6 @@
 //引入JS文件
 //document.write('<script src="../scripts/ipu/JSToNativeCommon.js"><\/script>')
-document.write('<script src="JSToNativeCommon.js"><\/script>')
+document.write('<script src="../js/JSToNativeCommon.js"><\/script>')
 //****************************对外提供js方法定义区**********************************
 /**备注:以下方法只作为实例提供给common.js文件书写**/
 
@@ -38,22 +38,25 @@ function getUserIdNotNeedLogin(jsCallback) {
  ** 跳转到游记详情
  **/
 function jumpToTravelDetail(title,travelsId) {
-    openPage('html/travels_details.html',{'travelsId':travelsId},title,0,false);
-    
+     openPage('assets/html/travels_details.html',{'travelsId':travelsId},title,0,false);
+    //openPage('assets/html/JSNativeInteractive.html',{'travelsId':travelsId},title,0,false);
+
 }
 /**
  ** 跳转到游记个人详情
  **/
 function jumpToPersonDetail(title,userid){
 
-    openPage('html/travels_personal.html',{'userid':userid},title,0,false);
+    //JSNativeInteractive.html
+
+     openPage('assets/html/travels_personal.html',{'userid':userid},title,0,false);
 
 }
 /**
  ** 拉起评论
  **/
 function jumpToTravelComment(travelId) {
-    sendMessage('jumpToTravelComment')
+    sendMessage('jumpToTravelComment:',travelId)
 }
 
 /**
@@ -72,14 +75,15 @@ function getValueFromJSParam(key,jsCallback){
     sendMessage('getValueFromJSParam:',key,jsCallback);
 }
 
-function getTravelId() {
+
+function getTravelId(jsCallback) {
     sendMessage('getValueFromJSParam:','travelsId',jsCallback);
     
 }
 
-function getTravelPersonId() {
+function getTravelPersonId(jsCallback) {
     sendMessage('getValueFromJSParam:','userid',jsCallback);
-    
+
 }
 
 

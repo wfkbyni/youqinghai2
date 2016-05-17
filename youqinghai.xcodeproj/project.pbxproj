@@ -323,9 +323,6 @@
 		B43EAE9F1CDB20D80066A34A /* iconApp.png in Resources */ = {isa = PBXBuildFile; fileRef = B43EAE9E1CDB20D80066A34A /* iconApp.png */; };
 		B43EAEEC1CDB30DA0066A34A /* AIWebViewBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EAEC61CDB30DA0066A34A /* AIWebViewBridge.m */; };
 		B43EAEED1CDB30DA0066A34A /* common.js in Resources */ = {isa = PBXBuildFile; fileRef = B43EAEC81CDB30DA0066A34A /* common.js */; };
-		B43EAEEE1CDB30DA0066A34A /* JSNativeInteractive.html in Resources */ = {isa = PBXBuildFile; fileRef = B43EAEC91CDB30DA0066A34A /* JSNativeInteractive.html */; };
-		B43EAEEF1CDB30DA0066A34A /* JSToNativeCommon.js in Resources */ = {isa = PBXBuildFile; fileRef = B43EAECA1CDB30DA0066A34A /* JSToNativeCommon.js */; };
-		B43EAEF01CDB30DA0066A34A /* JSToNativeInteractive.js in Resources */ = {isa = PBXBuildFile; fileRef = B43EAECB1CDB30DA0066A34A /* JSToNativeInteractive.js */; };
 		B43EAEF21CDB30DA0066A34A /* ObjcLookupMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EAECF1CDB30DA0066A34A /* ObjcLookupMethod.m */; };
 		B43EAEF31CDB30DA0066A34A /* WebViewJavascriptBridge.js.txt in Resources */ = {isa = PBXBuildFile; fileRef = B43EAED21CDB30DA0066A34A /* WebViewJavascriptBridge.js.txt */; };
 		B43EAEF41CDB30DA0066A34A /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B43EAED31CDB30DA0066A34A /* WebViewJavascriptBridge.m */; };
@@ -2567,6 +2564,7 @@
 				TargetAttributes = {
 					9AF1C00C1C9ED3E100AD2FC1 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = V3F3MC6CHU;
 					};
 				};
 			};
@@ -2604,9 +2602,7 @@
 				35E3FFC11CA92AAC00876054 /* ZmessCenterCell.xib in Resources */,
 				9A24C3281CBE6BC500671233 /* readme.txt in Resources */,
 				B43EAEF31CDB30DA0066A34A /* WebViewJavascriptBridge.js.txt in Resources */,
-				B43EAEF01CDB30DA0066A34A /* JSToNativeInteractive.js in Resources */,
 				9A24C3481CC3DC4D00671233 /* stars_off.png in Resources */,
-				B43EAEEE1CDB30DA0066A34A /* JSNativeInteractive.html in Resources */,
 				35D2954B1CB669FA0029B8C1 /* ZFowUserCell.xib in Resources */,
 				357D72C81CBCD23900EAD35C /* UMSCommentInputControlleriPad.xib in Resources */,
 				9A89526A1CD0F9BC00E53F57 /* WebTourisController.xib in Resources */,
@@ -2625,7 +2621,6 @@
 				357D72C91CBCD23900EAD35C /* UMShareEditViewController.xib in Resources */,
 				357D72AE1CBCD23900EAD35C /* microphone@2x.png in Resources */,
 				357D72B91CBCD23900EAD35C /* umeng_fb_audio_play_03@2x.png in Resources */,
-				B43EAEEF1CDB30DA0066A34A /* JSToNativeCommon.js in Resources */,
 				357D72DD1CBCD23900EAD35C /* WeiboSDK.bundle in Resources */,
 				9A622AA51CDB954B006A03B9 /* subline.png in Resources */,
 				357D72BA1CBCD23900EAD35C /* umeng_fb_audio_play_default@2x.png in Resources */,
@@ -3064,6 +3059,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3120,9 +3116,8 @@
 					"$(PROJECT_DIR)/youqinghai/AISharedPay/sdk/alipay",
 					"$(PROJECT_DIR)/youqinghai/AISharedPay/sdk/wxpay/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.scxslm.yunzhongcan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youqinghai.client;
 				PRODUCT_NAME = "游青海";
-				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3133,7 +3128,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chengdu xilaida Technology Co., Ltd (V3F3MC6CHU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chengdu xilaida Technology Co., Ltd (V3F3MC6CHU)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3190,8 +3186,9 @@
 					"$(PROJECT_DIR)/youqinghai/AISharedPay/sdk/alipay",
 					"$(PROJECT_DIR)/youqinghai/AISharedPay/sdk/wxpay/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.scxslm.yunzhongcan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youqinghai.client;
 				PRODUCT_NAME = "游青海";
+				PROVISIONING_PROFILE = "05463ce7-337c-46f5-9154-0d0cf0f7c0ab";
 			};
 			name = Release;
 		};
