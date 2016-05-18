@@ -20,20 +20,20 @@
 @property(assign,nonatomic)NSInteger iamgeIndex;
 @end
 @implementation TourismDetailView
--(NSMutableArray *)imageAr
-{
+-(NSMutableArray *)imageAr{
     if (!_imageAr) {
         _imageAr = [NSMutableArray array];
     }
     return _imageAr;
 }
--(NSMutableArray *)imageVS
-{
+
+-(NSMutableArray *)imageVS{
     if (!_imageVS) {
         _imageVS = [NSMutableArray array];
     }
     return _imageVS;
 }
+
 -(void)setViewlist:(NSArray *)viewlist{
     _viewlist = viewlist;
     

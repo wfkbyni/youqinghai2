@@ -36,6 +36,7 @@
         [_myTableView registerClass:[TourisEvaluateCell class] forCellReuseIdentifier:cellIdeitifier];
         
         [self.myTableView setEstimatedRowHeight:100];
+        
     }
     
     return self;

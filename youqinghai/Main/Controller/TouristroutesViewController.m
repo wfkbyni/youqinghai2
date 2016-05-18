@@ -13,7 +13,9 @@
 
 #import "RecommendTypeCell.h"
 
-@interface TouristroutesViewController ()
+@interface TouristroutesViewController (){
+    MJRefreshComponent *refreshComponent;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 
@@ -34,7 +36,20 @@
     
     self.myTableView.tableFooterView = [[UIView alloc] init];
     
-    [self loadData];
+    self.myTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        self.mainViewModel.pageIndex = 1;
+        [self.mainViewModel.recommends removeLastObject];
+        refreshComponent = self.myTableView.mj_header;
+        [self loadData];
+    }];
+    
+    [self.myTableView.mj_header beginRefreshing];
+    
+    self.myTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        self.mainViewModel.pageIndex ++;
+        refreshComponent = self.myTableView.mj_footer;
+        [self loadData];
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -48,8 +63,22 @@
     
     [[self.mainViewModel getTouristroutesList] subscribeError:^(NSError *error) {
         
-        NSLog(@"%@",error);
     } completed:^{
+        
+        if (refreshComponent == self.myTableView.mj_header) {
+            [self.myTableView.mj_header endRefreshing];
+            if (self.mainViewModel.recommends.count % 10 == 0) {
+                
+            }else{
+                [self.myTableView.mj_footer endRefreshingWithNoMoreData];
+            }
+        }else{
+            if (self.mainViewModel.recommends.count % 10 == 0) {
+                [self.myTableView.mj_footer endRefreshing];
+            }else{
+                [self.myTableView.mj_footer endRefreshingWithNoMoreData];
+            }
+        }
         
     }];
      

@@ -79,7 +79,7 @@
 -(RACSignal *)getTourisEvaluate{
     
     RACSignal *signal = [[[RequestBaseAPI standardAPI] getTourisEvaluateWithTourisId:self.tourisId
-                                                                       withPageIndex:1
+                                                                       withPageIndex:self.pageIndex
                                                                         withPageSize:pageSize]
                          map:^id(ResponseBaseData *data) {
         

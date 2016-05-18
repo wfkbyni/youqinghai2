@@ -25,6 +25,8 @@
     NSArray *allImageArray;
     
     SDCycleScrollView *scrollView;
+    
+    MJRefreshComponent *refreshComponent;
 }
 
 @property (nonatomic, strong) MainViewModel *mainViewModel;
@@ -283,6 +285,12 @@
     [[self.mainViewModel getTourisEvaluate] subscribeError:^(NSError *error) {
         
     } completed:^{
+        [_tourisEvaluateView.myTableView.mj_header endRefreshing];
+        if (self.mainViewModel.tourisEvaluate.count % 10 == 0) {
+            [_tourisEvaluateView.myTableView.mj_footer endRefreshing];
+        }else{
+            [_tourisEvaluateView.myTableView.mj_footer endRefreshingWithNoMoreData];
+        }
         
     }];
     
@@ -372,6 +380,20 @@
     
     if (!_tourisEvaluateView) {
         _tourisEvaluateView = [[TourisEvaluateView alloc] initWithFrame:CGRectMake(0, 0, kScreenSize.width, kScreenSize.height - kScreenSize.width * 0.5 - 40)];
+        
+        _tourisEvaluateView.myTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            refreshComponent = _tourisEvaluateView.myTableView.mj_header;
+            self.mainViewModel.pageIndex = 1;
+            [self.mainViewModel.tourisEvaluate removeLastObject];
+            [self loadTourisEvaluate];
+        }];
+        
+        _tourisEvaluateView.myTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            refreshComponent = _tourisEvaluateView.myTableView.mj_footer;
+            self.mainViewModel.pageIndex ++;
+            [self loadTourisEvaluate];
+        }];
+        
     }
     
     return _tourisEvaluateView;

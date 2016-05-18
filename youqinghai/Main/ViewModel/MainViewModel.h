@@ -26,7 +26,7 @@
 @property (nonatomic, strong) NSMutableArray *recommends;
 
 // 评论列表
-@property (nonatomic, strong) NSArray *tourisEvaluate;
+@property (nonatomic, strong) NSMutableArray *tourisEvaluate;
 
 /**
  *  @brief 获取首页数据
