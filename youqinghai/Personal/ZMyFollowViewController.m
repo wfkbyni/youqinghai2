@@ -7,7 +7,7 @@
 //
 
 #import "ZMyFollowViewController.h"
-#import "ZPageView.h"
+ #import "ZPageView.h"
 #import "ZRouteFTableView.h"
 #import "ZDriverFTableView.h"
 #import "ZTravelFTableView.h"
@@ -16,7 +16,7 @@
 #import "CarDetailController.h"
 #import "HybridJSBusinessApi.h"
 @interface ZMyFollowViewController ()<ZPageViewDelegate,UIScrollViewDelegate>
-@property(weak,nonatomic)ZPageView *pageView;
+ @property(weak,nonatomic)ZPageView *pageView;
 @property(nonatomic,weak)UIScrollView *scrollView;
 @property (nonatomic, weak) ZRouteFTableView *routeFTableView;
 @property (nonatomic, weak) ZDriverFTableView *driverFTableView;
@@ -30,17 +30,36 @@
     [super viewDidLoad];
     self.title = @"我的关注";
     self.view.backgroundColor = [UIColor colorWithRed:0.922 green:0.925 blue:0.929 alpha:1.000];
-    [self setPageView];
-    [self setScrollView];
+     [self setPageView];
+ [self setScrollView];
     [self setRouteFTableView];
     [self setDriverFTableView];
     [self setTravelFTableView];
     [self setFowUserTableView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sharAct:) name:@"sharAct" object:nil];
+    
     // Do any additional setup after loading the view.
 }
--(void)viewWillAppear:(BOOL)animated
+-(void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+ 
+-(void)sharAct:(NSNotification*)not
+{
+    ZTravelModel *traMod = not.object[@"t"];
+  
     
+    
+    [UMSocialData defaultData].extConfig.qqData.title =  traMod.content;
+    [UMSocialData defaultData].extConfig.wechatSessionData.title=traMod.content;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.title=traMod.content;
+    NSString *url = [NSString stringWithFormat:@"http://www.sinata.cn:9402/swimQinghai/share?code=0&Id=%zi", traMod.ID];
+    [UMSocialWechatHandler setWXAppId:@"wxeb076ac34fb771b7" appSecret:@"6dc56b5630579fa7d4b614edabfa3434" url:url];
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"1799384586" secret:@"dc96ffc3a2ca7eeb3f8e8c63d8493d9f" RedirectURL:url];
+    [UMSocialQQHandler setQQWithAppId:@"1105195687" appKey:@"1Mj6wJJiiYtLZJaJ" url:url];
+    
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:@"570b744e67e58e12e2000466"shareText:traMod.content shareImage:not.object[@"i"] shareToSnsNames:@[UMShareToWechatTimeline,UMShareToWechatSession,UMShareToQQ,UMShareToQzone,UMShareToSina] delegate:nil];
 }
 -(void)setRouteFTableView
 {

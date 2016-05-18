@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nickName;
 @property (weak, nonatomic) IBOutlet UILabel *time;
 @property (weak, nonatomic) IBOutlet UIButton *views;
+@property (weak, nonatomic) IBOutlet UIButton *fowBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewsW;
 @property (weak, nonatomic) IBOutlet UIImageView *TrImage;
 @property (weak, nonatomic) IBOutlet UILabel *content;

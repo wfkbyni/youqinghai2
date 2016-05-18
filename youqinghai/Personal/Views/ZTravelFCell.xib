@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -83,16 +83,16 @@
                         <state key="normal" title=" 23" image="isPraiseIcon">
                             <color key="titleColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <connections>
+                            <action selector="parAct:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gx6-kN-cSi"/>
+                        </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSY-If-5UA">
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSY-If-5UA">
                         <rect key="frame" x="200" y="288" width="40" height="41"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="3aw-2U-FFd"/>
                         </constraints>
                         <state key="normal" image="commentIcon"/>
-                        <connections>
-                            <action selector="parAct:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WAn-fY-Udm"/>
-                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1U-lN-VSO">
                         <rect key="frame" x="240" y="288" width="40" height="41"/>
@@ -172,8 +172,8 @@
                 <outlet property="TrImage" destination="IeH-id-Vo2" id="ayZ-4E-qmM"/>
                 <outlet property="content" destination="NtQ-cb-LlF" id="4V4-v0-33T"/>
                 <outlet property="contentW" destination="z8k-XP-hMp" id="fXW-2a-K3S"/>
+                <outlet property="fowBtn" destination="y1U-lN-VSO" id="7NK-7l-bwH"/>
                 <outlet property="nickName" destination="IDw-tP-J7W" id="OmT-3u-lgf"/>
-                <outlet property="parBtn" destination="MSY-If-5UA" id="LEf-U1-fhx"/>
                 <outlet property="parNum" destination="UVX-67-XtY" id="Kb0-I2-szW"/>
                 <outlet property="time" destination="mS9-VC-Cem" id="45x-Ow-0bY"/>
                 <outlet property="userIcon" destination="Plf-nv-k8e" id="gRW-je-Rkd"/>

@@ -25,6 +25,7 @@ NSString *const personalFollowUserList= @"app/collection/getFollowUserList";
 NSString *const personalFeedBack= @"app/feedback/addFeedBack";
 NSString *const personaldeleteMess= @"app/message/deleteMess";
 NSString *const personalgetCustomizedDetails= @"app/customizedtourism/getCustomizedDetails";
+NSString *const personalClickTravels= @"app/operation/clickTravels";
 @implementation RequestBaseAPI (Personal)
 -(RACSignal *)messDataWithPageIndex:(NSString *)index withPageSize:(NSString *)pageSize
 {
@@ -199,6 +200,17 @@ NSString *const personalgetCustomizedDetails= @"app/customizedtourism/getCustomi
             data.result_data = @"";
         }
         return data.result_data;
+    }];
+}
+-(RACSignal *)userClickTravelsWithUserId:(NSString *)userId withTravelId:(NSString *)travelId
+{
+    NSString *param = [NSString stringWithFormat:@"server=%@&userId=%@&travelId=%@&friendId=%@",personalClickTravels,travelId,userId,userId];
+    param = [GTMBase64 desEncrypt:param];
+    return [[self requestWithType:RequestAPITypePost params:param]map:^id(ResponseBaseData *data) {
+//        if (!data.result_data) {
+//            data.result_data = @"";
+//        }
+        return data ;
     }];
 }
 @end

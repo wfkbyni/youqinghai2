@@ -7,7 +7,8 @@
 //
 
 #import "ZTravelFCell.h"
-
+#import "RequestBaseAPI+Personal.h"
+#import "RequestBaseAPI+Main.h"
 @implementation ZTravelFCell
 
 - (void)awakeFromNib {
@@ -42,6 +43,12 @@
     
     [_parNum setTitle:[NSString stringWithFormat:@" %@",travelMod.parNum] forState:UIControlStateNormal];
     _nickName.text = travelMod.nickname;
+
+    if (!travelMod.IsFollow.integerValue) {
+        [self.fowBtn setImage:[UIImage imageNamed:@"collectionIcon"] forState:UIControlStateNormal];
+    }else{
+        [self.fowBtn setImage:[UIImage imageNamed:@"favorited"] forState:UIControlStateNormal];
+    }
 }
 /**
  *  点赞操作
@@ -49,6 +56,15 @@
  *  @param sender <#sender description#>
  */
 - (IBAction)parAct:(id)sender {
+    RACSignal *signal = [[RequestBaseAPI standardAPI]userClickTravelsWithUserId:[ZUserModel shareUserModel].userId withTravelId:self.travelMod.ID];
+    [signal subscribeNext:^(ResponseBaseData *x) {
+  if ([x.message isEqualToString:@"赞成功！"]) {
+            [_parNum setTitle:[NSString stringWithFormat:@" %d",_parNum.titleLabel.text.integerValue+1] forState:UIControlStateNormal];
+        }else{
+          [_parNum setTitle:[NSString stringWithFormat:@" %d",_parNum.titleLabel.text.integerValue-1] forState:UIControlStateNormal];
+        }
+    }];
+    
 }
 /**
  *  评论操作
@@ -56,6 +72,26 @@
  *  @param sender <#sender description#>
  */
 - (IBAction)commentsAct:(id)sender {
+ 
+    
+    RACSignal *signal = [[[RequestBaseAPI standardAPI] addTravelsUserCollectionWithUserId:[ZUserModel shareUserModel].userId.integerValue
+                                                                        withTravelId: self.travelMod.ID.integerValue
+                                                                          withType:0]
+                         map:^id(ResponseBaseData *data) {
+                             
+                            
+                             return data;
+                         }];
+    
+    [signal subscribeNext:^(ResponseBaseData *x) {
+  
+        if ([x.message isEqualToString:@" 取消收藏! "]) {
+            [self.fowBtn setImage:[UIImage imageNamed:@"collectionIcon"] forState:UIControlStateNormal];
+        }else{
+           [self.fowBtn setImage:[UIImage imageNamed:@"favorited"] forState:UIControlStateNormal];
+        }
+    }];
+    
 }
 /**
  *  分享操作
@@ -63,6 +99,11 @@
  *  @param sender <#sender description#>
  */
 - (IBAction)sharAct:(id)sender {
+    
+    
+    NSDictionary *dic = @{@"t":self.travelMod,@"i":self.TrImage.image};
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"sharAct" object:dic];
 }
 
 @end
