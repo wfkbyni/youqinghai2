@@ -34,6 +34,12 @@
 
 @implementation ConfirmOrderController
 
+- (void) viewWillAppear:(BOOL)animated {
+
+    [super viewWillAppear:animated];
+    [self getData];
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -79,7 +85,7 @@
     
     self.relationView.isCarpool = _isCarpool;
     
-    [self getData];
+//    [self getData];
 }
 
 - (void)popViewController{

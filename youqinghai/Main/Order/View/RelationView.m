@@ -34,7 +34,7 @@
         [self loadCacheData];
         
         [self setBackgroundColor:[UIColor whiteColor]];
-        
+        //@"紧急联系人",@"紧急联系人电话",@"请填写紧急联系人姓名",@"请填写紧急联系人电话",
         NSArray *titles = @[@"联系人",@"联系电话",@"紧急联系人",@"紧急联系人电话",@"是否购买保险",@"添加保险人信息",@"保险金额"];
         NSArray *placeholders = @[@"请填写联系人姓名",@"请填写联系人电话",@"请填写紧急联系人姓名",@"请填写紧急联系人电话",@"",@""];
         float leftWidth = 110;
