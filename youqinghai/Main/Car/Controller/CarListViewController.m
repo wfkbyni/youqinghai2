@@ -74,16 +74,17 @@
     [df setDateFormat:@"yyyy-MM-dd"];
     NSString *time1 = [df stringFromDate:date2];
     
-    _titleDate = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 40)];
+    _titleDate = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 40)];
     [_titleDate setText:time1];
     [_titleDate setTextAlignment:NSTextAlignmentCenter];
     [_titleDate setTextColor:[UIColor whiteColor]];
-    
+    [_titleDate sizeToFit];
+    [_titleDate setHeight:40];
     [titleView addSubview:_titleDate];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setFrame:CGRectMake(120, 7, 30, 30)];
-    [button setImage:[UIImage imageNamed:@"arrow_down"] forState:UIControlStateNormal];
+    [button setFrame:CGRectMake(_titleDate.relativeX, 6, 20, 30)];
+    [button setImage:[UIImage imageNamed:@"arrow_down01"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(showDatePicker:) forControlEvents:UIControlEventTouchUpInside];
     [titleView addSubview:button];
     
