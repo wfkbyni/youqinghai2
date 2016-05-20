@@ -35,8 +35,8 @@
         
         [self setBackgroundColor:[UIColor whiteColor]];
         //@"紧急联系人",@"紧急联系人电话",@"请填写紧急联系人姓名",@"请填写紧急联系人电话",
-        NSArray *titles = @[@"联系人",@"联系电话",@"紧急联系人",@"紧急联系人电话",@"是否购买保险",@"添加保险人信息",@"保险金额"];
-        NSArray *placeholders = @[@"请填写联系人姓名",@"请填写联系人电话",@"请填写紧急联系人姓名",@"请填写紧急联系人电话",@"",@""];
+        NSArray *titles = @[@"联系人",@"联系电话",@"是否购买保险",@"添加保险人信息",@"保险金额"];
+        NSArray *placeholders = @[@"请填写联系人姓名",@"请填写联系人电话",@"",@""];
         float leftWidth = 110;
         
         [self addSubview:[self lineWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), 1)]];
@@ -44,42 +44,42 @@
         _textField1 = [self textFieldWithFrame:CGRectMake(leftWidth + 10, 2, CGRectGetWidth(self.frame) - leftWidth - 20, 48) withPlaceholder:placeholders[0]];
         [self addSubview:_textField1];
         
-        [self addSubview:[self lineWithFrame:CGRectMake(10, 50, CGRectGetWidth(frame) - 20, 1)]];
-        [self addSubview:[self titleWithFrame:CGRectMake(10, 52, leftWidth, 48) withTitle:titles[1]]];
-        _textField2 = [self textFieldWithFrame:CGRectMake(leftWidth + 10, 52, CGRectGetWidth(self.frame) - leftWidth - 20, 48) withPlaceholder:placeholders[1]];
+        [self addSubview:[self lineWithFrame:CGRectMake(10, _textField1.relativeY, CGRectGetWidth(frame) - 20, 1)]];
+        [self addSubview:[self titleWithFrame:CGRectMake(10, _textField1.relativeY+2, leftWidth, 48) withTitle:titles[1]]];
+        _textField2 = [self textFieldWithFrame:CGRectMake(leftWidth + 10, _textField1.relativeY+2, CGRectGetWidth(self.frame) - leftWidth - 20, 48) withPlaceholder:placeholders[1]];
         [_textField2 setKeyboardType:UIKeyboardTypePhonePad];
         [self addSubview:_textField2];
         
-        [self addSubview:[self lineWithFrame:CGRectMake(10, 100, CGRectGetWidth(frame) - 20, 1)]];
-        [self addSubview:[self titleWithFrame:CGRectMake(10, 102, leftWidth, 48) withTitle:titles[2]]];
-        _textField3 = [self textFieldWithFrame:CGRectMake(leftWidth + 10, 102, CGRectGetWidth(self.frame) - leftWidth - 20, 48) withPlaceholder:placeholders[2]];
-        [self addSubview:_textField3];
+        [self addSubview:[self lineWithFrame:CGRectMake(10, _textField2.relativeY, CGRectGetWidth(frame) - 20, 1)]];
+       // [self addSubview:[self titleWithFrame:CGRectMake(10, 102, leftWidth, 48) withTitle:titles[2]]];
+        //_textField3 = [self textFieldWithFrame:CGRectMake(leftWidth + 10, 102, CGRectGetWidth(self.frame) - leftWidth - 20, 48) withPlaceholder:placeholders[2]];
+       // [self addSubview:_textField3];
         
-        [self addSubview:[self lineWithFrame:CGRectMake(10, 150, CGRectGetWidth(frame) - 20, 1)]];
-        [self addSubview:[self titleWithFrame:CGRectMake(10, 152, leftWidth, 48) withTitle:titles[3]]];
-        _textField4 = [self textFieldWithFrame:CGRectMake(leftWidth + 10, 152, CGRectGetWidth(self.frame) - leftWidth - 20, 48) withPlaceholder:placeholders[3]];
-        [_textField4 setKeyboardType:UIKeyboardTypePhonePad];
-        [self addSubview:_textField4];
+//        [self addSubview:[self lineWithFrame:CGRectMake(10, 150, CGRectGetWidth(frame) - 20, 1)]];
+//        [self addSubview:[self titleWithFrame:CGRectMake(10, 152, leftWidth, 48) withTitle:titles[2]]];
+//        _textField4 = [self textFieldWithFrame:CGRectMake(leftWidth + 10, 152, CGRectGetWidth(self.frame) - leftWidth - 20, 48) withPlaceholder:placeholders[2]];
+//        [_textField4 setKeyboardType:UIKeyboardTypePhonePad];
+//        [self addSubview:_textField4];
         
-        [self addSubview:[self lineWithFrame:CGRectMake(10, 200, CGRectGetWidth(frame) - 20, 1)]];
-        [self addSubview:[self titleWithFrame:CGRectMake(10, 202, leftWidth, 48) withTitle:titles[4]]];
-        CheckBoxView *checkBox = [[CheckBoxView alloc] initWithFrame:CGRectMake(leftWidth + 10, 202, CGRectGetWidth(self.frame) - leftWidth - 20, 48)];
+        [self addSubview:[self lineWithFrame:CGRectMake(10, _textField2.relativeY, CGRectGetWidth(frame) - 20, 1)]];
+        [self addSubview:[self titleWithFrame:CGRectMake(10, _textField2.relativeY+2, leftWidth, 48) withTitle:titles[4]]];
+        CheckBoxView *checkBox = [[CheckBoxView alloc] initWithFrame:CGRectMake(leftWidth + 10, _textField2.relativeY+2, CGRectGetWidth(self.frame) - leftWidth - 20, 48)];
         [self addSubview:checkBox];
-        [self addSubview:[self lineWithFrame:CGRectMake(10, 250, CGRectGetWidth(frame) - 20, 1)]];
+        [self addSubview:[self lineWithFrame:CGRectMake(10, checkBox.relativeY, CGRectGetWidth(frame) - 20, 1)]];
         
-        [self addSubview:[self lineWithFrame:CGRectMake(10, 250, CGRectGetWidth(frame) - 20, 1)]];
-        [self addSubview:[self titleWithFrame:CGRectMake(10, 250 + 2, leftWidth, 48) withTitle:titles[5]]];
-        _personLabelCount = [self contentWithFrame:CGRectMake(leftWidth, 250 + 2, CGRectGetWidth(self.frame) - leftWidth - 30, 48)];
+        [self addSubview:[self lineWithFrame:CGRectMake(10, checkBox.relativeY, CGRectGetWidth(frame) - 20, 1)]];
+        [self addSubview:[self titleWithFrame:CGRectMake(10, checkBox.relativeY + 2, leftWidth, 48) withTitle:titles[3]]];
+        _personLabelCount = [self contentWithFrame:CGRectMake(leftWidth, checkBox.relativeY + 2, CGRectGetWidth(self.frame) - leftWidth - 30, 48)];
         [self addSubview:_personLabelCount];
-        [self addSubview:[self rightArrowWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 30, 260, 30, 30) withTag:2]];
+        [self addSubview:[self rightArrowWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 30, checkBox.relativeY+10, 30, 30) withTag:2]];
+        //301
+        [self addSubview:[self lineWithFrame:CGRectMake(10, _personLabelCount.relativeY, CGRectGetWidth(frame) - 20, 1)]];
         
-        [self addSubview:[self lineWithFrame:CGRectMake(10, 301, CGRectGetWidth(frame) - 20, 1)]];
-        
-        _fuseMoneyLab = [self titleWithFrame:CGRectMake(10, 315, 150, 25) withTitle:@""];
+        _fuseMoneyLab = [self titleWithFrame:CGRectMake(10, _personLabelCount.relativeY+2, 150, 25) withTitle:@""];
         [_fuseMoneyLab setFont:[UIFont systemFontOfSize:14.0f]];
         [self addSubview:_fuseMoneyLab];
         
-        _fuseTotalMoneyLab = [self titleWithFrame:CGRectMake(CGRectGetWidth(self.frame) / 2, 315, CGRectGetWidth(self.frame) / 2 - 10, 25) withTitle:@""];
+        _fuseTotalMoneyLab = [self titleWithFrame:CGRectMake(CGRectGetWidth(self.frame) / 2, _fuseMoneyLab.y, CGRectGetWidth(self.frame) / 2 - 10, 25) withTitle:@""];
         [_fuseTotalMoneyLab setTextAlignment:NSTextAlignmentRight];
         [_fuseTotalMoneyLab setFont:[UIFont systemFontOfSize:14.0f]];
         [self addSubview:_fuseTotalMoneyLab];
@@ -89,7 +89,7 @@
         __weak typeof(RelationView *) weakSelf = self;
         void (^calHeightBlock)(BOOL) = ^(BOOL checked){
             CGRect frame = weakSelf.frame;
-            float height = checked ? 7 * 50 : 5 * 50;
+            float height = checked ? 5 * 50 : 3 * 50;
             frame.size.height = height + CGRectGetHeight(self.calculateView.frame);
             weakSelf.frame = frame;
             

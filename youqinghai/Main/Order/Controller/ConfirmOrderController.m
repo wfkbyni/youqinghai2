@@ -231,13 +231,14 @@
     }else if(self.orderViewModel.order.contactsTel.length != 11){
         [self.view makeToast:@"联系人电话输入不正确"];
         return;
-    }else if(self.orderViewModel.order.urgent.length == 0){
-        [self.view makeToast:@"紧急联系人不能为空"];
-        return;
-    }else if(self.orderViewModel.order.urgentTel.length != 11){
-        [self.view makeToast:@"紧急联系人电话输入不正确"];
-        return;
     }
+//    else if(self.orderViewModel.order.urgent.length == 0){
+//        [self.view makeToast:@"紧急联系人不能为空"];
+//        return;
+//    }else if(self.orderViewModel.order.urgentTel.length != 11){
+//        [self.view makeToast:@"紧急联系人电话输入不正确"];
+//        return;
+//    }
     
     [[self.orderViewModel addOrder] subscribeNext:^(NSDictionary* params) {
         NSLog(@"%@",params);
